@@ -95,13 +95,13 @@
 
 <meta name="description" content="小组项目总结">
 <meta property="og:type" content="article">
-<meta property="og:title" content="zj">
+<meta property="og:title" content="项目总结">
 <meta property="og:url" content="https://rsl140.github.io/blog/2017/07/11/zj/index.html">
 <meta property="og:site_name" content="XiaoSi">
 <meta property="og:description" content="小组项目总结">
-<meta property="og:updated_time" content="2017-07-11T00:44:09.000Z">
+<meta property="og:updated_time" content="2017-07-11T01:28:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zj">
+<meta name="twitter:title" content="项目总结">
 <meta name="twitter:description" content="小组项目总结">
 
 
@@ -136,7 +136,7 @@
 
 
 
-  <title> zj | XiaoSi </title>
+  <title> 项目总结 | XiaoSi </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -296,7 +296,7 @@
             
             
               
-                zj
+                项目总结
               
             
           </h1>
@@ -366,7 +366,8 @@
 <p>小组项目总结</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="豆瓣首页收获"><a href="#豆瓣首页收获" class="headerlink" title="豆瓣首页收获"></a>豆瓣首页收获</h1><p>1.页面排版是一个需要耐心的工作。</p>
+<h1 id="豆瓣首页收获"><a href="#豆瓣首页收获" class="headerlink" title="豆瓣首页收获"></a>豆瓣首页收获</h1><p>1.页面排版是一个需要耐心的工作。<br>2.有时候看上去很简单的页面，当你开始动手拆分页面的时候发现很多细节的样式需要一点一点的去调整<br>3.position的应用需要再复习<br>4.代码的优化，CSS样式尽量做到能复用<br>5.注释的必要性</p>
+<h1 id="全局css样式定义的必要性"><a href="#全局css样式定义的必要性" class="headerlink" title="全局css样式定义的必要性"></a>全局css样式定义的必要性</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">a</span> &#123;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#37a</span>;</div><div class="line">    <span class="attribute">text-decoration</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span> &#123;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#37a</span>;</div><div class="line">    <span class="attribute">text-decoration</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">    <span class="attribute">text-decoration</span>: none;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#37a</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">h2</span> &#123;</div><div class="line">    <span class="attribute">font</span>: <span class="number">15px</span> Arial, Helvetica, sans-serif;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#072</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">12px</span> <span class="number">0</span>;</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">150%</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">/*当写页面的时候从整体去发现复用样式最多的可以写成全局样式，由于优化代码*/</span></div></pre></td></tr></table></figure>
 
       
     </div>
@@ -567,7 +568,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#豆瓣首页收获"><span class="nav-number">1.</span> <span class="nav-text">豆瓣首页收获</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#豆瓣首页收获"><span class="nav-number">1.</span> <span class="nav-text">豆瓣首页收获</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#全局css样式定义的必要性"><span class="nav-number">2.</span> <span class="nav-text">全局css样式定义的必要性</span></a></li></ol></div>
             
 
           </div>
@@ -712,7 +713,7 @@
       var disqus_shortname = 'xiaosi';
       var disqus_identifier = '2017/07/11/zj/';
 
-      var disqus_title = "zj";
+      var disqus_title = "项目总结";
 
 
       function run_disqus_script(disqus_script) {
