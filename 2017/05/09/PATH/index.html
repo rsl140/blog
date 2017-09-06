@@ -93,16 +93,22 @@
 
 
 
-<meta name="description" content="装环境java环境变量后导致全局环境变量没有了，以下为解决方法">
+<meta name="description" content="装环境java环境变量后导致全局环境变量没有了，以下为解决方法
+
+在命令行中输入12345678910111.export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$PATH #这样可以保证命令行暂时可以使用。关闭终端后再使用就不行了。2.cd ~/ #进入当前用户的home目录3.touch .bash_profile # 创建bas">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mac for command not found">
 <meta property="og:url" content="https://rsl140.github.io/blog/2017/05/09/PATH/index.html">
 <meta property="og:site_name" content="XiaoSi">
-<meta property="og:description" content="装环境java环境变量后导致全局环境变量没有了，以下为解决方法">
-<meta property="og:updated_time" content="2017-05-09T08:05:06.000Z">
+<meta property="og:description" content="装环境java环境变量后导致全局环境变量没有了，以下为解决方法
+
+在命令行中输入12345678910111.export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$PATH #这样可以保证命令行暂时可以使用。关闭终端后再使用就不行了。2.cd ~/ #进入当前用户的home目录3.touch .bash_profile # 创建bas">
+<meta property="og:updated_time" content="2017-09-06T09:25:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mac for command not found">
-<meta name="twitter:description" content="装环境java环境变量后导致全局环境变量没有了，以下为解决方法">
+<meta name="twitter:description" content="装环境java环境变量后导致全局环境变量没有了，以下为解决方法
+
+在命令行中输入12345678910111.export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$PATH #这样可以保证命令行暂时可以使用。关闭终端后再使用就不行了。2.cd ~/ #进入当前用户的home目录3.touch .bash_profile # 创建bas">
 
 
 
@@ -387,8 +393,8 @@
         <blockquote>
 <p>装环境java环境变量后导致全局环境变量没有了，以下为解决方法</p>
 </blockquote>
-<a id="more"></a>
 <h1 id="在命令行中输入"><a href="#在命令行中输入" class="headerlink" title="在命令行中输入"></a>在命令行中输入</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">1.export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/<span class="built_in">local</span>/bin:<span class="variable">$PATH</span> <span class="comment">#这样可以保证命令行暂时可以使用。关闭终端后再使用就不行了。</span></div><div class="line"></div><div class="line">2.cd ~/ <span class="comment">#进入当前用户的home目录</span></div><div class="line"></div><div class="line">3.touch .bash_profile <span class="comment"># 创建bash_profile执行命令</span></div><div class="line"></div><div class="line">4.open .bash_profile <span class="comment"># 打开并编辑bash_profile</span></div><div class="line"></div><div class="line">5.在打开的记事本中会显示之前配置的path 保存文档</div><div class="line"></div><div class="line">6.source .bash_profile <span class="comment"># 更新命令 命令行(终端)要保持不要关闭</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
 
       
     </div>
@@ -522,7 +528,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/blog/archives/">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -544,7 +550,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/blog/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
