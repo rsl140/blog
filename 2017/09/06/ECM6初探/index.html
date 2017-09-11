@@ -115,7 +115,7 @@ let
 不存在变量提升，声明变量一定要再声明后使用否则会报错
 
 暂时性死区（temporal dead zone，简称 T">
-<meta property="og:updated_time" content="2017-09-07T06:57:24.000Z">
+<meta property="og:updated_time" content="2017-09-11T03:56:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ECM6初探">
 <meta name="twitter:description" content="ECM6学习总结 ECMAScript 6 入门
@@ -440,6 +440,7 @@ let
 <li>解构赋值允许指定默认值<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> [foo = <span class="literal">true</span>] = [];</div><div class="line">foo <span class="comment">// true</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> [x, y = <span class="string">'b'</span>] = [<span class="string">'a'</span>]; <span class="comment">// x='a', y='b'</span></div><div class="line"><span class="keyword">let</span> [x, y = <span class="string">'b'</span>] = [<span class="string">'a'</span>, <span class="literal">undefined</span>]; <span class="comment">// x='a', y='b'</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
+<h1 id="rest参数"><a href="#rest参数" class="headerlink" title="rest参数"></a>rest参数</h1><p>(形式为：…变量名)<br>用于获取函数的多余参数<br>rest参数后不能再有其他参数(只能是最后一个参数)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 使用argument变量的写法</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sortNumbers</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>).sort();</div><div class="line">&#125;</div><div class="line"><span class="comment">// rest参数的写法</span></div><div class="line"><span class="keyword">const</span> sortNumbers = <span class="function">(<span class="params">...numbers</span>) =&gt;</span> numbers.sort();</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -646,7 +647,7 @@ let
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#let"><span class="nav-number">1.</span> <span class="nav-text">let</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#const"><span class="nav-number">2.</span> <span class="nav-text">const</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量的解构赋值"><span class="nav-number">3.</span> <span class="nav-text">变量的解构赋值</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#let"><span class="nav-number">1.</span> <span class="nav-text">let</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#const"><span class="nav-number">2.</span> <span class="nav-text">const</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量的解构赋值"><span class="nav-number">3.</span> <span class="nav-text">变量的解构赋值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rest参数"><span class="nav-number">4.</span> <span class="nav-text">rest参数</span></a></li></ol></div>
             
 
           </div>
