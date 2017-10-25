@@ -276,6 +276,172 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://rsl140.github.io/blog/blog/2017/10/23/natapp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Summer">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/uploads/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoSi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/blog/2017/10/23/natapp/" itemprop="url">
+                  本地开发公众号(测试号)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-23T11:48:08+08:00">
+                2017-10-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/wechat/" itemprop="url" rel="index">
+                    <span itemprop="name">wechat</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2017/10/23/natapp/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/10/23/natapp/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>微信开发全过程(node)</p>
+</blockquote>
+<h1 id="本地进行微信公众号的开发和调试"><a href="#本地进行微信公众号的开发和调试" class="headerlink" title="本地进行微信公众号的开发和调试"></a>本地进行微信公众号的开发和调试</h1><p>最开始是放在个人服务器上的。但是每次测试时部署麻烦，后来尝试使用<a href="https://natapp.cn">natapp.cn</a>通过内网穿透实现本地测试。</p>
+<p>注册后，可以尝试先使用免费的。<a href="https://natapp.cn/article/natapp_newbie">网站自带教程点击这里</a></p>
+<p>由于我是mac电脑 使用natapp需要先授权<code>chmod a+x natapp</code>然后运行<code>./natapp</code>(推荐使用<code>config.ini</code>方式，配置好<code>authtoken</code>，放在同级目录下即可)</p>
+<p>链接时遇到一直链接不上服务器的问题，仔细看了下教程，应该是DNS问题，修改本地DNS为阿里云公共DNS：<code>223.5.5.5</code> <code>223.6.6.6</code>后，成功链接。</p>
+<h1 id="账号链接-测试号"><a href="#账号链接-测试号" class="headerlink" title="账号链接(测试号)"></a>账号链接(测试号)</h1><h2 id="微信接口配置信息"><a href="#微信接口配置信息" class="headerlink" title="微信接口配置信息"></a>微信接口配置信息</h2><p>URL：填写服务器地址(需有appid信息相符才能验证成功)<br>Token：任意填写(后面的配置需与填写的一致)</p>
+<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p>开发语言：node.js<br>开发框架：express，express教程参考<a href="http://expressjs.com/">官网</a><br>插件：<a href="https://github.com/node-webot/wechat">wechat</a>、<a href="https://github.com/node-webot/wechat-api">wechat-api</a></p>
+<h2 id="建立接口链接"><a href="#建立接口链接" class="headerlink" title="建立接口链接"></a>建立接口链接</h2><h3 id="创建路由"><a href="#创建路由" class="headerlink" title="创建路由"></a>创建路由</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2017/10/23/natapp/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://rsl140.github.io/blog/blog/2017/09/06/ECM6初探/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -534,7 +700,8 @@
           <blockquote>
 <p>有关node等的记录</p>
 </blockquote>
-<h1 id="npm-ERR-cb-never-called-错误"><a href="#npm-ERR-cb-never-called-错误" class="headerlink" title="npm ERR! cb() never called!错误"></a>npm ERR! cb() never called!错误</h1><p>在谷歌上搜索过 尝试过更新到新版。。 依然一直报never called错误 ，最后实在没办法了，尝试从官网从新下载node稳定版安装后 再次使用npm install 正常运行..<br>
+<h1 id="npm-ERR-cb-never-called-错误"><a href="#npm-ERR-cb-never-called-错误" class="headerlink" title="npm ERR! cb() never called!错误"></a>npm ERR! cb() never called!错误</h1><p>在谷歌上搜索过 尝试过更新到新版。。 依然一直报never called错误 ，最后实在没办法了，尝试从官网从新下载node稳定版安装后 再次使用npm install 正常运行.. </p>
+<p>#npm下载过慢<br>如果模块下载很慢可以在后面 空格加上淘宝的镜像<br>–registry=<a href="https://registry.npm.taobao.org">https://registry.npm.taobao.org</a><br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/blog/2017/09/03/node/#more" rel="contents">
@@ -674,7 +841,7 @@
 </blockquote>
 <h1 id="JSP-页面元素"><a href="#JSP-页面元素" class="headerlink" title="JSP 页面元素"></a>JSP 页面元素</h1><ul>
 <li>静态内容 HTML静态文本</li>
-<li>指令 以”<a href="&#x6d;&#97;&#105;&#108;&#116;&#x6f;&#58;&#x25;&#64;&#x22;&#x5f00;&#x59cb;&#xff0c;&#20197;&#x22;&#x25;&#34;&#x22;">&#x25;&#64;&#x22;&#x5f00;&#x59cb;&#xff0c;&#20197;&#x22;&#x25;&#34;&#x22;</a>结束</li>
+<li>指令 以”<a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#x25;&#x40;&#34;&#24320;&#22987;&#65292;&#x4ee5;&#34;&#37;&#34;&#34;">&#x25;&#x40;&#34;&#24320;&#22987;&#65292;&#x4ee5;&#34;&#37;&#34;&#34;</a>结束</li>
 <li>小脚本 &lt;%java代码 %&gt;</li>
 <li>表达式 &lt;%=java表达式 %&gt;</li>
 <li>声明 &lt;%! 方法%&gt;</li>
@@ -1665,150 +1832,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://rsl140.github.io/blog/blog/2017/05/09/java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Summer">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/uploads/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoSi">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/2017/05/09/java/" itemprop="url">
-                  java
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-09T15:48:26+08:00">
-                2017-05-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/blog/2017/05/09/java/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/05/09/java/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>java 培训笔记</p>
-</blockquote>
-<h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1><h2 id="Scanner"><a href="#Scanner" class="headerlink" title="Scanner"></a>Scanner</h2><p>重点：Scanner input= new Scanner(System.in) 在整个程序里面，只用写一次就可以了。然后input可以对于任意输出来进行调用。<br>input.close();//清除input里面的值</p>
-<h2 id="boolean（布尔）类型"><a href="#boolean（布尔）类型" class="headerlink" title="boolean（布尔）类型"></a>boolean（布尔）类型</h2><p>boolean类型的值<br>真：true<br>假：false<br>例如：boolean isTiaoJian1=javaScore&gt;98 &amp;&amp; musicScore &gt;80;<br>例如命名：boolean isBig<br>注：需要注意的一点是，boolean在命名的时候开头需要用is</p>
-<h2 id="if结构"><a href="#if结构" class="headerlink" title="if结构"></a>if结构</h2><p>多重if执行结构为1次或0次，不会执行更多的次数。所以多重if需要遵循从前往后的执行顺序。</p>
-<p>在if里面，如果是字符串char和String进行比较的话，需要使用equals方法<br>例如：if(sex.equals(“男”))<br>当如果需要对常量和变量进行比较的时候，需要把常量写在前面，变量写后面<br>例如：if(“男”.equals(sex))</p>
-<h2 id="switch中可以使用的数据类型："><a href="#switch中可以使用的数据类型：" class="headerlink" title="switch中可以使用的数据类型："></a>switch中可以使用的数据类型：</h2><ol>
-<li>char、short、int、long、bool 基本类型都可以用于switch语句。 2. float、double都不能用于switch语句。 3. enum类型,即枚举类型可以用于switch语句。4.String可以用于switch语句，但是限定于jdk1.7版本以上</li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/2017/05/09/java/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1858,7 +1881,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/blog/archives/">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1869,7 +1892,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/blog/categories/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1880,7 +1903,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/blog/tags/index.html">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
