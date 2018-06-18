@@ -1,0 +1,984 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="分布式" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="之前因为公司的产品需求，研究过分布式方案，最近抽空整理了下
+
+解决方案
+主要是以nginx搭载keepalived实现 web 业务服务器 keepalives防止单点故障
+reids分布式缓存
+fastdfs分布式文件
+postgre-xl分布式数据库服务器
+
+
+简单说，分布式是以缩短单个任务的执行时间来提升效率的，而集群则是通过提高单位时间内执行的任务数来提升效率。
+
+参考">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分布式部署安装方案">
+<meta property="og:url" content="https://rsl140.github.io/blog/2018/06/19/fbs/index.html">
+<meta property="og:site_name" content="XiaoSi">
+<meta property="og:description" content="之前因为公司的产品需求，研究过分布式方案，最近抽空整理了下
+
+解决方案
+主要是以nginx搭载keepalived实现 web 业务服务器 keepalives防止单点故障
+reids分布式缓存
+fastdfs分布式文件
+postgre-xl分布式数据库服务器
+
+
+简单说，分布式是以缩短单个任务的执行时间来提升效率的，而集群则是通过提高单位时间内执行的任务数来提升效率。
+
+参考">
+<meta property="og:updated_time" content="2018-06-18T17:46:43.661Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="分布式部署安装方案">
+<meta name="twitter:description" content="之前因为公司的产品需求，研究过分布式方案，最近抽空整理了下
+
+解决方案
+主要是以nginx搭载keepalived实现 web 业务服务器 keepalives防止单点故障
+reids分布式缓存
+fastdfs分布式文件
+postgre-xl分布式数据库服务器
+
+
+简单说，分布式是以缩短单个任务的执行时间来提升效率的，而集群则是通过提高单位时间内执行的任务数来提升效率。
+
+参考">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://rsl140.github.io/blog/2018/06/19/fbs/"/>
+
+
+
+
+
+  <title> 分布式部署安装方案 | XiaoSi </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">XiaoSi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="https://rsl140.github.io/FE-Learn-All/resume/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://rsl140.github.io/blog/blog/2018/06/19/fbs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Summer">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/uploads/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoSi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                分布式部署安装方案
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-19T01:08:10+08:00">
+                2018-06-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2018/06/19/fbs/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/19/fbs/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">阅读次数</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>之前因为公司的产品需求，研究过分布式方案，最近抽空整理了下</p>
+</blockquote>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><ul>
+<li>主要是以<code>nginx</code>搭载<code>keepalived</code>实现 web 业务服务器 <code>keepalives</code>防止单点故障</li>
+<li><code>reids</code>分布式缓存</li>
+<li><code>fastdfs</code>分布式文件</li>
+<li><code>postgre-xl</code>分布式数据库服务器</li>
+</ul>
+<blockquote>
+<p>简单说，分布式是以缩短单个任务的执行时间来提升效率的，而集群则是通过提高单位时间内执行的任务数来提升效率。</p>
+</blockquote>
+<p><a href="https://segmentfault.com/a/1190000002418709" target="_blank" rel="external">参考</a></p>
+<a id="more"></a>
+<blockquote>
+<p>以下是实验中遇到的问题以及安装方法</p>
+</blockquote>
+<h1 id="CentOS7-安装问题集"><a href="#CentOS7-安装问题集" class="headerlink" title="CentOS7 安装问题集"></a>CentOS7 安装问题集</h1><blockquote>
+<p>远程无法访问（防火墙问题）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent</div><div class="line"></div><div class="line">firewall-cmd --reload</div><div class="line"></div><div class="line">systemctl stop firewalld.service <span class="comment">#停止</span></div><div class="line"></div><div class="line">systemctl <span class="built_in">disable</span> firewalld.service <span class="comment">#禁用</span></div><div class="line"></div><div class="line">firewall-cmd --state <span class="comment">#查看默认防火墙状态（关闭后显示notrunning，开启后显示running）</span></div><div class="line"></div><div class="line"><span class="comment"># liunx图形界面获得root权限</span></div><div class="line">直接 `sudo nautilus` （unity，gnome）或 `sudo dolphin` (kde) ,就可以以root权限打开文件管理器了</div><div class="line"></div><div class="line"><span class="comment"># liunx 远程获取root权限</span></div><div class="line">`sudo vi /etc/ssh/sshd_config`</div><div class="line">将PermitRootLogin值改yes</div><div class="line">允许不输入密码登录</div><div class="line">将PermitEmptyPasswords yes前面的<span class="comment">#号去掉</span></div><div class="line">重启服务：service sshd restart（/etc/initd.d/sshd restart）</div></pre></td></tr></table></figure>
+<h1 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h1><p>参考另一篇<a href="https://rsl140.github.io/blog/2018/01/06/nginx/">nginx 安装</a></p>
+<h1 id="keepalives"><a href="#keepalives" class="headerlink" title="keepalives"></a>keepalives</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Keepalived 是一个基于 VRRP 协议来实现的服务高可用方案，可以利用其来避免 IP 单点故障，类似的工具还有 heartbeat、corosync、pacemaker。</p>
+<p>但是它一般不会单独出现，而是与其它负载均衡技术（如 lvs、haproxy、nginx）一起工作来达到集群的高可用。</p>
+<p>Keepalived 的作用是检测服务器的状态，如果有一台 web 服务器死机，或工作出现故障，Keepalived 将检测到，并将有故障的服务器从系统中剔除，同时使用其他服务器代替该服务器的工作；</p>
+<p>当服务器工作正常后 Keepalived 自动将服务器加入到服务器群中，这些工作全部自动完成，不需要人工干涉，需要人工做的只是修复故障的服务器。</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">graph LR</div><div class="line">用户 --&gt; 交换机</div><div class="line">交换机 --&gt; Nginx1:负载均衡/keepalived:主</div><div class="line">Nginx2:负载均衡/keepalived:备 --&gt; 心跳检查</div><div class="line">心跳检查 --&gt; Nginx1:负载均衡/keepalived:主</div><div class="line">Nginx1:负载均衡/keepalived:主 --&gt; tomact1</div><div class="line">Nginx1:负载均衡/keepalived:主 --&gt; tomact2</div></pre></td></tr></table></figure>
+<p>首先 Keepalived 可以在主机上产生一个虚拟的 ip, 这里叫做 vip(v 是 virtual 的意思):192.168.200.150, keepalived 会将这个 vip 绑定到交换机上.</p>
+<p>当用户访问主机:192.168.200.129 时, 交换机会通过这个 ip 和 vip 的对应找到 192.168.200.129 上的 Nginx 进行处理.</p>
+<p>如果当有一天 192.168.200.129 上的 Nginx 挂掉的时候, Keepalived 会立即在备机上生成一个相同的 vip: 192.168.200.150, 当用户继续访问 192.168.200.129 时, 交换机上已经绑定了 vip, 这时发现这个 vip 是存在于 192.168.200.130 上面的, 所以直接将请求转发到了备机上.</p>
+<p>如果主机被修复好能够继续对外提供服务时, 这时 keepalived 会将主机上继续生成这个 vip, 同时回收在备机上生成的 vip. 这个是通过心跳检查来判断主机已恢复使用.</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>wget <a href="http://www.keepalived.org/software/keepalived-1.2.23.tar.gz" target="_blank" rel="external">http://www.keepalived.org/software/keepalived-1.2.23.tar.gz</a></p>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><p>tar -zxvf keepalived-1.2.23.tar.gz<br>cd keepalived-1.2.23</p>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><p>./configure –prefix=/usr/local/keepalived #prefix 指定安装目录</p>
+<p>如果提示错误 openssl 不存在<br>sudo apt-get install openssl<br>sudo apt-get install libssl-dev</p>
+<p>make<br>make install</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">【/usr/<span class="built_in">local</span>/keepalived/etc/keepalived/keepalived.conf】</div><div class="line">   global_defs &#123;</div><div class="line">       notification_email &#123; <span class="comment">#指定keepalived在发生事情的时候，发送邮件告知，可以有多个地址，每行一个。</span></div><div class="line">           acassen@firewall.loc</div><div class="line">           failover@firewall.loc</div><div class="line">           sysadmin@firewall.loc</div><div class="line">       &#125;</div><div class="line">       notification_email_from Alexandre.Cassen@firewall.loc <span class="comment">#指定发件人</span></div><div class="line">       smtp_server 127.0.0.1 <span class="comment">#发送email的smtp地址</span></div><div class="line">       smtp_connect_timeout 30 <span class="comment">#超时时间</span></div><div class="line">       router_id nginx <span class="comment">#运行keepalived的机器的一个标识,多个节点标识可以相同，也可以不同</span></div><div class="line">       vrrp_skip_check_adv_addr</div><div class="line">       vrrp_strict</div><div class="line">       vrrp_garp_interval 0</div><div class="line">       vrrp_gna_interval 0</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   vrrp_instance VI_1 &#123;</div><div class="line">       state MASTER <span class="comment">#指定当前节点为主节点 备用节点上设置为BACKUP即可</span></div><div class="line">       interface eth0 <span class="comment">#绑定虚拟IP的网络接口,使用ip a 查看网卡名称2.网卡名称</span></div><div class="line">       virtual_router_id 51 <span class="comment">#VRRP组名，两个节点的设置必须一样，以指明各个节点属于同一VRRP组</span></div><div class="line">       priority 100 <span class="comment">#主节点的优先级（1-254之间），备用节点必须比主节点优先级低</span></div><div class="line">       advert_int 1</div><div class="line">       authentication &#123; <span class="comment">#设置验证信息，两个节点必须一致</span></div><div class="line">       　　auth_type PASS</div><div class="line">       　　auth_pass 1111</div><div class="line">       &#125;</div><div class="line">       virtual_ipaddress &#123; <span class="comment">#指定虚拟IP, 两个节点设置必须一样</span></div><div class="line">       　　192.168.0.110/24</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   【/usr/<span class="built_in">local</span>/keepalived/etc/sysconfig/keepalived】</div><div class="line"></div><div class="line">   KEEPALIVED_OPTIONS=<span class="string">"-D -f /usr/local/keepalived/etc/keepalived/keepalived.conf"</span> <span class="comment">#指定keepalived配置文件路径</span></div><div class="line"></div><div class="line"></div><div class="line">因为我们使用非默认路径（/usr/<span class="built_in">local</span>）安装keepalived，需要设置一些软链接以保证keepalived能正常启动</div><div class="line"></div><div class="line">ln <span class="_">-s</span> /usr/<span class="built_in">local</span>/keepalived/sbin/keepalived  /usr/bin <span class="comment">#将keepalived主程序加入到环境变量</span></div><div class="line">ln <span class="_">-s</span> /usr/<span class="built_in">local</span>/keepalived/etc/sysconfig/keepalived  /etc/sysconfig/ <span class="comment">#keepalived启动脚本变量引用文件，默认文件路径是/etc/sysconfig/，也可以不做软链接，直接修改启动脚本中文件路径即可</span></div><div class="line">cp /usr/<span class="built_in">local</span>/src/keepalived-1.4.0/keepalived/etc/init.d/keepalived /etc/init.d/</div><div class="line">cp -r ./keepalived/etc/keepalived  /etc/  <span class="comment">#注意更新</span></div></pre></td></tr></table></figure>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">service keepalived start|stop|restart</div><div class="line">systemctl daemon-reload</div><div class="line">chkconfig keepalived on</div></pre></td></tr></table></figure>
+<p>默认的配置文件中，指定了虚拟可使用ip addr（或ip a）命令验证之。查看网卡下是否有虚拟ip<br>如果虚拟ip ping不同<br>1.vim /etc/keepalived/keepalived.conf<br>把这个注释就可以了<br>vrrp_strict</p>
+<p>2.可能上级交换机或路由器绑定了apr，也就是ip与mac地址绑定<br>可以使用 arping -I [网卡名] -c 5 -s [本机IP或vip] [网关] 看一下接收情况</p>
+<p>应用</p>
+<p>keepalived两种模式：主-备、主-主</p>
+<p>主-备</p>
+<p><code>虚拟IP：192.168.0.110         主节点：192.168.0.50          备用节点：192.168.0.51</code></p>
+<h3 id="主配置文件"><a href="#主配置文件" class="headerlink" title="主配置文件"></a>主配置文件</h3><p>   【/usr/local/keepalived/etc/keepalived/keepalived.conf】</p>
+<p>   global_defs {<br>       notification_email { #指定keepalived在发生事情的时候，发送邮件告知，可以有多个地址，每行一个。<br>           acassen@firewall.loc<br>           failover@firewall.loc<br>           sysadmin@firewall.loc<br>       }<br>       notification_email_from Alexandre.Cassen@firewall.loc #指定发件人<br>       smtp_server 127.0.0.1 #发送email的smtp地址<br>       smtp_connect_timeout 30 #超时时间<br>       router_id LVS_DEVEL #运行keepalived的机器的一个标识,多个节点标识可以相同，也可以不同<br>       vrrp_skip_check_adv_addr<br>       vrrp_strict<br>       vrrp_garp_interval 0<br>       vrrp_gna_interval 0<br>   }</p>
+<p>   vrrp_instance VI_1 {<br>       state MASTER #指定当前节点为主节点 备用节点上设置为BACKUP即可<br>       interface eth0 #绑定虚拟IP的网络接口 使用ip a查看<br>       virtual_router_id 51 #VRRP组名，两个节点的设置必须一样，以指明各个节点属于同一VRRP组<br>       priority 100 #主节点的优先级（1-254之间），备用节点必须比主节点优先级低<br>       advert_int 1<br>       authentication { #设置验证信息，两个节点必须一致<br>           auth_type PASS<br>           auth_pass 1111<br>       }<br>       virtual_ipaddress { #指定虚拟IP, 两个节点设置必须一样<br>           192.168.0.110/24<br>       }<br>   }</p>
+<h3 id="备配置文件"><a href="#备配置文件" class="headerlink" title="备配置文件"></a>备配置文件</h3><p>   【/usr/local/keepalived/etc/keepalived/keepalived.conf】</p>
+<p>   global_defs {<br>       notification_email { #指定keepalived在发生事情的时候，发送邮件告知，可以有多个地址，每行一个。<br>           acassen@firewall.loc<br>           failover@firewall.loc<br>           sysadmin@firewall.loc<br>       }<br>       notification_email_from Alexandre.Cassen@firewall.loc #指定发件人<br>       smtp_server 127.0.0.1 #发送email的smtp地址<br>       smtp_connect_timeout 30 #超时时间<br>       router_id LVS_DEVEL #运行keepalived的机器的一个标识,多个节点标识可以相同，也可以不同<br>       vrrp_skip_check_adv_addr<br>       vrrp_strict<br>       vrrp_garp_interval 0<br>       vrrp_gna_interval 0<br>   }</p>
+<p>   vrrp_instance VI_1 {<br>       state BACKUP #指定当前节点为主节点 备用节点上设置为BACKUP即可<br>       interface eth0 #绑定虚拟IP的网络接口<br>       virtual_router_id 51 #VRRP组名，两个节点的设置必须一样，以指明各个节点属于同一VRRP组<br>       priority 99 #主节点的优先级（1-254之间），备用节点必须比主节点优先级低<br>       advert_int 1<br>       authentication { #设置验证信息，两个节点必须一致<br>           auth_type PASS<br>           auth_pass 1111<br>       }<br>       virtual_ipaddress { #指定虚拟IP, 两个节点设置必须一样<br>           192.168.0.110/24<br>       }<br>   }</p>
+<p>主-主</p>
+<p>虚拟IP：192.168.1.21、192.168.1.22      A节点：192.168.1.23       B节点：192.168.1.24</p>
+<p>主备模式的缺点就是始终只有一台机器位于工作状态，另外一台机器永远是备用状态，存在资源浪费之问题。</p>
+<p>双主模式允许两台机器均处于工作状态并互相作为备份。搭建keepalived双方模式的要素：</p>
+<p>1.必须有两个虚拟IP, 分别绑定至两个节点上</p>
+<p>2.每个节点作为某个虚拟IP的主节点，并同时作为另外一个虚拟IP的备用节点。</p>
+<p>3.当某个节点产生故障时，两个虚拟IP自动绑定至正常节点上</p>
+<p>也就是说，两个节点的配置应该是交叉的，对同个虚拟IP，交叉互为主备。</p>
+<h3 id="节点A配置文件"><a href="#节点A配置文件" class="headerlink" title="节点A配置文件"></a>节点A配置文件</h3><p>   【/usr/local/keepalived/etc/keepalived/keepalived.conf】</p>
+<p>   global_defs {<br>       notification_email { #指定keepalived在发生事情的时候，发送邮件告知，可以有多个地址，每行一个。<br>           acassen@firewall.loc<br>           failover@firewall.loc<br>           sysadmin@firewall.loc<br>       }<br>       notification_email_from Alexandre.Cassen@firewall.loc #指定发件人<br>       smtp_server 127.0.0.1 #发送email的smtp地址<br>       smtp_connect_timeout 30 #超时时间<br>       router_id LVS_DEVEL #运行keepalived的机器的一个标识,多个节点标识可以相同，也可以不同<br>       vrrp_skip_check_adv_addr<br>       vrrp_strict<br>       vrrp_garp_interval 0<br>       vrrp_gna_interval 0<br>   }</p>
+<p>   vrrp_instance VI_1 {<br>       state MASTER<br>       interface eth0<br>       virtual_router_id 51 #本机两个vrrp_instance组的此值不能相同，但对应备用节点的此值必须相同<br>       priority 100 #对应备用节点值应该比此值小<br>       advert_int 1<br>       authentication {<br>           auth_type PASS<br>           auth_pass 1111<br>       }<br>       virtual_ipaddress {<br>           192.168.1.21/24<br>       }<br>   }</p>
+<p>   vrrp_instance VI_2 {<br>       state BACKUP<br>       interface eth0<br>       virtual_router_id 52 #本机两个vrrp_instance组的此值不能相同，但对应备用节点的此值必须相同<br>       priority 99 #主节点的值应该比此值大<br>       advert_int 1<br>       authentication {<br>           auth_type PASS<br>           auth_pass 1111<br>       }<br>       virtual_ipaddress {<br>           192.168.1.22/24<br>       }<br>   }</p>
+<h3 id="节点B配置文件"><a href="#节点B配置文件" class="headerlink" title="节点B配置文件"></a>节点B配置文件</h3><p>   【/usr/local/keepalived/etc/keepalived/keepalived.conf】</p>
+<p>   global_defs {<br>   　　　notification_email { #指定keepalived在发生事情的时候，发送邮件告知，可以有多个地址，每行一个。<br>   　　　　acassen@firewall.loc<br>   　　　　failover@firewall.loc<br>   　　　　sysadmin@firewall.loc<br>   }<br>   　　notification_email_from Alexandre.Cassen@firewall.loc #指定发件人<br>   　　smtp_server 127.0.0.1 #发送email的smtp地址<br>   　　smtp_connect_timeout 30 #超时时间<br>   　　router_id LVS_DEVEL #运行keepalived的机器的一个标识,多个节点标识可以相同，也可以不同<br>   　　vrrp_skip_check_adv_addr<br>   　　vrrp_strict<br>   　　vrrp_garp_interval 0<br>   　　vrrp_gna_interval 0<br>   }</p>
+<p>   vrrp_instance VI_1 {<br>   　　state BACKUP<br>   　　interface eth0<br>   　　virtual_router_id 51 #本机两个vrrp_instance组的此值不能相同，但对应备用节点的此值必须相同<br>   　　priority 99 #对应主节点值应该比此值大<br>   　　advert_int 1<br>   　　authentication {<br>   　　　　auth_type PASS<br>   　　　　auth_pass 1111<br>   　　}<br>   　　virtual_ipaddress {<br>   　　　　192.168.1.21/24<br>   　　}<br>   }</p>
+<p>   vrrp_instance VI_2 {<br>   　　state MASTER<br>   　　interface eth0<br>   　　virtual_router_id 52 #本机两个vrrp_instance组的此值不能相同，但对应备用节点的此值必须相同<br>   　　priority 100 #对应备用节点的值应该比此值小<br>   　　advert_int 1<br>   　　authentication {<br>   　　　　auth_type PASS<br>   　　　　auth_pass 1111<br>   　　}<br>   　　virtual_ipaddress {<br>   　　　　192.168.1.22/24<br>   　　}<br>   }</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>两个节点实际都处于正常工作状态，但是无法接收到彼此的组播通知，这时两个节点均强行绑定虚拟IP，导致不可预料的后果。</p>
+<p>这时就需要设置仲裁，即每个节点必须判断自身的状态（应用服务状态及自身网络状态），要实现这两点可使用自定义shell脚本实现，通过周期性地检查自身应用服务状态，并不断ping网关（或其它可靠的参考IP）均可。当自身服务异常、或无法ping通网关，则认为自身出现故障，就应该移除掉虚拟IP(停止keepalived服务即可）。</p>
+<p>主要借助keepalived提供的vrrp_script及track_script实现：</p>
+<p>在keepalived的配置文件最前面加入以下代码，定义一个跟踪脚本：</p>
+<p>vrrp_script check_local { #定义一个名称为check_local的检查脚本<br>　　script “/usr/local/keepalived/bin/check_local.sh” #shell脚本的路径<br>　　interval 5 #运行间隔<br>}</p>
+<p>再在vrrp_instance配置中加入以下代码使用上面定义的检测脚本：</p>
+<p>track_script {<br>　　check_local<br>}<br>我们在/usr/local/keepalived/bin/check_local.sh定义的检测规则是：</p>
+<ol>
+<li><p>自身web服务故障（超时，http返回状态不是200）</p>
+</li>
+<li><p>无法ping通网关</p>
+</li>
+<li><p>产生以上任何一个问题，均应该移除本机的虚拟IP(停止keepalived实例即可)</p>
+</li>
+</ol>
+<p>但这里有个小问题，如果本机或是网关偶尔出现一次故障，那么我们不能认为是服务故障。更好的做法是如果连续N次检测本机服务不正常或连接N次无法ping通网关，才认为是故障产生，才需要进行故障转移。</p>
+<p>但这么做的缺点是，如果脚本检测到故障产生，并停止掉了keepalived服务，那么当故障恢复后，keepalived是无法自动恢复的。</p>
+<p>还可以利用独立的脚本以秒级的间隔检查自身服务及网关连接性，再根据故障情况控制keepalived的运行或是停止。</p>
+<p>在每个节点运行shell脚本（check_service.sh）检测本机的服务是否正常，一旦检测到服务异常时，停止掉本机的keepalived, 如此虚拟IP自动转移到备用机器之上，如每隔3秒检测一次本机服务状态，如果连接3次检测失败，则停止掉keepalived实例。同时如果本机服务是正常的，但是keepalived没有启动（故障恢复之后），则启动keepalived，以达到故障恢复之目的。</p>
+<p>check_service.sh文件的内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">!/bin/bash</div><div class="line"></div><div class="line">   pidfile=/var/lock/subsys/`basename <span class="variable">$0</span>`.pid</div><div class="line">   <span class="keyword">if</span> [ <span class="_">-f</span> <span class="variable">$pidfile</span> ] &amp;&amp; [ <span class="_">-e</span> /proc/`cat <span class="variable">$pidfile</span>` ] ; <span class="keyword">then</span></div><div class="line">   　　<span class="built_in">exit</span> 1</div><div class="line">   <span class="keyword">fi</span></div><div class="line"></div><div class="line">   <span class="built_in">trap</span> <span class="string">"rm -fr <span class="variable">$pidfile</span> ; exit 0"</span> 1 2 3 15</div><div class="line">   <span class="built_in">echo</span> $$ &gt; <span class="variable">$pidfile</span></div><div class="line"></div><div class="line">   maxfails=3</div><div class="line">   fails=0</div><div class="line">   success=0</div><div class="line"></div><div class="line">   <span class="keyword">while</span> [ 1 ]</div><div class="line">   <span class="keyword">do</span></div><div class="line">   　　/usr/bin/wget --timeout=3 --tries=1 http://127.0.0.1/ -q -O /dev/null</div><div class="line">   　　<span class="keyword">if</span> [ $? <span class="_">-ne</span> 0 ] ; <span class="keyword">then</span></div><div class="line">   　　　　<span class="built_in">let</span> fails=$[<span class="variable">$fails</span>+1]</div><div class="line">   　　　　success=0</div><div class="line">   　　<span class="keyword">else</span></div><div class="line">   　　　　fails=0</div><div class="line">   　　　　<span class="built_in">let</span> success=$[<span class="variable">$success</span>+1]</div><div class="line">   　　<span class="keyword">fi</span></div><div class="line"></div><div class="line">   　　<span class="keyword">if</span> [ <span class="variable">$fails</span> -ge <span class="variable">$maxfails</span> ] ; <span class="keyword">then</span></div><div class="line">   　　　　fails=0</div><div class="line">   　　　　success=0</div><div class="line"></div><div class="line">   　　　　<span class="comment">#check keepalived is running ? try to stop it</span></div><div class="line">   　　　　service keepalived status | grep running</div><div class="line">   　　　　<span class="keyword">if</span> [ $? <span class="_">-eq</span> 0 ] ; <span class="keyword">then</span></div><div class="line">   　　　　　　logger -is <span class="string">"local service fails <span class="variable">$maxfails</span> times ... try to stop keepalived."</span></div><div class="line">   　　　　　　service keepalived stop 2&gt;&amp;1 | logger</div><div class="line">   　　　　<span class="keyword">fi</span></div><div class="line">   　　<span class="keyword">fi</span></div><div class="line"></div><div class="line">   　　<span class="keyword">if</span> [ <span class="variable">$success</span> <span class="_">-gt</span> <span class="variable">$maxfails</span> ] ; <span class="keyword">then</span></div><div class="line">   　　　　<span class="comment">#check keepalived is stopped ? try to start it</span></div><div class="line">   　　　　service keepalived status | grep stopped</div><div class="line">   　　　　<span class="keyword">if</span> [ $? <span class="_">-eq</span> 0 ] ; <span class="keyword">then</span></div><div class="line">   　　　　　　logger -is <span class="string">"service changes normal, try to start keepalived ."</span></div><div class="line">   　　　　　　service keepalived start</div><div class="line">   　　　　<span class="keyword">fi</span></div><div class="line">   　　　　success=0</div><div class="line">   　　<span class="keyword">fi</span></div><div class="line">   　　sleep 3</div><div class="line">   <span class="keyword">done</span></div></pre></td></tr></table></figure></p>
+<p>两个节点上均应运行此脚本，请将此脚本加入到cron任务中（此程序已经作了单实例运行机制，加入计划任务的作用就是防止脚本意外中断后检测功能失效），可实现的功能：</p>
+<p>如果本地服务连续三次检测失败，就尝试停止keepalived服务（如果keepalived处于运行状态）</p>
+<p>如果本地服务连接三次检测成功，但keepalived没有启动，则启动之</p>
+<p>关键的执行点，均已经记录到系统日志中（/var/log/messages）</p>
+<p>执行crontab -e , 加入以下内容：</p>
+<p><em>/1 </em> <em> </em> * root /home/testuser/check_local.sh</p>
+<p>停止掉本机的keepalived, 稍过一会，就会keepalived服务被自动启动了（这是因为本地服务检测正常）</p>
+<p>停止掉本机的nginx, 稍过一会，就会发现keepalived服务也被停止掉了</p>
+<p>再启动nginx, 稍过一会，发现keepalived也被正常启动，并绑定了正确的虚拟IP</p>
+<h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><h2 id="1-下载解压安装redis"><a href="#1-下载解压安装redis" class="headerlink" title="1.下载解压安装redis"></a>1.下载解压安装redis</h2><h3 id="1-1redis源文件"><a href="#1-1redis源文件" class="headerlink" title="1.1redis源文件"></a>1.1redis源文件</h3><p>将redis源文件放在目录<code>/usr/local/src/</code>下</p>
+<h3 id="1-2解压redis"><a href="#1-2解压redis" class="headerlink" title="1.2解压redis"></a>1.2解压redis</h3><p>移动到redis所在文件目录</p>
+<blockquote>
+<p>cd /usr/local/src/<br>tar -zxvf redis.tar.gz</p>
+</blockquote>
+<h3 id="1-3编译安装redis"><a href="#1-3编译安装redis" class="headerlink" title="1.3编译安装redis"></a>1.3编译安装redis</h3><p>移动到解压后reids目录</p>
+<blockquote>
+<p>cd redis<br>make</p>
+</blockquote>
+<p>进入reids/src目录<br>make install</p>
+<h2 id="2-Redis的部署"><a href="#2-Redis的部署" class="headerlink" title="2.Redis的部署"></a>2.Redis的部署</h2><p>安装成功后，下面对Redis 进行部署<br>如果需使用tomcat来连接的话<br>1.关闭安全模式<br>2.设置密码</p>
+<h3 id="2-1执行Redis-server-命令，启动Redis-服务"><a href="#2-1执行Redis-server-命令，启动Redis-服务" class="headerlink" title="2.1执行Redis-server 命令，启动Redis 服务"></a>2.1执行Redis-server 命令，启动Redis 服务</h3><blockquote>
+<p>注意：这里直接执行Redis-server 启动的Redis服务，是在前台直接运行的，也就是说，执行完该命令后，如果Lunix关闭当前会话，则Redis服务也随即关闭。正常情况下，启动Redis服务需要从后台启动，并且指定启动配置文件。<br>3、后台启动redis服务<br>a)首先编辑conf文件，将daemonize属性改为yes（表明需要在后台运行）<br>cd etc/<br>vi redis.conf<br>如果redis.conf文件不存在就从安装目录复制过去<br>b)再次启动redis服务，并指定启动服务配置文件<br>redis-server  /etc/redis.conf</p>
+</blockquote>
+<p>4、服务端启动成功后，启动Redis</p>
+<blockquote>
+<p><code>redis-cli</code></p>
+</blockquote>
+<p>使用命令 config set requirepass admin<br>为redis设置密码为admin<br>输入验证密码<br>auth admin<br>保存密码设置信息到磁盘<br>save<br>退出<br>exit</p>
+<h2 id="3-tomcat配置"><a href="#3-tomcat配置" class="headerlink" title="3.tomcat配置"></a>3.tomcat配置</h2><h3 id="3-1-jar包"><a href="#3-1-jar包" class="headerlink" title="3.1 jar包"></a>3.1 jar包</h3><pre><code>commons-logging-1.2.jar
+commons-pool2-2.4.2.jar
+jedis-2.9.0.jar
+tomcat-redis-session-manager1.2.jar
+</code></pre><p>将以上4个jar包放入tomcat/lib下</p>
+<h3 id="3-2-content-xml配置"><a href="#3-2-content-xml配置" class="headerlink" title="3.2 content.xml配置"></a>3.2 content.xml配置</h3><p>配置Tomcat的conf目录下的context.xml文件：</p>
+<blockquote>
+<p>1.单点Reids配置<br>   <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;Valve className=<span class="string">"com.orangefunction.tomcat.redissessions.RedisSessionHandlerValve"</span> /&gt;</div><div class="line">&lt;Manager className=<span class="string">"com.orangefunction.tomcat.redissessions.RedisSessionManager"</span></div><div class="line">host=<span class="string">"192.168.0.111"</span></div><div class="line">port=<span class="string">"6379"</span></div><div class="line">password=<span class="string">"admin"</span>//reids密码</div><div class="line">database=<span class="string">"0"</span></div><div class="line">maxInactiveInterval=<span class="string">"60"</span> /&gt;</div></pre></td></tr></table></figure></p>
+<p>2.Sentinel集群配置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;!-- Sentinel 配置 --&gt;</div><div class="line"></div><div class="line">&lt;Valve className=<span class="string">"reyo.redis.session.manager.tomcat8.RedisSessionHandlerValve"</span> /&gt;</div><div class="line">&lt;Manager className=<span class="string">"reyo.redis.session.manager.tomcat8.RedisSessionManager"</span></div><div class="line"></div><div class="line">maxInactiveInterval=<span class="string">"60"</span></div><div class="line"></div><div class="line">sentinelMaster=<span class="string">"mymaster"</span></div><div class="line"></div><div class="line">sentinels=<span class="string">"127.0.0.1:26379,127.0.0.1:26380,127.0.0.1:26381,127.0.0.1:26382"</span> /&gt;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>案例：<br>如果要监控两个redis实例，可以进行如下配置Redis安装目录下sentinel.conf文件：<br>常规配置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">port 26379</div><div class="line">daemonize yes</div><div class="line">logfile <span class="string">"/var/log/redis/sentinel.log"</span></div><div class="line"></div><div class="line"><span class="comment">#master 7000</span></div><div class="line">sentinel monitor master1 127.0.0.1 7000 2                <span class="comment">#配置master名、ip、port、需要多少个sentinel才能判断[客观下线]（2）</span></div><div class="line">sentinel down-after-milliseconds master-7000 30000      <span class="comment">#配置sentinel向master发出ping，最大响应时间、超过则认为主观下线</span></div><div class="line">sentinel parallel-syncs master-7000 1                   <span class="comment">#配置在进行故障转移时，运行多少个slave进行数据备份同步(越少速度越快)</span></div><div class="line">sentinel failover-timeout master-7000 180000            <span class="comment">#配置当出现failover时下一个sentinel与上一个sentinel对[同一个master监测的时间间隔](最后设置为客观下线)</span></div><div class="line"></div><div class="line"><span class="comment">#master 7001</span></div><div class="line">sentinel monitor master2 127.0.0.1 7001 1</div><div class="line">sentinel down-after-milliseconds master-7001 30000</div><div class="line">sentinel parallel-syncs master-7001 1</div><div class="line">sentinel failover-timeout master-7001 180000</div></pre></td></tr></table></figure></p>
+<p>特殊配置：<br><code>min-slaves-to-write 1</code><br><code>min-slaves-max-lag 10</code><br>通过上面的配置，当一个redis是master时，如果它不能向至少一个slave写数据(上面的min-slaves-to-write指定了slave的数量)，它将会拒绝接受客户端的写请求。由于复制是异步的，master无法向slave写数据意味着slave要么断开连接了，要么不在指定时间内向master发送同步数据的请求了(上面的min-slaves-max-lag指定了这个时间)。</p>
+<h3 id="配置Redis能随系统启动"><a href="#配置Redis能随系统启动" class="headerlink" title="配置Redis能随系统启动:"></a>配置Redis能随系统启动:</h3><p>./utils/install_server.sh</p>
+<h3 id="Redis服务查看、开启、关闭"><a href="#Redis服务查看、开启、关闭" class="headerlink" title="Redis服务查看、开启、关闭:"></a>Redis服务查看、开启、关闭:</h3><p>a.通过ps -ef|grep redis命令查看Redis进程<br>b.开启Redis服务操作通过/etc/init.d/redis_6379 start命令，也可通过（service redis_6379 start）<br>c.关闭Redis服务操作通过/etc/init.d/redis_6379 stop命令，也可通过（service redis_6379 stop）</p>
+<h1 id="Postgres-XL"><a href="#Postgres-XL" class="headerlink" title="Postgres-XL"></a>Postgres-XL</h1><h2 id="centos7安装："><a href="#centos7安装：" class="headerlink" title="centos7安装："></a>centos7安装：</h2><h3 id="在所有主机上安装Postgres-XL"><a href="#在所有主机上安装Postgres-XL" class="headerlink" title="在所有主机上安装Postgres-XL"></a>在所有主机上安装Postgres-XL</h3><h4 id="在每台机器的-etc-hosts中加入以下内容："><a href="#在每台机器的-etc-hosts中加入以下内容：" class="headerlink" title="在每台机器的 /etc/hosts中加入以下内容："></a>在每台机器的 /etc/hosts中加入以下内容：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">192.168.0.50 gtm</div><div class="line">192.168.0.51 gtm-bc</div><div class="line">192.168.0.120 datanode1</div><div class="line">192.168.0.121 datanode2</div></pre></td></tr></table></figure>
+<h4 id="关闭防火墙："><a href="#关闭防火墙：" class="headerlink" title="关闭防火墙："></a>关闭防火墙：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">systemctl stop firewalld</div><div class="line">systemctl <span class="built_in">disable</span> firewalld</div></pre></td></tr></table></figure>
+<h4 id="selinux设置"><a href="#selinux设置" class="headerlink" title="selinux设置"></a>selinux设置</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">setenforce 0</div><div class="line">sed -i <span class="string">"s/SELINUX=enforcing/SELINUX=disabled/"</span> /etc/selinux/config</div></pre></td></tr></table></figure>
+<h4 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包:"></a>安装依赖包:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum -y install epel-release</div><div class="line">yum -y install lbzip2 gcc readline-devel zlib-devel flex</div></pre></td></tr></table></figure>
+<h4 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a>新建用户</h4><blockquote>
+<p>每个节点都建立用户postgres，并且建立.ssh目录，并配置相应的root权限：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># useradd postgres</span></div><div class="line">[root@localhost ~]<span class="comment"># passwd postgres</span></div><div class="line">[root@localhost ~]<span class="comment"># su - postgres</span></div><div class="line">[root@localhost ~]<span class="comment"># mkdir ~/.ssh</span></div><div class="line">[root@localhost ~]<span class="comment"># chmod 700 ~/.ssh</span></div></pre></td></tr></table></figure>
+<h4 id="ssh免密码登录-只在gtm下做"><a href="#ssh免密码登录-只在gtm下做" class="headerlink" title="ssh免密码登录(只在gtm下做)"></a>ssh免密码登录(<code>只在gtm下做</code>)</h4><blockquote>
+<p>仅仅在<code>gtm</code>节点配置如下操作：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># su - postgres</span></div><div class="line">[postgres@localhost ~]<span class="comment"># ssh-keygen -t rsa</span></div><div class="line">[postgres@localhost ~]<span class="comment"># cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span></div><div class="line">[postgres@localhost ~]<span class="comment"># chmod 600 ~/.ssh/authorized_keys</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>对所有提示都不要输入，直接enter下一步。</p>
+<p>将刚生成的认证文件拷贝到datanode1到datanode2中，使得gtm节点可以免密码登录datanode1~datanode2的任意一个节点：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[postgres@localhost ~]<span class="comment"># scp ~/.ssh/authorized_keys postgres@datanode1:~/.ssh/</span></div><div class="line">[postgres@localhost ~]<span class="comment"># scp ~/.ssh/authorized_keys postgres@datanode2:~/.ssh/</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p><mark>这里会提示如下内容 输入yes</mark>后会提示让你输入远程用户密码</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">The authenticity of host <span class="string">'datanode1 (192.168.0.120)'</span> can<span class="string">'t be established.</span></div><div class="line">ECDSA key fingerprint is f9:ad:48:ab:a8:b6:81:5b:e0:6f:75:e5:xx:xx:xx:xx.</div><div class="line">Are you sure you want to continue connecting (yes/no)? yes</div></pre></td></tr></table></figure>
+<h4 id="Postgres-XL安装-每台服务器都要操作"><a href="#Postgres-XL安装-每台服务器都要操作" class="headerlink" title="Postgres-XL安装(每台服务器都要操作)"></a>Postgres-XL安装(每台服务器都要操作)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/src</div><div class="line">tar -zxvf  postgres-xl</div><div class="line"><span class="built_in">cd</span> postgres-xl</div><div class="line">./configure</div><div class="line">make &amp;&amp; make install</div><div class="line"><span class="built_in">cd</span> contrib/</div><div class="line">make &amp;&amp; make install</div></pre></td></tr></table></figure>
+<blockquote>
+<p>cortrib中有很多postgres很牛的工具，一般要装上。如ltree,uuid,postgres_fdw等等。</p>
+</blockquote>
+<h4 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h4><p>进入postgres用户，修改其环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">su - postgres</div><div class="line">vi .bashrc</div></pre></td></tr></table></figure></p>
+<p>在打开的文件末尾，新增如下变量配置：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> PGHOME=<span class="regexp">/usr/</span>local/pgsql</div><div class="line"><span class="keyword">export</span> PGUSER=postgres</div><div class="line"><span class="keyword">export</span> LD_LIBRARY_PATH=$PGHOME/lib</div><div class="line"><span class="keyword">export</span> PATH=$PGHOME/bin:$PATH</div></pre></td></tr></table></figure>
+<p> 按住esc，然后输入:wq!保存退出</p>
+<p> 输入以下命令对更改重启生效:<br> <code>source .bashrc</code></p>
+<p> 检查配置是否已修改<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[postgres@localhost ~]$ <span class="built_in">echo</span> <span class="variable">$PGHOME</span></div><div class="line">/usr/<span class="built_in">local</span>/pgsql</div></pre></td></tr></table></figure></p>
+<p> 检查ssh免密访问是否配置成功<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[root@gtm ~]<span class="comment"># ssh datanode1</span></div><div class="line">[root@datanode1 ~]<span class="comment"># exit</span></div><div class="line"><span class="built_in">logout</span></div><div class="line">Connection to datanode1 closed.</div><div class="line"></div><div class="line">[root@gtm ~]<span class="comment"># ssh datanode2</span></div><div class="line">[root@datanode2 ~]<span class="comment"># exit</span></div><div class="line"><span class="built_in">logout</span></div><div class="line">Connection to datanode2 closed.</div></pre></td></tr></table></figure></p>
+<h4 id="修改文件夹所有者"><a href="#修改文件夹所有者" class="headerlink" title="修改文件夹所有者"></a>修改文件夹所有者</h4><p>将/home/postgres下所有文件的所有者变更为postgres用户<br><code>[root@gtm ~]# chown -R postgres /home/postgres</code></p>
+<h4 id="生成pgxc-ctl配置文件-只在gtm下做"><a href="#生成pgxc-ctl配置文件-只在gtm下做" class="headerlink" title="生成pgxc_ctl配置文件(只在gtm下做)"></a>生成pgxc_ctl配置文件(<code>只在gtm下做</code>)</h4><p>在/usr/local/src/postgres-xl/contrib/pgxc_ctl目录下<br>运行命令</p>
+<p><code>./pgxc_ctl</code>后进入操作界面后输入prepare之后使用Crtl+c退出PGXC操作界面</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[postgres@localhost ~]$ pgxc_ctl</div><div class="line">/bin/bash</div><div class="line">Installing pgxc_ctl_bash script as /home/postgres/pgxc_ctl/pgxc_ctl_bash.</div><div class="line">ERROR: File <span class="string">"/home/postgres/pgxc_ctl/pgxc_ctl.conf"</span> not found or not a regular file. No such file or directory</div><div class="line">Installing pgxc_ctl_bash script as /home/postgres/pgxc_ctl/pgxc_ctl_bash.</div><div class="line">Reading configuration using /home/postgres/pgxc_ctl/pgxc_ctl_bash --home /home/postgres/pgxc_ctl --configuration /home/postgres/pgxc_ctl/pgxc_ctl.conf</div><div class="line">Finished reading configuration.</div><div class="line">   ******** PGXC_CTL START ***************</div><div class="line"></div><div class="line">Current directory: /home/postgres/pgxc_ctl</div><div class="line">PGXC prepare</div><div class="line">PGXC ^C</div></pre></td></tr></table></figure>
+<h4 id="编辑pgxc-ctl-conf文件"><a href="#编辑pgxc-ctl-conf文件" class="headerlink" title="编辑pgxc_ctl.conf文件"></a>编辑pgxc_ctl.conf文件</h4><p><code>[postgres@localhost ~]$ vim /home/postgres/pgxc_ctl/pgxc_ctl.conf</code></p>
+<h4 id="配置内容如下："><a href="#配置内容如下：" class="headerlink" title="配置内容如下："></a>配置内容如下：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/usr/bin/env bash</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Postgres-XC Configuration file for pgxc_ctl utility.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Configuration file can be specified as -c option from pgxc_ctl command.   Default is</span></div><div class="line"><span class="comment"># $PGXC_CTL_HOME/pgxc_ctl.org.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># This is bash script so you can make any addition for your convenience to configure</span></div><div class="line"><span class="comment"># your Postgres-XC cluster.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Please understand that pgxc_ctl provides only a subset of configuration which pgxc_ctl</span></div><div class="line"><span class="comment"># provide.  Here's several several assumptions/restrictions pgxc_ctl depends on.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># 1) All the resources of pgxc nodes has to be owned by the same user.   Same user means</span></div><div class="line"><span class="comment">#    user with the same user name.  User ID may be different from server to server.</span></div><div class="line"><span class="comment">#    This must be specified as a variable $pgxcOwner.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># 2) All the servers must be reacheable via ssh without password.   It is highly recommended</span></div><div class="line"><span class="comment">#    to setup key-based authentication among all the servers.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># 3) All the databases in coordinator/datanode has at least one same superuser.  Pgxc_ctl</span></div><div class="line"><span class="comment">#    uses this user to connect to coordinators and datanodes.   Again, no password should</span></div><div class="line"><span class="comment">#    be used to connect.  You have many options to do this, pg_hba.conf, pg_ident.conf and</span></div><div class="line"><span class="comment">#    others.  Pgxc_ctl provides a way to configure pg_hba.conf but not pg_ident.conf.   This</span></div><div class="line"><span class="comment">#    will be implemented in the later releases.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># 4) Gtm master and slave can have different port to listen, while coordinator and datanode</span></div><div class="line"><span class="comment">#    slave should be assigned the same port number as master.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># 5) Port nuber of a coordinator slave must be the same as its master.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># 6) Master and slave are connected using synchronous replication.  Asynchronous replication</span></div><div class="line"><span class="comment">#    have slight (almost none) chance to bring total cluster into inconsistent state.</span></div><div class="line"><span class="comment">#    This chance is very low and may be negligible.  Support of asynchronous replication</span></div><div class="line"><span class="comment">#    may be supported in the later release.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># 7) Each coordinator and datanode can have only one slave each.  Cascaded replication and</span></div><div class="line"><span class="comment">#    multiple slave are not supported in the current pgxc_ctl.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># 8) Killing nodes may end up with IPC resource leak, such as semafor and shared memory.</span></div><div class="line"><span class="comment">#    Only listening port (socket) will be cleaned with clean command.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># 9) Backup and restore are not supported in pgxc_ctl at present.   This is a big task and</span></div><div class="line"><span class="comment">#    may need considerable resource.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#========================================================================================</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># pgxcInstallDir variable is needed if you invoke "deploy" command from pgxc_ctl utility.</span></div><div class="line"><span class="comment"># If don't you don't need this variable.</span></div><div class="line">pgxcInstallDir=<span class="variable">$HOME</span></div><div class="line">pgxlDATA=<span class="variable">$HOME</span>/data</div><div class="line"><span class="comment">#---- OVERALL -----------------------------------------------------------------------------</span></div><div class="line"><span class="comment">#</span></div><div class="line">pgxcOwner=postgres			<span class="comment"># owner of the Postgres-XC databaseo cluster.  Here, we use this</span></div><div class="line">						<span class="comment"># both as linus user and database user.  This must be</span></div><div class="line">						<span class="comment"># the super user of each coordinator and datanode.</span></div><div class="line">pgxcUser=<span class="variable">$pgxcOwner</span>		<span class="comment"># OS user of Postgres-XC owner</span></div><div class="line"></div><div class="line">tmpDir=/tmp					<span class="comment"># temporary dir used in XC servers</span></div><div class="line"><span class="built_in">local</span>TmpDir=<span class="variable">$tmpDir</span>			<span class="comment"># temporary dir used here locally</span></div><div class="line"></div><div class="line">configBackup=n					<span class="comment"># If you want config file backup, specify y to this value.</span></div><div class="line">configBackupHost=pgxc-linker	<span class="comment"># host to backup config file</span></div><div class="line">configBackupDir=<span class="variable">$HOME</span>/pgxc		<span class="comment"># Backup directory</span></div><div class="line">configBackupFile=pgxc_ctl.bak	<span class="comment"># Backup file name --&gt; Need to synchronize when original changed.</span></div><div class="line"></div><div class="line"><span class="comment">#---- GTM ------------------------------------------------------------------------------------</span></div><div class="line"></div><div class="line"><span class="comment"># GTM is mandatory.  You must have at least (and only) one GTM master in your Postgres-XC cluster.</span></div><div class="line"><span class="comment"># If GTM crashes and you need to reconfigure it, you can do it by pgxc_update_gtm command to update</span></div><div class="line"><span class="comment"># GTM master with others.   Of course, we provide pgxc_remove_gtm command to remove it.  This command</span></div><div class="line"><span class="comment"># will not stop the current GTM.  It is up to the operator.</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#---- GTM Master -----------------------------------------------</span></div><div class="line"></div><div class="line"><span class="comment">#---- Overall ----</span></div><div class="line">gtmName=gtm</div><div class="line">gtmMasterServer=gtm</div><div class="line">gtmMasterPort=6666</div><div class="line">gtmMasterDir=<span class="variable">$pgxlDATA</span>/nodes/gtm</div><div class="line"></div><div class="line"><span class="comment">#---- Configuration ---</span></div><div class="line">gtmExtraConfig=none			<span class="comment"># Will be added gtm.conf for both Master and Slave (done at initilization only)</span></div><div class="line">gtmMasterSpecificExtraConfig=none	<span class="comment"># Will be added to Master's gtm.conf (done at initialization only)</span></div><div class="line"></div><div class="line"><span class="comment">#---- GTM Slave -----------------------------------------------</span></div><div class="line"></div><div class="line"><span class="comment"># Because GTM is a key component to maintain database consistency, you may want to configure GTM slave</span></div><div class="line"><span class="comment"># for backup.</span></div><div class="line"></div><div class="line"><span class="comment">#---- Overall ------</span></div><div class="line">gtmSlave=n					<span class="comment"># Specify y if you configure GTM Slave.   Otherwise, GTM slave will not be configured and</span></div><div class="line">							<span class="comment"># all the following variables will be reset.</span></div><div class="line">gtmSlaveName=gtmSlave</div><div class="line">gtmSlaveServer=gtm-bc		<span class="comment"># value none means GTM slave is not available.  Give none if you don't configure GTM Slave.</span></div><div class="line">gtmSlavePort=20001			<span class="comment"># Not used if you don't configure GTM slave.</span></div><div class="line">gtmSlaveDir=<span class="variable">$pgxlDATA</span>/nodes/gtmSlave	<span class="comment"># Not used if you don't configure GTM slave.</span></div><div class="line"><span class="comment"># Please note that when you have GTM failover, then there will be no slave available until you configure the slave</span></div><div class="line"><span class="comment"># again. (pgxc_add_gtm_slave function will handle it)</span></div><div class="line"></div><div class="line"><span class="comment">#---- Configuration ----</span></div><div class="line">gtmSlaveSpecificExtraConfig=none <span class="comment"># Will be added to Slave's gtm.conf (done at initialization only)</span></div><div class="line"></div><div class="line"><span class="comment">#---- GTM Proxy -------------------------------------------------------------------------------------------------------</span></div><div class="line"><span class="comment"># GTM proxy will be selected based upon which server each component runs on.</span></div><div class="line"><span class="comment"># When fails over to the slave, the slave inherits its master's gtm proxy.  It should be</span></div><div class="line"><span class="comment"># reconfigured based upon the new location.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># To do so, slave should be restarted.   So pg_ctl promote -&gt; (edit postgresql.conf and recovery.conf) -&gt; pg_ctl restart</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># You don't have to configure GTM Proxy if you dont' configure GTM slave or you are happy if every component connects</span></div><div class="line"><span class="comment"># to GTM Master directly.  If you configure GTL slave, you must configure GTM proxy too.</span></div><div class="line"></div><div class="line"><span class="comment">#---- Shortcuts ------</span></div><div class="line">gtmProxyDir=<span class="variable">$pgxlDATA</span>/nodes/gtm_pxy</div><div class="line"></div><div class="line"><span class="comment">#---- Overall -------</span></div><div class="line">gtmProxy=n				<span class="comment"># Specify y if you conifugre at least one GTM proxy.   You may not configure gtm proxies</span></div><div class="line">						<span class="comment"># only when you dont' configure GTM slaves.</span></div><div class="line">						<span class="comment"># If you specify this value not to y, the following parameters will be set to default empty values.</span></div><div class="line">						<span class="comment"># If we find there're no valid Proxy server names (means, every servers are specified</span></div><div class="line">						<span class="comment"># as none), then gtmProxy value will be set to "n" and all the entries will be set to</span></div><div class="line">						<span class="comment"># empty values.</span></div><div class="line">gtmProxyNames=(gtm_pxy1 gtm_pxy2)	<span class="comment"># No used if it is not configured</span></div><div class="line">gtmProxyServers=(datanode1 datanode2)			<span class="comment"># Specify none if you dont' configure it.</span></div><div class="line">gtmProxyPorts=(6666 6666)				<span class="comment"># Not used if it is not configured.</span></div><div class="line">gtmProxyDirs=(<span class="variable">$gtmProxyDir</span> <span class="variable">$gtmProxyDir</span>)	<span class="comment"># Not used if it is not configured.</span></div><div class="line"></div><div class="line"><span class="comment">#---- Configuration ----</span></div><div class="line">gtmPxyExtraConfig=none		<span class="comment"># Extra configuration parameter for gtm_proxy.  Coordinator section has an example.</span></div><div class="line">gtmPxySpecificExtraConfig=(none none none none)</div><div class="line"></div><div class="line"><span class="comment">#---- Coordinators ----------------------------------------------------------------------------------------------------</span></div><div class="line"></div><div class="line"><span class="comment">#---- shortcuts ----------</span></div><div class="line">coordMasterDir=<span class="variable">$pgxlDATA</span>/nodes/coord</div><div class="line">coordSlaveDir=<span class="variable">$HOME</span>/pgxc/nodes/coord_slave</div><div class="line">coordArchLogDir=<span class="variable">$HOME</span>/pgxc/nodes/coord_archlog</div><div class="line"></div><div class="line"><span class="comment">#---- Overall ------------</span></div><div class="line">coordNames=(coord1 coord2)		<span class="comment"># Master and slave use the same name</span></div><div class="line">coordPorts=(5432 5432)			<span class="comment"># Master ports</span></div><div class="line">poolerPorts=(6667 6667)			<span class="comment"># Master pooler ports</span></div><div class="line">coordPgHbaEntries=(0.0.0.0/0)				<span class="comment"># Assumes that all the coordinator (master/slave) accepts</span></div><div class="line">												<span class="comment"># the same connection</span></div><div class="line">												<span class="comment"># This entry allows only $pgxcOwner to connect.</span></div><div class="line">												<span class="comment"># If you'd like to setup another connection, you should</span></div><div class="line">												<span class="comment"># supply these entries through files specified below.</span></div><div class="line"><span class="comment"># Note: The above parameter is extracted as "host all all 0.0.0.0/0 trust".   If you don't want</span></div><div class="line"><span class="comment"># such setups, specify the value () to this variable and suplly what you want using coordExtraPgHba</span></div><div class="line"><span class="comment"># and/or coordSpecificExtraPgHba variables.</span></div><div class="line"><span class="comment">#coordPgHbaEntries=(::1/128)	# Same as above but for IPv6 addresses</span></div><div class="line"></div><div class="line"><span class="comment">#---- Master -------------</span></div><div class="line">coordMasterServers=(datanode1 datanode2)		<span class="comment"># none means this master is not available</span></div><div class="line">coordMasterDirs=(<span class="variable">$coordMasterDir</span> <span class="variable">$coordMasterDir</span>)</div><div class="line">coordMaxWALsernder=0	<span class="comment"># max_wal_senders: needed to configure slave. If zero value is specified,</span></div><div class="line">						<span class="comment"># it is expected to supply this parameter explicitly by external files</span></div><div class="line">						<span class="comment"># specified in the following.	If you don't configure slaves, leave this value to zero.</span></div><div class="line">coordMaxWALSenders=(<span class="variable">$coordMaxWALsernder</span> <span class="variable">$coordMaxWALsernder</span>)</div><div class="line">						<span class="comment"># max_wal_senders configuration for each coordinator.</span></div><div class="line"></div><div class="line"><span class="comment">#---- Slave -------------</span></div><div class="line">coordSlave=n			<span class="comment"># Specify y if you configure at least one coordiantor slave.  Otherwise, the following</span></div><div class="line">						<span class="comment"># configuration parameters will be set to empty values.</span></div><div class="line">						<span class="comment"># If no effective server names are found (that is, every servers are specified as none),</span></div><div class="line">						<span class="comment"># then coordSlave value will be set to n and all the following values will be set to</span></div><div class="line">						<span class="comment"># empty values.</span></div><div class="line">coordSlaveSync=y		<span class="comment"># Specify to connect with synchronized mode.</span></div><div class="line">coordSlaveServers=(node07 node08 node09 node06)			<span class="comment"># none means this slave is not available</span></div><div class="line">coordSlavePorts=(20004 20005 20004 20005)			<span class="comment"># Master ports</span></div><div class="line">coordSlavePoolerPorts=(20010 20011 20010 20011)			<span class="comment"># Master pooler ports</span></div><div class="line">coordSlaveDirs=(<span class="variable">$coordSlaveDir</span> <span class="variable">$coordSlaveDir</span> <span class="variable">$coordSlaveDir</span> <span class="variable">$coordSlaveDir</span>)</div><div class="line">coordArchLogDirs=(<span class="variable">$coordArchLogDir</span> <span class="variable">$coordArchLogDir</span> <span class="variable">$coordArchLogDir</span> <span class="variable">$coordArchLogDir</span>)</div><div class="line"></div><div class="line"><span class="comment">#---- Configuration files---</span></div><div class="line"><span class="comment"># Need these when you'd like setup specific non-default configuration</span></div><div class="line"><span class="comment"># These files will go to corresponding files for the master.</span></div><div class="line"><span class="comment"># You may supply your bash script to setup extra config lines and extra pg_hba.conf entries</span></div><div class="line"><span class="comment"># Or you may supply these files manually.</span></div><div class="line">coordExtraConfig=coordExtraConfig	<span class="comment"># Extra configuration file for coordinators.</span></div><div class="line">						<span class="comment"># This file will be added to all the coordinators'</span></div><div class="line">						<span class="comment"># postgresql.conf</span></div><div class="line"><span class="comment"># Pleae note that the following sets up minimum parameters which you may want to change.</span></div><div class="line"><span class="comment"># You can put your postgresql.conf lines here.</span></div><div class="line">cat &gt; <span class="variable">$coordExtraConfig</span> &lt;&lt;EOF</div><div class="line"><span class="comment">#================================================</span></div><div class="line"><span class="comment"># Added to all the coordinator postgresql.conf</span></div><div class="line"><span class="comment"># Original: $coordExtraConfig</span></div><div class="line">log_destination = <span class="string">'stderr'</span></div><div class="line">logging_collector = on</div><div class="line">log_directory = <span class="string">'pg_log'</span></div><div class="line">listen_addresses = <span class="string">'*'</span></div><div class="line">max_connections = 100</div><div class="line">EOF</div><div class="line"></div><div class="line"><span class="comment"># Additional Configuration file for specific coordinator master.</span></div><div class="line"><span class="comment"># You can define each setting by similar means as above.</span></div><div class="line">coordSpecificExtraConfig=(none none none none)</div><div class="line">coordExtraPgHba=none	<span class="comment"># Extra entry for pg_hba.conf.  This file will be added to all the coordinators' pg_hba.conf</span></div><div class="line">coordSpecificExtraPgHba=(none none none none)</div><div class="line"></div><div class="line"><span class="comment">#----- Additional Slaves -----</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Please note that this section is just a suggestion how we extend the configuration for</span></div><div class="line"><span class="comment"># multiple and cascaded replication.   They're not used in the current version.</span></div><div class="line"><span class="comment">#</span></div><div class="line">coordAdditionalSlaves=n		<span class="comment"># Additional slave can be specified as follows: where you</span></div><div class="line">coordAdditionalSlaveSet=(cad1)		<span class="comment"># Each specifies set of slaves.   This case, two set of slaves are</span></div><div class="line">											<span class="comment"># configured</span></div><div class="line">cad1_Sync=n		  		<span class="comment"># All the slaves at "cad1" are connected with asynchronous mode.</span></div><div class="line">							<span class="comment"># If not, specify "y"</span></div><div class="line">							<span class="comment"># The following lines specifies detailed configuration for each</span></div><div class="line">							<span class="comment"># slave tag, cad1.  You can define cad2 similarly.</span></div><div class="line">cad1_Servers=(node08 node09 node06 node07)	<span class="comment"># Hosts</span></div><div class="line">cad1_dir=<span class="variable">$HOME</span>/pgxc/nodes/coord_slave_cad1</div><div class="line">cad1_Dirs=(<span class="variable">$cad1_dir</span> <span class="variable">$cad1_dir</span> <span class="variable">$cad1_dir</span> <span class="variable">$cad1_dir</span>)</div><div class="line">cad1_ArchLogDir=<span class="variable">$HOME</span>/pgxc/nodes/coord_archlog_cad1</div><div class="line">cad1_ArchLogDirs=(<span class="variable">$cad1_ArchLogDir</span> <span class="variable">$cad1_ArchLogDir</span> <span class="variable">$cad1_ArchLogDir</span> <span class="variable">$cad1_ArchLogDir</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#---- Datanodes -------------------------------------------------------------------------------------------------------</span></div><div class="line"></div><div class="line"><span class="comment">#---- Shortcuts --------------</span></div><div class="line">datanodeMasterDir=<span class="variable">$pgxlDATA</span>/nodes/dn_master</div><div class="line">datanodeSlaveDir=<span class="variable">$HOME</span>/pgxc/nodes/dn_slave</div><div class="line">datanodeArchLogDir=<span class="variable">$HOME</span>/pgxc/nodes/datanode_archlog</div><div class="line"></div><div class="line"><span class="comment">#---- Overall ---------------</span></div><div class="line"><span class="comment">#primaryDatanode=datanode1				# Primary Node.</span></div><div class="line"><span class="comment"># At present, xc has a priblem to issue ALTER NODE against the primay node.  Until it is fixed, the test will be done</span></div><div class="line"><span class="comment"># without this feature.</span></div><div class="line">primaryDatanode=node1				<span class="comment"># Primary Node.</span></div><div class="line">datanodeNames=(node1 node2)</div><div class="line">datanodePorts=(5433 5433)	<span class="comment"># Master ports</span></div><div class="line">datanodePoolerPorts=(6668 6668)	<span class="comment"># Master pooler ports</span></div><div class="line">datanodePgHbaEntries=(0.0.0.0/0)	<span class="comment"># Assumes that all the coordinator (master/slave) accepts</span></div><div class="line">										<span class="comment"># the same connection</span></div><div class="line">										<span class="comment"># This list sets up pg_hba.conf for $pgxcOwner user.</span></div><div class="line">										<span class="comment"># If you'd like to setup other entries, supply them</span></div><div class="line">										<span class="comment"># through extra configuration files specified below.</span></div><div class="line"><span class="comment"># Note: The above parameter is extracted as "host all all 0.0.0.0/0 trust".   If you don't want</span></div><div class="line"><span class="comment"># such setups, specify the value () to this variable and suplly what you want using datanodeExtraPgHba</span></div><div class="line"><span class="comment"># and/or datanodeSpecificExtraPgHba variables.</span></div><div class="line"><span class="comment">#datanodePgHbaEntries=(::1/128)	# Same as above but for IPv6 addresses</span></div><div class="line"></div><div class="line"><span class="comment">#---- Master ----------------</span></div><div class="line">datanodeMasterServers=(datanode1 datanode2)	<span class="comment"># none means this master is not available.</span></div><div class="line">													<span class="comment"># This means that there should be the master but is down.</span></div><div class="line">													<span class="comment"># The cluster is not operational until the master is</span></div><div class="line">													<span class="comment"># recovered and ready to run.</span></div><div class="line">datanodeMasterDirs=(<span class="variable">$datanodeMasterDir</span> <span class="variable">$datanodeMasterDir</span>)</div><div class="line">datanodeMaxWalSender=4								<span class="comment"># max_wal_senders: needed to configure slave. If zero value is</span></div><div class="line">													<span class="comment"># specified, it is expected this parameter is explicitly supplied</span></div><div class="line">													<span class="comment"># by external configuration files.</span></div><div class="line">													<span class="comment"># If you don't configure slaves, leave this value zero.</span></div><div class="line">datanodeMaxWALSenders=(<span class="variable">$datanodeMaxWalSender</span> <span class="variable">$datanodeMaxWalSender</span>)</div><div class="line">						<span class="comment"># max_wal_senders configuration for each datanode</span></div><div class="line"></div><div class="line"><span class="comment">#---- Slave -----------------</span></div><div class="line">datanodeSlave=n			<span class="comment"># Specify y if you configure at least one coordiantor slave.  Otherwise, the following</span></div><div class="line">						<span class="comment"># configuration parameters will be set to empty values.</span></div><div class="line">						<span class="comment"># If no effective server names are found (that is, every servers are specified as none),</span></div><div class="line">						<span class="comment"># then datanodeSlave value will be set to n and all the following values will be set to</span></div><div class="line">						<span class="comment"># empty values.</span></div><div class="line">datanodeSlaveServers=(datanode2 datanode1)	<span class="comment"># value none means this slave is not available</span></div><div class="line">datanodeSlavePorts=(15433 15433)	<span class="comment"># value none means this slave is not available</span></div><div class="line">datanodeSlavePoolerPorts=(20012 20012)	<span class="comment"># value none means this slave is not available</span></div><div class="line">datanodeSlaveSync=y		<span class="comment"># If datanode slave is connected in synchronized mode</span></div><div class="line">datanodeSlaveDirs=(<span class="variable">$datanodeSlaveDir</span> <span class="variable">$datanodeSlaveDir</span>)</div><div class="line">datanodeArchLogDirs=( <span class="variable">$datanodeArchLogDir</span> <span class="variable">$datanodeArchLogDir</span> )</div><div class="line"></div><div class="line"><span class="comment"># ---- Configuration files ---</span></div><div class="line"><span class="comment"># You may supply your bash script to setup extra config lines and extra pg_hba.conf entries here.</span></div><div class="line"><span class="comment"># These files will go to corresponding files for the master.</span></div><div class="line"><span class="comment"># Or you may supply these files manually.</span></div><div class="line">datanodeExtraConfig=none	<span class="comment"># Extra configuration file for datanodes.  This file will be added to all the</span></div><div class="line">							<span class="comment"># datanodes' postgresql.conf</span></div><div class="line">datanodeSpecificExtraConfig=(none none none none)</div><div class="line">datanodeExtraPgHba=none		<span class="comment"># Extra entry for pg_hba.conf.  This file will be added to all the datanodes' postgresql.conf</span></div><div class="line">datanodeSpecificExtraPgHba=(none none none none)</div><div class="line"></div><div class="line"><span class="comment">#----- Additional Slaves -----</span></div><div class="line">datanodeAdditionalSlaves=n	<span class="comment"># Additional slave can be specified as follows: where you</span></div><div class="line"><span class="comment"># datanodeAdditionalSlaveSet=(dad1 dad2)		# Each specifies set of slaves.   This case, two set of slaves are</span></div><div class="line">											<span class="comment"># configured</span></div><div class="line"><span class="comment"># dad1_Sync=n		  		# All the slaves at "cad1" are connected with asynchronous mode.</span></div><div class="line">							<span class="comment"># If not, specify "y"</span></div><div class="line">							<span class="comment"># The following lines specifies detailed configuration for each</span></div><div class="line">							<span class="comment"># slave tag, cad1.  You can define cad2 similarly.</span></div><div class="line"><span class="comment"># dad1_Servers=(node08 node09 node06 node07)	# Hosts</span></div><div class="line"><span class="comment"># dad1_dir=$HOME/pgxc/nodes/coord_slave_cad1</span></div><div class="line"><span class="comment"># dad1_Dirs=($cad1_dir $cad1_dir $cad1_dir $cad1_dir)</span></div><div class="line"><span class="comment"># dad1_ArchLogDir=$HOME/pgxc/nodes/coord_archlog_cad1</span></div><div class="line"><span class="comment"># dad1_ArchLogDirs=($cad1_ArchLogDir $cad1_ArchLogDir $cad1_ArchLogDir $cad1_ArchLogDir)</span></div><div class="line"></div><div class="line"><span class="comment">#---- WAL archives -------------------------------------------------------------------------------------------------</span></div><div class="line">walArchive=n	<span class="comment"># If you'd like to configure WAL archive, edit this section.</span></div><div class="line">				<span class="comment"># Pgxc_ctl assumes that if you configure WAL archive, you configure it</span></div><div class="line">				<span class="comment"># for all the coordinators and datanodes.</span></div><div class="line">				<span class="comment"># Default is "no".   Please specify "y" here to turn it on.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#		End of Configuration Section</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#==========================================================================================================================</span></div><div class="line"></div><div class="line"><span class="comment">#========================================================================================================================</span></div><div class="line"><span class="comment"># The following is for extension.  Just demonstrate how to write such extension.  There's no code</span></div><div class="line"><span class="comment"># which takes care of them so please ignore the following lines.  They are simply ignored by pgxc_ctl.</span></div><div class="line"><span class="comment"># No side effects.</span></div><div class="line"><span class="comment">#=============&lt;&lt; Beginning of future extension demonistration &gt;&gt; ========================================================</span></div><div class="line"><span class="comment"># You can setup more than one backup set for various purposes, such as disaster recovery.</span></div><div class="line">walArchiveSet=(war1 war2)</div><div class="line">war1_source=(master)	<span class="comment"># you can specify master, slave or ano other additional slaves as a source of WAL archive.</span></div><div class="line">					<span class="comment"># Default is the master</span></div><div class="line">wal1_source=(slave)</div><div class="line">wal1_source=(additiona_coordinator_slave_set additional_datanode_slave_set)</div><div class="line">war1_host=node10	<span class="comment"># All the nodes are backed up at the same host for a given archive set</span></div><div class="line">war1_backupdir=<span class="variable">$HOME</span>/pgxc/backup_war1</div><div class="line">wal2_source=(master)</div><div class="line">war2_host=node11</div><div class="line">war2_backupdir=<span class="variable">$HOME</span>/pgxc/backup_war2</div><div class="line"><span class="comment">#=============&lt;&lt; End of future extension demonistration &gt;&gt; ========================================================</span></div></pre></td></tr></table></figure>
+<h4 id="初始化集群"><a href="#初始化集群" class="headerlink" title="初始化集群"></a>初始化集群</h4><p><code>pgxc_ctl -c /home/postgres/pgxc_ctl/pgxc_ctl.conf init all</code>启动<br><code>pgxc_ctl -c /home/postgres/pgxc_ctl/pgxc_ctl.conf stop all</code>关闭</p>
+<p>初始化提示内容如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div><div class="line">326</div><div class="line">327</div><div class="line">328</div><div class="line">329</div><div class="line">330</div><div class="line">331</div></pre></td><td class="code"><pre><div class="line">[postgres@localhost ~]$ pgxc_ctl -c /home/postgres/pgxc_ctl/pgxc_ctl.conf init all</div><div class="line">/bin/bash</div><div class="line">Installing pgxc_ctl_bash script as /home/postgres/pgxc_ctl/pgxc_ctl_bash.</div><div class="line">Installing pgxc_ctl_bash script as /home/postgres/pgxc_ctl/pgxc_ctl_bash.</div><div class="line">Reading configuration using /home/postgres/pgxc_ctl/pgxc_ctl_bash --home /home/postgres/pgxc_ctl --configuration /home/postgres/pgxc_ctl/pgxc_ctl.conf</div><div class="line">Finished reading configuration.</div><div class="line">   ******** PGXC_CTL START ***************</div><div class="line"></div><div class="line">Current directory: /home/postgres/pgxc_ctl</div><div class="line">Initialize GTM master</div><div class="line">The authenticity of host <span class="string">'gtm (192.168.230.143)'</span> can<span class="string">'t be established.</span></div><div class="line">ECDSA key fingerprint is cd:7e:a2:7d:9b:a9:13:10:96:e9:a4:1a:30:ab:ed:a6.</div><div class="line">Are you sure you want to continue connecting (yes/no)? yes</div><div class="line">mkdir: cannot create directory ‘/home/postgres/pgxl/data’: Permission denied</div><div class="line">The files belonging to this GTM system will be owned by user "postgres".</div><div class="line">This user must also own the server process.</div><div class="line"></div><div class="line"></div><div class="line">creating directory /home/postgres/pgxl/data/nodes/gtm ... initgtm: could not create directory "/home/postgres/pgxl/data": Permission denied</div><div class="line">bash: /home/postgres/pgxl/data/nodes/gtm/gtm.conf: No such file or directory</div><div class="line">gtm cannot access the server configuration file "/home/postgres/pgxl/data/nodes/gtm/gtm.conf": No such file or directory</div><div class="line">gtm_ctl: PID file "/home/postgres/pgxl/data/nodes/gtm/gtm.pid" does not exist</div><div class="line">Is server running?</div><div class="line">Done.</div><div class="line">Start GTM master</div><div class="line">server starting</div><div class="line">gtm cannot access the server configuration file "/home/postgres/pgxl/data/nodes/gtm/gtm.conf": No such file or directory</div><div class="line">Initialize GTM slave</div><div class="line">mkdir: cannot create directory ‘/home/postgres/pgxl/data’: Permission denied</div><div class="line">The files belonging to this GTM system will be owned by user "postgres".</div><div class="line">This user must also own the server process.</div><div class="line"></div><div class="line"></div><div class="line">creating directory /home/postgres/pgxl/data/nodes/gtmSlave ... initgtm: could not create directory "/home/postgres/pgxl/data": Permission denied</div><div class="line">bash: /home/postgres/pgxl/data/nodes/gtmSlave/gtm.conf: No such file or directory</div><div class="line">Done.</div><div class="line">Start GTM slaveserver starting</div><div class="line">gtm cannot access the server configuration file "/home/postgres/pgxl/data/nodes/gtmSlave/gtm.conf": No such file or directory</div><div class="line">Done.</div><div class="line">Initialize all the gtm proxies.</div><div class="line">Initializing gtm proxy gtm_pxy1.</div><div class="line">Initializing gtm proxy gtm_pxy2.</div><div class="line">mkdir: cannot create directory ‘/home/postgres/pgxl/data’: Permission denied</div><div class="line">The files belonging to this GTM system will be owned by user "postgres".</div><div class="line">This user must also own the server process.</div><div class="line"></div><div class="line"></div><div class="line">creating directory /home/postgres/pgxl/data/nodes/gtm_pxy ... initgtm: could not create directory "/home/postgres/pgxl/data": Permission denied</div><div class="line">bash: /home/postgres/pgxl/data/nodes/gtm_pxy/gtm_proxy.conf: No such file or directory</div><div class="line">mkdir: cannot create directory ‘/home/postgres/pgxl/data’: Permission denied</div><div class="line">The files belonging to this GTM system will be owned by user "postgres".</div><div class="line">This user must also own the server process.</div><div class="line"></div><div class="line"></div><div class="line">creating directory /home/postgres/pgxl/data/nodes/gtm_pxy ... initgtm: could not create directory "/home/postgres/pgxl/data": Permission denied</div><div class="line">bash: /home/postgres/pgxl/data/nodes/gtm_pxy/gtm_proxy.conf: No such file or directory</div><div class="line">Done.</div><div class="line">Starting all the gtm proxies.</div><div class="line">Starting gtm proxy gtm_pxy1.</div><div class="line">Starting gtm proxy gtm_pxy2.</div><div class="line">server starting</div><div class="line">gtm_proxy cannot access the server configuration file "/home/postgres/pgxl/data/nodes/gtm_pxy/gtm_proxy.conf": No such file or directory</div><div class="line">server starting</div><div class="line">gtm_proxy cannot access the server configuration file "/home/postgres/pgxl/data/nodes/gtm_pxy/gtm_proxy.conf": No such file or directory</div><div class="line">Done.</div><div class="line">Initialize all the coordinator masters.</div><div class="line">Initialize coordinator master coord1.</div><div class="line">Initialize coordinator master coord2.</div><div class="line"></div><div class="line">[postgres@gtm ~]$ pgxc_ctl -c /home/postgres/pgxc_ctl/pgxc_ctl.conf init all</div><div class="line">/bin/bash</div><div class="line">Installing pgxc_ctl_bash script as /home/postgres/pgxc_ctl/pgxc_ctl_bash.</div><div class="line">Installing pgxc_ctl_bash script as /home/postgres/pgxc_ctl/pgxc_ctl_bash.</div><div class="line">Reading configuration using /home/postgres/pgxc_ctl/pgxc_ctl_bash --home /home/postgres/pgxc_ctl --configuration /home/postgres/pgxc_ctl/pgxc_ctl.conf</div><div class="line">Finished reading configuration.</div><div class="line">   ******** PGXC_CTL START ***************</div><div class="line"></div><div class="line">Current directory: /home/postgres/pgxc_ctl</div><div class="line">Initialize GTM master</div><div class="line">ERROR: target directory (/home/postgres/pgxl/data/nodes/gtm) exists and not empty. Skip GTM initilialization</div><div class="line">1:4221830976:2017-10-26 02:15:06.915 PDT -FATAL:  lock file "gtm.pid" already exists</div><div class="line">2:4221830976:2017-10-26 02:15:06.915 PDT -HINT:  Is another GTM (PID 14702) running in data directory "/home/postgres/pgxl/data/nodes/gtm"?</div><div class="line">LOCATION:  CreateLockFile, main.c:2099</div><div class="line">waiting for server to shut down.... done</div><div class="line">server stopped</div><div class="line">Done.</div><div class="line">Start GTM master</div><div class="line">server starting</div><div class="line">Initialize GTM slave</div><div class="line">waiting for server to shut down.... done</div><div class="line">server stopped</div><div class="line">The files belonging to this GTM system will be owned by user "postgres".</div><div class="line">This user must also own the server process.</div><div class="line"></div><div class="line"></div><div class="line">fixing permissions on existing directory /home/postgres/pgxl/data/nodes/gtmSlave ... ok</div><div class="line">creating configuration files ... ok</div><div class="line">creating control file ... ok</div><div class="line"></div><div class="line">Success.</div><div class="line">Done.</div><div class="line">Start GTM slaveserver starting</div><div class="line">Done.</div><div class="line">Initialize all the gtm proxies.</div><div class="line">Initializing gtm proxy gtm_pxy1.</div><div class="line">Initializing gtm proxy gtm_pxy2.</div><div class="line">The files belonging to this GTM system will be owned by user "postgres".</div><div class="line">This user must also own the server process.</div><div class="line"></div><div class="line"></div><div class="line">fixing permissions on existing directory /home/postgres/pgxl/data/nodes/gtm_pxy ... ok</div><div class="line">creating configuration files ... ok</div><div class="line"></div><div class="line">Success.</div><div class="line">The files belonging to this GTM system will be owned by user "postgres".</div><div class="line">This user must also own the server process.</div><div class="line"></div><div class="line"></div><div class="line">fixing permissions on existing directory /home/postgres/pgxl/data/nodes/gtm_pxy ... ok</div><div class="line">creating configuration files ... ok</div><div class="line"></div><div class="line">Success.</div><div class="line">Done.</div><div class="line">Starting all the gtm proxies.</div><div class="line">Starting gtm proxy gtm_pxy1.</div><div class="line">Starting gtm proxy gtm_pxy2.</div><div class="line">server starting</div><div class="line">server starting</div><div class="line">Done.</div><div class="line">Initialize all the coordinator masters.</div><div class="line">Initialize coordinator master coord1.</div><div class="line">Initialize coordinator master coord2.</div><div class="line">The files belonging to this database system will be owned by user "postgres".</div><div class="line">This user must also own the server process.</div><div class="line"></div><div class="line">The database cluster will be initialized with locale "en_US.UTF-8".</div><div class="line">The default database encoding has accordingly been set to "UTF8".</div><div class="line">The default text search configuration will be set to "english".</div><div class="line"></div><div class="line">Data page checksums are disabled.</div><div class="line"></div><div class="line">fixing permissions on existing directory /home/postgres/pgxl/data/nodes/coord ... ok</div><div class="line">creating subdirectories ... ok</div><div class="line">selecting default max_connections ... 100</div><div class="line">selecting default shared_buffers ... 128MB</div><div class="line">selecting dynamic shared memory implementation ... posix</div><div class="line">creating configuration files ... ok</div><div class="line">running bootstrap script ... ok</div><div class="line">performing post-bootstrap initialization ... creating cluster information ... ok</div><div class="line">syncing data to disk ... ok</div><div class="line">freezing database template0 ... ok</div><div class="line">freezing database template1 ... ok</div><div class="line">freezing database postgres ... ok</div><div class="line"></div><div class="line">WARNING: enabling "trust" authentication for local connections</div><div class="line">You can change this by editing pg_hba.conf or using the option -A, or</div><div class="line">--auth-local and --auth-host, the next time you run initdb.</div><div class="line"></div><div class="line">Success.</div><div class="line">The files belonging to this database system will be owned by user "postgres".</div><div class="line">This user must also own the server process.</div><div class="line"></div><div class="line">The database cluster will be initialized with locale "en_US.UTF-8".</div><div class="line">The default database encoding has accordingly been set to "UTF8".</div><div class="line">The default text search configuration will be set to "english".</div><div class="line"></div><div class="line">Data page checksums are disabled.</div><div class="line"></div><div class="line">fixing permissions on existing directory /home/postgres/pgxl/data/nodes/coord ... ok</div><div class="line">creating subdirectories ... ok</div><div class="line">selecting default max_connections ... 100</div><div class="line">selecting default shared_buffers ... 128MB</div><div class="line">selecting dynamic shared memory implementation ... posix</div><div class="line">creating configuration files ... ok</div><div class="line">running bootstrap script ... ok</div><div class="line">performing post-bootstrap initialization ... creating cluster information ... ok</div><div class="line">syncing data to disk ... ok</div><div class="line">freezing database template0 ... ok</div><div class="line">freezing database template1 ... ok</div><div class="line">freezing database postgres ... ok</div><div class="line"></div><div class="line">WARNING: enabling "trust" authentication for local connections</div><div class="line">You can change this by editing pg_hba.conf or using the option -A, or</div><div class="line">--auth-local and --auth-host, the next time you run initdb.</div><div class="line"></div><div class="line">Success.</div><div class="line">Done.</div><div class="line">Starting coordinator master.</div><div class="line">Starting coordinator master coord1</div><div class="line">Starting coordinator master coord2</div><div class="line">2017-10-26 02:15:25.296 PDT [15951] LOG:  listening on IPv4 address "0.0.0.0", port 5432</div><div class="line">2017-10-26 02:15:25.296 PDT [15951] LOG:  listening on IPv6 address "::", port 5432</div><div class="line">2017-10-26 02:15:25.297 PDT [15951] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"</div><div class="line">2017-10-26 02:15:25.304 PDT [15951] LOG:  redirecting log output to logging collector process</div><div class="line">2017-10-26 02:15:25.304 PDT [15951] HINT:  Future log output will appear in directory "pg_log".</div><div class="line">2017-10-26 02:15:25.321 PDT [15847] LOG:  listening on IPv4 address "0.0.0.0", port 5432</div><div class="line">2017-10-26 02:15:25.321 PDT [15847] LOG:  listening on IPv6 address "::", port 5432</div><div class="line">2017-10-26 02:15:25.323 PDT [15847] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"</div><div class="line">2017-10-26 02:15:25.330 PDT [15847] LOG:  redirecting log output to logging collector process</div><div class="line">2017-10-26 02:15:25.330 PDT [15847] HINT:  Future log output will appear in directory "pg_log".</div><div class="line">Done.</div><div class="line">Initialize all the datanode masters.</div><div class="line">Initialize the datanode master node1.</div><div class="line">Initialize the datanode master node2.</div><div class="line">The files belonging to this database system will be owned by user "postgres".</div><div class="line">This user must also own the server process.</div><div class="line"></div><div class="line">The database cluster will be initialized with locale "en_US.UTF-8".</div><div class="line">The default database encoding has accordingly been set to "UTF8".</div><div class="line">The default text search configuration will be set to "english".</div><div class="line"></div><div class="line">Data page checksums are disabled.</div><div class="line"></div><div class="line">fixing permissions on existing directory /home/postgres/pgxl/data/nodes/dn_master ... ok</div><div class="line">creating subdirectories ... ok</div><div class="line">selecting default max_connections ... 100</div><div class="line">selecting default shared_buffers ... 128MB</div><div class="line">selecting dynamic shared memory implementation ... posix</div><div class="line">creating configuration files ... ok</div><div class="line">running bootstrap script ... ok</div><div class="line">performing post-bootstrap initialization ... creating cluster information ... ok</div><div class="line">syncing data to disk ... ok</div><div class="line">freezing database template0 ... ok</div><div class="line">freezing database template1 ... ok</div><div class="line">freezing database postgres ... ok</div><div class="line"></div><div class="line">WARNING: enabling "trust" authentication for local connections</div><div class="line">You can change this by editing pg_hba.conf or using the option -A, or</div><div class="line">--auth-local and --auth-host, the next time you run initdb.</div><div class="line"></div><div class="line">Success.</div><div class="line">The files belonging to this database system will be owned by user "postgres".</div><div class="line">This user must also own the server process.</div><div class="line"></div><div class="line">The database cluster will be initialized with locale "en_US.UTF-8".</div><div class="line">The default database encoding has accordingly been set to "UTF8".</div><div class="line">The default text search configuration will be set to "english".</div><div class="line"></div><div class="line">Data page checksums are disabled.</div><div class="line"></div><div class="line">fixing permissions on existing directory /home/postgres/pgxl/data/nodes/dn_master ... ok</div><div class="line">creating subdirectories ... ok</div><div class="line">selecting default max_connections ... 100</div><div class="line">selecting default shared_buffers ... 128MB</div><div class="line">selecting dynamic shared memory implementation ... posix</div><div class="line">creating configuration files ... ok</div><div class="line">running bootstrap script ... ok</div><div class="line">performing post-bootstrap initialization ... creating cluster information ... ok</div><div class="line">syncing data to disk ... ok</div><div class="line">freezing database template0 ... ok</div><div class="line">freezing database template1 ... ok</div><div class="line">freezing database postgres ... ok</div><div class="line"></div><div class="line">WARNING: enabling "trust" authentication for local connections</div><div class="line">You can change this by editing pg_hba.conf or using the option -A, or</div><div class="line">--auth-local and --auth-host, the next time you run initdb.</div><div class="line"></div><div class="line">Success.</div><div class="line">Done.</div><div class="line">Starting all the datanode masters.</div><div class="line">Starting datanode master node1.</div><div class="line">Starting datanode master node2.</div><div class="line">2017-10-26 02:15:32.075 PDT [16427] LOG:  listening on IPv4 address "0.0.0.0", port 5433</div><div class="line">2017-10-26 02:15:32.075 PDT [16427] LOG:  listening on IPv6 address "::", port 5433</div><div class="line">2017-10-26 02:15:32.077 PDT [16427] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5433"</div><div class="line">2017-10-26 02:15:32.083 PDT [16427] LOG:  redirecting log output to logging collector process</div><div class="line">2017-10-26 02:15:32.083 PDT [16427] HINT:  Future log output will appear in directory "pg_log".</div><div class="line">2017-10-26 02:15:32.109 PDT [16323] LOG:  listening on IPv4 address "0.0.0.0", port 5433</div><div class="line">2017-10-26 02:15:32.109 PDT [16323] LOG:  listening on IPv6 address "::", port 5433</div><div class="line">2017-10-26 02:15:32.111 PDT [16323] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5433"</div><div class="line">2017-10-26 02:15:32.116 PDT [16323] LOG:  redirecting log output to logging collector process</div><div class="line">2017-10-26 02:15:32.116 PDT [16323] HINT:  Future log output will appear in directory "pg_log".</div><div class="line">Done.</div><div class="line">ALTER NODE coord1 WITH (HOST='datanode1<span class="string">', PORT=5432);</span></div><div class="line">ALTER NODE</div><div class="line">CREATE NODE coord2 WITH (TYPE='coordinator<span class="string">', HOST='</span>datanode2<span class="string">', PORT=5432);</span></div><div class="line">CREATE NODE</div><div class="line">CREATE NODE node1 WITH (TYPE='datanode<span class="string">', HOST='</span>datanode1<span class="string">', PORT=5433, PRIMARY, PREFERRED);</span></div><div class="line">CREATE NODE</div><div class="line">CREATE NODE node2 WITH (TYPE='datanode<span class="string">', HOST='</span>datanode2<span class="string">', PORT=5433);</span></div><div class="line">CREATE NODE</div><div class="line">SELECT pgxc_pool_reload();</div><div class="line"> pgxc_pool_reload</div><div class="line">------------------</div><div class="line"> t</div><div class="line">(1 row)</div><div class="line"></div><div class="line">CREATE NODE coord1 WITH (TYPE='coordinator<span class="string">', HOST='</span>datanode1<span class="string">', PORT=5432);</span></div><div class="line">CREATE NODE</div><div class="line">ALTER NODE coord2 WITH (HOST='datanode2<span class="string">', PORT=5432);</span></div><div class="line">ALTER NODE</div><div class="line">CREATE NODE node1 WITH (TYPE='datanode<span class="string">', HOST='</span>datanode1<span class="string">', PORT=5433, PRIMARY);</span></div><div class="line">CREATE NODE</div><div class="line">CREATE NODE node2 WITH (TYPE='datanode<span class="string">', HOST='</span>datanode2<span class="string">', PORT=5433, PREFERRED);</span></div><div class="line">CREATE NODE</div><div class="line">SELECT pgxc_pool_reload();</div><div class="line"> pgxc_pool_reload</div><div class="line">------------------</div><div class="line"> t</div><div class="line">(1 row)</div><div class="line"></div><div class="line">Done.</div><div class="line">EXECUTE DIRECT ON (node1) 'CREATE NODE coord1 WITH (TYPE=<span class="string">''</span>coordinator<span class="string">''</span>, HOST=<span class="string">''</span>datanode1<span class="string">''</span>, PORT=5432)<span class="string">';</span></div><div class="line">EXECUTE DIRECT</div><div class="line">EXECUTE DIRECT ON (node1) 'CREATE NODE coord2 WITH (TYPE=<span class="string">''</span>coordinator<span class="string">''</span>, HOST=<span class="string">''</span>datanode2<span class="string">''</span>, PORT=5432)<span class="string">';</span></div><div class="line">EXECUTE DIRECT</div><div class="line">EXECUTE DIRECT ON (node1) 'ALTER NODE node1 WITH (TYPE=<span class="string">''</span>datanode<span class="string">''</span>, HOST=<span class="string">''</span>datanode1<span class="string">''</span>, PORT=5433, PRIMARY, PREFERRED)<span class="string">';</span></div><div class="line">EXECUTE DIRECT</div><div class="line">EXECUTE DIRECT ON (node1) 'CREATE NODE node2 WITH (TYPE=<span class="string">''</span>datanode<span class="string">''</span>, HOST=<span class="string">''</span>datanode2<span class="string">''</span>, PORT=5433, PREFERRED)<span class="string">';</span></div><div class="line">EXECUTE DIRECT</div><div class="line">EXECUTE DIRECT ON (node1) 'SELECT pgxc_pool_reload()<span class="string">';</span></div><div class="line"> pgxc_pool_reload</div><div class="line">------------------</div><div class="line"> t</div><div class="line">(1 row)</div><div class="line"></div><div class="line">EXECUTE DIRECT ON (node2) 'CREATE NODE coord1 WITH (TYPE=<span class="string">''</span>coordinator<span class="string">''</span>, HOST=<span class="string">''</span>datanode1<span class="string">''</span>, PORT=5432)<span class="string">';</span></div><div class="line">EXECUTE DIRECT</div><div class="line">EXECUTE DIRECT ON (node2) 'CREATE NODE coord2 WITH (TYPE=<span class="string">''</span>coordinator<span class="string">''</span>, HOST=<span class="string">''</span>datanode2<span class="string">''</span>, PORT=5432)<span class="string">';</span></div><div class="line">EXECUTE DIRECT</div><div class="line">EXECUTE DIRECT ON (node2) 'CREATE NODE node1 WITH (TYPE=<span class="string">''</span>datanode<span class="string">''</span>, HOST=<span class="string">''</span>datanode1<span class="string">''</span>, PORT=5433, PRIMARY, PREFERRED)<span class="string">';</span></div><div class="line">EXECUTE DIRECT</div><div class="line">EXECUTE DIRECT ON (node2) 'ALTER NODE node2 WITH (TYPE=<span class="string">''</span>datanode<span class="string">''</span>, HOST=<span class="string">''</span>datanode2<span class="string">''</span>, PORT=5433, PREFERRED)<span class="string">';</span></div><div class="line">EXECUTE DIRECT</div><div class="line">EXECUTE DIRECT ON (node2) 'SELECT pgxc_pool_reload()<span class="string">';</span></div><div class="line"> pgxc_pool_reload</div><div class="line">------------------</div><div class="line"> t</div><div class="line">(1 row)</div><div class="line"></div><div class="line">Done.</div></pre></td></tr></table></figure></p>
+<ul>
+<li>遇到的问题<br>安装时出现<code>permission denied</code><br>是因为权限不足 使用<code>sudo chmod -R 777 /usr</code><br>或<code>sudo pgxc_ctl -c /home/postgres/pgxc_ctl/pgxc_ctl.conf init all</code></li>
+</ul>
+<h3 id="集群验证"><a href="#集群验证" class="headerlink" title="集群验证"></a>集群验证</h3><p>在datanode1节点上<br>连接上5432端口，即node1上的coordinator，查看集群节点状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[postgres@datanode1 ~]$ psql -p 5432</div><div class="line">psql (PGXL 9.5r1.4, based on PG 9.5.5 (Postgres-XL 9.5r1.4))</div><div class="line">Type <span class="string">"help"</span> <span class="keyword">for</span> help.</div><div class="line"></div><div class="line">postgres=<span class="comment"># select * from pgxc_node;</span></div><div class="line"> node_name | node_type | node_port | node_host | nodeis_primary | nodeis_preferred |   node_id</div><div class="line">-----------+-----------+-----------+-----------+----------------+------------------+-------------</div><div class="line"> coord1    | C         |      5432 | datanode1 | f              | f                |  1885696643</div><div class="line"> coord2    | C         |      5432 | datanode2 | f              | f                | -1197102633</div><div class="line"> node1     | D         |      5433 | datanode1 | t              | t                |  1148549230</div><div class="line"> node2     | D         |      5433 | datanode2 | f              | f                |  -927910690</div><div class="line">(4 rows)</div></pre></td></tr></table></figure>
+<p>如上面所示，可看到2个coordinator，2个node。集群状态正常<br>尝试创建测试表test1，并插入数据</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">postgres=<span class="comment"># create table test1(id int,name text);</span></div><div class="line">CREATE TABLE</div><div class="line">postgres=<span class="comment"># insert into test1(id,name) select generate_series(1,8),'test';</span></div><div class="line">INSERT 0 8</div><div class="line">postgres=<span class="comment"># select * from test1;</span></div><div class="line"> id | name</div><div class="line">----+------</div><div class="line">  1 | <span class="built_in">test</span></div><div class="line">  2 | <span class="built_in">test</span></div><div class="line">  5 | <span class="built_in">test</span></div><div class="line">  6 | <span class="built_in">test</span></div><div class="line">  8 | <span class="built_in">test</span></div><div class="line">  3 | <span class="built_in">test</span></div><div class="line">  4 | <span class="built_in">test</span></div><div class="line">  7 | <span class="built_in">test</span></div><div class="line">(8 rows)</div><div class="line"></div><div class="line">postgres=<span class="comment"># exit</span></div><div class="line">postgres-<span class="comment"># \q</span></div></pre></td></tr></table></figure>
+<p>连接到datanode1服务器的5433端口，即node1，查看测试表的数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">[postgres@datanode1 ~]$ psql -p 5433</div><div class="line">psql (PGXL 9.5r1.4, based on PG 9.5.5 (Postgres-XL 9.5r1.4))</div><div class="line">Type <span class="string">"help"</span> <span class="keyword">for</span> help.</div><div class="line"></div><div class="line">postgres=<span class="comment"># select * from test1;</span></div><div class="line"> id | name</div><div class="line">----+------</div><div class="line">  1 | <span class="built_in">test</span></div><div class="line">  2 | <span class="built_in">test</span></div><div class="line">  5 | <span class="built_in">test</span></div><div class="line">  6 | <span class="built_in">test</span></div><div class="line">  8 | <span class="built_in">test</span></div><div class="line">(5 rows)</div></pre></td></tr></table></figure></p>
+<p>可看到表中数据是不全的<br>再去datanode2服务器查看<br>先连接到5432端口，即coordinator<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">[postgres@datanode2 ~]$ psql -p 5432</div><div class="line">psql (PGXL 9.5r1.4, based on PG 9.5.5 (Postgres-XL 9.5r1.4))</div><div class="line">Type <span class="string">"help"</span> <span class="keyword">for</span> help.</div><div class="line"></div><div class="line">postgres=<span class="comment"># select * from test1;</span></div><div class="line"> id | name</div><div class="line">----+------</div><div class="line">  1 | <span class="built_in">test</span></div><div class="line">  2 | <span class="built_in">test</span></div><div class="line">  5 | <span class="built_in">test</span></div><div class="line">  6 | <span class="built_in">test</span></div><div class="line">  8 | <span class="built_in">test</span></div><div class="line">  3 | <span class="built_in">test</span></div><div class="line">  4 | <span class="built_in">test</span></div><div class="line">  7 | <span class="built_in">test</span></div><div class="line">(8 rows)</div><div class="line"></div><div class="line">postgres=<span class="comment"># \q</span></div></pre></td></tr></table></figure></p>
+<p>再切换到5433端口，即node2<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">[postgres@datanode2 ~]$ psql -p 5433</div><div class="line">psql (PGXL 9.5r1.4, based on PG 9.5.5 (Postgres-XL 9.5r1.4))</div><div class="line">Type <span class="string">"help"</span> <span class="keyword">for</span> help.</div><div class="line"></div><div class="line">postgres=<span class="comment"># select * from test1;</span></div><div class="line"> id | name</div><div class="line">----+------</div><div class="line">  3 | <span class="built_in">test</span></div><div class="line">  4 | <span class="built_in">test</span></div><div class="line">  7 | <span class="built_in">test</span></div><div class="line">(3 rows)</div></pre></td></tr></table></figure></p>
+<p>正好是node1中缺少的那部分数据<br>证实分布式数据库集群搭建完成</p>
+<h3 id="数据库集群日常操作"><a href="#数据库集群日常操作" class="headerlink" title="数据库集群日常操作"></a>数据库集群日常操作</h3><p>关闭集群<br>在gtm服务器上执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">[postgres@gtm ~]$ pgxc_ctl -c /home/postgres/pgxc_ctl/pgxc_ctl.conf stop all</div><div class="line">/bin/bash</div><div class="line">Installing pgxc_ctl_bash script as /home/postgres/pgxc_ctl/pgxc_ctl_bash.</div><div class="line">Installing pgxc_ctl_bash script as /home/postgres/pgxc_ctl/pgxc_ctl_bash.</div><div class="line">Reading configuration using /home/postgres/pgxc_ctl/pgxc_ctl_bash --home /home/postgres/pgxc_ctl --configuration /home/postgres/pgxc_ctl/pgxc_ctl.conf</div><div class="line">Finished reading configuration.</div><div class="line">   ******** PGXC_CTL START ***************</div><div class="line"></div><div class="line">Current directory: /home/postgres/pgxc_ctl</div><div class="line">Stopping all the coordinator masters.</div><div class="line">Stopping coordinator master coord1.</div><div class="line">Stopping coordinator master coord2.</div><div class="line">Done.</div><div class="line">Stopping all the datanode masters.</div><div class="line">Stopping datanode master node1.</div><div class="line">Stopping datanode master node2.</div><div class="line">Done.</div><div class="line">Stopping all the gtm proxies.</div><div class="line">Stopping gtm proxy gtm_pxy1.</div><div class="line">Stopping gtm proxy gtm_pxy2.</div><div class="line">waiting <span class="keyword">for</span> server to shut down.... <span class="keyword">done</span></div><div class="line">server stopped</div><div class="line">waiting <span class="keyword">for</span> server to shut down.... <span class="keyword">done</span></div><div class="line">server stopped</div><div class="line">Done.</div><div class="line">Stop GTM slave</div><div class="line">waiting <span class="keyword">for</span> server to shut down.... <span class="keyword">done</span></div><div class="line">server stopped</div><div class="line">Stop GTM master</div><div class="line">waiting <span class="keyword">for</span> server to shut down.... <span class="keyword">done</span></div><div class="line">server stopped</div></pre></td></tr></table></figure></p>
+<h3 id="开启集群"><a href="#开启集群" class="headerlink" title="开启集群"></a>开启集群</h3><p>在gtm服务器上执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">[postgres@gtm ~]$ pgxc_ctl -c /home/postgres/pgxc_ctl/pgxc_ctl.conf start all</div><div class="line">/bin/bash</div><div class="line">Installing pgxc_ctl_bash script as /home/postgres/pgxc_ctl/pgxc_ctl_bash.</div><div class="line">Installing pgxc_ctl_bash script as /home/postgres/pgxc_ctl/pgxc_ctl_bash.</div><div class="line">Reading configuration using /home/postgres/pgxc_ctl/pgxc_ctl_bash --home /home/postgres/pgxc_ctl --configuration /home/postgres/pgxc_ctl/pgxc_ctl.conf</div><div class="line">Finished reading configuration.</div><div class="line">   ******** PGXC_CTL START ***************</div><div class="line"></div><div class="line">Current directory: /home/postgres/pgxc_ctl</div><div class="line">Start GTM master</div><div class="line">server starting</div><div class="line">Start GTM slaveserver starting</div><div class="line">Done.</div><div class="line">Starting all the gtm proxies.</div><div class="line">Starting gtm proxy gtm_pxy1.</div><div class="line">Starting gtm proxy gtm_pxy2.</div><div class="line">server starting</div><div class="line">server starting</div><div class="line">Done.</div><div class="line">Starting coordinator master.</div><div class="line">Starting coordinator master coord1</div><div class="line">Starting coordinator master coord2</div><div class="line">2017-10-26 20:21:35.537 PDT [22477] LOG:  listening on IPv4 address <span class="string">"0.0.0.0"</span>, port 5432</div><div class="line">2017-10-26 20:21:35.538 PDT [22477] LOG:  listening on IPv6 address <span class="string">"::"</span>, port 5432</div><div class="line">2017-10-26 20:21:35.539 PDT [22477] LOG:  listening on Unix socket <span class="string">"/tmp/.s.PGSQL.5432"</span></div><div class="line">2017-10-26 20:21:35.556 PDT [22477] LOG:  redirecting <span class="built_in">log</span> output to logging collector process</div><div class="line">2017-10-26 20:21:35.556 PDT [22477] HINT:  Future <span class="built_in">log</span> output will appear <span class="keyword">in</span> directory <span class="string">"pg_log"</span>.</div><div class="line">2017-10-26 20:21:35.563 PDT [22504] LOG:  listening on IPv4 address <span class="string">"0.0.0.0"</span>, port 5432</div><div class="line">2017-10-26 20:21:35.563 PDT [22504] LOG:  listening on IPv6 address <span class="string">"::"</span>, port 5432</div><div class="line">2017-10-26 20:21:35.565 PDT [22504] LOG:  listening on Unix socket <span class="string">"/tmp/.s.PGSQL.5432"</span></div><div class="line">2017-10-26 20:21:35.583 PDT [22504] LOG:  redirecting <span class="built_in">log</span> output to logging collector process</div><div class="line">2017-10-26 20:21:35.583 PDT [22504] HINT:  Future <span class="built_in">log</span> output will appear <span class="keyword">in</span> directory <span class="string">"pg_log"</span>.</div><div class="line">Done.</div><div class="line">Starting all the datanode masters.</div><div class="line">Starting datanode master node1.</div><div class="line">Starting datanode master node2.</div><div class="line">2017-10-26 20:21:36.360 PDT [22590] LOG:  listening on IPv4 address <span class="string">"0.0.0.0"</span>, port 5433</div><div class="line">2017-10-26 20:21:36.360 PDT [22590] LOG:  listening on IPv6 address <span class="string">"::"</span>, port 5433</div><div class="line">2017-10-26 20:21:36.362 PDT [22590] LOG:  listening on Unix socket <span class="string">"/tmp/.s.PGSQL.5433"</span></div><div class="line">2017-10-26 20:21:36.382 PDT [22590] LOG:  redirecting <span class="built_in">log</span> output to logging collector process</div><div class="line">2017-10-26 20:21:36.382 PDT [22590] HINT:  Future <span class="built_in">log</span> output will appear <span class="keyword">in</span> directory <span class="string">"pg_log"</span>.</div><div class="line">2017-10-26 20:21:36.374 PDT [22617] LOG:  listening on IPv4 address <span class="string">"0.0.0.0"</span>, port 5433</div><div class="line">2017-10-26 20:21:36.374 PDT [22617] LOG:  listening on IPv6 address <span class="string">"::"</span>, port 5433</div><div class="line">2017-10-26 20:21:36.375 PDT [22617] LOG:  listening on Unix socket <span class="string">"/tmp/.s.PGSQL.5433"</span></div><div class="line">2017-10-26 20:21:36.395 PDT [22617] LOG:  redirecting <span class="built_in">log</span> output to logging collector process</div><div class="line">2017-10-26 20:21:36.395 PDT [22617] HINT:  Future <span class="built_in">log</span> output will appear <span class="keyword">in</span> directory <span class="string">"pg_log"</span>.</div><div class="line">Done.</div></pre></td></tr></table></figure>
+<h4 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h4><p><a href="http://blog.csdn.net/sunbocong/article/details/78363453" target="_blank" rel="external">Postgres-XL 9.5简易搭建</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/分布式/" rel="tag"># 分布式</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2018/01/06/nginx/" rel="next" title="nginx安装">
+                <i class="fa fa-chevron-left"></i> nginx安装
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/blog/uploads/1.jpg"
+               alt="Summer" />
+          <p class="site-author-name" itemprop="name">Summer</p>
+           
+              <p class="site-description motion-element" itemprop="description">小思</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/blog/archives/">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/blog/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/blog/tags/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/rsl140" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/140l" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方案"><span class="nav-number">1.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CentOS7-安装问题集"><span class="nav-number">2.</span> <span class="nav-text">CentOS7 安装问题集</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nginx"><span class="nav-number">3.</span> <span class="nav-text">nginx</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#keepalives"><span class="nav-number">4.</span> <span class="nav-text">keepalives</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">4.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">4.2.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">4.3.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载"><span class="nav-number">4.3.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压"><span class="nav-number">4.3.2.</span> <span class="nav-text">解压</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-1"><span class="nav-number">4.3.3.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">4.3.4.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动"><span class="nav-number">4.3.5.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主配置文件"><span class="nav-number">4.3.6.</span> <span class="nav-text">主配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#备配置文件"><span class="nav-number">4.3.7.</span> <span class="nav-text">备配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#节点A配置文件"><span class="nav-number">4.3.8.</span> <span class="nav-text">节点A配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#节点B配置文件"><span class="nav-number">4.3.9.</span> <span class="nav-text">节点B配置文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">4.4.</span> <span class="nav-text">问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#redis"><span class="nav-number">5.</span> <span class="nav-text">redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-下载解压安装redis"><span class="nav-number">5.1.</span> <span class="nav-text">1.下载解压安装redis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1redis源文件"><span class="nav-number">5.1.1.</span> <span class="nav-text">1.1redis源文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2解压redis"><span class="nav-number">5.1.2.</span> <span class="nav-text">1.2解压redis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3编译安装redis"><span class="nav-number">5.1.3.</span> <span class="nav-text">1.3编译安装redis</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Redis的部署"><span class="nav-number">5.2.</span> <span class="nav-text">2.Redis的部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1执行Redis-server-命令，启动Redis-服务"><span class="nav-number">5.2.1.</span> <span class="nav-text">2.1执行Redis-server 命令，启动Redis 服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-tomcat配置"><span class="nav-number">5.3.</span> <span class="nav-text">3.tomcat配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-jar包"><span class="nav-number">5.3.1.</span> <span class="nav-text">3.1 jar包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-content-xml配置"><span class="nav-number">5.3.2.</span> <span class="nav-text">3.2 content.xml配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Redis能随系统启动"><span class="nav-number">5.3.3.</span> <span class="nav-text">配置Redis能随系统启动:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis服务查看、开启、关闭"><span class="nav-number">5.3.4.</span> <span class="nav-text">Redis服务查看、开启、关闭:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Postgres-XL"><span class="nav-number">6.</span> <span class="nav-text">Postgres-XL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#centos7安装："><span class="nav-number">6.1.</span> <span class="nav-text">centos7安装：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在所有主机上安装Postgres-XL"><span class="nav-number">6.1.1.</span> <span class="nav-text">在所有主机上安装Postgres-XL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在每台机器的-etc-hosts中加入以下内容："><span class="nav-number">6.1.1.1.</span> <span class="nav-text">在每台机器的 /etc/hosts中加入以下内容：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭防火墙："><span class="nav-number">6.1.1.2.</span> <span class="nav-text">关闭防火墙：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#selinux设置"><span class="nav-number">6.1.1.3.</span> <span class="nav-text">selinux设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装依赖包"><span class="nav-number">6.1.1.4.</span> <span class="nav-text">安装依赖包:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新建用户"><span class="nav-number">6.1.1.5.</span> <span class="nav-text">新建用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ssh免密码登录-只在gtm下做"><span class="nav-number">6.1.1.6.</span> <span class="nav-text">ssh免密码登录(只在gtm下做)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Postgres-XL安装-每台服务器都要操作"><span class="nav-number">6.1.1.7.</span> <span class="nav-text">Postgres-XL安装(每台服务器都要操作)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置环境变量"><span class="nav-number">6.1.1.8.</span> <span class="nav-text">配置环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改文件夹所有者"><span class="nav-number">6.1.1.9.</span> <span class="nav-text">修改文件夹所有者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成pgxc-ctl配置文件-只在gtm下做"><span class="nav-number">6.1.1.10.</span> <span class="nav-text">生成pgxc_ctl配置文件(只在gtm下做)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编辑pgxc-ctl-conf文件"><span class="nav-number">6.1.1.11.</span> <span class="nav-text">编辑pgxc_ctl.conf文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置内容如下："><span class="nav-number">6.1.1.12.</span> <span class="nav-text">配置内容如下：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化集群"><span class="nav-number">6.1.1.13.</span> <span class="nav-text">初始化集群</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集群验证"><span class="nav-number">6.1.2.</span> <span class="nav-text">集群验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库集群日常操作"><span class="nav-number">6.1.3.</span> <span class="nav-text">数据库集群日常操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启集群"><span class="nav-number">6.1.4.</span> <span class="nav-text">开启集群</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参考文档"><span class="nav-number">6.1.4.1.</span> <span class="nav-text">参考文档</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Summer</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'xiaosi';
+      var disqus_identifier = '2018/06/19/fbs/';
+
+      var disqus_title = "分布式部署安装方案";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
