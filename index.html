@@ -509,8 +509,7 @@
 
       
         
-          
-            <blockquote>
+          <blockquote>
 <p>安装nginx</p>
 </blockquote>
 <h1 id="安装开发环境"><a href="#安装开发环境" class="headerlink" title="安装开发环境"></a>安装开发环境</h1><blockquote>
@@ -523,75 +522,18 @@
 <p><code>yum install gcc-c++</code></p>
 <h2 id="pcre-zlib-ssl安装"><a href="#pcre-zlib-ssl安装" class="headerlink" title="pcre zlib ssl安装"></a>pcre zlib ssl安装</h2><p>一般我们都需要先装pcre, zlib，前者为了重写rewrite，后者为了gzip压缩。</p>
 <p>1.选定目录<br><code>cd /usr/local/src</code>以下下载文件均放置在次文件夹下 请使用sudo权限</p>
-<h3 id="pcre"><a href="#pcre" class="headerlink" title="pcre"></a>pcre</h3><p><a href="ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/" target="_blank" rel="external">下载地址:ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/</a></p>
+<h3 id="pcre"><a href="#pcre" class="headerlink" title="pcre"></a>pcre</h3><p><a href="ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/">下载地址:ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/</a></p>
 <blockquote>
 <p>Ububtu16.4安装方法：</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.41.tar.gz</div><div class="line">tar -zxvf pcre-8.41.tar.gz</div><div class="line"><span class="built_in">cd</span> pcre-8.34</div><div class="line">./configure</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
-<blockquote>
-<p>CentOS7安装方法：</p>
-</blockquote>
-<p><code>yum install -y pcre pcre-devel</code></p>
-<h3 id="zlib"><a href="#zlib" class="headerlink" title="zlib"></a>zlib</h3><p><a href="http://zlib.net/" target="_blank" rel="external">下载地址:http://zlib.net/</a></p>
-<blockquote>
-<p>Ububtu16.4安装方法：</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wget http://zlib.net/zlib-1.2.11.tar.gz</div><div class="line">tar -zxvf zlib-1.2.11.tar.gz</div><div class="line"><span class="built_in">cd</span> zlib-1.2.11</div><div class="line">./configure</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
-<blockquote>
-<p>CentOS7安装方法：</p>
-</blockquote>
-<p> <code>yum install -y zlib zlib-devel</code></p>
-<h3 id="ssl-不要make-否则有坑"><a href="#ssl-不要make-否则有坑" class="headerlink" title="ssl (不要make 否则有坑)"></a>ssl (不要make 否则有坑)</h3><p><a href="https://www.openssl.org/source/" target="_blank" rel="external">下载地址:https://www.openssl.org/source/</a></p>
-<blockquote>
-<p>Ububtu16.4安装方法：</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">wget https://www.openssl.org/<span class="built_in">source</span>/openssl-1.0.2n.tar.gz</div><div class="line">tar -zxvf openssl-1.0.2n.tar.gz</div><div class="line"></div><div class="line">apt-get install openssl</div><div class="line">apt-get install libssl-dev</div></pre></td></tr></table></figure>
-<blockquote>
-<p>CentOS7安装方法：</p>
-</blockquote>
-<p><code>yum install -y openssl openssl-devel</code></p>
-<h3 id="nginx安装-我是直接安装的"><a href="#nginx安装-我是直接安装的" class="headerlink" title="nginx安装(我是直接安装的)"></a>nginx安装(我是直接安装的)</h3><p><a href="http://nginx.org/en/download.html" target="_blank" rel="external">下载地址:http://nginx.org/en/download.html</a></p>
-<blockquote>
-<p>Ububtu16.4安装方法：</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wget http://nginx.org/download/nginx-1.12.2.tar.gz</div><div class="line">tar -zxvf nginx-1.12.2.tar.gz</div><div class="line"><span class="built_in">cd</span> nginx-1.12.2</div><div class="line">./configure</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
-<blockquote>
-<p>CentOS7安装方法：</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wget -c http://nginx.org/download/nginx-1.12.2.tar.gz</div><div class="line">tar -zxvf nginx-1.12.2.tar.gz</div><div class="line"><span class="built_in">cd</span> nginx-1.12.2</div><div class="line">./configure</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
-<h3 id="安装成功"><a href="#安装成功" class="headerlink" title="安装成功"></a>安装成功</h3><p>进入/usr/local/nginx目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">client_body_temp  fastcgi_temp  logs        sbin       uwsgi_temp</div><div class="line">conf              html          proxy_temp  scgi_temp</div></pre></td></tr></table></figure></p>
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>进入/sbin <code>请使用sudo权限</code><br>启动：<code>./nginx</code><br>停止：<code>./nginx -s stop</code><br>重启：<code>./nginx -s reload</code></p>
-<h3 id="VUE-NGINX-服务器配置"><a href="#VUE-NGINX-服务器配置" class="headerlink" title="VUE NGINX 服务器配置"></a>VUE NGINX 服务器配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">    listen       8089;</div><div class="line">    server_name  localhost;</div><div class="line">    root   E:/git/Dofar/dist/;<span class="comment">#文件地址</span></div><div class="line">    index  index.html index.htm;<span class="comment">#文件指向页面</span></div><div class="line">    <span class="comment">#charset koi8-r;</span></div><div class="line"></div><div class="line">    <span class="comment">#access_log  logs/host.access.log  main;</span></div><div class="line"></div><div class="line">    location / &#123;</div><div class="line">         try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ @router;<span class="comment">#前端路由导航</span></div><div class="line">         index index.html;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">    location @router &#123;</div><div class="line">        rewrite ^.*$ /index.html last;<span class="comment">#前端路由导航</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="负载均衡策略"><a href="#负载均衡策略" class="headerlink" title="负载均衡策略"></a>负载均衡策略</h3><p>nginx可以根据客户端IP进行负载均衡，在upstream里设置ip_hash，就可以针对同一个C类地址段中的客户端选择同一个后端服务器，除非那个后端服务器宕了才会换一个。</p>
-<p>nginx的upstream目前支持的5种方式的分配</p>
-<h4 id="1、轮询（默认）"><a href="#1、轮询（默认）" class="headerlink" title="1、轮询（默认）"></a>1、轮询（默认）</h4><p>每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器down掉，能自动剔除。</p>
-<blockquote>
-<p>upstream backserver {<br>server 192.168.0.14;<br>server 192.168.0.15;<br>}</p>
-</blockquote>
-<h4 id="2、指定权重"><a href="#2、指定权重" class="headerlink" title="2、指定权重"></a>2、指定权重</h4><p>指定轮询几率，weight和访问比率成正比，用于后端服务器性能不均的情况。</p>
-<blockquote>
-<p>upstream backserver {<br>server 192.168.0.14 weight=10;<br>server 192.168.0.15 weight=10;<br>}</p>
-</blockquote>
-<h4 id="3、IP绑定-ip-hash"><a href="#3、IP绑定-ip-hash" class="headerlink" title="3、IP绑定 ip_hash"></a>3、IP绑定 ip_hash</h4><p>每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。</p>
-<blockquote>
-<p>upstream backserver {<br>ip_hash;<br>server 192.168.0.14:88;<br>server 192.168.0.15:80;<br>}</p>
-</blockquote>
-<h4 id="4、fair（第三方）"><a href="#4、fair（第三方）" class="headerlink" title="4、fair（第三方）"></a>4、fair（第三方）</h4><p>按后端服务器的响应时间来分配请求，响应时间短的优先分配。</p>
-<blockquote>
-<p>upstream backserver {<br>server server1;<br>server server2;<br>fair;<br>}</p>
-</blockquote>
-<h4 id="5、url-hash（第三方）"><a href="#5、url-hash（第三方）" class="headerlink" title="5、url_hash（第三方）"></a>5、url_hash（第三方）</h4><p>按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。</p>
-<blockquote>
-<p>upstream backserver {<br>server squid1:3128;<br>server squid2:3128;<br>hash $request_uri;<br>hash_method crc32;<br>}</p>
-</blockquote>
-<p>在需要使用负载均衡的server中增加</p>
-<blockquote>
-<p>upstream backserver{<br>ip_hash;<br>server 127.0.0.1:9090 down; (down 表示单前的server暂时不参与负载)<br>server 127.0.0.1:8080 weight=2; (weight 默认为1.weight越大，负载的权重就越大)<br>server 127.0.0.1:6060;<br>server 127.0.0.1:7070 backup; (其它所有的非backup机器down或者忙的时候，请求backup机器)<br>}<br>location / {<br>    proxy_pass <a href="http://backserver/" target="_blank" rel="external">http://backserver/</a> ;<br>}</p>
-</blockquote>
-<p>max_fails ：允许请求失败的次数默认为1.当超过最大次数时，返回proxy_next_upstream 模块定义的错误<br>fail_timeout:max_fails次失败后，暂停的时间</p>
-<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="http://www.nginx.cn/install" target="_blank" rel="external">Nginx安装</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2018/01/06/nginx/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1360,7 +1302,7 @@
 </blockquote>
 <h1 id="JSP-页面元素"><a href="#JSP-页面元素" class="headerlink" title="JSP 页面元素"></a>JSP 页面元素</h1><ul>
 <li>静态内容 HTML静态文本</li>
-<li>指令 以”<a href="&#x6d;&#97;&#105;&#108;&#116;&#111;&#x3a;&#x25;&#64;&#34;&#x5f00;&#x59cb;&#xff0c;&#x4ee5;&#34;&#37;&#x22;&#x22;">&#x25;&#64;&#34;&#x5f00;&#x59cb;&#xff0c;&#x4ee5;&#34;&#37;&#x22;&#x22;</a>结束</li>
+<li>指令 以”<a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#x25;&#64;&#x22;&#24320;&#22987;&#65292;&#x4ee5;&#34;&#x25;&#x22;&#x22;">&#x25;&#64;&#x22;&#24320;&#22987;&#65292;&#x4ee5;&#34;&#x25;&#x22;&#x22;</a>结束</li>
 <li>小脚本 &lt;%java代码 %&gt;</li>
 <li>表达式 &lt;%=java表达式 %&gt;</li>
 <li>声明 &lt;%! 方法%&gt;</li>
