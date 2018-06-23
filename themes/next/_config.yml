@@ -137,7 +137,7 @@ font:
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
   GitHub: http://github.com/rsl140
-  微博: http://weibo.com/140l
+  # 微博: http://weibo.com/140l
 
 
 # Social Links Icons
