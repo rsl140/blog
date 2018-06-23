@@ -148,7 +148,7 @@ hexo new page "about"
 #git checkout hexo  //切换到hexo分支上
 #git remote add origin git@github.com:user/user.github.io.git  //将本地与Github项目对接
 #git push origin hexo  //push到Github项目的hexo分支上
-
+```
 其他终端使用：
 
 > 前提:nodejs,git,hexo已经安装好，并配置好环境变量。
@@ -159,4 +159,3 @@ hexo new page "about"
 #npm install
 ```
 [参考原文](https://blog.csdn.net/shile/article/details/78714189)
-```
