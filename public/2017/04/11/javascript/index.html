@@ -1,0 +1,850 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="看了javascript高级程序设计后对js的一些归纳总结，以及一些面试题的代码
+
+概念
+js的对象均继承于boject
+call() 调用一个对象的一个方法，以另一个对象替换当前对象(第二参数任意)
+apply() 应用某一对象的一个方法，用另一个对象替换当前对象(第二参数必须为数组或argument)
+callee,caller(递归)
+=== 全等 与==的区别在于操作数未经任何转换时就相">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript">
+<meta property="og:url" content="https://rsl140.github.io/blog/2017/04/11/javascript/index.html">
+<meta property="og:site_name" content="XiaoSi">
+<meta property="og:description" content="看了javascript高级程序设计后对js的一些归纳总结，以及一些面试题的代码
+
+概念
+js的对象均继承于boject
+call() 调用一个对象的一个方法，以另一个对象替换当前对象(第二参数任意)
+apply() 应用某一对象的一个方法，用另一个对象替换当前对象(第二参数必须为数组或argument)
+callee,caller(递归)
+=== 全等 与==的区别在于操作数未经任何转换时就相">
+<meta property="og:updated_time" content="2017-09-06T09:24:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript">
+<meta name="twitter:description" content="看了javascript高级程序设计后对js的一些归纳总结，以及一些面试题的代码
+
+概念
+js的对象均继承于boject
+call() 调用一个对象的一个方法，以另一个对象替换当前对象(第二参数任意)
+apply() 应用某一对象的一个方法，用另一个对象替换当前对象(第二参数必须为数组或argument)
+callee,caller(递归)
+=== 全等 与==的区别在于操作数未经任何转换时就相">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://rsl140.github.io/blog/2017/04/11/javascript/"/>
+
+
+
+
+
+  <title> javascript | XiaoSi </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">XiaoSi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://rsl140.github.io/blog/blog/2017/04/11/javascript/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Summer">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/uploads/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoSi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                javascript
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-11T11:10:07+08:00">
+                2017-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/FE/" itemprop="url" rel="index">
+                    <span itemprop="name">FE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2017/04/11/javascript/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/04/11/javascript/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">阅读次数</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>看了javascript高级程序设计后对js的一些归纳总结，以及一些面试题的代码</p>
+</blockquote>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><ul>
+<li>js的对象均继承于boject</li>
+<li>call() 调用一个对象的一个方法，以另一个对象替换当前对象(第二参数任意)</li>
+<li>apply() 应用某一对象的一个方法，用另一个对象替换当前对象(第二参数必须为数组或argument)</li>
+<li>callee,caller(递归)</li>
+<li>=== 全等 与==的区别在于操作数未经任何转换时就相等(==在对比的时候做了隐式转换)。</li>
+<li>prototype(原型) 指向一个对象(指针)</li>
+<li>hasOwnProperty() 确定用的是实例还是原型对象</li>
+<li>push() 向数组的末尾添加一个或多个元素，并返回新的长度</li>
+<li>unshift() 向数组的开头添加一个或更多元素，并返回新的长度。</li>
+<li>pop() 删除并返回数组的最后一个元素</li>
+<li>shift() 删除并返回数组的第一个元素</li>
+<li>构造函数是一种可初始化其类的实例的成员函数。 构造函数具有与类相同的名称，没有返回值。 构造函数可以具有任意数量的参数，类可以具有任意数量的重载构造函数。</li>
+<li>闭包就是能够读取其他函数内部变量的函数<a id="more"></a>
+<h1 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h1></li>
+</ul>
+<h2 id="slice-方法"><a href="#slice-方法" class="headerlink" title="slice() 方法"></a>slice() 方法</h2><ul>
+<li>可提取字符串的某个部分，并以新的字符串返回被提取的部分。</li>
+<li>从 start 开始（包括 start）到 end 结束（不包括 end）为止的所有字符</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stringObject.slice(start,end)</div></pre></td></tr></table></figure>
+<h2 id="sort-方法"><a href="#sort-方法" class="headerlink" title="sort() 方法"></a>sort() 方法</h2><p>用于对数组的元素进行排序<br>如果想按照其他标准进行排序，就需要提供比较函数，该函数要比较两个值，然后返回一个用于说明这两个值的相对顺序的数字。<br>比较函数应该具有两个参数 a 和 b，其返回值如下： </p>
+<ul>
+<li>若 a 小于 b，在排序后的数组中a应该出现在b之前，则返回一个小于0的值。那么 a 会被排列到 b 之前</li>
+<li>若 a 等于 b，则返回 0。 </li>
+<li>若 a 大于 b，则返回一个大于 0 的值。b 会被排列到 a 之前<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank" rel="external">参考资料</a><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr=[<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">52010</span>,<span class="number">3001</span>,<span class="number">20</span>,<span class="number">123</span>]</div><div class="line">    arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(a &lt; b)&#123;<span class="keyword">return</span> <span class="number">-1</span>;&#125;<span class="comment">// a 会被排列到 b 之前</span></div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a &gt; b)&#123;<span class="keyword">return</span> <span class="number">1</span>;&#125;<span class="comment">// b 会被排列到 a 之前</span></div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a == b)&#123;<span class="keyword">return</span> <span class="number">0</span>;&#125;<span class="comment">//此时不排序</span></div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    data.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> a[<span class="number">1</span>] - b[<span class="number">1</span>];<span class="comment">//升序排列</span></div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="jq"><a href="#jq" class="headerlink" title="jq"></a>jq</h2><h3 id="siblings-方法"><a href="#siblings-方法" class="headerlink" title="siblings()方法"></a>siblings()方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#navli'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; $(<span class="keyword">this</span>).addClass(<span class="string">'active'</span>).siblings().removeClass(<span class="string">'active'</span>); &#125;);<span class="comment">//当前元素添加active样式，同辈元素删除active样式</span></div></pre></td></tr></table></figure>
+<h1 id="SetTimeout与setInterval区别"><a href="#SetTimeout与setInterval区别" class="headerlink" title="SetTimeout与setInterval区别"></a>SetTimeout与setInterval区别</h1><ul>
+<li>setTimeout   在执行时,是在载入后延迟指定时间后,去执行一次表达式,仅执行一次</li>
+<li>setInterval 在执行时,它从载入后,每隔指定的时间就执行一次表达式</li>
+</ul>
+<p>setTimeout (表达式,延时时间)<br>setInterval(表达式,交互时间)<br>延时时间/交互时间是以豪秒为单位的(1000ms=1s)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">run</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// 其他代码</span></div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        run();</div><div class="line">    &#125;, <span class="number">10000</span>);</div><div class="line">&#125;</div><div class="line">run();</div></pre></td></tr></table></figure></p>
+<p>以上面的代码来说, 虽然设置的是10s执行一次, 但是实际时间却是需要<code>// 其他代码的执行时间</code>来确定<br>即setTimeout的间隔时间是, <code>// 其他代码执行时间</code> + 10s</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    run();</div><div class="line">&#125;, <span class="number">10000</span>);</div></pre></td></tr></table></figure>
+<p>而setInterval, 不会有上面的问题, 但是如果run()的执行时间, 操作大于10s, 那么甚至可能跳过任务<br><a href="https://segmentfault.com/q/1010000005989491" target="_blank" rel="external">参考资料</a></p>
+<hr>
+<h1 id="有关JS的面试题"><a href="#有关JS的面试题" class="headerlink" title="有关JS的面试题"></a>有关JS的面试题</h1><h2 id="删除数组内重复内容"><a href="#删除数组内重复内容" class="headerlink" title="删除数组内重复内容"></a>删除数组内重复内容</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr=[<span class="number">7</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="string">"abc"</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">9</span>,<span class="number">3</span>,<span class="number">25</span>,<span class="number">4</span>,<span class="string">"abc"</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">deletRepeat</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> renArray=[];<span class="comment">//空数组用来存储删除重复内容后的数组</span></div><div class="line">    <span class="keyword">var</span> obj=&#123;&#125;;<span class="comment">//创建一个空对象</span></div><div class="line">    <span class="keyword">var</span> index = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</div><div class="line">        <span class="keyword">if</span>(obj[arr[i]]==<span class="literal">undefined</span>)&#123;<span class="comment">//当对象中没有对应的内容时返回undefined</span></div><div class="line">            renArray[index]=arr[i];</div><div class="line">            index++;</div><div class="line">            obj[arr[i]]=<span class="number">1</span>;<span class="comment">//为当前对象添加一个值为1</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(obj[arr[i]]==<span class="number">1</span>)&#123;</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> renArray;</div><div class="line">&#125;</div><div class="line">alert(deletRepeat(arr));</div></pre></td></tr></table></figure>
+<h2 id="数组的随机排序"><a href="#数组的随机排序" class="headerlink" title="数组的随机排序"></a>数组的随机排序</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>]; </div><div class="line"></div><div class="line"><span class="comment">//方法一：</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">randSort1</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>,len = arr.length;i &lt; len; i++ )&#123;</div><div class="line">        <span class="keyword">var</span> rand = <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random()*len);</div><div class="line">        <span class="keyword">var</span> temp = arr[rand];</div><div class="line">        arr[rand] = arr[i];</div><div class="line">        arr[i] = temp;</div><div class="line">        &#125;</div><div class="line">    <span class="keyword">return</span> arr;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(randSort1(arr));</div><div class="line"><span class="comment">//方法二:</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">randSort2</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> mixedArray = [];</div><div class="line">    <span class="keyword">while</span>(arr.length &gt; <span class="number">0</span>)&#123;</div><div class="line">        <span class="keyword">var</span> randomIndex = <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random()*arr.length);</div><div class="line">        mixedArray.push(arr[randomIndex]);</div><div class="line">        arr.splice(randomIndex, <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> mixedArray;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(randSort2(arr));</div><div class="line"><span class="comment">//方法三:  </span></div><div class="line">    arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.random() - <span class="number">0.5</span>;</div><div class="line">    &#125;)</div><div class="line">    <span class="built_in">console</span>.log(arr);</div></pre></td></tr></table></figure>
+<h1 id="一个有意思的题目："><a href="#一个有意思的题目：" class="headerlink" title="一个有意思的题目："></a>一个有意思的题目：</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert (<span class="number">1</span>); &#125;;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">&#125;</div><div class="line">Foo.getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert (<span class="number">2</span>);&#125;;</div><div class="line">Foo.prototype.getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert (<span class="number">3</span>);&#125;;</div><div class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert (<span class="number">4</span>);&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123; alert (<span class="number">5</span>);&#125;</div><div class="line"></div><div class="line"><span class="comment">//请写出以下输出结果：</span></div><div class="line">Foo.getName();<span class="comment">//2</span></div><div class="line">getName();<span class="comment">//4</span></div><div class="line">Foo().getName();<span class="comment">//1</span></div><div class="line">getName();<span class="comment">//1</span></div><div class="line"><span class="keyword">new</span> Foo.getName();<span class="comment">//2</span></div><div class="line"><span class="keyword">new</span> Foo().getName();<span class="comment">//3</span></div><div class="line"><span class="keyword">new</span> <span class="keyword">new</span> Foo().getName();<span class="comment">//3</span></div></pre></td></tr></table></figure>
+<p><a href="http://www.cnblogs.com/xxcanghai/p/5189353.html" target="_blank" rel="external">参考资料</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2017/04/11/Markdown/" rel="next" title="Markdown的语法">
+                <i class="fa fa-chevron-left"></i> Markdown的语法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2017/04/11/draft/" rel="prev" title="hexo draft 草稿">
+                hexo draft 草稿 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/blog/uploads/1.jpg"
+               alt="Summer" />
+          <p class="site-author-name" itemprop="name">Summer</p>
+           
+              <p class="site-description motion-element" itemprop="description">小思</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/blog/archives/">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/blog/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/blog/tags/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/rsl140" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/140l" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#笔记"><span class="nav-number">2.</span> <span class="nav-text">笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#slice-方法"><span class="nav-number">2.1.</span> <span class="nav-text">slice() 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sort-方法"><span class="nav-number">2.2.</span> <span class="nav-text">sort() 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jq"><span class="nav-number">2.3.</span> <span class="nav-text">jq</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#siblings-方法"><span class="nav-number">2.3.1.</span> <span class="nav-text">siblings()方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SetTimeout与setInterval区别"><span class="nav-number">3.</span> <span class="nav-text">SetTimeout与setInterval区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#有关JS的面试题"><span class="nav-number">4.</span> <span class="nav-text">有关JS的面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#删除数组内重复内容"><span class="nav-number">4.1.</span> <span class="nav-text">删除数组内重复内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的随机排序"><span class="nav-number">4.2.</span> <span class="nav-text">数组的随机排序</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一个有意思的题目："><span class="nav-number">5.</span> <span class="nav-text">一个有意思的题目：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Summer</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'xiaosi';
+      var disqus_identifier = '2017/04/11/javascript/';
+
+      var disqus_title = "javascript";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

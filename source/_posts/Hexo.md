@@ -135,3 +135,28 @@ hexo new page "about"
 	language: zh-Hans #中文
 	timezone:   Asia/Shanghai #北京时间
 ```
+#### github备份
+
+``` bash
+//假设hexo文件夹是已经生成的hexo博客目录
+//如果themes/next(风格名字目录)下面有.git，请删除这个.git文件夹。
+#cd hexo
+#git init  //初始化本地仓库
+#git add source themes scaffolds _config.yml package.json package-lock.json  //将必要的文件依次添加
+#git commit -m "blog hexo"
+#git branch hexo  //新建hexo分支
+#git checkout hexo  //切换到hexo分支上
+#git remote add origin git@github.com:user/user.github.io.git  //将本地与Github项目对接
+#git push origin hexo  //push到Github项目的hexo分支上
+
+其他终端使用：
+
+> 前提:nodejs,git,hexo已经安装好，并配置好环境变量。
+
+``` bash
+#git clone -b hexo git@github.com:user/user.github.io.git  //将Github中hexo分支clone到本地
+#cd user.github.io
+#npm install
+```
+[参考原文](https://blog.csdn.net/shile/article/details/78714189)
+```
