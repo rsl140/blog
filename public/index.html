@@ -266,6 +266,181 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://rsl140.github.io/blog/blog/2018/06/27/protobuf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Summer">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/uploads/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoSi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/blog/2018/06/27/protobuf/" itemprop="url">
+                  vue中使用protobuf踩坑记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-27T10:16:22+08:00">
+                2018-06-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/FE/" itemprop="url" rel="index">
+                    <span itemprop="name">FE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2018/06/27/protobuf/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/27/protobuf/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>因公司需求需使用protobuf，然后就有了这个踩坑记录</p>
+</blockquote>
+<h1 id="什么是protobuf？"><a href="#什么是protobuf？" class="headerlink" title="什么是protobuf？"></a>什么是protobuf？</h1><p>官方解释为：</p>
+<blockquote>
+<p>Protocol buffers are a flexible, efficient, automated mechanism for serializing structured data – think XML, but smaller, faster, and simpler. You define how you want your data to be structured once, then you can use special generated source code to easily write and read your structured data to and from a variety of data streams and using a variety of languages. You can even update your data structure without breaking deployed programs that are compiled against the “old” format.</p>
+</blockquote>
+<p>翻译是(机翻—我英语不好)</p>
+<blockquote>
+<p>协议缓冲区是用于序列化结构化数据的灵活，高效的自动化机制 - 思考XML，但更小，更快，更简单。您可以定义一次数据的结构，然后您可以使用特殊的源代码轻松地将结构化数据写入各种数据流并使用各种语言读取和读取数据。您甚至可以更新您的数据结构，而不会中断根据“旧”格式编译的已部署程序。</p>
+</blockquote>
+<p>特点：</p>
+<ul>
+<li>更简单</li>
+<li>是3到10倍小</li>
+<li>速度要快20到100倍</li>
+<li>不太模糊</li>
+<li>生成更易于以编程方式使用的数据访问类</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2018/06/27/protobuf/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://rsl140.github.io/blog/blog/2018/06/19/fbs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1292,7 +1467,7 @@
 </blockquote>
 <h1 id="JSP-页面元素"><a href="#JSP-页面元素" class="headerlink" title="JSP 页面元素"></a>JSP 页面元素</h1><ul>
 <li>静态内容 HTML静态文本</li>
-<li>指令 以”<a href="&#x6d;&#x61;&#105;&#108;&#x74;&#111;&#58;&#37;&#x40;&#x22;&#24320;&#x59cb;&#65292;&#20197;&#34;&#37;&#34;&#34;">&#37;&#x40;&#x22;&#24320;&#x59cb;&#65292;&#20197;&#34;&#37;&#34;&#34;</a>结束</li>
+<li>指令 以”<a href="&#x6d;&#x61;&#105;&#108;&#116;&#111;&#58;&#37;&#x40;&#34;&#x5f00;&#x59cb;&#xff0c;&#20197;&#x22;&#37;&#34;&#34;">&#37;&#x40;&#34;&#x5f00;&#x59cb;&#xff0c;&#20197;&#x22;&#37;&#34;&#34;</a>结束</li>
 <li>小脚本 &lt;%java代码 %&gt;</li>
 <li>表达式 &lt;%=java表达式 %&gt;</li>
 <li>声明 &lt;%! 方法%&gt;</li>
@@ -1680,146 +1855,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://rsl140.github.io/blog/blog/2017/06/20/git/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Summer">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/uploads/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="XiaoSi">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/2017/06/20/git/" itemprop="url">
-                  Contributions不显示(git)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-20T12:23:00+08:00">
-                2017-06-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/blog/2017/06/20/git/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/06/20/git/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>当我换到MAC得时候重新配置了git之后 Contributions 不显示了 后来搜了很多方法，今天终于解决。</p>
-</blockquote>
-<h2 id="原因：建立用户的时候用错了email-和github关联的email不一样-导致了Contributions不显示，值显示了新建repo的记录"><a href="#原因：建立用户的时候用错了email-和github关联的email不一样-导致了Contributions不显示，值显示了新建repo的记录" class="headerlink" title="原因：建立用户的时候用错了email 和github关联的email不一样 导致了Contributions不显示，值显示了新建repo的记录"></a>原因：建立用户的时候用错了email 和github关联的email不一样 导致了Contributions不显示，值显示了新建repo的记录</h2><p>进入repo 查看git log 日志发现 提交邮箱和关联邮箱不一致。</p>
-<h2 id="方法一：添加这个邮箱到自己的github账户中"><a href="#方法一：添加这个邮箱到自己的github账户中" class="headerlink" title="方法一：添加这个邮箱到自己的github账户中"></a>方法一：添加这个邮箱到自己的github账户中</h2><p>进入自己的设置里 email选项中新增log下的邮箱。（这时会收到一个验证邮件，点击确认。）<br>返回主页后回发现Contributions出现了。</p>
-<h2 id="方法二：修改提交记录中的邮箱为已被关联的邮箱-个人不太建议"><a href="#方法二：修改提交记录中的邮箱为已被关联的邮箱-个人不太建议" class="headerlink" title="方法二：修改提交记录中的邮箱为已被关联的邮箱(个人不太建议)"></a>方法二：修改提交记录中的邮箱为已被关联的邮箱(个人不太建议)</h2>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/2017/06/20/git/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1869,7 +1904,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/blog/archives/">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

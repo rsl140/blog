@@ -126,9 +126,10 @@ methods: {
 前方有坑
 
 前后传输是使用的FormData，然后悲剧的事情来了。后台解析不了。查看了下数据 `[8, 23, 18, 3, 97, 115, 100]`确实是传过去了。
-后来排查出原因是应该是解析成了字符串，然后数值变了。所以解析不出来。
+<del> 后来排查出原因是应该是解析成了字符串，然后数值变了。所以解析不出来。
 后来使用fromCharCode()方法编辑成字符串形式传输给后台。在使用charCodeAt()取值。
 ``` js
+此方法已弃用
 protobufferTest () {
       var message = new messages.Person() // 调用Person对象  实例化
       // 赋值
@@ -174,6 +175,43 @@ protobufferTest () {
         })
 
     }
+```
+</del>
+
+以上方法可能存在安全隐患。
+向后端传值
+因为FormData支持两种方式传输string和blob所以将bytes存入blob中
+前端获取数据
+对axios的默认传输方式做个更改
+axios.defaults.responseType = 'arraybuffer'
+将以上的JS代码更改为以下内容
+``` js
+protobufferTest () {
+      var message = new messages.Person()
+      message.setId(23)
+      message.setName('asd')
+      var bytes = message.serializeBinary()
+
+      console.log(bytes)
+      let uploadDatas = new FormData()
+      var blob = new Blob([bytes], {type: 'application/octet-stream'})
+
+      uploadDatas.append('protobuf', blob)
+
+      this.axios.post('/test', uploadDatas)
+        .then(function (response) {
+          console.log(response)
+
+          var message2 = messages.PersonTree.deserializeBinary(response.data)
+          console.log(message2.getId())
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+      // console.log(bytes)
+    }
+
+```
 ```
 至此前后联调完成
 
