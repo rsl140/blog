@@ -21,7 +21,9 @@ keywords: vue protobuf
 - 不太模糊
 - 生成更易于以编程方式使用的数据访问类
 
-<!--  more  -->
+# 代码
+> 在github上写了个demo
+> [demo地址](https://github.com/rsl140/work_notes_demo/tree/master/proto_demo) 有需要的可以下载下来跑一下就理解了。PS:如果觉得有用 请给我个小星星 (笔芯~)
 
 # 使用
 
@@ -211,7 +213,6 @@ protobufferTest () {
       // console.log(bytes)
     }
 
-```
 ```
 至此前后联调完成
 
