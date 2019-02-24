@@ -143,7 +143,7 @@ export default {
 </template>
 
 <script>
-import Charts '@/components/Charts'
+import Charts form '@/components/Charts'
 
 export default {
   name: 'chartDemo',
