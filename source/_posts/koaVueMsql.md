@@ -1,5 +1,5 @@
 ---
-title: koaVueMsql
+title: koa2+vue2+mysql 全栈开发记录
 date: 2019-03-17 16:05:53
 tags: vue mysql koa
 categories: FE
