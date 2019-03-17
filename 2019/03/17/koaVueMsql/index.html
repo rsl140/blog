@@ -1,0 +1,915 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="vue mysql koa" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="&amp;gt;
+koa2+vue2+mysql 全栈开发记录
+基于想要自己制作一个个人项目为由，于是有了这么一个开发记录（梳理开发过程也是一个知识巩固的过程）
+
+koa2+vue2+mysql 个人的一个通用DEMO(本篇文章的范例)koa2+vue2+mysql GITHUB地址
+前端工具
+vue
+vue-router
+vuex
+axios
+element ui 页面UI组件
+echartsjs 百度">
+<meta property="og:type" content="article">
+<meta property="og:title" content="koaVueMsql">
+<meta property="og:url" content="https://rsl140.github.io/blog/2019/03/17/koaVueMsql/index.html">
+<meta property="og:site_name" content="XiaoSi">
+<meta property="og:description" content="&amp;gt;
+koa2+vue2+mysql 全栈开发记录
+基于想要自己制作一个个人项目为由，于是有了这么一个开发记录（梳理开发过程也是一个知识巩固的过程）
+
+koa2+vue2+mysql 个人的一个通用DEMO(本篇文章的范例)koa2+vue2+mysql GITHUB地址
+前端工具
+vue
+vue-router
+vuex
+axios
+element ui 页面UI组件
+echartsjs 百度">
+<meta property="og:updated_time" content="2019-03-17T08:07:28.531Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="koaVueMsql">
+<meta name="twitter:description" content="&amp;gt;
+koa2+vue2+mysql 全栈开发记录
+基于想要自己制作一个个人项目为由，于是有了这么一个开发记录（梳理开发过程也是一个知识巩固的过程）
+
+koa2+vue2+mysql 个人的一个通用DEMO(本篇文章的范例)koa2+vue2+mysql GITHUB地址
+前端工具
+vue
+vue-router
+vuex
+axios
+element ui 页面UI组件
+echartsjs 百度">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://rsl140.github.io/blog/2019/03/17/koaVueMsql/"/>
+
+
+
+
+
+  <title> koaVueMsql | XiaoSi </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">XiaoSi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://rsl140.github.io/blog/blog/2019/03/17/koaVueMsql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Summer">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/uploads/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoSi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                koaVueMsql
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T16:05:53+08:00">
+                2019-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/FE/" itemprop="url" rel="index">
+                    <span itemprop="name">FE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2019/03/17/koaVueMsql/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/17/koaVueMsql/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">阅读次数</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&gt;</p>
+<h1 id="koa2-vue2-mysql-全栈开发记录"><a href="#koa2-vue2-mysql-全栈开发记录" class="headerlink" title="koa2+vue2+mysql 全栈开发记录"></a>koa2+vue2+mysql 全栈开发记录</h1><blockquote>
+<p>基于想要自己制作一个个人项目为由，于是有了这么一个开发记录（梳理开发过程也是一个知识巩固的过程）</p>
+</blockquote>
+<h2 id="koa2-vue2-mysql-个人的一个通用DEMO-本篇文章的范例"><a href="#koa2-vue2-mysql-个人的一个通用DEMO-本篇文章的范例" class="headerlink" title="koa2+vue2+mysql 个人的一个通用DEMO(本篇文章的范例)"></a>koa2+vue2+mysql 个人的一个通用DEMO(本篇文章的范例)</h2><p><a href="https://github.com/rsl140/FE-demo" target="_blank" rel="external">koa2+vue2+mysql GITHUB地址</a></p>
+<h2 id="前端工具"><a href="#前端工具" class="headerlink" title="前端工具"></a>前端工具</h2><ul>
+<li>vue</li>
+<li>vue-router</li>
+<li>vuex</li>
+<li>axios</li>
+<li>element ui <code>页面UI组件</code></li>
+<li>echartsjs <code>百度强大的图表展示</code></li>
+<li>vue-admin-template <code>花裤衩大佬的一个实用管理后台模版</code> <a href="https://segmentfault.com/a/1190000009275424" target="_blank" rel="external">配套教程</a></li>
+<li>vue-i18n <code>国际化</code></li>
+<li>scss<a id="more"></a>
+</li>
+</ul>
+<h2 id="后端工具"><a href="#后端工具" class="headerlink" title="后端工具"></a>后端工具</h2><ul>
+<li>koa</li>
+<li>koa-bodyparser <code>解析 PUT / POST 请求中的 body</code></li>
+<li>koa-convert</li>
+<li>koa-json</li>
+<li>koa-jwt <code>jwt鉴权</code></li>
+<li>koa-logger</li>
+<li>koa-mysql-session</li>
+<li>koa-onerror</li>
+<li>koa-router</li>
+<li>koa-session-minimal</li>
+<li>koa-static</li>
+<li>koa-views</li>
+<li>koa2-cors <code>处理跨域</code></li>
+<li>md5 <code>加密</code></li>
+<li>moment <code>时间处理</code></li>
+<li>mysql</li>
+</ul>
+<h2 id="前端篇"><a href="#前端篇" class="headerlink" title="前端篇"></a>前端篇</h2><blockquote>
+<p>前端这边其实没什么好写的，主要是在<code>vue-admin-template</code>基础上做了一些修改</p>
+</blockquote>
+<h3 id="src-utils-request-js的修改"><a href="#src-utils-request-js的修改" class="headerlink" title="src/utils/request.js的修改"></a>src/utils/request.js的修改</h3><ul>
+<li><p>request拦截器</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// request拦截器</span></div><div class="line">service.interceptors.request.use(</div><div class="line">  <span class="function"><span class="params">config</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">if</span> (store.getters.token) &#123;</div><div class="line">      <span class="comment">// config.headers['X-Token'] = getToken()</span></div><div class="line">      <span class="comment">// 因为是jwt方式鉴权 所以在header头中改为如下写法</span></div><div class="line">      config.headers[<span class="string">'Authorization'</span>] = <span class="string">'Bearer '</span> + getToken() <span class="comment">// 让每个请求携带自定义token 请根据实际情况自行修改</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> config</div><div class="line">  &#125;,</div><div class="line">  error =&gt; &#123;</div><div class="line">    <span class="comment">// Do something with request error</span></div><div class="line">    <span class="built_in">console</span>.log(error) <span class="comment">// for debug</span></div><div class="line">    <span class="built_in">Promise</span>.reject(error)</div><div class="line">  &#125;</div><div class="line">)</div></pre></td></tr></table></figure>
+</li>
+<li><p>response 拦截器</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// response 拦截器</span></div><div class="line">service.interceptors.response.use(</div><div class="line">  <span class="function"><span class="params">response</span> =&gt;</span> &#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">    * code为非0是抛错 可结合自己业务进行修改</div><div class="line">    */</div><div class="line">    <span class="keyword">const</span> res = response.data</div><div class="line">    <span class="keyword">if</span> (res.code !== <span class="number">0</span>) &#123; <span class="comment">// 因为后台返回值为0则是成功，所以将原来的20000改为了0</span></div><div class="line">      Message(&#123;</div><div class="line">        <span class="attr">message</span>: res.message,</div><div class="line">        <span class="attr">type</span>: <span class="string">'error'</span>,</div><div class="line">        <span class="attr">duration</span>: <span class="number">5</span> * <span class="number">1000</span></div><div class="line">      &#125;)</div><div class="line"></div><div class="line">      <span class="comment">// 70002:非法的token; 50012:其他客户端登录了;  50014:Token 过期了;</span></div><div class="line">      <span class="keyword">if</span> (res.code === <span class="number">70002</span> || res.code === <span class="number">50012</span> || res.code === <span class="number">50014</span>) &#123;</div><div class="line">        MessageBox.confirm(</div><div class="line">          <span class="string">'你已被登出，可以取消继续留在该页面，或者重新登录'</span>,</div><div class="line">          <span class="string">'确定登出'</span>,</div><div class="line">          &#123;</div><div class="line">            <span class="attr">confirmButtonText</span>: <span class="string">'重新登录'</span>,</div><div class="line">            <span class="attr">cancelButtonText</span>: <span class="string">'取消'</span>,</div><div class="line">            <span class="attr">type</span>: <span class="string">'warning'</span></div><div class="line">          &#125;</div><div class="line">        ).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">          store.dispatch(<span class="string">'FedLogOut'</span>).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">            location.reload() <span class="comment">// 为了重新实例化vue-router对象 避免bug</span></div><div class="line">          &#125;)</div><div class="line">        &#125;)</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(<span class="string">'error'</span>)</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="keyword">return</span> response.data</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  error =&gt; &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'err'</span> + error) <span class="comment">// for debug</span></div><div class="line">    Message(&#123;</div><div class="line">      <span class="attr">message</span>: error.message,</div><div class="line">      <span class="attr">type</span>: <span class="string">'error'</span>,</div><div class="line">      <span class="attr">duration</span>: <span class="number">5</span> * <span class="number">1000</span></div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error)</div><div class="line">  &#125;</div><div class="line">)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="封装了一个Echart组件"><a href="#封装了一个Echart组件" class="headerlink" title="封装了一个Echart组件"></a>封装了一个Echart组件</h3><ul>
+<li>具体参考我的另外一个文章 <a href="https://segmentfault.com/a/1190000017914552" target="_blank" rel="external">vue中使用echarts 使用记录</a></li>
+</ul>
+<h2 id="后端篇"><a href="#后端篇" class="headerlink" title="后端篇"></a>后端篇</h2><h3 id="构建项目目录"><a href="#构建项目目录" class="headerlink" title="构建项目目录"></a>构建项目目录</h3><ul>
+<li>通过项目生成器生成<a href="https://github.com/17koa/koa-generator" target="_blank" rel="external">koa-generator</a></li>
+</ul>
+<ol>
+<li><code>npm install -g koa-generator</code></li>
+<li><code>koa2 /server &amp;&amp; cd /server</code></li>
+<li><code>npm install</code></li>
+</ol>
+<ul>
+<li>安装组件</li>
+</ul>
+<ol>
+<li><code>npm i jsonwebtoken koa-jwt koa-mysql-session koa-session-minimal koa2-cors md5 moment mysql save --save</code></li>
+</ol>
+<ul>
+<li>配置app.js</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</div><div class="line"><span class="keyword">const</span> jwt = <span class="built_in">require</span>(<span class="string">'koa-jwt'</span>)</div><div class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa()</div><div class="line"><span class="keyword">const</span> views = <span class="built_in">require</span>(<span class="string">'koa-views'</span>)</div><div class="line"><span class="keyword">const</span> json = <span class="built_in">require</span>(<span class="string">'koa-json'</span>)</div><div class="line"><span class="keyword">const</span> onerror = <span class="built_in">require</span>(<span class="string">'koa-onerror'</span>)</div><div class="line"><span class="keyword">const</span> bodyparser = <span class="built_in">require</span>(<span class="string">'koa-bodyparser'</span>)</div><div class="line"><span class="keyword">const</span> logger = <span class="built_in">require</span>(<span class="string">'koa-logger'</span>)</div><div class="line"><span class="keyword">const</span> convert = <span class="built_in">require</span>(<span class="string">'koa-convert'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'koa-session-minimal'</span>)</div><div class="line"><span class="keyword">var</span> MysqlStore = <span class="built_in">require</span>(<span class="string">'koa-mysql-session'</span>)</div><div class="line"><span class="keyword">var</span> config = <span class="built_in">require</span>(<span class="string">'./config/default.js'</span>)</div><div class="line"><span class="keyword">var</span> cors = <span class="built_in">require</span>(<span class="string">'koa2-cors'</span>)</div><div class="line"></div><div class="line"><span class="keyword">const</span> users = <span class="built_in">require</span>(<span class="string">'./routes/users'</span>)</div><div class="line"><span class="keyword">const</span> account = <span class="built_in">require</span>(<span class="string">'./routes/account'</span>)</div><div class="line"></div><div class="line"><span class="comment">// error handler</span></div><div class="line">onerror(app)</div><div class="line"></div><div class="line"><span class="comment">// 配置jwt错误返回</span></div><div class="line">app.use(<span class="function"><span class="keyword">function</span>(<span class="params">ctx, next</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> next().catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="number">401</span> == err.status) &#123;</div><div class="line">      ctx.status = <span class="number">401</span></div><div class="line">      ctx.body = ApiErrorNames.getErrorInfo(ApiErrorNames.INVALID_TOKEN)</div><div class="line">      <span class="comment">// ctx.body = &#123;</span></div><div class="line">      <span class="comment">//   // error: err.originalError ? err.originalError.message : err.message</span></div><div class="line">      <span class="comment">// &#125;</span></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="keyword">throw</span> err</div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// Unprotected middleware</span></div><div class="line">app.use(<span class="function"><span class="keyword">function</span>(<span class="params">ctx, next</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (ctx.url.match(<span class="regexp">/^\/public/</span>)) &#123;</div><div class="line">    ctx.body = <span class="string">'unprotected\n'</span></div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">return</span> next()</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// Middleware below this line is only reached if JWT token is valid</span></div><div class="line"></div><div class="line">app.use(</div><div class="line">  jwt(&#123; <span class="attr">secret</span>: config.secret, <span class="attr">passthrough</span>: <span class="literal">true</span> &#125;).unless(&#123;</div><div class="line">    <span class="attr">path</span>: [<span class="regexp">/\/register/</span>, /\/user\/login/]</div><div class="line">  &#125;)</div><div class="line">)</div><div class="line"></div><div class="line"><span class="comment">// middlewares</span></div><div class="line">app.use(convert(bodyparser(&#123;</div><div class="line">  <span class="attr">enableTypes</span>:[<span class="string">'json'</span>, <span class="string">'form'</span>, <span class="string">'text'</span>]</div><div class="line">&#125;)))</div><div class="line">app.use(convert(json()))</div><div class="line">app.use(convert(logger()))</div><div class="line">app.use(<span class="built_in">require</span>(<span class="string">'koa-static'</span>)(__dirname + <span class="string">'/public'</span>))</div><div class="line"></div><div class="line">app.use(views(__dirname + <span class="string">'/views'</span>, &#123;</div><div class="line">  <span class="attr">extension</span>: <span class="string">'pug'</span></div><div class="line">&#125;))</div><div class="line"></div><div class="line"><span class="comment">// logger</span></div><div class="line">app.use(<span class="keyword">async</span> (ctx, next) =&gt; &#123;</div><div class="line">  <span class="keyword">const</span> start = <span class="keyword">new</span> <span class="built_in">Date</span>()</div><div class="line">  <span class="keyword">await</span> next()</div><div class="line">  <span class="keyword">const</span> ms = <span class="keyword">new</span> <span class="built_in">Date</span>() - start</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;ctx.method&#125;</span> <span class="subst">$&#123;ctx.url&#125;</span> - <span class="subst">$&#123;ms&#125;</span>ms`</span>)</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// cors</span></div><div class="line">app.use(cors())</div><div class="line"></div><div class="line"><span class="comment">// routes</span></div><div class="line">app.use(users.routes(), users.allowedMethods())</div><div class="line">app.use(account.routes(), account.allowedMethods())</div><div class="line"></div><div class="line"><span class="comment">// error-handling</span></div><div class="line">app.on(<span class="string">'error'</span>, (err, ctx) =&gt; &#123;</div><div class="line">  <span class="built_in">console</span>.error(<span class="string">'server error'</span>, err, ctx)</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = app</div></pre></td></tr></table></figure>
+<ul>
+<li>新建config文件夹用于存放数据库连接等操作<blockquote>
+<p>default.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 数据库配置</span></div><div class="line">  <span class="keyword">const</span> config = &#123;</div><div class="line">    <span class="attr">port</span>: <span class="number">3000</span>,</div><div class="line">    <span class="attr">database</span>: &#123;</div><div class="line">      <span class="attr">DATABASE</span>: <span class="string">'xxx'</span>, <span class="comment">//数据库</span></div><div class="line">      USERNAME: <span class="string">'root'</span>, <span class="comment">//用户</span></div><div class="line">      PASSWORD: <span class="string">'xxx'</span>, <span class="comment">//密码</span></div><div class="line">      PORT: <span class="string">'3306'</span>, <span class="comment">//端口</span></div><div class="line">      HOST: <span class="string">'127.0.0.1'</span> <span class="comment">//服务ip地址</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">secret</span>: <span class="string">'jwt_secret'</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="built_in">module</span>.exports = config</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<h3 id="数据库相关-mysql"><a href="#数据库相关-mysql" class="headerlink" title="数据库相关(mysql)"></a>数据库相关(mysql)</h3><blockquote>
+<p>createTables.js 一个简单的用户角色权限表 <a href="https://blog.csdn.net/harbor1981/article/details/78149203" target="_blank" rel="external">用户、角色、权限表的关系(mysql)</a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 数据库表格创建</span></div><div class="line"><span class="keyword">const</span> createTable = &#123;</div><div class="line">  <span class="attr">users</span>: <span class="string">`CREATE TABLE IF NOT EXISTS user_info (</span></div><div class="line">      id INT PRIMARY KEY NOT NULL AUTO_INCREMENT COMMENT '(自增长)',</div><div class="line">      user_id VARCHAR ( 100 ) NOT NULL COMMENT '账号',</div><div class="line">      user_name VARCHAR ( 100 ) NOT NULL COMMENT '用户名',</div><div class="line">      user_pwd VARCHAR ( 100 ) NOT NULL COMMENT '密码',</div><div class="line">      user_head VARCHAR ( 225 ) COMMENT '头像',</div><div class="line">      user_mobile VARCHAR ( 20 ) COMMENT '手机',</div><div class="line">      user_email VARCHAR ( 64 ) COMMENT '邮箱',</div><div class="line">      user_creatdata TIMESTAMP NOT NULL DEFAULT NOW( ) COMMENT '注册日期',</div><div class="line">      user_login_time TIMESTAMP DEFAULT NOW( ) COMMENT '登录时间',</div><div class="line">      user_count INT COMMENT '登录次数'</div><div class="line">    ) ENGINE = INNODB charset = utf8;`,</div><div class="line">    <span class="attr">role</span>: <span class="string">`CREATE TABLE IF NOT EXISTS role_info (</span></div><div class="line">      id INT PRIMARY KEY NOT NULL AUTO_INCREMENT COMMENT '(自增长)',</div><div class="line">      role_name VARCHAR ( 20 ) NOT NULL COMMENT '角色名',</div><div class="line">      role_description VARCHAR ( 255 ) DEFAULT NULL COMMENT '描述'</div><div class="line">    ) ENGINE = INNODB charset = utf8;`,</div><div class="line">    <span class="attr">permission</span>: <span class="string">`CREATE TABLE IF NOT EXISTS permission_info (</span></div><div class="line">      id INT PRIMARY KEY NOT NULL AUTO_INCREMENT COMMENT '(自增长)',</div><div class="line">      permission_name VARCHAR ( 20 ) NOT NULL COMMENT '权限名',</div><div class="line">      permission_description VARCHAR ( 255 ) DEFAULT NULL COMMENT '描述'</div><div class="line">    ) ENGINE = INNODB charset = utf8;`,</div><div class="line">    <span class="attr">userRole</span>: <span class="string">`CREATE TABLE IF NOT EXISTS user_role (</span></div><div class="line">      id INT PRIMARY KEY NOT NULL AUTO_INCREMENT COMMENT '(自增长)',</div><div class="line">      user_id INT NOT NULL COMMENT '关联用户',</div><div class="line">      role_id INT NOT NULL COMMENT '关联角色',</div><div class="line">      KEY fk_user_role_role_info_1 ( role_id ),</div><div class="line">      KEY fk_user_role_user_info_1 ( user_id ),</div><div class="line">      CONSTRAINT fk_user_role_role_info_1 FOREIGN KEY ( role_id ) REFERENCES role_info ( id ) ON DELETE CASCADE ON UPDATE CASCADE,</div><div class="line">      CONSTRAINT fk_user_role_user_info_1 FOREIGN KEY ( user_id ) REFERENCES user_info ( id ) ON DELETE CASCADE ON UPDATE CASCADE</div><div class="line">    ) ENGINE = INNODB charset = utf8;`,</div><div class="line">    <span class="attr">rolePermission</span>: <span class="string">`CREATE TABLE IF NOT EXISTS role_permission (</span></div><div class="line">      id INT PRIMARY KEY NOT NULL AUTO_INCREMENT COMMENT '(自增长)',</div><div class="line">      role_id INT NOT NULL COMMENT '关联角色',</div><div class="line">      permission_id INT NOT NULL COMMENT '关联权限',</div><div class="line">      KEY fk_role_permission_role_info_1 ( role_id ),</div><div class="line">      KEY fk_role_permission_permission_info_1 ( permission_id ),</div><div class="line">      CONSTRAINT fk_role_permission_role_info_1 FOREIGN KEY ( role_id ) REFERENCES role_info ( id ) ON DELETE CASCADE ON UPDATE CASCADE,</div><div class="line">      CONSTRAINT fk_role_permission_permission_info_1 FOREIGN KEY ( permission_id ) REFERENCES permission_info ( id ) ON DELETE CASCADE ON UPDATE CASCADE</div><div class="line">    ) ENGINE = INNODB charset = utf8;`</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = createTable</div></pre></td></tr></table></figure></p>
+</blockquote>
+<ul>
+<li>创建lib文件夹 用于存储数据库查询语句<blockquote>
+<p>mysql.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> mysql = <span class="built_in">require</span>(<span class="string">'mysql'</span>)</div><div class="line"><span class="keyword">const</span> config = <span class="built_in">require</span>(<span class="string">'../config/default'</span>)</div><div class="line"><span class="keyword">const</span> createTables = <span class="built_in">require</span>(<span class="string">'../config/createTables.js'</span>)</div><div class="line"></div><div class="line"><span class="keyword">var</span> pool = mysql.createPool(&#123;</div><div class="line">  <span class="attr">host</span>: config.database.HOST,</div><div class="line">  <span class="attr">user</span>: config.database.USERNAME,</div><div class="line">  <span class="attr">password</span>: config.database.PASSWORD,</div><div class="line">  <span class="attr">database</span>: config.database.DATABASE</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">let</span> query = <span class="function"><span class="keyword">function</span>(<span class="params">sql, values</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</div><div class="line">    pool.getConnection(<span class="function"><span class="keyword">function</span>(<span class="params">err, connection</span>) </span>&#123;</div><div class="line">      <span class="keyword">if</span> (err) &#123;</div><div class="line">        resolve(err)</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">        connection.query(sql, values, (err, rows) =&gt; &#123;</div><div class="line">          <span class="keyword">if</span> (err) &#123;</div><div class="line">            reject(err)</div><div class="line">          &#125; <span class="keyword">else</span> &#123;</div><div class="line">            resolve(rows)</div><div class="line">          &#125;</div><div class="line">          connection.release()</div><div class="line">        &#125;)</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> createTable = <span class="function"><span class="keyword">function</span>(<span class="params">sql</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> query(sql, [])</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 建表</span></div><div class="line"><span class="comment">// createTable(createTables.users)</span></div><div class="line"><span class="comment">// createTable(createTables.role)</span></div><div class="line"><span class="comment">// createTable(createTables.permission)</span></div><div class="line"><span class="comment">// createTable(createTables.userRole)</span></div><div class="line"><span class="comment">// createTable(createTables.rolePermission)</span></div><div class="line"></div><div class="line"><span class="comment">// 查询用户是否存在</span></div><div class="line"><span class="keyword">let</span> findUser = <span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params">id</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> _sql = <span class="string">`</span></div><div class="line">        SELECT * FROM user_info where user_id="<span class="subst">$&#123;id&#125;</span>" limit 1;</div><div class="line">    `</div><div class="line">  <span class="keyword">let</span> result = <span class="keyword">await</span> query(_sql)</div><div class="line"></div><div class="line">  <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(result) &amp;&amp; result.length &gt; <span class="number">0</span>) &#123;</div><div class="line">    result = result[<span class="number">0</span>]</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    result = <span class="literal">null</span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> result</div><div class="line">&#125;</div><div class="line"><span class="comment">// 查询用户以及用户角色</span></div><div class="line"><span class="keyword">let</span> findUserAndRole = <span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params">id</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> _sql = <span class="string">`</span></div><div class="line">      SELECT u.*,r.role_name FROM user_info u,user_role ur,role_info r where u.id=(SELECT id FROM user_info where user_id="<span class="subst">$&#123;id&#125;</span>" limit 1) and ur.user_id=u.id and r.id=ur.user_id limit 1;</div><div class="line">    `</div><div class="line">  <span class="keyword">let</span> result = <span class="keyword">await</span> query(_sql)</div><div class="line"></div><div class="line">  <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(result) &amp;&amp; result.length &gt; <span class="number">0</span>) &#123;</div><div class="line">    result = result[<span class="number">0</span>]</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    result = <span class="literal">null</span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> result</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 更新用户登录次数和登录时间</span></div><div class="line"><span class="keyword">let</span> UpdataUserInfo = <span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> _sql =</div><div class="line">    <span class="string">'UPDATE user_info SET user_count = ?, user_login_time = ? WHERE id = ?;'</span></div><div class="line">  <span class="keyword">return</span> query(_sql, value)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="comment">//暴露方法</span></div><div class="line">  createTable,</div><div class="line">  findUser,</div><div class="line">  findUserAndRole,</div><div class="line">  UpdataUserInfo,</div><div class="line">  getShopAndAccount</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<h3 id="koa-路由配置"><a href="#koa-路由配置" class="headerlink" title="koa 路由配置"></a>koa 路由配置</h3><ul>
+<li><p>接口报错信息统一方法 创建error文件夹</p>
+<blockquote>
+<p>ApiErrorNames.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * API错误名称</div><div class="line"> */</div><div class="line"><span class="keyword">var</span> ApiErrorNames = &#123;&#125;;</div><div class="line"></div><div class="line">ApiErrorNames.UNKNOW_ERROR = <span class="string">"UNKNOW_ERROR"</span>;</div><div class="line">ApiErrorNames.SUCCESS = <span class="string">"SUCCESS"</span>;</div><div class="line"></div><div class="line"><span class="comment">/* 参数错误：10001-19999 */</span></div><div class="line">ApiErrorNames.PARAM_IS_INVALID = <span class="string">'PARAM_IS_INVALID'</span>;</div><div class="line">ApiErrorNames.PARAM_IS_BLANK = <span class="string">'PARAM_IS_BLANK'</span>;</div><div class="line">ApiErrorNames.PARAM_TYPE_BIND_ERROR = <span class="string">'PARAM_TYPE_BIND_ERROR'</span>;</div><div class="line">ApiErrorNames.PARAM_NOT_COMPLETE = <span class="string">'PARAM_NOT_COMPLETE'</span>;</div><div class="line"></div><div class="line"><span class="comment">/* 用户错误：20001-29999*/</span></div><div class="line">ApiErrorNames.USER_NOT_LOGGED_IN = <span class="string">'USER_NOT_LOGGED_IN'</span>;</div><div class="line">ApiErrorNames.USER_LOGIN_ERROR = <span class="string">'USER_LOGIN_ERROR'</span>;</div><div class="line">ApiErrorNames.USER_ACCOUNT_FORBIDDEN = <span class="string">'USER_ACCOUNT_FORBIDDEN'</span>;</div><div class="line">ApiErrorNames.USER_NOT_EXIST = <span class="string">'USER_NOT_EXIST'</span>;</div><div class="line">ApiErrorNames.USER_HAS_EXISTED = <span class="string">'USER_HAS_EXISTED'</span>;</div><div class="line"></div><div class="line"><span class="comment">/* 业务错误：30001-39999 */</span></div><div class="line">ApiErrorNames.SPECIFIED_QUESTIONED_USER_NOT_EXIST = <span class="string">'SPECIFIED_QUESTIONED_USER_NOT_EXIST'</span>;</div><div class="line"></div><div class="line"><span class="comment">/* 系统错误：40001-49999 */</span></div><div class="line">ApiErrorNames.SYSTEM_INNER_ERROR = <span class="string">'SYSTEM_INNER_ERROR'</span>;</div><div class="line"></div><div class="line"><span class="comment">/* 数据错误：50001-599999 */</span></div><div class="line">ApiErrorNames.RESULE_DATA_NONE = <span class="string">'RESULE_DATA_NONE'</span>;</div><div class="line">ApiErrorNames.DATA_IS_WRONG = <span class="string">'DATA_IS_WRONG'</span>;</div><div class="line">ApiErrorNames.DATA_ALREADY_EXISTED = <span class="string">'DATA_ALREADY_EXISTED'</span>;</div><div class="line"></div><div class="line"><span class="comment">/* 接口错误：60001-69999 */</span></div><div class="line">ApiErrorNames.INTERFACE_INNER_INVOKE_ERROR = <span class="string">'INTERFACE_INNER_INVOKE_ERROR'</span>;</div><div class="line">ApiErrorNames.INTERFACE_OUTTER_INVOKE_ERROR = <span class="string">'INTERFACE_OUTTER_INVOKE_ERROR'</span>;</div><div class="line">ApiErrorNames.INTERFACE_FORBID_VISIT = <span class="string">'INTERFACE_FORBID_VISIT'</span>;</div><div class="line">ApiErrorNames.INTERFACE_ADDRESS_INVALID = <span class="string">'INTERFACE_ADDRESS_INVALID'</span>;</div><div class="line">ApiErrorNames.INTERFACE_REQUEST_TIMEOUT = <span class="string">'INTERFACE_REQUEST_TIMEOUT'</span>;</div><div class="line">ApiErrorNames.INTERFACE_EXCEED_LOAD = <span class="string">'INTERFACE_EXCEED_LOAD'</span>;</div><div class="line"></div><div class="line"><span class="comment">/* 权限错误：70001-79999 */</span></div><div class="line">ApiErrorNames.PERMISSION_NO_ACCESS = <span class="string">'PERMISSION_NO_ACCESS'</span>;</div><div class="line">ApiErrorNames.INVALID_TOKEN = <span class="string">'INVALID_TOKEN'</span>;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * API错误名称对应的错误信息</div><div class="line"> */</div><div class="line"><span class="keyword">const</span> error_map = <span class="keyword">new</span> <span class="built_in">Map</span>();</div><div class="line"></div><div class="line">error_map.set(ApiErrorNames.SUCCESS, &#123; <span class="attr">code</span>: <span class="number">0</span>, <span class="attr">message</span>: <span class="string">'成功'</span> &#125;);</div><div class="line">error_map.set(ApiErrorNames.UNKNOW_ERROR, &#123; <span class="attr">code</span>: <span class="number">-1</span>, <span class="attr">message</span>: <span class="string">'未知错误'</span> &#125;);</div><div class="line"><span class="comment">/* 参数错误：10001-19999 */</span></div><div class="line">error_map.set(ApiErrorNames.PARAM_IS_INVALID, &#123; <span class="attr">code</span>: <span class="number">10001</span>, <span class="attr">message</span>: <span class="string">'参数无效'</span> &#125;);</div><div class="line">error_map.set(ApiErrorNames.PARAM_IS_BLANK, &#123; <span class="attr">code</span>: <span class="number">10002</span>, <span class="attr">message</span>: <span class="string">'参数为空'</span> &#125;);</div><div class="line">error_map.set(ApiErrorNames.PARAM_TYPE_BIND_ERROR, &#123; <span class="attr">code</span>: <span class="number">10003</span>, <span class="attr">message</span>: <span class="string">'参数类型错误'</span> &#125;);</div><div class="line">error_map.set(ApiErrorNames.PARAM_NOT_COMPLETE, &#123; <span class="attr">code</span>: <span class="number">10004</span>, <span class="attr">message</span>: <span class="string">'参数缺失'</span> &#125;);</div><div class="line"><span class="comment">/* 用户错误：20001-29999*/</span></div><div class="line">error_map.set(ApiErrorNames.USER_NOT_LOGGED_IN, &#123; <span class="attr">code</span>: <span class="number">20001</span>, <span class="attr">message</span>: <span class="string">'用户未登录'</span> &#125;);</div><div class="line">error_map.set(ApiErrorNames.USER_LOGIN_ERROR, &#123; <span class="attr">code</span>: <span class="number">20002</span>, <span class="attr">message</span>: <span class="string">'账号不存在或密码错误'</span> &#125;);</div><div class="line">error_map.set(ApiErrorNames.USER_ACCOUNT_FORBIDDEN, &#123; <span class="attr">code</span>: <span class="number">20003</span>, <span class="attr">message</span>: <span class="string">'账号已被禁用'</span> &#125;);</div><div class="line">error_map.set(ApiErrorNames.USER_NOT_EXIST, &#123; <span class="attr">code</span>: <span class="number">20004</span>, <span class="attr">message</span>: <span class="string">'用户不存在'</span> &#125;);</div><div class="line">error_map.set(ApiErrorNames.USER_HAS_EXISTED, &#123; <span class="attr">code</span>: <span class="number">20005</span>, <span class="attr">message</span>: <span class="string">'用户已存在'</span> &#125;);</div><div class="line"><span class="comment">/* 业务错误：30001-39999 */</span></div><div class="line">error_map.set(ApiErrorNames.SPECIFIED_QUESTIONED_USER_NOT_EXIST, &#123; <span class="attr">code</span>: <span class="number">30001</span>, <span class="attr">message</span>: <span class="string">'某业务出现问题'</span> &#125;);</div><div class="line"><span class="comment">/* 系统错误：40001-49999 */</span></div><div class="line">error_map.set(ApiErrorNames.SYSTEM_INNER_ERROR, &#123; <span class="attr">code</span>: <span class="number">40001</span>, <span class="attr">message</span>: <span class="string">'系统繁忙，请稍后重试'</span> &#125;);</div><div class="line"><span class="comment">/* 数据错误：50001-599999 */</span></div><div class="line">error_map.set(ApiErrorNames.RESULE_DATA_NONE, &#123; <span class="attr">code</span>: <span class="number">50001</span>, <span class="attr">message</span>: <span class="string">'数据未找到'</span> &#125;);</div><div class="line">error_map.set(ApiErrorNames.DATA_IS_WRONG, &#123; <span class="attr">code</span>: <span class="number">50002</span>, <span class="attr">message</span>: <span class="string">'数据有误'</span> &#125;);</div><div class="line">error_map.set(ApiErrorNames.DATA_ALREADY_EXISTED, &#123; <span class="attr">code</span>: <span class="number">50003</span>, <span class="attr">message</span>: <span class="string">'数据已存在'</span> &#125;);</div><div class="line"><span class="comment">/* 接口错误：60001-69999 */</span></div><div class="line">error_map.set(ApiErrorNames.INTERFACE_INNER_INVOKE_ERROR, &#123; <span class="attr">code</span>: <span class="number">60001</span>, <span class="attr">message</span>: <span class="string">'内部系统接口调用异常'</span> &#125;);</div><div class="line">error_map.set(ApiErrorNames.INTERFACE_OUTTER_INVOKE_ERROR, &#123; <span class="attr">code</span>: <span class="number">60002</span>, <span class="attr">message</span>: <span class="string">'外部系统接口调用异常'</span> &#125;);</div><div class="line">error_map.set(ApiErrorNames.INTERFACE_FORBID_VISIT, &#123; <span class="attr">code</span>: <span class="number">60003</span>, <span class="attr">message</span>: <span class="string">'该接口禁止访问'</span> &#125;);</div><div class="line">error_map.set(ApiErrorNames.INTERFACE_ADDRESS_INVALID, &#123; <span class="attr">code</span>: <span class="number">60004</span>, <span class="attr">message</span>: <span class="string">'接口地址无效'</span> &#125;);</div><div class="line">error_map.set(ApiErrorNames.INTERFACE_REQUEST_TIMEOUT, &#123; <span class="attr">code</span>: <span class="number">60005</span>, <span class="attr">message</span>: <span class="string">'接口请求超时'</span> &#125;);</div><div class="line">error_map.set(ApiErrorNames.INTERFACE_EXCEED_LOAD, &#123; <span class="attr">code</span>: <span class="number">60006</span>, <span class="attr">message</span>: <span class="string">'接口负载过高'</span> &#125;);</div><div class="line"><span class="comment">/* 权限错误：70001-79999 */</span></div><div class="line">error_map.set(ApiErrorNames.PERMISSION_NO_ACCESS, &#123; <span class="attr">code</span>: <span class="number">70001</span>, <span class="attr">message</span>: <span class="string">'无访问权限'</span> &#125;);</div><div class="line">error_map.set(ApiErrorNames.INVALID_TOKEN, &#123; <span class="attr">code</span>: <span class="number">70002</span>, <span class="attr">message</span>: <span class="string">'无效token'</span> &#125;);</div><div class="line"></div><div class="line"><span class="comment">//根据错误名称获取错误信息</span></div><div class="line">ApiErrorNames.getErrorInfo = <span class="function">(<span class="params">error_name</span>) =&gt;</span> &#123;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> error_info;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (error_name) &#123;</div><div class="line">        error_info = error_map.get(error_name);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//如果没有对应的错误信息，默认'未知错误'</span></div><div class="line">    <span class="keyword">if</span> (!error_info) &#123;</div><div class="line">        error_name = UNKNOW_ERROR;</div><div class="line">        error_info = error_map.get(error_name);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> error_info;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//返回正确信息</span></div><div class="line">ApiErrorNames.getSuccessInfo = <span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> success_info;</div><div class="line">    <span class="keyword">let</span> name = <span class="string">'SUCCESS'</span>;</div><div class="line">    success_info = error_map.get(name);</div><div class="line">    <span class="keyword">if</span> (data) &#123;</div><div class="line">        success_info.data = data</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> success_info;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = ApiErrorNames;</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>创建controller文件夹</p>
+<blockquote>
+<p>对路由users进行逻辑编写</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> mysqlModel = <span class="built_in">require</span>(<span class="string">'../lib/mysql'</span>) <span class="comment">//引入数据库方法</span></div><div class="line"><span class="keyword">const</span> jwt = <span class="built_in">require</span>(<span class="string">'jsonwebtoken'</span>)</div><div class="line"><span class="keyword">const</span> config = <span class="built_in">require</span>(<span class="string">'../config/default.js'</span>)</div><div class="line"><span class="keyword">const</span> ApiErrorNames = <span class="built_in">require</span>(<span class="string">'../error/ApiErrorNames.js'</span>)</div><div class="line"><span class="keyword">const</span> moment = <span class="built_in">require</span>(<span class="string">'moment'</span>)</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 普通登录</div><div class="line"> */</div><div class="line">exports.login = <span class="keyword">async</span> (ctx, next) =&gt; &#123;</div><div class="line">  <span class="keyword">const</span> &#123; body &#125; = ctx.request</div><div class="line">  <span class="keyword">try</span> &#123;</div><div class="line">    <span class="keyword">const</span> user = <span class="keyword">await</span> mysqlModel.findUser(body.username)</div><div class="line">    <span class="keyword">if</span> (!user) &#123;</div><div class="line">      <span class="comment">// ctx.status = 401</span></div><div class="line">      ctx.body = ApiErrorNames.getErrorInfo(ApiErrorNames.USER_NOT_EXIST)</div><div class="line">      <span class="keyword">return</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">let</span> bodys = <span class="keyword">await</span> <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(user))</div><div class="line">    <span class="comment">// 匹配密码是否相等</span></div><div class="line">    <span class="keyword">if</span> ((<span class="keyword">await</span> user.user_pwd) === body.password) &#123;</div><div class="line">      <span class="keyword">let</span> data = &#123;</div><div class="line">        <span class="attr">user</span>: user.user_id,</div><div class="line">        <span class="comment">// 生成 token 返回给客户端</span></div><div class="line">        token: jwt.sign(</div><div class="line">          &#123;</div><div class="line">            <span class="attr">data</span>: user.user_id,</div><div class="line">            <span class="comment">// 设置 token 过期时间</span></div><div class="line">            exp: <span class="built_in">Math</span>.floor(<span class="built_in">Date</span>.now() / <span class="number">1000</span>) + <span class="number">60</span> * <span class="number">60</span> <span class="comment">// 60 seconds * 60 minutes = 1 hour</span></div><div class="line">          &#125;,</div><div class="line">          config.secret</div><div class="line">        )</div><div class="line">      &#125;</div><div class="line">      ctx.body = ApiErrorNames.getSuccessInfo(data)</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      ctx.body = ApiErrorNames.getErrorInfo(ApiErrorNames.USER_LOGIN_ERROR)</div><div class="line">    &#125;</div><div class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</div><div class="line">    ctx.throw(<span class="number">500</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 获取用户信息</div><div class="line"> */</div><div class="line">exports.info = <span class="keyword">async</span> (ctx, next) =&gt; &#123;</div><div class="line">  <span class="keyword">const</span> &#123; body &#125; = ctx.request</div><div class="line">  <span class="comment">// console.log(body)</span></div><div class="line">  <span class="keyword">try</span> &#123;</div><div class="line">    <span class="keyword">const</span> token = ctx.header.authorization</div><div class="line">    <span class="keyword">let</span> payload</div><div class="line">    <span class="keyword">if</span> (token) &#123;</div><div class="line">      payload = <span class="keyword">await</span> jwt.verify(token.split(<span class="string">' '</span>)[<span class="number">1</span>], config.secret) <span class="comment">// 解密，获取payload</span></div><div class="line">      <span class="keyword">const</span> user = <span class="keyword">await</span> mysqlModel.findUserAndRole(payload.data)</div><div class="line">      <span class="keyword">if</span> (!user) &#123;</div><div class="line">        ctx.body = ApiErrorNames.getErrorInfo(ApiErrorNames.USER_NOT_EXIST)</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">let</span> cont = user.user_count + <span class="number">1</span></div><div class="line">        <span class="keyword">let</span> updateInfo = [</div><div class="line">          cont,</div><div class="line">          moment().format(<span class="string">'YYYY-MM-DD HH:mm:ss'</span>),</div><div class="line">          user.id</div><div class="line">        ]</div><div class="line">        <span class="keyword">await</span> mysqlModel</div><div class="line">        .UpdataUserInfo(updateInfo)</div><div class="line">        .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</div><div class="line">          <span class="keyword">let</span> data = &#123;</div><div class="line">            <span class="attr">avatar</span>: <span class="string">'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'</span>,</div><div class="line">            <span class="attr">name</span>: user.user_id,</div><div class="line">              <span class="comment">// roles: [user.user_admin === 0 ? 'admin' : '']</span></div><div class="line">            roles: [user.role_name]</div><div class="line">          &#125;</div><div class="line">          ctx.body = ApiErrorNames.getSuccessInfo(data)</div><div class="line">        &#125;)</div><div class="line">        .catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</div><div class="line">          ctx.body = ApiErrorNames.getErrorInfo(ApiErrorNames.DATA_IS_WRONG)</div><div class="line">        &#125;)</div><div class="line">      &#125;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      ctx.body = ApiErrorNames.getErrorInfo(ApiErrorNames.INVALID_TOKEN)</div><div class="line">    &#125;</div><div class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</div><div class="line">    ctx.throw(<span class="number">500</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 退出登录</div><div class="line"> */</div><div class="line">exports.logout = <span class="keyword">async</span> (ctx, next) =&gt; &#123;</div><div class="line">  <span class="keyword">try</span> &#123;</div><div class="line">    <span class="comment">// ctx.status = 200</span></div><div class="line">    ctx.body = ApiErrorNames.getSuccessInfo()</div><div class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</div><div class="line">    ctx.throw(<span class="number">500</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>routes中的users.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> router = <span class="built_in">require</span>(<span class="string">'koa-router'</span>)() <span class="comment">//引入路由函数</span></div><div class="line"><span class="keyword">const</span> userControl = <span class="built_in">require</span>(<span class="string">'../controller/users'</span>) <span class="comment">//引入逻辑</span></div><div class="line"><span class="comment">// const config = require('../config/default.js')</span></div><div class="line"></div><div class="line">router.get(<span class="string">'/'</span>, <span class="keyword">async</span> (ctx, next) =&gt; &#123;</div><div class="line">  <span class="string">'use strict'</span></div><div class="line">  ctx.redirect(<span class="string">'/user/login'</span>)</div><div class="line">&#125;)</div><div class="line"><span class="comment">// 路由中间间，页面路由到／，就是端口号的时候，（网址），页面指引到／/user/login</span></div><div class="line"></div><div class="line">router.get(<span class="string">'/user/info'</span>, userControl.info)</div><div class="line">router.post(<span class="string">'/user/logout'</span>, userControl.logout)</div><div class="line">router.post(<span class="string">'/user/login'</span>, userControl.login)</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = router</div><div class="line"><span class="comment">//将页面暴露出去</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><p><code>ctx.request</code> 获取post请求中的body<br><code>ctx.query.xx</code> 获取get请求中的参数<br><code>router.prefix(&#39;/account&#39;)</code> 给router实例添加前缀</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/vue-mysql-koa/" rel="tag"># vue mysql koa</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2019/02/26/koa2/" rel="next" title="koa2 初探">
+                <i class="fa fa-chevron-left"></i> koa2 初探
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/blog/uploads/1.jpg"
+               alt="Summer" />
+          <p class="site-author-name" itemprop="name">Summer</p>
+           
+              <p class="site-description motion-element" itemprop="description">小思</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/blog/archives/">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/blog/categories/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/blog/tags/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/rsl140" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/xiaosi_58ec6bdf9eaab" target="_blank" title="Segmentfault">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Segmentfault
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#koa2-vue2-mysql-全栈开发记录"><span class="nav-number">1.</span> <span class="nav-text">koa2+vue2+mysql 全栈开发记录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#koa2-vue2-mysql-个人的一个通用DEMO-本篇文章的范例"><span class="nav-number">1.1.</span> <span class="nav-text">koa2+vue2+mysql 个人的一个通用DEMO(本篇文章的范例)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端工具"><span class="nav-number">1.2.</span> <span class="nav-text">前端工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后端工具"><span class="nav-number">1.3.</span> <span class="nav-text">后端工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端篇"><span class="nav-number">1.4.</span> <span class="nav-text">前端篇</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#src-utils-request-js的修改"><span class="nav-number">1.4.1.</span> <span class="nav-text">src/utils/request.js的修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装了一个Echart组件"><span class="nav-number">1.4.2.</span> <span class="nav-text">封装了一个Echart组件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后端篇"><span class="nav-number">1.5.</span> <span class="nav-text">后端篇</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构建项目目录"><span class="nav-number">1.5.1.</span> <span class="nav-text">构建项目目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库相关-mysql"><span class="nav-number">1.5.2.</span> <span class="nav-text">数据库相关(mysql)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#koa-路由配置"><span class="nav-number">1.5.3.</span> <span class="nav-text">koa 路由配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#备注"><span class="nav-number">1.5.4.</span> <span class="nav-text">备注</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Summer</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'xiaosi';
+      var disqus_identifier = '2019/03/17/koaVueMsql/';
+
+      var disqus_title = "koaVueMsql";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
