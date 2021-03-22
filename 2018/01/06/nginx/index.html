@@ -1,36 +1,99 @@
 <!doctype html>
 
 
+
+  
+
+
 <html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
-    <meta http-equiv="Cache-Control" content="no-transform"/>
-    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
-    <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
 
 
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
-          rel="stylesheet" type="text/css">
 
 
-    <link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"/>
-
-    <link href="/blog/css/main.css?v=5.1.0" rel="stylesheet" type="text/css"/>
 
 
-    <meta name="keywords" content="nginx liunx"/>
 
 
-    <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=5.1.0"/>
 
 
-    <meta name="description" content="安装nginx
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="nginx liunx" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="安装nginx
 
 安装开发环境
 Ububtu16.4安装方法：
@@ -41,11 +104,11 @@ CentOS7安装方法：
 
 yum install gcc-c++
 pcre zlib ssl安装一般我们都需要先装pcre, zlib，">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="nginx安装">
-    <meta property="og:url" content="https://rsl140.github.io/blog/2018/01/06/nginx/index.html">
-    <meta property="og:site_name" content="XiaoSi">
-    <meta property="og:description" content="安装nginx
+<meta property="og:type" content="article">
+<meta property="og:title" content="nginx安装">
+<meta property="og:url" content="https://rsl140.github.io/blog/2018/01/06/nginx/index.html">
+<meta property="og:site_name" content="XiaoSi">
+<meta property="og:description" content="安装nginx
 
 安装开发环境
 Ububtu16.4安装方法：
@@ -56,10 +119,10 @@ CentOS7安装方法：
 
 yum install gcc-c++
 pcre zlib ssl安装一般我们都需要先装pcre, zlib，">
-    <meta property="og:updated_time" content="2018-06-22T06:45:05.452Z">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="nginx安装">
-    <meta name="twitter:description" content="安装nginx
+<meta property="og:updated_time" content="2018-06-22T06:45:05.452Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="nginx安装">
+<meta name="twitter:description" content="安装nginx
 
 安装开发环境
 Ububtu16.4安装方法：
@@ -72,171 +135,194 @@ yum install gcc-c++
 pcre zlib ssl安装一般我们都需要先装pcre, zlib，">
 
 
-    <script type="text/javascript" id="hexo.configurations">
-        var NexT = window.NexT || {};
-        var CONFIG = {
-            root: '/blog/',
-            scheme: 'Muse',
-            sidebar: {
-                "position": "left",
-                "display": "post",
-                "offset": 12,
-                "offset_float": 0,
-                "b2t": false,
-                "scrollpercent": false
-            },
-            fancybox: true,
-            motion: true,
-            duoshuo: {
-                userId: '0',
-                author: '博主'
-            },
-            algolia: {
-                applicationID: '',
-                apiKey: '',
-                indexName: '',
-                hits: {"per_page": 10},
-                labels: {
-                    "input_placeholder": "Search for Posts",
-                    "hits_empty": "We didn't find any results for the search: ${query}",
-                    "hits_stats": "${hits} results found in ${time} ms"
-                }
-            }
-        };
-    </script>
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
 
 
-    <link rel="canonical" href="https://rsl140.github.io/blog/2018/01/06/nginx/"/>
+
+  <link rel="canonical" href="https://rsl140.github.io/blog/2018/01/06/nginx/"/>
 
 
-    <title> nginx安装 | XiaoSi </title>
+
+
+
+  <title> nginx安装 | XiaoSi </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
+  
 
-<div class="container sidebar-position-left page-post-detail ">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-        <div class="header-inner">
-            <div class="site-brand-wrapper">
-                <div class="site-meta ">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">XiaoSi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
 
 
-                    <div class="custom-logo-site-title">
-                        <a href="/blog/" class="brand" rel="start">
-                            <span class="logo-line-before"><i></i></span>
-                            <span class="site-title">XiaoSi</span>
-                            <span class="logo-line-after"><i></i></span>
-                        </a>
-                    </div>
 
-                    <p class="site-subtitle"></p>
-
-                </div>
-
-                <div class="site-nav-toggle">
-                    <button>
-                        <span class="btn-bar"></span>
-                        <span class="btn-bar"></span>
-                        <span class="btn-bar"></span>
-                    </button>
-                </div>
-            </div>
-
-            <nav class="site-nav">
-
-
-                <ul id="menu" class="menu">
-
-
-                    <li class="menu-item menu-item-home">
-                        <a href="/blog/" rel="section">
-
-                            <i class="menu-item-icon fa fa-fw fa-home"></i> <br/>
-
-                            首页
-                        </a>
-                    </li>
-
-
-                    <li class="menu-item menu-item-archives">
-                        <a href="/blog/archives/" rel="section">
-
-                            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>
-
-                            归档
-                        </a>
-                    </li>
-
-
-                    <li class="menu-item menu-item-tags">
-                        <a href="/blog/tags/" rel="section">
-
-                            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>
-
-                            标签
-                        </a>
-                    </li>
-
-
-                    <li class="menu-item menu-item-categories">
-                        <a href="/blog/categories/" rel="section">
-
-                            <i class="menu-item-icon fa fa-fw fa-th"></i> <br/>
-
-                            分类
-                        </a>
-                    </li>
-
-
-                </ul>
-
-
-            </nav>
-
-
-        </div>
+ </div>
     </header>
 
     <main id="main" class="main">
-        <div class="main-inner">
-            <div class="content-wrap">
-                <div id="content" class="content">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
+  <div id="posts" class="posts-expand">
+    
 
-                    <div id="posts" class="posts-expand">
+  
 
+  
+  
+  
 
-                        <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-                            <link itemprop="mainEntityOfPage"
-                                  href="https://rsl140.github.io/blog/blog/2018/01/06/nginx/">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://rsl140.github.io/blog/blog/2018/01/06/nginx/">
 
-                            <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Summer">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/blog/uploads/1.jpg">
     </span>
 
-                            <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="XiaoSi">
     </span>
 
+    
+      <header class="post-header">
 
-                            <header class="post-header">
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                nginx安装
+              
+            
+          </h1>
+        
 
-
-                                <h1 class="post-title" itemprop="name headline">
-
-
-                                    nginx安装
-
-
-                                </h1>
-
-
-                                <div class="post-meta">
+        <div class="post-meta">
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -255,437 +341,294 @@ pcre zlib ssl安装一般我们都需要先装pcre, zlib，">
             
           </span>
 
+          
 
-                                    <span class="post-comments-count">
+          
+            
+              <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/blog/2018/01/06/nginx/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/01/06/nginx/"
-                        itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/01/06/nginx/" itemprop="commentCount"></span>
                 </a>
               </span>
+            
+          
 
+          
+          
 
-                                    <span class="post-meta-divider">|</span>
-                                    <span class="page-pv"><i class="fa fa-file-o">阅读次数</i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">阅读次数</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
 
 
-                                </div>
-                            </header>
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>安装nginx</p>
+</blockquote>
+<h1 id="安装开发环境"><a href="#安装开发环境" class="headerlink" title="安装开发环境"></a>安装开发环境</h1><blockquote>
+<p>Ububtu16.4安装方法：</p>
+</blockquote>
+<p>安装g++只需要一条命令就可以了：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install build-essential <span class="comment">#除了g++外，这条命令还会安装libc6-dev，make等好东东，很方便</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>CentOS7安装方法：</p>
+</blockquote>
+<p><code>yum install gcc-c++</code></p>
+<h2 id="pcre-zlib-ssl安装"><a href="#pcre-zlib-ssl安装" class="headerlink" title="pcre zlib ssl安装"></a>pcre zlib ssl安装</h2><p>一般我们都需要先装pcre, zlib，前者为了重写rewrite，后者为了gzip压缩。</p>
+<p>1.选定目录<br><code>cd /usr/local/src</code>以下下载文件均放置在次文件夹下 请使用sudo权限</p>
+<h3 id="pcre"><a href="#pcre" class="headerlink" title="pcre"></a>pcre</h3><p><a href="ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/" target="_blank" rel="external">下载地址:ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/</a></p>
+<blockquote>
+<p>Ububtu16.4安装方法：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.41.tar.gz</div><div class="line">tar -zxvf pcre-8.41.tar.gz</div><div class="line"><span class="built_in">cd</span> pcre-8.34</div><div class="line">./configure</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<blockquote>
+<p>CentOS7安装方法：</p>
+</blockquote>
+<p><code>yum install -y pcre pcre-devel</code></p>
+<h3 id="zlib"><a href="#zlib" class="headerlink" title="zlib"></a>zlib</h3><p><a href="http://zlib.net/" target="_blank" rel="external">下载地址:http://zlib.net/</a></p>
+<blockquote>
+<p>Ububtu16.4安装方法：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wget http://zlib.net/zlib-1.2.11.tar.gz</div><div class="line">tar -zxvf zlib-1.2.11.tar.gz</div><div class="line"><span class="built_in">cd</span> zlib-1.2.11</div><div class="line">./configure</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
+<blockquote>
+<p>CentOS7安装方法：</p>
+</blockquote>
+<p> <code>yum install -y zlib zlib-devel</code></p>
+<h3 id="ssl-不要make-否则有坑"><a href="#ssl-不要make-否则有坑" class="headerlink" title="ssl (不要make 否则有坑)"></a>ssl (不要make 否则有坑)</h3><p><a href="https://www.openssl.org/source/" target="_blank" rel="external">下载地址:https://www.openssl.org/source/</a></p>
+<blockquote>
+<p>Ububtu16.4安装方法：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">wget https://www.openssl.org/<span class="built_in">source</span>/openssl-1.0.2n.tar.gz</div><div class="line">tar -zxvf openssl-1.0.2n.tar.gz</div><div class="line"></div><div class="line">apt-get install openssl</div><div class="line">apt-get install libssl-dev</div></pre></td></tr></table></figure>
+<blockquote>
+<p>CentOS7安装方法：</p>
+</blockquote>
+<p><code>yum install -y openssl openssl-devel</code></p>
+<h3 id="nginx安装-我是直接安装的"><a href="#nginx安装-我是直接安装的" class="headerlink" title="nginx安装(我是直接安装的)"></a>nginx安装(我是直接安装的)</h3><p><a href="http://nginx.org/en/download.html" target="_blank" rel="external">下载地址:http://nginx.org/en/download.html</a></p>
+<blockquote>
+<p>Ububtu16.4安装方法：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wget http://nginx.org/download/nginx-1.12.2.tar.gz</div><div class="line">tar -zxvf nginx-1.12.2.tar.gz</div><div class="line"><span class="built_in">cd</span> nginx-1.12.2</div><div class="line">./configure</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
+<blockquote>
+<p>CentOS7安装方法：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wget -c http://nginx.org/download/nginx-1.12.2.tar.gz</div><div class="line">tar -zxvf nginx-1.12.2.tar.gz</div><div class="line"><span class="built_in">cd</span> nginx-1.12.2</div><div class="line">./configure</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
+<h3 id="安装成功"><a href="#安装成功" class="headerlink" title="安装成功"></a>安装成功</h3><p>进入/usr/local/nginx目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">client_body_temp  fastcgi_temp  logs        sbin       uwsgi_temp</div><div class="line">conf              html          proxy_temp  scgi_temp</div></pre></td></tr></table></figure></p>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>进入/sbin <code>请使用sudo权限</code><br>启动：<code>./nginx</code><br>停止：<code>./nginx -s stop</code><br>重启：<code>./nginx -s reload</code></p>
+<h3 id="VUE-NGINX-服务器配置"><a href="#VUE-NGINX-服务器配置" class="headerlink" title="VUE NGINX 服务器配置"></a>VUE NGINX 服务器配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">    listen       8089;</div><div class="line">    server_name  localhost;</div><div class="line">    root   E:/git/Dofar/dist/;<span class="comment">#文件地址</span></div><div class="line">    index  index.html index.htm;<span class="comment">#文件指向页面</span></div><div class="line">    <span class="comment">#charset koi8-r;</span></div><div class="line"></div><div class="line">    <span class="comment">#access_log  logs/host.access.log  main;</span></div><div class="line"></div><div class="line">    location / &#123;</div><div class="line">         try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ @router;<span class="comment">#前端路由导航</span></div><div class="line">         index index.html;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">    location @router &#123;</div><div class="line">        rewrite ^.*$ /index.html last;<span class="comment">#前端路由导航</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="负载均衡策略"><a href="#负载均衡策略" class="headerlink" title="负载均衡策略"></a>负载均衡策略</h3><p>nginx可以根据客户端IP进行负载均衡，在upstream里设置ip_hash，就可以针对同一个C类地址段中的客户端选择同一个后端服务器，除非那个后端服务器宕了才会换一个。</p>
+<p>nginx的upstream目前支持的5种方式的分配</p>
+<h4 id="1、轮询（默认）"><a href="#1、轮询（默认）" class="headerlink" title="1、轮询（默认）"></a>1、轮询（默认）</h4><p>每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器down掉，能自动剔除。</p>
+<blockquote>
+<p>upstream backserver {<br>server 192.168.0.14;<br>server 192.168.0.15;<br>}</p>
+</blockquote>
+<h4 id="2、指定权重"><a href="#2、指定权重" class="headerlink" title="2、指定权重"></a>2、指定权重</h4><p>指定轮询几率，weight和访问比率成正比，用于后端服务器性能不均的情况。</p>
+<blockquote>
+<p>upstream backserver {<br>server 192.168.0.14 weight=10;<br>server 192.168.0.15 weight=10;<br>}</p>
+</blockquote>
+<h4 id="3、IP绑定-ip-hash"><a href="#3、IP绑定-ip-hash" class="headerlink" title="3、IP绑定 ip_hash"></a>3、IP绑定 ip_hash</h4><p>每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。</p>
+<blockquote>
+<p>upstream backserver {<br>ip_hash;<br>server 192.168.0.14:88;<br>server 192.168.0.15:80;<br>}</p>
+</blockquote>
+<h4 id="4、fair（第三方）"><a href="#4、fair（第三方）" class="headerlink" title="4、fair（第三方）"></a>4、fair（第三方）</h4><p>按后端服务器的响应时间来分配请求，响应时间短的优先分配。</p>
+<blockquote>
+<p>upstream backserver {<br>server server1;<br>server server2;<br>fair;<br>}</p>
+</blockquote>
+<h4 id="5、url-hash（第三方）"><a href="#5、url-hash（第三方）" class="headerlink" title="5、url_hash（第三方）"></a>5、url_hash（第三方）</h4><p>按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。</p>
+<blockquote>
+<p>upstream backserver {<br>server squid1:3128;<br>server squid2:3128;<br>hash $request_uri;<br>hash_method crc32;<br>}</p>
+</blockquote>
+<p>在需要使用负载均衡的server中增加</p>
+<blockquote>
+<p>upstream backserver{<br>ip_hash;<br>server 127.0.0.1:9090 down; (down 表示单前的server暂时不参与负载)<br>server 127.0.0.1:8080 weight=2; (weight 默认为1.weight越大，负载的权重就越大)<br>server 127.0.0.1:6060;<br>server 127.0.0.1:7070 backup; (其它所有的非backup机器down或者忙的时候，请求backup机器)<br>}<br>location / {<br>    proxy_pass <a href="http://backserver/" target="_blank" rel="external">http://backserver/</a> ;<br>}</p>
+</blockquote>
+<p>max_fails ：允许请求失败的次数默认为1.当超过最大次数时，返回proxy_next_upstream 模块定义的错误<br>fail_timeout:max_fails次失败后，暂停的时间</p>
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="http://www.nginx.cn/install" target="_blank" rel="external">Nginx安装</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2017/10/31/vue/" rel="next" title="Vue2.0">
+                <i class="fa fa-chevron-left"></i> Vue2.0
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2018/06/19/fbs/" rel="prev" title="分布式部署安装方案">
+                分布式部署安装方案 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
 
 
-                            <div class="post-body" itemprop="articleBody">
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
-                                <blockquote>
-                                    <p>安装nginx</p>
-                                </blockquote>
-                                <h1 id="安装开发环境"><a href="#安装开发环境" class="headerlink" title="安装开发环境"></a>安装开发环境</h1>
-                                <blockquote>
-                                    <p>Ububtu16.4安装方法：</p>
-                                </blockquote>
-                                <p>安装g++只需要一条命令就可以了：<br>
-                                    <figure class="highlight bash">
-                                        <table>
-                                            <tr>
-                                                <td class="gutter">
-                                                    <pre><div class="line">1</div></pre>
-                                                </td>
-                                                <td class="code">
-                                                    <pre><div class="line">$ sudo apt-get install build-essential <span
-                                                            class="comment">#除了g++外，这条命令还会安装libc6-dev，make等好东东，很方便</span></div></pre>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </figure>
-                                </p>
-                                <blockquote>
-                                    <p>CentOS7安装方法：</p>
-                                </blockquote>
-                                <p><code>yum install gcc-c++</code></p>
-                                <h2 id="pcre-zlib-ssl安装"><a href="#pcre-zlib-ssl安装" class="headerlink"
-                                                            title="pcre zlib ssl安装"></a>pcre zlib ssl安装</h2>
-                                <p>一般我们都需要先装pcre, zlib，前者为了重写rewrite，后者为了gzip压缩。</p>
-                                <p>1.选定目录<br><code>cd /usr/local/src</code>以下下载文件均放置在次文件夹下 请使用sudo权限</p>
-                                <h3 id="pcre"><a href="#pcre" class="headerlink" title="pcre"></a>pcre</h3>
-                                <p><a href="ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/" target="_blank"
-                                      rel="external">下载地址:ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/</a></p>
-                                <blockquote>
-                                    <p>Ububtu16.4安装方法：</p>
-                                </blockquote>
-                                <figure class="highlight bash">
-                                    <table>
-                                        <tr>
-                                            <td class="gutter">
-                                                <pre><div class="line">1</div><div class="line">2</div><div
-                                                        class="line">3</div><div class="line">4</div><div
-                                                        class="line">5</div><div class="line">6</div></pre>
-                                            </td>
-                                            <td class="code">
-                                                <pre><div class="line">wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.41.tar.gz</div><div
-                                                        class="line">tar -zxvf pcre-8.41.tar.gz</div><div
-                                                        class="line"><span class="built_in">cd</span> pcre-8.34</div><div
-                                                        class="line">./configure</div><div class="line">make</div><div
-                                                        class="line">make install</div></pre>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </figure>
-                                <a id="more"></a>
-                                <blockquote>
-                                    <p>CentOS7安装方法：</p>
-                                </blockquote>
-                                <p><code>yum install -y pcre pcre-devel</code></p>
-                                <h3 id="zlib"><a href="#zlib" class="headerlink" title="zlib"></a>zlib</h3>
-                                <p><a href="http://zlib.net/" target="_blank" rel="external">下载地址:http://zlib.net/</a>
-                                </p>
-                                <blockquote>
-                                    <p>Ububtu16.4安装方法：</p>
-                                </blockquote>
-                                <figure class="highlight bash">
-                                    <table>
-                                        <tr>
-                                            <td class="gutter">
-                                                <pre><div class="line">1</div><div class="line">2</div><div
-                                                        class="line">3</div><div class="line">4</div><div
-                                                        class="line">5</div><div class="line">6</div></pre>
-                                            </td>
-                                            <td class="code">
-                                                <pre><div class="line">wget http://zlib.net/zlib-1.2.11.tar.gz</div><div
-                                                        class="line">tar -zxvf zlib-1.2.11.tar.gz</div><div
-                                                        class="line"><span class="built_in">cd</span> zlib-1.2.11</div><div
-                                                        class="line">./configure</div><div class="line">make</div><div
-                                                        class="line">make install</div></pre>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </figure>
-                                <blockquote>
-                                    <p>CentOS7安装方法：</p>
-                                </blockquote>
-                                <p><code>yum install -y zlib zlib-devel</code></p>
-                                <h3 id="ssl-不要make-否则有坑"><a href="#ssl-不要make-否则有坑" class="headerlink"
-                                                            title="ssl (不要make 否则有坑)"></a>ssl (不要make 否则有坑)</h3>
-                                <p><a href="https://www.openssl.org/source/" target="_blank" rel="external">下载地址:https://www.openssl.org/source/</a>
-                                </p>
-                                <blockquote>
-                                    <p>Ububtu16.4安装方法：</p>
-                                </blockquote>
-                                <figure class="highlight bash">
-                                    <table>
-                                        <tr>
-                                            <td class="gutter">
-                                                <pre><div class="line">1</div><div class="line">2</div><div
-                                                        class="line">3</div><div class="line">4</div><div
-                                                        class="line">5</div></pre>
-                                            </td>
-                                            <td class="code">
-                                                <pre><div class="line">wget https://www.openssl.org/<span
-                                                        class="built_in">source</span>/openssl-1.0.2n.tar.gz</div><div
-                                                        class="line">tar -zxvf openssl-1.0.2n.tar.gz</div><div
-                                                        class="line"></div><div
-                                                        class="line">apt-get install openssl</div><div class="line">apt-get install libssl-dev</div></pre>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </figure>
-                                <blockquote>
-                                    <p>CentOS7安装方法：</p>
-                                </blockquote>
-                                <p><code>yum install -y openssl openssl-devel</code></p>
-                                <h3 id="nginx安装-我是直接安装的"><a href="#nginx安装-我是直接安装的" class="headerlink"
-                                                            title="nginx安装(我是直接安装的)"></a>nginx安装(我是直接安装的)</h3>
-                                <p><a href="http://nginx.org/en/download.html" target="_blank" rel="external">下载地址:http://nginx.org/en/download.html</a>
-                                </p>
-                                <blockquote>
-                                    <p>Ububtu16.4安装方法：</p>
-                                </blockquote>
-                                <figure class="highlight bash">
-                                    <table>
-                                        <tr>
-                                            <td class="gutter">
-                                                <pre><div class="line">1</div><div class="line">2</div><div
-                                                        class="line">3</div><div class="line">4</div><div
-                                                        class="line">5</div><div class="line">6</div></pre>
-                                            </td>
-                                            <td class="code">
-                                                <pre><div class="line">wget http://nginx.org/download/nginx-1.12.2.tar.gz</div><div
-                                                        class="line">tar -zxvf nginx-1.12.2.tar.gz</div><div
-                                                        class="line"><span class="built_in">cd</span> nginx-1.12.2</div><div
-                                                        class="line">./configure</div><div class="line">make</div><div
-                                                        class="line">make install</div></pre>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </figure>
-                                <blockquote>
-                                    <p>CentOS7安装方法：</p>
-                                </blockquote>
-                                <figure class="highlight bash">
-                                    <table>
-                                        <tr>
-                                            <td class="gutter">
-                                                <pre><div class="line">1</div><div class="line">2</div><div
-                                                        class="line">3</div><div class="line">4</div><div
-                                                        class="line">5</div><div class="line">6</div></pre>
-                                            </td>
-                                            <td class="code">
-                                                <pre><div class="line">wget -c http://nginx.org/download/nginx-1.12.2.tar.gz</div><div
-                                                        class="line">tar -zxvf nginx-1.12.2.tar.gz</div><div
-                                                        class="line"><span class="built_in">cd</span> nginx-1.12.2</div><div
-                                                        class="line">./configure</div><div class="line">make</div><div
-                                                        class="line">make install</div></pre>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </figure>
-                                <h3 id="安装成功"><a href="#安装成功" class="headerlink" title="安装成功"></a>安装成功</h3>
-                                <p>进入/usr/local/nginx目录<br>
-                                    <figure class="highlight bash">
-                                        <table>
-                                            <tr>
-                                                <td class="gutter">
-                                                    <pre><div class="line">1</div><div class="line">2</div></pre>
-                                                </td>
-                                                <td class="code">
-                                                    <pre><div class="line">client_body_temp  fastcgi_temp  logs        sbin       uwsgi_temp</div><div
-                                                            class="line">conf              html          proxy_temp  scgi_temp</div></pre>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </figure>
-                                </p>
-                                <h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3>
-                                <p>进入/sbin <code>请使用sudo权限</code><br>启动：<code>./nginx</code><br>停止：<code>./nginx -s
-                                    stop</code><br>重启：<code>./nginx -s reload</code></p>
-                                <h3 id="VUE-NGINX-服务器配置"><a href="#VUE-NGINX-服务器配置" class="headerlink"
-                                                            title="VUE NGINX 服务器配置"></a>VUE NGINX 服务器配置</h3>
-                                <figure class="highlight bash">
-                                    <table>
-                                        <tr>
-                                            <td class="gutter">
-                                                <pre><div class="line">1</div><div class="line">2</div><div
-                                                        class="line">3</div><div class="line">4</div><div
-                                                        class="line">5</div><div class="line">6</div><div
-                                                        class="line">7</div><div class="line">8</div><div
-                                                        class="line">9</div><div class="line">10</div><div class="line">11</div><div
-                                                        class="line">12</div><div class="line">13</div><div
-                                                        class="line">14</div><div class="line">15</div><div
-                                                        class="line">16</div><div class="line">17</div></pre>
-                                            </td>
-                                            <td class="code">
-                                                <pre><div class="line">server &#123;</div><div class="line">    listen       8089;</div><div
-                                                        class="line">    server_name  localhost;</div><div class="line">    root   E:/git/Dofar/dist/;<span
-                                                        class="comment">#文件地址</span></div><div class="line">    index  index.html index.htm;<span
-                                                        class="comment">#文件指向页面</span></div><div class="line">    <span
-                                                        class="comment">#charset koi8-r;</span></div><div
-                                                        class="line"></div><div class="line">    <span class="comment">#access_log  logs/host.access.log  main;</span></div><div
-                                                        class="line"></div><div class="line">    location / &#123;</div><div
-                                                        class="line">         try_files <span
-                                                        class="variable">$uri</span> <span class="variable">$uri</span>/ @router;<span
-                                                        class="comment">#前端路由导航</span></div><div class="line">         index index.html;</div><div
-                                                        class="line">     &#125;</div><div class="line"></div><div
-                                                        class="line">    location @router &#123;</div><div class="line">        rewrite ^.*$ /index.html last;<span
-                                                        class="comment">#前端路由导航</span></div><div
-                                                        class="line">&#125;</div></pre>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </figure>
-                                <h3 id="负载均衡策略"><a href="#负载均衡策略" class="headerlink" title="负载均衡策略"></a>负载均衡策略</h3>
-                                <p>
-                                    nginx可以根据客户端IP进行负载均衡，在upstream里设置ip_hash，就可以针对同一个C类地址段中的客户端选择同一个后端服务器，除非那个后端服务器宕了才会换一个。</p>
-                                <p>nginx的upstream目前支持的5种方式的分配</p>
-                                <h4 id="1、轮询（默认）"><a href="#1、轮询（默认）" class="headerlink" title="1、轮询（默认）"></a>1、轮询（默认）
-                                </h4>
-                                <p>每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器down掉，能自动剔除。</p>
-                                <blockquote>
-                                    <p>upstream backserver {<br>server 192.168.0.14;<br>server 192.168.0.15;<br>}</p>
-                                </blockquote>
-                                <h4 id="2、指定权重"><a href="#2、指定权重" class="headerlink" title="2、指定权重"></a>2、指定权重</h4>
-                                <p>指定轮询几率，weight和访问比率成正比，用于后端服务器性能不均的情况。</p>
-                                <blockquote>
-                                    <p>upstream backserver {<br>server 192.168.0.14 weight=10;<br>server 192.168.0.15
-                                        weight=10;<br>}</p>
-                                </blockquote>
-                                <h4 id="3、IP绑定-ip-hash"><a href="#3、IP绑定-ip-hash" class="headerlink"
-                                                           title="3、IP绑定 ip_hash"></a>3、IP绑定 ip_hash</h4>
-                                <p>每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。</p>
-                                <blockquote>
-                                    <p>upstream backserver {<br>ip_hash;<br>server 192.168.0.14:88;<br>server
-                                        192.168.0.15:80;<br>}</p>
-                                </blockquote>
-                                <h4 id="4、fair（第三方）"><a href="#4、fair（第三方）" class="headerlink" title="4、fair（第三方）"></a>4、fair（第三方）
-                                </h4>
-                                <p>按后端服务器的响应时间来分配请求，响应时间短的优先分配。</p>
-                                <blockquote>
-                                    <p>upstream backserver {<br>server server1;<br>server server2;<br>fair;<br>}</p>
-                                </blockquote>
-                                <h4 id="5、url-hash（第三方）"><a href="#5、url-hash（第三方）" class="headerlink"
-                                                            title="5、url_hash（第三方）"></a>5、url_hash（第三方）</h4>
-                                <p>按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。</p>
-                                <blockquote>
-                                    <p>upstream backserver {<br>server squid1:3128;<br>server squid2:3128;<br>hash
-                                        $request_uri;<br>hash_method crc32;<br>}</p>
-                                </blockquote>
-                                <p>在需要使用负载均衡的server中增加</p>
-                                <blockquote>
-                                    <p>upstream backserver{<br>ip_hash;<br>server 127.0.0.1:9090 down; (down
-                                        表示单前的server暂时不参与负载)<br>server 127.0.0.1:8080 weight=2; (weight
-                                        默认为1.weight越大，负载的权重就越大)<br>server 127.0.0.1:6060;<br>server 127.0.0.1:7070
-                                        backup; (其它所有的非backup机器down或者忙的时候，请求backup机器)<br>}<br>location / {<br>
-                                        proxy_pass <a href="http://backserver/" target="_blank" rel="external">http://backserver/</a>
-                                        ;<br>}</p>
-                                </blockquote>
-                                <p>max_fails ：允许请求失败的次数默认为1.当超过最大次数时，返回proxy_next_upstream 模块定义的错误<br>fail_timeout:max_fails次失败后，暂停的时间
-                                </p>
-                                <h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1>
-                                <p><a href="http://www.nginx.cn/install" target="_blank" rel="external">Nginx安装</a></p>
+          </div>
+          
 
 
-                            </div>
-
-                            <div>
-
-
-                            </div>
-
-                            <div>
-
-
-                            </div>
-
-                            <div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
 
 
-                            </div>
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
 
-                            <footer class="post-footer">
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
 
-                                <div class="post-tags">
+      
 
-                                    <a href="/blog/tags/nginx/" rel="tag"># nginx</a>
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-                                </div>
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/blog/uploads/1.jpg"
+               alt="Summer" />
+          <p class="site-author-name" itemprop="name">Summer</p>
+           
+              <p class="site-description motion-element" itemprop="description">小思</p>
+          
+        </div>
+        <nav class="site-state motion-element">
 
-
-                                <div class="post-nav">
-                                    <div class="post-nav-next post-nav-item">
-
-                                        <a href="/blog/2017/10/31/vue/" rel="next" title="Vue2.0">
-                                            <i class="fa fa-chevron-left"></i> Vue2.0
-                                        </a>
-
-                                    </div>
-
-                                    <span class="post-nav-divider"></span>
-
-                                    <div class="post-nav-prev post-nav-item">
-
-                                        <a href="/blog/2018/06/19/fbs/" rel="prev" title="分布式部署安装方案">
-                                            分布式部署安装方案 <i class="fa fa-chevron-right"></i>
-                                        </a>
-
-                                    </div>
-                                </div>
-
-
-                            </footer>
-                        </article>
-
-
-                        <div class="post-spread">
-
-                        </div>
-                    </div>
-
-
-                </div>
-
-
-                <div class="comments" id="comments">
-
-                    <div id="disqus_thread">
-                        <noscript>
-                            Please enable JavaScript to view the
-                            <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
-                        </noscript>
-                    </div>
-
-                </div>
-
-
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/blog/archives/">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
             </div>
+          
 
-
-            <div class="sidebar-toggle">
-                <div class="sidebar-toggle-line-wrap">
-                    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-                    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-                    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-                </div>
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/blog/categories/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
             </div>
+          
 
-            <aside id="sidebar" class="sidebar">
-                <div class="sidebar-inner">
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/blog/tags/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
 
+        </nav>
 
-                    <ul class="sidebar-nav motion-element">
-                        <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-                            文章目录
-                        </li>
-                        <li class="sidebar-nav-overview" data-target="site-overview">
-                            站点概览
-                        </li>
-                    </ul>
+        
 
-
-                    <section class="site-overview sidebar-panel">
-                        <div class="site-author motion-element" itemprop="author" itemscope
-                             itemtype="http://schema.org/Person">
-                            <img class="site-author-image" itemprop="image"
-                                 src="/blog/uploads/1.jpg"
-                                 alt="Summer"/>
-                            <p class="site-author-name" itemprop="name">Summer</p>
-
-                            <p class="site-description motion-element" itemprop="description">小思</p>
-
-                        </div>
-                        <nav class="site-state motion-element">
-
-
-                            <div class="site-state-item site-state-posts">
-                                <a href="/blog/archives/">
-                                    <span class="site-state-item-count">27</span>
-                                    <span class="site-state-item-name">日志</span>
-                                </a>
-                            </div>
-
-
-                            <div class="site-state-item site-state-categories">
-                                <a href="/blog/categories/index.html">
-                                    <span class="site-state-item-count">8</span>
-                                    <span class="site-state-item-name">分类</span>
-                                </a>
-                            </div>
-
-
-                            <div class="site-state-item site-state-tags">
-                                <a href="/blog/tags/index.html">
-                                    <span class="site-state-item-count">17</span>
-                                    <span class="site-state-item-name">标签</span>
-                                </a>
-                            </div>
-
-
-                        </nav>
-
-
-                        <div class="links-of-author motion-element">
+        <div class="links-of-author motion-element">
           
             
               <span class="links-of-author-item">
@@ -696,8 +639,8 @@ pcre zlib ssl安装一般我们都需要先装pcre, zlib，">
                   GitHub
                 </a>
               </span>
-
-                            <span class="links-of-author-item">
+            
+              <span class="links-of-author-item">
                 <a href="https://segmentfault.com/u/xiaosi_58ec6bdf9eaab" target="_blank" title="Segmentfault">
                   
                     <i class="fa fa-fw fa-globe"></i>
@@ -705,217 +648,226 @@ pcre zlib ssl安装一般我们都需要先装pcre, zlib，">
                   Segmentfault
                 </a>
               </span>
-
-
-                        </div>
-
-
-                    </section>
-
-
-                    <!--noindex-->
-                    <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-                        <div class="post-toc">
-
-
-                            <div class="post-toc-content">
-                                <ol class="nav">
-                                    <li class="nav-item nav-level-1"><a class="nav-link" href="#安装开发环境"><span
-                                            class="nav-number">1.</span> <span class="nav-text">安装开发环境</span></a>
-                                        <ol class="nav-child">
-                                            <li class="nav-item nav-level-2"><a class="nav-link"
-                                                                                href="#pcre-zlib-ssl安装"><span
-                                                    class="nav-number">1.1.</span> <span class="nav-text">pcre zlib ssl安装</span></a>
-                                                <ol class="nav-child">
-                                                    <li class="nav-item nav-level-3"><a class="nav-link"
-                                                                                        href="#pcre"><span
-                                                            class="nav-number">1.1.1.</span> <span
-                                                            class="nav-text">pcre</span></a></li>
-                                                    <li class="nav-item nav-level-3"><a class="nav-link"
-                                                                                        href="#zlib"><span
-                                                            class="nav-number">1.1.2.</span> <span
-                                                            class="nav-text">zlib</span></a></li>
-                                                    <li class="nav-item nav-level-3"><a class="nav-link"
-                                                                                        href="#ssl-不要make-否则有坑"><span
-                                                            class="nav-number">1.1.3.</span> <span class="nav-text">ssl (不要make 否则有坑)</span></a>
-                                                    </li>
-                                                    <li class="nav-item nav-level-3"><a class="nav-link"
-                                                                                        href="#nginx安装-我是直接安装的"><span
-                                                            class="nav-number">1.1.4.</span> <span class="nav-text">nginx安装(我是直接安装的)</span></a>
-                                                    </li>
-                                                    <li class="nav-item nav-level-3"><a class="nav-link"
-                                                                                        href="#安装成功"><span
-                                                            class="nav-number">1.1.5.</span> <span
-                                                            class="nav-text">安装成功</span></a></li>
-                                                    <li class="nav-item nav-level-3"><a class="nav-link"
-                                                                                        href="#启动"><span
-                                                            class="nav-number">1.1.6.</span> <span
-                                                            class="nav-text">启动</span></a></li>
-                                                    <li class="nav-item nav-level-3"><a class="nav-link"
-                                                                                        href="#VUE-NGINX-服务器配置"><span
-                                                            class="nav-number">1.1.7.</span> <span class="nav-text">VUE NGINX 服务器配置</span></a>
-                                                    </li>
-                                                    <li class="nav-item nav-level-3"><a class="nav-link" href="#负载均衡策略"><span
-                                                            class="nav-number">1.1.8.</span> <span class="nav-text">负载均衡策略</span></a>
-                                                        <ol class="nav-child">
-                                                            <li class="nav-item nav-level-4"><a class="nav-link"
-                                                                                                href="#1、轮询（默认）"><span
-                                                                    class="nav-number">1.1.8.1.</span> <span
-                                                                    class="nav-text">1、轮询（默认）</span></a></li>
-                                                            <li class="nav-item nav-level-4"><a class="nav-link"
-                                                                                                href="#2、指定权重"><span
-                                                                    class="nav-number">1.1.8.2.</span> <span
-                                                                    class="nav-text">2、指定权重</span></a></li>
-                                                            <li class="nav-item nav-level-4"><a class="nav-link"
-                                                                                                href="#3、IP绑定-ip-hash"><span
-                                                                    class="nav-number">1.1.8.3.</span> <span
-                                                                    class="nav-text">3、IP绑定 ip_hash</span></a></li>
-                                                            <li class="nav-item nav-level-4"><a class="nav-link"
-                                                                                                href="#4、fair（第三方）"><span
-                                                                    class="nav-number">1.1.8.4.</span> <span
-                                                                    class="nav-text">4、fair（第三方）</span></a></li>
-                                                            <li class="nav-item nav-level-4"><a class="nav-link"
-                                                                                                href="#5、url-hash（第三方）"><span
-                                                                    class="nav-number">1.1.8.5.</span> <span
-                                                                    class="nav-text">5、url_hash（第三方）</span></a></li>
-                                                        </ol>
-                                                    </li>
-                                                </ol>
-                                            </li>
-                                        </ol>
-                                    </li>
-                                    <li class="nav-item nav-level-1"><a class="nav-link" href="#参考文档"><span
-                                            class="nav-number">2.</span> <span class="nav-text">参考文档</span></a></li>
-                                </ol>
-                            </div>
-
-
-                        </div>
-                    </section>
-                    <!--/noindex-->
-
-
-                </div>
-            </aside>
-
-
+            
+          
         </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装开发环境"><span class="nav-number">1.</span> <span class="nav-text">安装开发环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pcre-zlib-ssl安装"><span class="nav-number">1.1.</span> <span class="nav-text">pcre zlib ssl安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pcre"><span class="nav-number">1.1.1.</span> <span class="nav-text">pcre</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zlib"><span class="nav-number">1.1.2.</span> <span class="nav-text">zlib</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ssl-不要make-否则有坑"><span class="nav-number">1.1.3.</span> <span class="nav-text">ssl (不要make 否则有坑)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx安装-我是直接安装的"><span class="nav-number">1.1.4.</span> <span class="nav-text">nginx安装(我是直接安装的)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装成功"><span class="nav-number">1.1.5.</span> <span class="nav-text">安装成功</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动"><span class="nav-number">1.1.6.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VUE-NGINX-服务器配置"><span class="nav-number">1.1.7.</span> <span class="nav-text">VUE NGINX 服务器配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#负载均衡策略"><span class="nav-number">1.1.8.</span> <span class="nav-text">负载均衡策略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、轮询（默认）"><span class="nav-number">1.1.8.1.</span> <span class="nav-text">1、轮询（默认）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、指定权重"><span class="nav-number">1.1.8.2.</span> <span class="nav-text">2、指定权重</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、IP绑定-ip-hash"><span class="nav-number">1.1.8.3.</span> <span class="nav-text">3、IP绑定 ip_hash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、fair（第三方）"><span class="nav-number">1.1.8.4.</span> <span class="nav-text">4、fair（第三方）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、url-hash（第三方）"><span class="nav-number">1.1.8.5.</span> <span class="nav-text">5、url_hash（第三方）</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文档"><span class="nav-number">2.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
     </main>
 
     <footer id="footer" class="footer">
-        <div class="footer-inner">
-            <div class="copyright">
-
-                &copy;
-                <span itemprop="copyrightYear">2019</span>
-                <span class="with-love">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-                <span class="author" itemprop="copyrightHolder">Summer</span>
-            </div>
+  <span class="author" itemprop="copyrightHolder">Summer</span>
+</div>
 
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-            <div class="busuanzi-count">
-                <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-                <span class="site-uv">
+  
+    <span class="site-uv">
       <i class="fa fa-user">本站访客数</i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
       人次
     </span>
+  
 
-
-                <span class="site-pv">
+  
+    <span class="site-pv">
       <i class="fa fa-eye">本站总访问量</i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
       次
     </span>
-
-            </div>
-
-
-        </div>
-    </footer>
-
-
-    <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-
-    </div>
-
-
+  
 </div>
 
 
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
 <script type="text/javascript">
-    if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-        window.Promise = null;
-    }
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
-<script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
 
 
-<script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
 
-<script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
 
-<script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
 
 
-<script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
 
 
-<script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
-<script type="text/javascript" src="/blog/lib/canvas-nest/canvas-nest.min.js"></script>
+  
 
 
-<script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.0"></script>
 
-<script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.0"></script>
 
 
-<script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.0"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.0"></script>
 <script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.0"></script>
 
 
-<script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.0"></script>
+
+  
 
 
-<script type="text/javascript">
-    var disqus_shortname = 'xiaosi';
-    var disqus_identifier = '2018/01/06/nginx/';
-
-    var disqus_title = "nginx安装";
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.0"></script>
 
 
-    function run_disqus_script(disqus_script) {
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'xiaosi';
+      var disqus_identifier = '2018/01/06/nginx/';
+
+      var disqus_title = "nginx安装";
+
+
+      function run_disqus_script(disqus_script) {
         var dsq = document.createElement('script');
         dsq.type = 'text/javascript';
         dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }
+      }
 
-    run_disqus_script('count.js');
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
 
 
-    var disqus_config = function () {
-        this.page.url = disqus_url;
-        this.page.identifier = disqus_identifier;
-        this.page.title = disqus_title;
-    };
-    run_disqus_script('embed.js');
 
 
-</script>
 
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>

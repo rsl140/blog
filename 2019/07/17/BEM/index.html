@@ -1,217 +1,304 @@
 <!doctype html>
 
 
+
+  
+
+
 <html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
-    <meta http-equiv="Cache-Control" content="no-transform"/>
-    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
-    <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
 
 
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
-          rel="stylesheet" type="text/css">
 
 
-    <link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"/>
-
-    <link href="/blog/css/main.css?v=5.1.0" rel="stylesheet" type="text/css"/>
 
 
-    <meta name="keywords" content="代码规范"/>
 
 
-    <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=5.1.0"/>
 
 
-    <meta name="description" content="提高代码质量、统一代码规范
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="代码规范" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="提高代码质量、统一代码规范
 
 参考资料">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="代码规范备忘">
-    <meta property="og:url" content="https://rsl140.github.io/blog/2019/07/17/BEM/index.html">
-    <meta property="og:site_name" content="XiaoSi">
-    <meta property="og:description" content="提高代码质量、统一代码规范
+<meta property="og:type" content="article">
+<meta property="og:title" content="代码规范备忘">
+<meta property="og:url" content="https://rsl140.github.io/blog/2019/07/17/BEM/index.html">
+<meta property="og:site_name" content="XiaoSi">
+<meta property="og:description" content="提高代码质量、统一代码规范
 
 参考资料">
-    <meta property="og:updated_time" content="2019-08-21T03:24:40.794Z">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="代码规范备忘">
-    <meta name="twitter:description" content="提高代码质量、统一代码规范
+<meta property="og:updated_time" content="2021-03-22T08:28:05.737Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="代码规范备忘">
+<meta name="twitter:description" content="提高代码质量、统一代码规范
 
 参考资料">
 
 
-    <script type="text/javascript" id="hexo.configurations">
-        var NexT = window.NexT || {};
-        var CONFIG = {
-            root: '/blog/',
-            scheme: 'Muse',
-            sidebar: {
-                "position": "left",
-                "display": "post",
-                "offset": 12,
-                "offset_float": 0,
-                "b2t": false,
-                "scrollpercent": false
-            },
-            fancybox: true,
-            motion: true,
-            duoshuo: {
-                userId: '0',
-                author: '博主'
-            },
-            algolia: {
-                applicationID: '',
-                apiKey: '',
-                indexName: '',
-                hits: {"per_page": 10},
-                labels: {
-                    "input_placeholder": "Search for Posts",
-                    "hits_empty": "We didn't find any results for the search: ${query}",
-                    "hits_stats": "${hits} results found in ${time} ms"
-                }
-            }
-        };
-    </script>
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
 
 
-    <link rel="canonical" href="https://rsl140.github.io/blog/2019/07/17/BEM/"/>
+
+  <link rel="canonical" href="https://rsl140.github.io/blog/2019/07/17/BEM/"/>
 
 
-    <title> 代码规范备忘 | XiaoSi </title>
+
+
+
+  <title> 代码规范备忘 | XiaoSi </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
+  
 
-<div class="container sidebar-position-left page-post-detail ">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-        <div class="header-inner">
-            <div class="site-brand-wrapper">
-                <div class="site-meta ">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">XiaoSi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
 
 
-                    <div class="custom-logo-site-title">
-                        <a href="/blog/" class="brand" rel="start">
-                            <span class="logo-line-before"><i></i></span>
-                            <span class="site-title">XiaoSi</span>
-                            <span class="logo-line-after"><i></i></span>
-                        </a>
-                    </div>
 
-                    <p class="site-subtitle"></p>
-
-                </div>
-
-                <div class="site-nav-toggle">
-                    <button>
-                        <span class="btn-bar"></span>
-                        <span class="btn-bar"></span>
-                        <span class="btn-bar"></span>
-                    </button>
-                </div>
-            </div>
-
-            <nav class="site-nav">
-
-
-                <ul id="menu" class="menu">
-
-
-                    <li class="menu-item menu-item-home">
-                        <a href="/blog/" rel="section">
-
-                            <i class="menu-item-icon fa fa-fw fa-home"></i> <br/>
-
-                            首页
-                        </a>
-                    </li>
-
-
-                    <li class="menu-item menu-item-archives">
-                        <a href="/blog/archives/" rel="section">
-
-                            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>
-
-                            归档
-                        </a>
-                    </li>
-
-
-                    <li class="menu-item menu-item-tags">
-                        <a href="/blog/tags/" rel="section">
-
-                            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>
-
-                            标签
-                        </a>
-                    </li>
-
-
-                    <li class="menu-item menu-item-categories">
-                        <a href="/blog/categories/" rel="section">
-
-                            <i class="menu-item-icon fa fa-fw fa-th"></i> <br/>
-
-                            分类
-                        </a>
-                    </li>
-
-
-                </ul>
-
-
-            </nav>
-
-
-        </div>
+ </div>
     </header>
 
     <main id="main" class="main">
-        <div class="main-inner">
-            <div class="content-wrap">
-                <div id="content" class="content">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
+  <div id="posts" class="posts-expand">
+    
 
-                    <div id="posts" class="posts-expand">
+  
 
+  
+  
+  
 
-                        <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-                            <link itemprop="mainEntityOfPage" href="https://rsl140.github.io/blog/blog/2019/07/17/BEM/">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://rsl140.github.io/blog/blog/2019/07/17/BEM/">
 
-                            <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Summer">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/blog/uploads/1.jpg">
     </span>
 
-                            <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="XiaoSi">
     </span>
 
+    
+      <header class="post-header">
 
-                            <header class="post-header">
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                代码规范备忘
+              
+            
+          </h1>
+        
 
-
-                                <h1 class="post-title" itemprop="name headline">
-
-
-                                    代码规范备忘
-
-
-                                </h1>
-
-
-                                <div class="post-meta">
+        <div class="post-meta">
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -230,651 +317,453 @@
             
           </span>
 
+          
 
-                                    <span class="post-comments-count">
+          
+            
+              <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/blog/2019/07/17/BEM/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/07/17/BEM/"
-                        itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/07/17/BEM/" itemprop="commentCount"></span>
                 </a>
               </span>
+            
+          
 
+          
+          
 
-                                    <span class="post-meta-divider">|</span>
-                                    <span class="page-pv"><i class="fa fa-file-o">阅读次数</i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">阅读次数</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
 
 
-                                </div>
-                            </header>
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>提高代码质量、统一代码规范</p>
+</blockquote>
+<p><a href="https://juejin.im/post/5d1c6550518825330a3bfa01" target="_blank" rel="external">参考资料</a><br><a id="more"></a></p>
+<h1 id="文件命名"><a href="#文件命名" class="headerlink" title="文件命名"></a>文件命名</h1><ul>
+<li>文件名不能含有空格</li>
+<li>文件名建议只使用小写字母，不使用大写字母。（但比如说像github的说明类文件，README，则应该全部使用大写）</li>
+<li>文件名包含多个单词时，单词之间建议使用半角的连词线 ( - ) 分隔。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 反例</div><div class="line">├── index.html</div><div class="line">├── main.js</div><div class="line">└── components</div><div class="line">    ├── pageheader</div><div class="line">    ├── pagearticle</div><div class="line">    └── pageheader</div><div class="line"></div><div class="line">// 正例</div><div class="line">├── index.html</div><div class="line">├── main.js</div><div class="line">└── components</div><div class="line">    ├── page-header</div><div class="line">    ├── page-article</div><div class="line">    └── page-header</div></pre></td></tr></table></figure>
+<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p>变量命名：</p>
+<ul>
+<li>命名方式：小驼峰式命名方法</li>
+<li>命名规范：类型+对象描述的方式，如果没有明确的类型，就可以使前缀为名词<br>-</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>javascript变量命名类型</th>
+<th>变量命名前缀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>array数组</td>
+<td>a</td>
+</tr>
+<tr>
+<td>boolean布尔值</td>
+<td>b</td>
+</tr>
+<tr>
+<td>float浮点数</td>
+<td>l</td>
+</tr>
+<tr>
+<td>function 函数</td>
+<td>fn</td>
+</tr>
+<tr>
+<td>int 整型</td>
+<td>i</td>
+</tr>
+<tr>
+<td>object 对象</td>
+<td>o</td>
+</tr>
+<tr>
+<td>regular 正则</td>
+<td>r</td>
+</tr>
+<tr>
+<td>string 字符串</td>
+<td>s</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var aName = [1, 2, 3];</div><div class="line">var oBtn = document.getElementById(&apos;btn&apos;);</div><div class="line">function fnName()&#123;&#125;;</div><div class="line">var iCount = 0;</div><div class="line">var sName = &quot;zhuyujia&quot;;</div></pre></td></tr></table></figure>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><table>
+<thead>
+<tr>
+<th>动词</th>
+<th>含义</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>can</td>
+<td>判断是否可执行某个动作 ( 权限 )</td>
+<td>函数返回一个布尔值 true：可执行；false：不可执行</td>
+</tr>
+<tr>
+<td>has</td>
+<td>判断是否含有某个值</td>
+<td>函数返回一个布尔值 true：含有此值；false：不含有此值</td>
+</tr>
+<tr>
+<td>is</td>
+<td>判断是否为某个值</td>
+<td>函数返回一个布尔值 true：为某个值；false：不为某个值</td>
+</tr>
+<tr>
+<td>get</td>
+<td>获取某个值</td>
+<td>函数返回一个非布尔值</td>
+</tr>
+<tr>
+<td>set</td>
+<td>设置某个值</td>
+<td>无返回值、返回是否设置成功或者返回链式对象</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//是否可阅读</div><div class="line">function canRead() &#123;</div><div class="line">    return true;</div><div class="line">&#125;</div><div class="line">//获取姓名</div><div class="line">function getName &#123;</div><div class="line">    return this.name;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="类的成员"><a href="#类的成员" class="headerlink" title="类的成员"></a>类的成员</h1><h1 id="注释规范"><a href="#注释规范" class="headerlink" title="注释规范"></a>注释规范</h1><h2 id="单行注释"><a href="#单行注释" class="headerlink" title="单行注释"></a>单行注释</h2><ul>
+<li>单独一行：//(双斜线)与注释文字之间保留一个空格</li>
+<li>在代码后面添加注释：//(双斜线)与代码之间保留一个空格，并且//(双斜线)与注释文字之间保留一个空格。</li>
+<li>注释代码：//(双斜线)与代码之间保留一个空格。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 调用了一个函数；1)单独在一行</div><div class="line">setTitle();</div><div class="line">var maxCount = 10; // 设置最大量；2)在代码后面注释</div><div class="line">// setName(); // 3)注释代码</div></pre></td></tr></table></figure>
+<h2 id="多行注释"><a href="#多行注释" class="headerlink" title="多行注释"></a>多行注释</h2><ul>
+<li>若开始(/* 和结束 / )都在一行，推荐采用单行注释</li>
+<li>若至少三行注释时，第一行为/，最后行为/，其他行以开始，并且注释文字与*保留一个空格。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line"> * 代码执行到这里后会调用setTitle()函数</div><div class="line"> * setTitle()：设置title的值</div><div class="line"> */</div><div class="line">setTitle();</div></pre></td></tr></table></figure>
+<h2 id="函数（方法）注释"><a href="#函数（方法）注释" class="headerlink" title="函数（方法）注释"></a>函数（方法）注释</h2><table>
+<thead>
+<tr>
+<th>注释名</th>
+<th>语法</th>
+<th>含义</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@param</td>
+<td>@param参数名 {参数类型} 描述信息</td>
+<td>描述参数的信息</td>
+<td>@param name {String} 传入名称</td>
+</tr>
+<tr>
+<td>@return</td>
+<td>@return{返回类型} 描述信息</td>
+<td>描述返回值的信息</td>
+<td>@return {Boolean} true:可执行;false:不可执行</td>
+</tr>
+<tr>
+<td>@author</td>
+<td>@author作者信息 [附属信息：如邮箱、日期]</td>
+<td>描述此函数作者的信息</td>
+<td>@author张三 2019/06/01</td>
+</tr>
+<tr>
+<td>@version</td>
+<td>@versionXX.XX.XX</td>
+<td>描述此函数的版本号</td>
+<td>@version 1.03</td>
+</tr>
+<tr>
+<td>@example</td>
+<td>@example示例代码</td>
+<td>@example setTitle(‘测试’)</td>
+<td>如下</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> - 合并Grid的行</div><div class="line"> - [@param](/user/param) grid &#123;Ext.Grid.Panel&#125; 需要合并的Grid</div><div class="line"> - [@param](/user/param) cols &#123;Array&#125; 需要合并列的Index(序号)数组；从0开始计数，序号也包含。</div><div class="line"> - [@param](/user/param) isAllSome &#123;Boolean&#125; ：是否2个tr的cols必须完成一样才能进行合并。true：完全一样；false(默认)：不完全一样</div><div class="line"> - [@return](/user/return) void</div><div class="line"> - [@author](/user/author) polk6 2019/06/01</div><div class="line"> - [@example](/user/example)</div><div class="line"> - _________________                             _________________</div><div class="line"> - |  年龄 |  姓名 |                             |  年龄 |  姓名 |</div><div class="line"> - -----------------      mergeCells(grid,[0])   -----------------</div><div class="line"> - |  18   |  张三 |              =&gt;             |       |  张三 |</div><div class="line"> - -----------------                             -  18   ---------</div><div class="line"> - |  18   |  王五 |                             |       |  王五 |</div><div class="line"> - -----------------                             -----------------</div><div class="line">*/</div><div class="line">function mergeCells(grid, cols, isAllSome) &#123;</div><div class="line">    // Do Something</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h1><h2 id="VUE-Script-标签内部声明顺序"><a href="#VUE-Script-标签内部声明顺序" class="headerlink" title="VUE Script 标签内部声明顺序"></a>VUE Script 标签内部声明顺序</h2><ol>
+<li>副作用 (触发组件外的影响)</li>
+</ol>
+<ul>
+<li>el</li>
+</ul>
+<ol>
+<li>全局感知 (要求组件以外的知识)</li>
+</ol>
+<ul>
+<li>name</li>
+<li>parent</li>
+</ul>
+<ol>
+<li>组合 (向选项里合并属性)</li>
+</ol>
+<ul>
+<li>extends</li>
+<li>mixins</li>
+</ul>
+<ol>
+<li>接口 (组件的接口)</li>
+</ol>
+<ul>
+<li>inheritAttrs</li>
+<li>model</li>
+<li>props/propsData</li>
+</ul>
+<ol>
+<li>组件类型 (更改组件的类型)</li>
+</ol>
+<ul>
+<li>functional</li>
+</ul>
+<ol>
+<li>模板修改器 (改变模板的编译方式)</li>
+</ol>
+<ul>
+<li>delimiters</li>
+<li>comments</li>
+</ul>
+<ol>
+<li>本地状态 (本地的响应式属性)</li>
+</ol>
+<ul>
+<li>data</li>
+<li>computed</li>
+</ul>
+<ol>
+<li>模板依赖 (模板内使用的资源)</li>
+</ol>
+<ul>
+<li>components</li>
+<li>directives</li>
+<li>filters</li>
+</ul>
+<ol>
+<li>事件 (通过响应式事件触发的回调)</li>
+</ol>
+<ul>
+<li>watch</li>
+</ul>
+<ol>
+<li>非响应式的属性 (不依赖响应系统的实例属性)</li>
+</ol>
+<ul>
+<li>methods</li>
+</ul>
+<ol>
+<li>生命钩子函数</li>
+</ol>
+<ul>
+<li>beforeCreate</li>
+<li>created</li>
+<li>beforeMount</li>
+<li>mounted</li>
+<li>beforeUpdate</li>
+<li>updated</li>
+<li>activated</li>
+<li>deactivated</li>
+<li>beforeDestroy</li>
+<li>destroyed</li>
+</ul>
+<ol>
+<li>渲染 (组件输出的声明式描述)</li>
+</ol>
+<ul>
+<li>template/render</li>
+<li>renderError</li>
+</ul>
+<h2 id="元素特性的顺序"><a href="#元素特性的顺序" class="headerlink" title="元素特性的顺序"></a>元素特性的顺序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- v-for</div><div class="line">- v-if / v-show</div><div class="line">- id</div><div class="line">- ref / key / slot</div><div class="line">- v-model</div><div class="line">- v-on//强烈建议用简写 @，如@change</div></pre></td></tr></table></figure>
+<p><a href="https://www.jianshu.com/p/8b095857f73e" target="_blank" rel="external">参考资料</a></p>
+<h3 id="vscode-使用vscode-stylelint"><a href="#vscode-使用vscode-stylelint" class="headerlink" title="vscode 使用vscode-stylelint"></a>vscode 使用vscode-stylelint</h3><p>安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev</div><div class="line">stylelint</div><div class="line">stylelint-config-recommended</div><div class="line">stylelint-config-standard</div><div class="line">stylelint-order</div><div class="line">prettier-stylelint <span class="comment">#vscode 设置中设置"prettier.stylelintIntegration": true 自动格式化</span></div></pre></td></tr></table></figure></p>
+<p>根目录下 vi .stylelintrc<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;extends&quot;: &quot;stylelint-config-standard&quot;,</div><div class="line">  &quot;plugins&quot;: [</div><div class="line">      &quot;stylelint-order&quot;,</div><div class="line">      &quot;stylelint-scss&quot;</div><div class="line">  ],</div><div class="line">  &quot;rules&quot;: &#123;</div><div class="line">    &quot;block-no-empty&quot;: null,</div><div class="line">    &quot;color-no-invalid-hex&quot;: true,</div><div class="line">    &quot;comment-empty-line-before&quot;: [ &quot;always&quot;, &#123;</div><div class="line">       &quot;ignore&quot;: [&quot;stylelint-commands&quot;, &quot;after-comment&quot;]</div><div class="line">    &#125;],</div><div class="line">    &quot;declaration-colon-space-after&quot;: &quot;always&quot;,</div><div class="line">    &quot;indentation&quot;: [2, &#123;</div><div class="line">      &quot;except&quot;: [&quot;value&quot;]</div><div class="line">    &#125;],</div><div class="line">    &quot;at-rule-no-unknown&quot;: null,</div><div class="line">    &quot;scss/at-rule-no-unknown&quot;: true,</div><div class="line">    &quot;max-empty-lines&quot;: 4,</div><div class="line">    &quot;rule-empty-line-before&quot;: [ &quot;always&quot;, &#123;</div><div class="line">      &quot;except&quot;: [&quot;first-nested&quot;],</div><div class="line">      &quot;ignore&quot;: [&quot;after-comment&quot;]</div><div class="line">    &#125; ],</div><div class="line">    &quot;unit-whitelist&quot;: [&quot;px&quot;, &quot;em&quot;, &quot;rem&quot;, &quot;%&quot;, &quot;s&quot;, &quot;vh&quot;, &quot;vw&quot;]</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>设置中配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;css.validate&quot;: false,</div><div class="line">&quot;less.validate&quot;: false,</div><div class="line">&quot;scss.validate&quot;: false</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/FE/" rel="tag"># FE</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2019/03/17/koaVueMsql/" rel="next" title="koa2+vue2+mysql 全栈开发记录">
+                <i class="fa fa-chevron-left"></i> koa2+vue2+mysql 全栈开发记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
 
 
-                            <div class="post-body" itemprop="articleBody">
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
-                                <blockquote>
-                                    <p>提高代码质量、统一代码规范</p>
-                                </blockquote>
-                                <p><a href="https://juejin.im/post/5d1c6550518825330a3bfa01" target="_blank"
-                                      rel="external">参考资料</a><br><a id="more"></a></p>
-                                <h1 id="文件命名"><a href="#文件命名" class="headerlink" title="文件命名"></a>文件命名</h1>
-                                <ul>
-                                    <li>文件名不能含有空格</li>
-                                    <li>文件名建议只使用小写字母，不使用大写字母。（但比如说像github的说明类文件，README，则应该全部使用大写）</li>
-                                    <li>文件名包含多个单词时，单词之间建议使用半角的连词线 ( - ) 分隔。</li>
-                                </ul>
-                                <figure class="highlight plain">
-                                    <table>
-                                        <tr>
-                                            <td class="gutter">
-                                                <pre><div class="line">1</div><div class="line">2</div><div
-                                                        class="line">3</div><div class="line">4</div><div
-                                                        class="line">5</div><div class="line">6</div><div
-                                                        class="line">7</div><div class="line">8</div><div
-                                                        class="line">9</div><div class="line">10</div><div class="line">11</div><div
-                                                        class="line">12</div><div class="line">13</div><div
-                                                        class="line">14</div><div class="line">15</div></pre>
-                                            </td>
-                                            <td class="code">
-                                                <pre><div class="line">// 反例</div><div class="line">├── index.html</div><div
-                                                        class="line">├── main.js</div><div
-                                                        class="line">└── components</div><div class="line">    ├── pageheader</div><div
-                                                        class="line">    ├── pagearticle</div><div class="line">    └── pageheader</div><div
-                                                        class="line"></div><div class="line">// 正例</div><div
-                                                        class="line">├── index.html</div><div
-                                                        class="line">├── main.js</div><div
-                                                        class="line">└── components</div><div class="line">    ├── page-header</div><div
-                                                        class="line">    ├── page-article</div><div class="line">    └── page-header</div></pre>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </figure>
-                                <h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1>
-                                <p>变量命名：</p>
-                                <ul>
-                                    <li>命名方式：小驼峰式命名方法</li>
-                                    <li>命名规范：类型+对象描述的方式，如果没有明确的类型，就可以使前缀为名词<br>-</li>
-                                </ul>
-                                <table>
-                                    <thead>
-                                    <tr>
-                                        <th>javascript变量命名类型</th>
-                                        <th>变量命名前缀</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>array数组</td>
-                                        <td>a</td>
-                                    </tr>
-                                    <tr>
-                                        <td>boolean布尔值</td>
-                                        <td>b</td>
-                                    </tr>
-                                    <tr>
-                                        <td>float浮点数</td>
-                                        <td>l</td>
-                                    </tr>
-                                    <tr>
-                                        <td>function 函数</td>
-                                        <td>fn</td>
-                                    </tr>
-                                    <tr>
-                                        <td>int 整型</td>
-                                        <td>i</td>
-                                    </tr>
-                                    <tr>
-                                        <td>object 对象</td>
-                                        <td>o</td>
-                                    </tr>
-                                    <tr>
-                                        <td>regular 正则</td>
-                                        <td>r</td>
-                                    </tr>
-                                    <tr>
-                                        <td>string 字符串</td>
-                                        <td>s</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                                <figure class="highlight plain">
-                                    <table>
-                                        <tr>
-                                            <td class="gutter">
-                                                <pre><div class="line">1</div><div class="line">2</div><div
-                                                        class="line">3</div><div class="line">4</div><div
-                                                        class="line">5</div></pre>
-                                            </td>
-                                            <td class="code">
-                                                <pre><div class="line">var aName = [1, 2, 3];</div><div class="line">var oBtn = document.getElementById(&apos;btn&apos;);</div><div
-                                                        class="line">function fnName()&#123;&#125;;</div><div
-                                                        class="line">var iCount = 0;</div><div class="line">var sName = &quot;zhuyujia&quot;;</div></pre>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </figure>
-                                <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1>
-                                <table>
-                                    <thead>
-                                    <tr>
-                                        <th>动词</th>
-                                        <th>含义</th>
-                                        <th>返回值</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>can</td>
-                                        <td>判断是否可执行某个动作 ( 权限 )</td>
-                                        <td>函数返回一个布尔值 true：可执行；false：不可执行</td>
-                                    </tr>
-                                    <tr>
-                                        <td>has</td>
-                                        <td>判断是否含有某个值</td>
-                                        <td>函数返回一个布尔值 true：含有此值；false：不含有此值</td>
-                                    </tr>
-                                    <tr>
-                                        <td>is</td>
-                                        <td>判断是否为某个值</td>
-                                        <td>函数返回一个布尔值 true：为某个值；false：不为某个值</td>
-                                    </tr>
-                                    <tr>
-                                        <td>get</td>
-                                        <td>获取某个值</td>
-                                        <td>函数返回一个非布尔值</td>
-                                    </tr>
-                                    <tr>
-                                        <td>set</td>
-                                        <td>设置某个值</td>
-                                        <td>无返回值、返回是否设置成功或者返回链式对象</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                                <figure class="highlight plain">
-                                    <table>
-                                        <tr>
-                                            <td class="gutter">
-                                                <pre><div class="line">1</div><div class="line">2</div><div
-                                                        class="line">3</div><div class="line">4</div><div
-                                                        class="line">5</div><div class="line">6</div><div
-                                                        class="line">7</div><div class="line">8</div></pre>
-                                            </td>
-                                            <td class="code">
-                                                <pre><div class="line">//是否可阅读</div><div class="line">function canRead() &#123;</div><div
-                                                        class="line">    return true;</div><div
-                                                        class="line">&#125;</div><div class="line">//获取姓名</div><div
-                                                        class="line">function getName &#123;</div><div class="line">    return this.name;</div><div
-                                                        class="line">&#125;</div></pre>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </figure>
-                                <h1 id="类的成员"><a href="#类的成员" class="headerlink" title="类的成员"></a>类的成员</h1>
-                                <h1 id="注释规范"><a href="#注释规范" class="headerlink" title="注释规范"></a>注释规范</h1>
-                                <h2 id="单行注释"><a href="#单行注释" class="headerlink" title="单行注释"></a>单行注释</h2>
-                                <ul>
-                                    <li>单独一行：//(双斜线)与注释文字之间保留一个空格</li>
-                                    <li>在代码后面添加注释：//(双斜线)与代码之间保留一个空格，并且//(双斜线)与注释文字之间保留一个空格。</li>
-                                    <li>注释代码：//(双斜线)与代码之间保留一个空格。</li>
-                                </ul>
-                                <figure class="highlight plain">
-                                    <table>
-                                        <tr>
-                                            <td class="gutter">
-                                                <pre><div class="line">1</div><div class="line">2</div><div
-                                                        class="line">3</div><div class="line">4</div></pre>
-                                            </td>
-                                            <td class="code">
-                                                <pre><div class="line">// 调用了一个函数；1)单独在一行</div><div class="line">setTitle();</div><div
-                                                        class="line">var maxCount = 10; // 设置最大量；2)在代码后面注释</div><div
-                                                        class="line">// setName(); // 3)注释代码</div></pre>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </figure>
-                                <h2 id="多行注释"><a href="#多行注释" class="headerlink" title="多行注释"></a>多行注释</h2>
-                                <ul>
-                                    <li>若开始(/* 和结束 / )都在一行，推荐采用单行注释</li>
-                                    <li>若至少三行注释时，第一行为/，最后行为/，其他行以开始，并且注释文字与*保留一个空格。</li>
-                                </ul>
-                                <figure class="highlight plain">
-                                    <table>
-                                        <tr>
-                                            <td class="gutter">
-                                                <pre><div class="line">1</div><div class="line">2</div><div
-                                                        class="line">3</div><div class="line">4</div><div
-                                                        class="line">5</div></pre>
-                                            </td>
-                                            <td class="code">
-                                                <pre><div class="line">/*</div><div class="line"> * 代码执行到这里后会调用setTitle()函数</div><div
-                                                        class="line"> * setTitle()：设置title的值</div><div
-                                                        class="line"> */</div><div class="line">setTitle();</div></pre>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </figure>
-                                <h2 id="函数（方法）注释"><a href="#函数（方法）注释" class="headerlink" title="函数（方法）注释"></a>函数（方法）注释
-                                </h2>
-                                <table>
-                                    <thead>
-                                    <tr>
-                                        <th>注释名</th>
-                                        <th>语法</th>
-                                        <th>含义</th>
-                                        <th>示例</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>@param</td>
-                                        <td>@param参数名 {参数类型} 描述信息</td>
-                                        <td>描述参数的信息</td>
-                                        <td>@param name {String} 传入名称</td>
-                                    </tr>
-                                    <tr>
-                                        <td>@return</td>
-                                        <td>@return{返回类型} 描述信息</td>
-                                        <td>描述返回值的信息</td>
-                                        <td>@return {Boolean} true:可执行;false:不可执行</td>
-                                    </tr>
-                                    <tr>
-                                        <td>@author</td>
-                                        <td>@author作者信息 [附属信息：如邮箱、日期]</td>
-                                        <td>描述此函数作者的信息</td>
-                                        <td>@author张三 2019/06/01</td>
-                                    </tr>
-                                    <tr>
-                                        <td>@version</td>
-                                        <td>@versionXX.XX.XX</td>
-                                        <td>描述此函数的版本号</td>
-                                        <td>@version 1.03</td>
-                                    </tr>
-                                    <tr>
-                                        <td>@example</td>
-                                        <td>@example示例代码</td>
-                                        <td>@example setTitle(‘测试’)</td>
-                                        <td>如下</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                                <figure class="highlight plain">
-                                    <table>
-                                        <tr>
-                                            <td class="gutter">
-                                                <pre><div class="line">1</div><div class="line">2</div><div
-                                                        class="line">3</div><div class="line">4</div><div
-                                                        class="line">5</div><div class="line">6</div><div
-                                                        class="line">7</div><div class="line">8</div><div
-                                                        class="line">9</div><div class="line">10</div><div class="line">11</div><div
-                                                        class="line">12</div><div class="line">13</div><div
-                                                        class="line">14</div><div class="line">15</div><div
-                                                        class="line">16</div><div class="line">17</div><div
-                                                        class="line">18</div><div class="line">19</div></pre>
-                                            </td>
-                                            <td class="code">
-                                                <pre><div class="line">/**</div><div class="line"> - 合并Grid的行</div><div
-                                                        class="line"> - [@param](/user/param) grid &#123;Ext.Grid.Panel&#125; 需要合并的Grid</div><div
-                                                        class="line"> - [@param](/user/param) cols &#123;Array&#125; 需要合并列的Index(序号)数组；从0开始计数，序号也包含。</div><div
-                                                        class="line"> - [@param](/user/param) isAllSome &#123;Boolean&#125; ：是否2个tr的cols必须完成一样才能进行合并。true：完全一样；false(默认)：不完全一样</div><div
-                                                        class="line"> - [@return](/user/return) void</div><div
-                                                        class="line"> - [@author](/user/author) polk6 2019/06/01</div><div
-                                                        class="line"> - [@example](/user/example)</div><div
-                                                        class="line"> - _________________                             _________________</div><div
-                                                        class="line"> - |  年龄 |  姓名 |                             |  年龄 |  姓名 |</div><div
-                                                        class="line"> - -----------------      mergeCells(grid,[0])   -----------------</div><div
-                                                        class="line"> - |  18   |  张三 |              =&gt;             |       |  张三 |</div><div
-                                                        class="line"> - -----------------                             -  18   ---------</div><div
-                                                        class="line"> - |  18   |  王五 |                             |       |  王五 |</div><div
-                                                        class="line"> - -----------------                             -----------------</div><div
-                                                        class="line">*/</div><div class="line">function mergeCells(grid, cols, isAllSome) &#123;</div><div
-                                                        class="line">    // Do Something</div><div
-                                                        class="line">&#125;</div></pre>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </figure>
-                                <h1 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h1>
-                                <h2 id="VUE-Script-标签内部声明顺序"><a href="#VUE-Script-标签内部声明顺序" class="headerlink"
-                                                                title="VUE Script 标签内部声明顺序"></a>VUE Script 标签内部声明顺序</h2>
-                                <ol>
-                                    <li>副作用 (触发组件外的影响)</li>
-                                </ol>
-                                <ul>
-                                    <li>el</li>
-                                </ul>
-                                <ol>
-                                    <li>全局感知 (要求组件以外的知识)</li>
-                                </ol>
-                                <ul>
-                                    <li>name</li>
-                                    <li>parent</li>
-                                </ul>
-                                <ol>
-                                    <li>组合 (向选项里合并属性)</li>
-                                </ol>
-                                <ul>
-                                    <li>extends</li>
-                                    <li>mixins</li>
-                                </ul>
-                                <ol>
-                                    <li>接口 (组件的接口)</li>
-                                </ol>
-                                <ul>
-                                    <li>inheritAttrs</li>
-                                    <li>model</li>
-                                    <li>props/propsData</li>
-                                </ul>
-                                <ol>
-                                    <li>组件类型 (更改组件的类型)</li>
-                                </ol>
-                                <ul>
-                                    <li>functional</li>
-                                </ul>
-                                <ol>
-                                    <li>模板修改器 (改变模板的编译方式)</li>
-                                </ol>
-                                <ul>
-                                    <li>delimiters</li>
-                                    <li>comments</li>
-                                </ul>
-                                <ol>
-                                    <li>本地状态 (本地的响应式属性)</li>
-                                </ol>
-                                <ul>
-                                    <li>data</li>
-                                    <li>computed</li>
-                                </ul>
-                                <ol>
-                                    <li>模板依赖 (模板内使用的资源)</li>
-                                </ol>
-                                <ul>
-                                    <li>components</li>
-                                    <li>directives</li>
-                                    <li>filters</li>
-                                </ul>
-                                <ol>
-                                    <li>事件 (通过响应式事件触发的回调)</li>
-                                </ol>
-                                <ul>
-                                    <li>watch</li>
-                                </ul>
-                                <ol>
-                                    <li>非响应式的属性 (不依赖响应系统的实例属性)</li>
-                                </ol>
-                                <ul>
-                                    <li>methods</li>
-                                </ul>
-                                <ol>
-                                    <li>生命钩子函数</li>
-                                </ol>
-                                <ul>
-                                    <li>beforeCreate</li>
-                                    <li>created</li>
-                                    <li>beforeMount</li>
-                                    <li>mounted</li>
-                                    <li>beforeUpdate</li>
-                                    <li>updated</li>
-                                    <li>activated</li>
-                                    <li>deactivated</li>
-                                    <li>beforeDestroy</li>
-                                    <li>destroyed</li>
-                                </ul>
-                                <ol>
-                                    <li>渲染 (组件输出的声明式描述)</li>
-                                </ol>
-                                <ul>
-                                    <li>template/render</li>
-                                    <li>renderError</li>
-                                </ul>
-                                <h2 id="元素特性的顺序"><a href="#元素特性的顺序" class="headerlink" title="元素特性的顺序"></a>元素特性的顺序</h2>
-                                <figure class="highlight plain">
-                                    <table>
-                                        <tr>
-                                            <td class="gutter">
-                                                <pre><div class="line">1</div><div class="line">2</div><div
-                                                        class="line">3</div><div class="line">4</div><div
-                                                        class="line">5</div><div class="line">6</div></pre>
-                                            </td>
-                                            <td class="code">
-                                                <pre><div class="line">- v-for</div><div
-                                                        class="line">- v-if / v-show</div><div class="line">- id</div><div
-                                                        class="line">- ref / key / slot</div><div
-                                                        class="line">- v-model</div><div class="line">- v-on//强烈建议用简写 @，如@change</div></pre>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </figure>
-                                <p><a href="https://www.jianshu.com/p/8b095857f73e" target="_blank"
-                                      rel="external">参考资料</a></p>
-                                <h3 id="vscode-使用vscode-stylelint"><a href="#vscode-使用vscode-stylelint"
-                                                                      class="headerlink"
-                                                                      title="vscode 使用vscode-stylelint"></a>vscode
-                                    使用vscode-stylelint</h3>
-                                <p>安装<br>
-                                    <figure class="highlight bash">
-                                        <table>
-                                            <tr>
-                                                <td class="gutter">
-                                                    <pre><div class="line">1</div><div class="line">2</div><div
-                                                            class="line">3</div><div class="line">4</div><div
-                                                            class="line">5</div><div class="line">6</div></pre>
-                                                </td>
-                                                <td class="code">
-                                                    <pre><div class="line">npm install --save-dev</div><div
-                                                            class="line">stylelint</div><div class="line">stylelint-config-recommended</div><div
-                                                            class="line">stylelint-config-standard</div><div
-                                                            class="line">stylelint-order</div><div class="line">prettier-stylelint <span
-                                                            class="comment">#vscode 设置中设置"prettier.stylelintIntegration": true 自动格式化</span></div></pre>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </figure>
-                                </p>
-                                <p>根目录下 vi .stylelintrc<br>
-                                    <figure class="highlight plain">
-                                        <table>
-                                            <tr>
-                                                <td class="gutter">
-                                                    <pre><div class="line">1</div><div class="line">2</div><div
-                                                            class="line">3</div><div class="line">4</div><div
-                                                            class="line">5</div><div class="line">6</div><div
-                                                            class="line">7</div><div class="line">8</div><div
-                                                            class="line">9</div><div class="line">10</div><div
-                                                            class="line">11</div><div class="line">12</div><div
-                                                            class="line">13</div><div class="line">14</div><div
-                                                            class="line">15</div><div class="line">16</div><div
-                                                            class="line">17</div><div class="line">18</div><div
-                                                            class="line">19</div><div class="line">20</div><div
-                                                            class="line">21</div><div class="line">22</div><div
-                                                            class="line">23</div><div class="line">24</div><div
-                                                            class="line">25</div><div class="line">26</div></pre>
-                                                </td>
-                                                <td class="code">
-                                                    <pre><div class="line">&#123;</div><div class="line">  &quot;extends&quot;: &quot;stylelint-config-standard&quot;,</div><div
-                                                            class="line">  &quot;plugins&quot;: [</div><div
-                                                            class="line">      &quot;stylelint-order&quot;,</div><div
-                                                            class="line">      &quot;stylelint-scss&quot;</div><div
-                                                            class="line">  ],</div><div class="line">  &quot;rules&quot;: &#123;</div><div
-                                                            class="line">    &quot;block-no-empty&quot;: null,</div><div
-                                                            class="line">    &quot;color-no-invalid-hex&quot;: true,</div><div
-                                                            class="line">    &quot;comment-empty-line-before&quot;: [ &quot;always&quot;, &#123;</div><div
-                                                            class="line">       &quot;ignore&quot;: [&quot;stylelint-commands&quot;, &quot;after-comment&quot;]</div><div
-                                                            class="line">    &#125;],</div><div class="line">    &quot;declaration-colon-space-after&quot;: &quot;always&quot;,</div><div
-                                                            class="line">    &quot;indentation&quot;: [2, &#123;</div><div
-                                                            class="line">      &quot;except&quot;: [&quot;value&quot;]</div><div
-                                                            class="line">    &#125;],</div><div class="line">    &quot;at-rule-no-unknown&quot;: null,</div><div
-                                                            class="line">    &quot;scss/at-rule-no-unknown&quot;: true,</div><div
-                                                            class="line">    &quot;max-empty-lines&quot;: 4,</div><div
-                                                            class="line">    &quot;rule-empty-line-before&quot;: [ &quot;always&quot;, &#123;</div><div
-                                                            class="line">      &quot;except&quot;: [&quot;first-nested&quot;],</div><div
-                                                            class="line">      &quot;ignore&quot;: [&quot;after-comment&quot;]</div><div
-                                                            class="line">    &#125; ],</div><div class="line">    &quot;unit-whitelist&quot;: [&quot;px&quot;, &quot;em&quot;, &quot;rem&quot;, &quot;%&quot;, &quot;s&quot;, &quot;vh&quot;, &quot;vw&quot;]</div><div
-                                                            class="line">  &#125;</div><div
-                                                            class="line">&#125;</div></pre>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </figure>
-                                </p>
-                                <p>设置中配置<br>
-                                    <figure class="highlight plain">
-                                        <table>
-                                            <tr>
-                                                <td class="gutter">
-                                                    <pre><div class="line">1</div><div class="line">2</div><div
-                                                            class="line">3</div></pre>
-                                                </td>
-                                                <td class="code">
-                                                    <pre><div class="line">&quot;css.validate&quot;: false,</div><div
-                                                            class="line">&quot;less.validate&quot;: false,</div><div
-                                                            class="line">&quot;scss.validate&quot;: false</div></pre>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </figure>
-                                </p>
+          </div>
+          
 
 
-                            </div>
-
-                            <div>
-
-
-                            </div>
-
-                            <div>
-
-
-                            </div>
-
-                            <div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
 
 
-                            </div>
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
 
-                            <footer class="post-footer">
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
 
-                                <div class="post-tags">
+      
 
-                                    <a href="/blog/tags/FE/" rel="tag"># FE</a>
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-                                </div>
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/blog/uploads/1.jpg"
+               alt="Summer" />
+          <p class="site-author-name" itemprop="name">Summer</p>
+           
+              <p class="site-description motion-element" itemprop="description">小思</p>
+          
+        </div>
+        <nav class="site-state motion-element">
 
-
-                                <div class="post-nav">
-                                    <div class="post-nav-next post-nav-item">
-
-                                        <a href="/blog/2019/03/17/koaVueMsql/" rel="next"
-                                           title="koa2+vue2+mysql 全栈开发记录">
-                                            <i class="fa fa-chevron-left"></i> koa2+vue2+mysql 全栈开发记录
-                                        </a>
-
-                                    </div>
-
-                                    <span class="post-nav-divider"></span>
-
-                                    <div class="post-nav-prev post-nav-item">
-
-                                    </div>
-                                </div>
-
-
-                            </footer>
-                        </article>
-
-
-                        <div class="post-spread">
-
-                        </div>
-                    </div>
-
-
-                </div>
-
-
-                <div class="comments" id="comments">
-
-                    <div id="disqus_thread">
-                        <noscript>
-                            Please enable JavaScript to view the
-                            <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
-                        </noscript>
-                    </div>
-
-                </div>
-
-
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/blog/archives/">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
             </div>
+          
 
-
-            <div class="sidebar-toggle">
-                <div class="sidebar-toggle-line-wrap">
-                    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-                    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-                    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-                </div>
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/blog/categories/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
             </div>
+          
 
-            <aside id="sidebar" class="sidebar">
-                <div class="sidebar-inner">
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/blog/tags/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
 
+        </nav>
 
-                    <ul class="sidebar-nav motion-element">
-                        <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-                            文章目录
-                        </li>
-                        <li class="sidebar-nav-overview" data-target="site-overview">
-                            站点概览
-                        </li>
-                    </ul>
+        
 
-
-                    <section class="site-overview sidebar-panel">
-                        <div class="site-author motion-element" itemprop="author" itemscope
-                             itemtype="http://schema.org/Person">
-                            <img class="site-author-image" itemprop="image"
-                                 src="/blog/uploads/1.jpg"
-                                 alt="Summer"/>
-                            <p class="site-author-name" itemprop="name">Summer</p>
-
-                            <p class="site-description motion-element" itemprop="description">小思</p>
-
-                        </div>
-                        <nav class="site-state motion-element">
-
-
-                            <div class="site-state-item site-state-posts">
-                                <a href="/blog/archives/">
-                                    <span class="site-state-item-count">27</span>
-                                    <span class="site-state-item-name">日志</span>
-                                </a>
-                            </div>
-
-
-                            <div class="site-state-item site-state-categories">
-                                <a href="/blog/categories/index.html">
-                                    <span class="site-state-item-count">8</span>
-                                    <span class="site-state-item-name">分类</span>
-                                </a>
-                            </div>
-
-
-                            <div class="site-state-item site-state-tags">
-                                <a href="/blog/tags/index.html">
-                                    <span class="site-state-item-count">17</span>
-                                    <span class="site-state-item-name">标签</span>
-                                </a>
-                            </div>
-
-
-                        </nav>
-
-
-                        <div class="links-of-author motion-element">
+        <div class="links-of-author motion-element">
           
             
               <span class="links-of-author-item">
@@ -885,8 +774,8 @@
                   GitHub
                 </a>
               </span>
-
-                            <span class="links-of-author-item">
+            
+              <span class="links-of-author-item">
                 <a href="https://segmentfault.com/u/xiaosi_58ec6bdf9eaab" target="_blank" title="Segmentfault">
                   
                     <i class="fa fa-fw fa-globe"></i>
@@ -894,191 +783,226 @@
                   Segmentfault
                 </a>
               </span>
-
-
-                        </div>
-
-
-                    </section>
-
-
-                    <!--noindex-->
-                    <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-                        <div class="post-toc">
-
-
-                            <div class="post-toc-content">
-                                <ol class="nav">
-                                    <li class="nav-item nav-level-1"><a class="nav-link" href="#文件命名"><span
-                                            class="nav-number">1.</span> <span class="nav-text">文件命名</span></a></li>
-                                    <li class="nav-item nav-level-1"><a class="nav-link" href="#变量"><span
-                                            class="nav-number">2.</span> <span class="nav-text">变量</span></a></li>
-                                    <li class="nav-item nav-level-1"><a class="nav-link" href="#函数"><span
-                                            class="nav-number">3.</span> <span class="nav-text">函数</span></a></li>
-                                    <li class="nav-item nav-level-1"><a class="nav-link" href="#类的成员"><span
-                                            class="nav-number">4.</span> <span class="nav-text">类的成员</span></a></li>
-                                    <li class="nav-item nav-level-1"><a class="nav-link" href="#注释规范"><span
-                                            class="nav-number">5.</span> <span class="nav-text">注释规范</span></a>
-                                        <ol class="nav-child">
-                                            <li class="nav-item nav-level-2"><a class="nav-link" href="#单行注释"><span
-                                                    class="nav-number">5.1.</span> <span
-                                                    class="nav-text">单行注释</span></a></li>
-                                            <li class="nav-item nav-level-2"><a class="nav-link" href="#多行注释"><span
-                                                    class="nav-number">5.2.</span> <span
-                                                    class="nav-text">多行注释</span></a></li>
-                                            <li class="nav-item nav-level-2"><a class="nav-link" href="#函数（方法）注释"><span
-                                                    class="nav-number">5.3.</span> <span
-                                                    class="nav-text">函数（方法）注释</span></a></li>
-                                        </ol>
-                                    </li>
-                                    <li class="nav-item nav-level-1"><a class="nav-link" href="#vue"><span
-                                            class="nav-number">6.</span> <span class="nav-text">vue</span></a>
-                                        <ol class="nav-child">
-                                            <li class="nav-item nav-level-2"><a class="nav-link"
-                                                                                href="#VUE-Script-标签内部声明顺序"><span
-                                                    class="nav-number">6.1.</span> <span class="nav-text">VUE Script 标签内部声明顺序</span></a>
-                                            </li>
-                                            <li class="nav-item nav-level-2"><a class="nav-link" href="#元素特性的顺序"><span
-                                                    class="nav-number">6.2.</span> <span class="nav-text">元素特性的顺序</span></a>
-                                                <ol class="nav-child">
-                                                    <li class="nav-item nav-level-3"><a class="nav-link"
-                                                                                        href="#vscode-使用vscode-stylelint"><span
-                                                            class="nav-number">6.2.1.</span> <span class="nav-text">vscode 使用vscode-stylelint</span></a>
-                                                    </li>
-                                                </ol>
-                                            </li>
-                                        </ol>
-                                    </li>
-                                </ol>
-                            </div>
-
-
-                        </div>
-                    </section>
-                    <!--/noindex-->
-
-
-                </div>
-            </aside>
-
-
+            
+          
         </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文件命名"><span class="nav-number">1.</span> <span class="nav-text">文件命名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量"><span class="nav-number">2.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数"><span class="nav-number">3.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类的成员"><span class="nav-number">4.</span> <span class="nav-text">类的成员</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注释规范"><span class="nav-number">5.</span> <span class="nav-text">注释规范</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单行注释"><span class="nav-number">5.1.</span> <span class="nav-text">单行注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多行注释"><span class="nav-number">5.2.</span> <span class="nav-text">多行注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数（方法）注释"><span class="nav-number">5.3.</span> <span class="nav-text">函数（方法）注释</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue"><span class="nav-number">6.</span> <span class="nav-text">vue</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VUE-Script-标签内部声明顺序"><span class="nav-number">6.1.</span> <span class="nav-text">VUE Script 标签内部声明顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元素特性的顺序"><span class="nav-number">6.2.</span> <span class="nav-text">元素特性的顺序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vscode-使用vscode-stylelint"><span class="nav-number">6.2.1.</span> <span class="nav-text">vscode 使用vscode-stylelint</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
     </main>
 
     <footer id="footer" class="footer">
-        <div class="footer-inner">
-            <div class="copyright">
-
-                &copy;
-                <span itemprop="copyrightYear">2019</span>
-                <span class="with-love">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-                <span class="author" itemprop="copyrightHolder">Summer</span>
-            </div>
+  <span class="author" itemprop="copyrightHolder">Summer</span>
+</div>
 
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-            <div class="busuanzi-count">
-                <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-                <span class="site-uv">
+  
+    <span class="site-uv">
       <i class="fa fa-user">本站访客数</i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
       人次
     </span>
+  
 
-
-                <span class="site-pv">
+  
+    <span class="site-pv">
       <i class="fa fa-eye">本站总访问量</i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
       次
     </span>
-
-            </div>
-
-
-        </div>
-    </footer>
-
-
-    <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-
-    </div>
-
-
+  
 </div>
 
 
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
 <script type="text/javascript">
-    if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-        window.Promise = null;
-    }
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
-<script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
 
 
-<script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
 
-<script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
 
-<script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
 
 
-<script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
 
 
-<script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
-<script type="text/javascript" src="/blog/lib/canvas-nest/canvas-nest.min.js"></script>
+  
 
 
-<script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.0"></script>
 
-<script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.0"></script>
 
 
-<script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.0"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.0"></script>
 <script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.0"></script>
 
 
-<script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.0"></script>
+
+  
 
 
-<script type="text/javascript">
-    var disqus_shortname = 'xiaosi';
-    var disqus_identifier = '2019/07/17/BEM/';
-
-    var disqus_title = "代码规范备忘";
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.0"></script>
 
 
-    function run_disqus_script(disqus_script) {
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'xiaosi';
+      var disqus_identifier = '2019/07/17/BEM/';
+
+      var disqus_title = "代码规范备忘";
+
+
+      function run_disqus_script(disqus_script) {
         var dsq = document.createElement('script');
         dsq.type = 'text/javascript';
         dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }
+      }
 
-    run_disqus_script('count.js');
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
 
 
-    var disqus_config = function () {
-        this.page.url = disqus_url;
-        this.page.identifier = disqus_identifier;
-        this.page.title = disqus_title;
-    };
-    run_disqus_script('embed.js');
 
 
-</script>
 
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>
