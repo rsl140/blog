@@ -1,120 +1,57 @@
 <!doctype html>
 
 
-
-  
-
-
 <html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
 
 
+    <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
 
 
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
+          rel="stylesheet" type="text/css">
 
 
+    <link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"/>
+
+    <link href="/blog/css/main.css?v=5.1.0" rel="stylesheet" type="text/css"/>
 
 
+    <meta name="keywords" content="sql"/>
 
 
+    <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=5.1.0"/>
 
 
-
-
-  
-  
-  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/blog/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="sql" />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=5.1.0" />
-
-
-
-
-
-
-<meta name="description" content="mysql数据库总结
+    <meta name="description" content="mysql数据库总结
 
 sql的组成数据定义语言（DDL），用来定义和管理数据对象，如数据库、表等create、drop、alter
 数据操作语言（DML），用于操作数据库对象中包含的数据insert、update、delete
 数据查询语言（DQL），用于查询数据库select
 数据控制语言（DCL），用来管理数据库，包括管理权限和数据更改grant、commit、rollback
 数据库(d">
-<meta property="og:type" content="article">
-<meta property="og:title" content="mysql总结">
-<meta property="og:url" content="https://rsl140.github.io/blog/2017/08/02/sql/index.html">
-<meta property="og:site_name" content="XiaoSi">
-<meta property="og:description" content="mysql数据库总结
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="mysql总结">
+    <meta property="og:url" content="https://rsl140.github.io/blog/2017/08/02/sql/index.html">
+    <meta property="og:site_name" content="XiaoSi">
+    <meta property="og:description" content="mysql数据库总结
 
 sql的组成数据定义语言（DDL），用来定义和管理数据对象，如数据库、表等create、drop、alter
 数据操作语言（DML），用于操作数据库对象中包含的数据insert、update、delete
 数据查询语言（DQL），用于查询数据库select
 数据控制语言（DCL），用来管理数据库，包括管理权限和数据更改grant、commit、rollback
 数据库(d">
-<meta property="og:updated_time" content="2017-09-06T08:38:05.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mysql总结">
-<meta name="twitter:description" content="mysql数据库总结
+    <meta property="og:updated_time" content="2017-09-06T08:38:05.000Z">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="mysql总结">
+    <meta name="twitter:description" content="mysql数据库总结
 
 sql的组成数据定义语言（DDL），用来定义和管理数据对象，如数据库、表等create、drop、alter
 数据操作语言（DML），用于操作数据库对象中包含的数据insert、update、delete
@@ -123,194 +60,170 @@ sql的组成数据定义语言（DDL），用来定义和管理数据对象，�
 数据库(d">
 
 
+    <script type="text/javascript" id="hexo.configurations">
+        var NexT = window.NexT || {};
+        var CONFIG = {
+            root: '/blog/',
+            scheme: 'Muse',
+            sidebar: {
+                "position": "left",
+                "display": "post",
+                "offset": 12,
+                "offset_float": 0,
+                "b2t": false,
+                "scrollpercent": false
+            },
+            fancybox: true,
+            motion: true,
+            duoshuo: {
+                userId: '0',
+                author: '博主'
+            },
+            algolia: {
+                applicationID: '',
+                apiKey: '',
+                indexName: '',
+                hits: {"per_page": 10},
+                labels: {
+                    "input_placeholder": "Search for Posts",
+                    "hits_empty": "We didn't find any results for the search: ${query}",
+                    "hits_stats": "${hits} results found in ${time} ms"
+                }
+            }
+        };
+    </script>
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/blog/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
+
+    <link rel="canonical" href="https://rsl140.github.io/blog/2017/08/02/sql/"/>
 
 
-
-  <link rel="canonical" href="https://rsl140.github.io/blog/2017/08/02/sql/"/>
-
-
-
-
-
-  <title> mysql总结 | XiaoSi </title>
+    <title> mysql总结 | XiaoSi </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail ">
+<div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/blog/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">XiaoSi</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/blog/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/blog/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/blog/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/blog/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
+        <div class="header-inner">
+            <div class="site-brand-wrapper">
+                <div class="site-meta ">
 
 
+                    <div class="custom-logo-site-title">
+                        <a href="/blog/" class="brand" rel="start">
+                            <span class="logo-line-before"><i></i></span>
+                            <span class="site-title">XiaoSi</span>
+                            <span class="logo-line-after"><i></i></span>
+                        </a>
+                    </div>
 
- </div>
+                    <p class="site-subtitle"></p>
+
+                </div>
+
+                <div class="site-nav-toggle">
+                    <button>
+                        <span class="btn-bar"></span>
+                        <span class="btn-bar"></span>
+                        <span class="btn-bar"></span>
+                    </button>
+                </div>
+            </div>
+
+            <nav class="site-nav">
+
+
+                <ul id="menu" class="menu">
+
+
+                    <li class="menu-item menu-item-home">
+                        <a href="/blog/" rel="section">
+
+                            <i class="menu-item-icon fa fa-fw fa-home"></i> <br/>
+
+                            首页
+                        </a>
+                    </li>
+
+
+                    <li class="menu-item menu-item-archives">
+                        <a href="/blog/archives/" rel="section">
+
+                            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>
+
+                            归档
+                        </a>
+                    </li>
+
+
+                    <li class="menu-item menu-item-tags">
+                        <a href="/blog/tags/" rel="section">
+
+                            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>
+
+                            标签
+                        </a>
+                    </li>
+
+
+                    <li class="menu-item menu-item-categories">
+                        <a href="/blog/categories/" rel="section">
+
+                            <i class="menu-item-icon fa fa-fw fa-th"></i> <br/>
+
+                            分类
+                        </a>
+                    </li>
+
+
+                </ul>
+
+
+            </nav>
+
+
+        </div>
     </header>
 
     <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
+        <div class="main-inner">
+            <div class="content-wrap">
+                <div id="content" class="content">
 
-  <div id="posts" class="posts-expand">
-    
 
-  
+                    <div id="posts" class="posts-expand">
 
-  
-  
-  
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://rsl140.github.io/blog/blog/2017/08/02/sql/">
+                        <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+                            <link itemprop="mainEntityOfPage" href="https://rsl140.github.io/blog/blog/2017/08/02/sql/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+                            <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Summer">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/blog/uploads/1.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                            <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="XiaoSi">
     </span>
 
-    
-      <header class="post-header">
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                mysql总结
-              
-            
-          </h1>
-        
+                            <header class="post-header">
 
-        <div class="post-meta">
+
+                                <h1 class="post-title" itemprop="name headline">
+
+
+                                    mysql总结
+
+
+                                </h1>
+
+
+                                <div class="post-meta">
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -329,8 +242,8 @@ sql的组成数据定义语言（DDL），用来定义和管理数据对象，�
             
           </span>
 
-          
-            <span class="post-category" >
+
+                                    <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -351,257 +264,875 @@ sql的组成数据定义语言（DDL），用来定义和管理数据对象，�
                 
               
             </span>
-          
 
-          
-            
-              <span class="post-comments-count">
+
+                                    <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/blog/2017/08/02/sql/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/02/sql/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/02/sql/"
+                        itemprop="commentCount"></span>
                 </a>
               </span>
-            
-          
 
-          
-          
 
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o">阅读次数</i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+                                    <span class="post-meta-divider">|</span>
+                                    <span class="page-pv"><i class="fa fa-file-o">阅读次数</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
             </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
 
 
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <blockquote>
-<p>mysql数据库总结</p>
-</blockquote>
-<h1 id="sql的组成"><a href="#sql的组成" class="headerlink" title="sql的组成"></a>sql的组成</h1><h2 id="数据定义语言（DDL），用来定义和管理数据对象，如数据库、表等"><a href="#数据定义语言（DDL），用来定义和管理数据对象，如数据库、表等" class="headerlink" title="数据定义语言（DDL），用来定义和管理数据对象，如数据库、表等"></a>数据定义语言（DDL），用来定义和管理数据对象，如数据库、表等</h2><p><code>create、drop、alter</code></p>
-<h2 id="数据操作语言（DML），用于操作数据库对象中包含的数据"><a href="#数据操作语言（DML），用于操作数据库对象中包含的数据" class="headerlink" title="数据操作语言（DML），用于操作数据库对象中包含的数据"></a>数据操作语言（DML），用于操作数据库对象中包含的数据</h2><p><code>insert、update、delete</code></p>
-<h2 id="数据查询语言（DQL），用于查询数据库"><a href="#数据查询语言（DQL），用于查询数据库" class="headerlink" title="数据查询语言（DQL），用于查询数据库"></a>数据查询语言（DQL），用于查询数据库</h2><p><code>select</code></p>
-<h2 id="数据控制语言（DCL），用来管理数据库，包括管理权限和数据更改"><a href="#数据控制语言（DCL），用来管理数据库，包括管理权限和数据更改" class="headerlink" title="数据控制语言（DCL），用来管理数据库，包括管理权限和数据更改"></a>数据控制语言（DCL），用来管理数据库，包括管理权限和数据更改</h2><p><code>grant、commit、rollback</code></p>
-<h1 id="数据库-database-管理"><a href="#数据库-database-管理" class="headerlink" title="数据库(database)管理"></a>数据库(database)管理</h1><h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">database</span> 表名;</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="show-查看所有数据库"><a href="#show-查看所有数据库" class="headerlink" title="show 查看所有数据库"></a>show 查看所有数据库</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> <span class="keyword">databases</span>;</div></pre></td></tr></table></figure>
-<h2 id="alter-修改数据库编码"><a href="#alter-修改数据库编码" class="headerlink" title="alter 修改数据库编码"></a>alter 修改数据库编码</h2><p>默认创建的数据库默认不支持中文字符，如果我们需要它支持中文字符，则将它的编码设置为utf8格式:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">DATABASE</span> 表名 <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> UTF8;</div></pre></td></tr></table></figure></p>
-<h2 id="使用数据库"><a href="#使用数据库" class="headerlink" title="使用数据库"></a>使用数据库</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> 库名;</div></pre></td></tr></table></figure>
-<h2 id="查看当前使用的数据库"><a href="#查看当前使用的数据库" class="headerlink" title="查看当前使用的数据库"></a>查看当前使用的数据库</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">database</span>();</div></pre></td></tr></table></figure>
-<h2 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">drop</span> <span class="keyword">database</span> 库名;</div></pre></td></tr></table></figure>
-<h2 id="数据库备份"><a href="#数据库备份" class="headerlink" title="数据库备份"></a>数据库备份</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqldump -u root -p <span class="comment">--default-character-set=utf8 world &gt; bakWorld.sql;</span></div></pre></td></tr></table></figure>
-<h1 id="数据表（table）管理"><a href="#数据表（table）管理" class="headerlink" title="数据表（table）管理"></a>数据表（table）管理</h1><p>首先创建<code>create</code>数据库，其次<code>use</code>数据库，否则操作都会不成功。</p>
-<h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> 表名 (</div><div class="line">    <span class="keyword">ID</span> <span class="built_in">int</span> AUTO_INCREMENT PRIMARY <span class="keyword">KEY</span>,</div><div class="line">    <span class="keyword">NAME</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="literal">null</span>,</div><div class="line">    AGE <span class="built_in">int</span> <span class="keyword">not</span> <span class="literal">null</span>,</div><div class="line">    BIRTHDAY datetime);</div></pre></td></tr></table></figure>
-<h2 id="显示表"><a href="#显示表" class="headerlink" title="显示表"></a>显示表</h2><p>显示当前数据库所有的数据表<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> <span class="keyword">tables</span>;</div></pre></td></tr></table></figure></p>
-<h2 id="查看表结构"><a href="#查看表结构" class="headerlink" title="查看表结构"></a>查看表结构</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">desc 表名;</div></pre></td></tr></table></figure>
-<h2 id="修改表的编码"><a href="#修改表的编码" class="headerlink" title="修改表的编码"></a>修改表的编码</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> KEYCHAIN <span class="keyword">CONVERT</span> <span class="keyword">TO</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> UTF8;</div></pre></td></tr></table></figure>
-<h2 id="向表中添加字段"><a href="#向表中添加字段" class="headerlink" title="向表中添加字段"></a>向表中添加字段</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">add</span> 字段名 属性(如：<span class="built_in">int</span>);</div></pre></td></tr></table></figure>
-<h2 id="修改表中的字段属性"><a href="#修改表中的字段属性" class="headerlink" title="修改表中的字段属性"></a>修改表中的字段属性</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">MODIFY</span> 字段名 新属性;</div></pre></td></tr></table></figure>
-<h2 id="删除表中的属性"><a href="#删除表中的属性" class="headerlink" title="删除表中的属性"></a>删除表中的属性</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">DROP</span> <span class="keyword">column</span> 字段名;</div></pre></td></tr></table></figure>
-<h2 id="重命名表名"><a href="#重命名表名" class="headerlink" title="重命名表名"></a>重命名表名</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">RENAME</span> <span class="keyword">TABLE</span> 表名 <span class="keyword">TO</span> 新表名;</div></pre></td></tr></table></figure>
-<h2 id="修改表字段允许为空或不允许为空"><a href="#修改表字段允许为空或不允许为空" class="headerlink" title="修改表字段允许为空或不允许为空"></a>修改表字段允许为空或不允许为空</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">MODIFY</span> 字段名 属性(如：<span class="built_in">int</span>(<span class="number">3</span>)) <span class="literal">null</span>(<span class="keyword">not</span> <span class="literal">null</span>);<span class="comment">-- 允许为空或不允许为空</span></div></pre></td></tr></table></figure>
-<h2 id="利用已有数据创建新表"><a href="#利用已有数据创建新表" class="headerlink" title="利用已有数据创建新表"></a>利用已有数据创建新表</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> 新表名 <span class="keyword">select</span> * <span class="keyword">from</span> 表名;</div></pre></td></tr></table></figure>
-<h2 id="删除约束"><a href="#删除约束" class="headerlink" title="删除约束"></a>删除约束</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名 <span class="keyword">DROP</span> <span class="keyword">CONSTRAINT</span> 字段名 <span class="keyword">CASCADE</span>;</div></pre></td></tr></table></figure>
-<h2 id="新建主键约束"><a href="#新建主键约束" class="headerlink" title="新建主键约束"></a>新建主键约束</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> TAB_NAME <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> PK_NAME PRIMARY <span class="keyword">KEY</span>(FILED,...);</div></pre></td></tr></table></figure>
-<h1 id="数据的操作及管理"><a href="#数据的操作及管理" class="headerlink" title="数据的操作及管理"></a>数据的操作及管理</h1><p>数据表的基本操作，包含增、删、改、查数据。</p>
-<h2 id="增加数据"><a href="#增加数据" class="headerlink" title="增加数据"></a>增加数据</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 表名 <span class="keyword">VALUES</span> (<span class="literal">null</span>, <span class="string">'1'</span>, <span class="number">2</span>, <span class="string">'3'</span>);</div></pre></td></tr></table></figure>
-<h2 id="查看数据"><a href="#查看数据" class="headerlink" title="查看数据"></a>查看数据</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> 表名;<span class="comment">-- *代表所有字段</span></div></pre></td></tr></table></figure>
-<h2 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span> <span class="keyword">from</span> 表名 <span class="keyword">where</span> <span class="keyword">name</span> = <span class="string">'xxx'</span>;</div></pre></td></tr></table></figure>
-<h2 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">update</span> 表名 <span class="keyword">set</span> <span class="keyword">name</span>=<span class="string">'xxxx'</span> <span class="keyword">where</span> <span class="keyword">name</span> = <span class="string">'xxx'</span>; <span class="comment">-- xxxx为修改后的数据，xxx为在表中查找的数据</span></div></pre></td></tr></table></figure>
-<h2 id="查询手机号码区号以133和135开头的员工的姓名-性别-部门及联系电话"><a href="#查询手机号码区号以133和135开头的员工的姓名-性别-部门及联系电话" class="headerlink" title="查询手机号码区号以133和135开头的员工的姓名,性别,部门及联系电话"></a>查询手机号码区号以133和135开头的员工的姓名,性别,部门及联系电话</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">as</span> 姓名,sex <span class="keyword">as</span> 性别,department <span class="keyword">as</span> 部门,phone <span class="keyword">as</span> 联系电话 <span class="keyword">from</span> employee <span class="keyword">where</span> phone <span class="keyword">like</span> <span class="string">'133%'</span> <span class="keyword">or</span> phone <span class="keyword">like</span> <span class="string">'135%'</span>;<span class="comment">-- %为通配符 _也是通配符区别在于%为通配之后所有，_为通配后一位 通配需用like关键字</span></div></pre></td></tr></table></figure>
-<ul>
-<li>select 查找不重复（distinct）的数据，使数据按条件排序（order by），按查询条件显示数据（where）</li>
-</ul>
-<h2 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> student <span class="keyword">where</span> birthday&gt;(<span class="keyword">select</span> birthday <span class="keyword">from</span> student <span class="keyword">where</span> stuname=<span class="string">'周墨嘉'</span>);</div></pre></td></tr></table></figure>
-<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">length</span>(<span class="string">'老九学堂'</span>); <span class="comment">-- 12, 返回字节数</span></div><div class="line"><span class="keyword">select</span> <span class="keyword">char_length</span>(<span class="string">'你好啊'</span>); <span class="comment">-- 3, 返回字符数</span></div><div class="line"><span class="keyword">select</span> <span class="keyword">position</span>(<span class="string">'def'</span> <span class="keyword">in</span> <span class="string">'abcdefg'</span>); <span class="comment">-- 4, 返回子串substr在字符串str第一个出现的位置，如果substr不是在str里面，返回0  </span></div><div class="line"><span class="keyword">select</span> <span class="keyword">position</span>(<span class="string">'学堂'</span> <span class="keyword">in</span> <span class="string">'老九学堂'</span>); <span class="comment">-- 3</span></div><div class="line"><span class="keyword">select</span> <span class="keyword">lower</span>(<span class="string">'MySQL数据库'</span>);<span class="comment">-- mysql数据库</span></div><div class="line"><span class="keyword">select</span> <span class="keyword">rtrim</span>(<span class="keyword">ltrim</span>(<span class="string">'   abc   '</span>)); <span class="comment">-- abc,清除左右空格</span></div><div class="line"><span class="keyword">select</span> <span class="keyword">left</span>(<span class="string">'中华人民共和国'</span>,<span class="number">3</span>);<span class="comment">-- 中华人，从字符串左右两边返回指定数目的字符</span></div><div class="line"><span class="keyword">select</span> <span class="keyword">replace</span>(<span class="string">'中华人民共和国'</span>, <span class="string">'人民'</span>, <span class="string">'民众'</span>);<span class="comment">-- 中华民众共和国，字符串替换</span></div><div class="line"><span class="keyword">select</span> <span class="keyword">reverse</span>(<span class="string">'中华人民共和国'</span>); <span class="comment">-- 国和共民人华中, 颠倒字符</span></div><div class="line"><span class="keyword">select</span> <span class="keyword">concat</span>(<span class="number">99</span>, <span class="string">'人斩'</span>);<span class="comment">-- 拼接字符串</span></div><div class="line"><span class="keyword">select</span> <span class="keyword">now</span>();<span class="comment">-- 返回当前日期、时间</span></div><div class="line"><span class="keyword">select</span> adddate(<span class="keyword">now</span>(),<span class="built_in">interval</span> <span class="number">5</span> <span class="keyword">day</span>);<span class="comment">-- 返回5天后的时间</span></div><div class="line"><span class="comment">-- 返回是今年的第几天</span></div><div class="line"><span class="keyword">select</span> <span class="keyword">dayofyear</span>(<span class="keyword">now</span>());</div><div class="line"><span class="keyword">select</span> <span class="keyword">dayofweek</span>(<span class="keyword">now</span>());</div><div class="line"><span class="keyword">select</span> <span class="keyword">day</span>(<span class="keyword">now</span>());</div><div class="line"><span class="comment">-- 日期之差</span></div><div class="line"><span class="keyword">select</span> <span class="keyword">timestampdiff</span>(<span class="keyword">year</span>,<span class="string">'2008-8-8'</span>,<span class="keyword">now</span>());</div><div class="line"></div><div class="line"><span class="comment">-- 嵌套</span></div><div class="line"><span class="keyword">select</span> (</div><div class="line"><span class="keyword">replace</span>(<span class="keyword">replace</span> (<span class="keyword">replace</span>(loginpwd,<span class="string">'O'</span>,<span class="string">'0'</span>),<span class="string">'l'</span>,<span class="string">'1'</span>),<span class="string">'o'</span>,<span class="string">'0'</span>)</div><div class="line">) <span class="keyword">from</span> Student;</div></pre></td></tr></table></figure>
-<h1 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h1><p>在某公司员工表中，为了节省空间，员工编号是按照“部门编号-员工编号”格式存放的，如：4-7,5-6,1-21,10-11,10-1,1-12,2-10,……,12-21,12-12,14-10,14-7等<br>现在公司希望通过sql语句进行排序，首先按照前半部分的数字进行排序，然后再按照后半部分的数字进行排序，输出结果如下：1-12,1-21,2-10,4-7,5-6,10-1,10-11……,12-12,12-21,14-7,14-10<br>数据表名称：Employee<br>字段名称：EmpId</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">database</span> cardinfo;</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">DATABASE</span> cardinfo <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> UTF8;</div><div class="line"><span class="keyword">use</span> cardinfo;</div><div class="line"></div><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> employee(</div><div class="line">    <span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">4</span>) primary <span class="keyword">key</span> <span class="keyword">not</span> <span class="literal">null</span> auto_increment,</div><div class="line">    empid <span class="built_in">varchar</span>(<span class="number">20</span>) </div><div class="line">) <span class="keyword">charset</span>=utf8;</div><div class="line"></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> employee(empid) <span class="keyword">values</span></div><div class="line">    (<span class="string">'1-1'</span>),(<span class="string">'2-1'</span>),(<span class="string">'1-3'</span>),(<span class="string">'4-1'</span>),(<span class="string">'1-11'</span>),(<span class="string">'5-22'</span>),(<span class="string">'3-12'</span>),</div><div class="line">    (<span class="string">'6-1'</span>),(<span class="string">'2-12'</span>),(<span class="string">'3-13'</span>),(<span class="string">'5-21'</span>),(<span class="string">'1-7'</span>),(<span class="string">'6-5'</span>),(<span class="string">'3-3'</span>);</div><div class="line"></div><div class="line"><span class="keyword">select</span> empid <span class="keyword">as</span> 排序,</div><div class="line"><span class="keyword">cast</span>(<span class="keyword">left</span>(empid,<span class="keyword">position</span>(<span class="string">'-'</span> <span class="keyword">in</span> empid)<span class="number">-1</span>) <span class="keyword">as</span> signed) <span class="keyword">as</span> 左边,</div><div class="line"><span class="keyword">cast</span>(<span class="keyword">substr</span>(empid,<span class="keyword">position</span>(<span class="string">'-'</span> <span class="keyword">in</span> empid)+<span class="number">1</span>)<span class="keyword">as</span> signed) <span class="keyword">as</span> 右边</div><div class="line"><span class="keyword">from</span> employee <span class="keyword">order</span> <span class="keyword">by</span> 左边 <span class="keyword">asc</span>,右边 <span class="keyword">asc</span>;</div></pre></td></tr></table></figure>
-<h2 id="左向外联接的结果集包括-LEFT-OUTER子句中指定的左表的所有行，而不仅仅是联接列所匹配的行。如果左表的某行在右表中没有匹配行，则在相关联的结果集行中右表的所有选择列表列均为空值。"><a href="#左向外联接的结果集包括-LEFT-OUTER子句中指定的左表的所有行，而不仅仅是联接列所匹配的行。如果左表的某行在右表中没有匹配行，则在相关联的结果集行中右表的所有选择列表列均为空值。" class="headerlink" title="左向外联接的结果集包括  LEFT OUTER子句中指定的左表的所有行，而不仅仅是联接列所匹配的行。如果左表的某行在右表中没有匹配行，则在相关联的结果集行中右表的所有选择列表列均为空值。"></a>左向外联接的结果集包括  LEFT OUTER子句中指定的左表的所有行，而不仅仅是联接列所匹配的行。如果左表的某行在右表中没有匹配行，则在相关联的结果集行中右表的所有选择列表列均为空值。</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> st.stuname 姓名,st.identity_card 身份证,sc.SubjectID,<span class="keyword">if</span>(<span class="keyword">isnull</span>(sc.score),<span class="string">'缺考'</span>,sc.score) <span class="keyword">as</span> <span class="string">'成绩'</span>  <span class="keyword">from</span> </div><div class="line">student st <span class="keyword">left</span> <span class="keyword">join</span> score sc <span class="keyword">on</span>(st.stuid=sc.stuid) <span class="keyword">order</span> <span class="keyword">by</span> st.stuname;</div><div class="line"></div><div class="line"><span class="comment">-- 显示如下</span></div><div class="line"></div><div class="line">    +<span class="comment">-----------+------------------+-----------+--------+</span></div><div class="line">    | 姓名      | 身份证           | SubjectID | 成绩   |</div><div class="line">    +<span class="comment">-----------+------------------+-----------+--------+</span></div><div class="line">    | 周墨嘉    | 510123323333333x |      NULL | 缺考   |</div><div class="line">    | 李彤彤    | 510123325555555x |         2 | 81     |</div><div class="line">    | 陈天乐    | 510123322222222x |         3 | 90     |</div><div class="line">    | 陈天乐    | 510123322222222x |         2 | 60     |</div><div class="line">    | 陈天乐    | 510123322222222x |         1 | 85     |</div><div class="line">    | 马云      | 510128349124793  |      NULL | 缺考   |</div><div class="line">    | 黄诗怡    | 510123324444444x |         2 | 63     |</div><div class="line">    | 黄颖琦    | 510123321111111x |         1 | 80     |</div><div class="line">    | 黄颖琦    | 510123321111111x |         3 | 78     |</div><div class="line">    | 黄颖琦    | 510123321111111x |         2 | 55     |</div><div class="line">    +<span class="comment">-----------+------------------+-----------+--------+</span></div><div class="line">    10 rows in <span class="keyword">set</span> (<span class="number">0.01</span> sec)</div></pre></td></tr></table></figure>
-<p><span style="color: red">left 是以左边为主 显示全部内容，右边的表为辅，右边的表若没有值则显示为空。同理right</span></p>
-<h1 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 使用PreparedStatement防注入</span></div><div class="line"><span class="comment">// 加载驱动</span></div><div class="line">Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</div><div class="line"><span class="comment">//创建连接</span></div><div class="line">Connection con=DriverManager.getConnection(<span class="string">"jdbc:mysql://localhost:3306/school"</span>,<span class="string">"服务器名"</span>,<span class="string">"数据库密码"</span>);</div><div class="line"><span class="comment">//3、执行sql语句</span></div><div class="line">String querySql=<span class="string">"select * from grade where id=? and grade_name=?"</span>;</div><div class="line">PreparedStatement pst=con.prepareStatement(querySql);</div><div class="line">pst.setInt(<span class="number">1</span>,<span class="number">2</span>);<span class="comment">//第一个参数表示第几个问号，第二个参数表示参数的值</span></div><div class="line">pst.setString(<span class="number">2</span>,<span class="string">"十一年级"</span>);</div><div class="line">ResultSet rs =pst.executeQuery();</div><div class="line"><span class="comment">//pst.executeUpdate();修改、删除、新增使用这个方法</span></div><div class="line"><span class="keyword">while</span>(rs.next())&#123;</div><div class="line">    System.out.println(rs.getInt(<span class="number">1</span>)+<span class="string">"\t"</span>+rs.getString(<span class="number">2</span>));</div><div class="line">&#125;</div><div class="line">rs.close();</div><div class="line">pst.close();</div><div class="line">con.close();</div></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/blog/tags/sql/" rel="tag"># sql</a>
-          
-        </div>
-      
-
-      
-        
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/blog/2017/07/11/zj/" rel="next" title="css常用样式||知识点">
-                <i class="fa fa-chevron-left"></i> css常用样式||知识点
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2017/08/21/Jsp/" rel="prev" title="Jsp学习记录">
-                Jsp学习记录 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
+                                </div>
+                            </header>
 
 
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
+                            <div class="post-body" itemprop="articleBody">
 
 
-          </div>
-          
+                                <blockquote>
+                                    <p>mysql数据库总结</p>
+                                </blockquote>
+                                <h1 id="sql的组成"><a href="#sql的组成" class="headerlink" title="sql的组成"></a>sql的组成</h1>
+                                <h2 id="数据定义语言（DDL），用来定义和管理数据对象，如数据库、表等"><a href="#数据定义语言（DDL），用来定义和管理数据对象，如数据库、表等"
+                                                                            class="headerlink"
+                                                                            title="数据定义语言（DDL），用来定义和管理数据对象，如数据库、表等"></a>数据定义语言（DDL），用来定义和管理数据对象，如数据库、表等
+                                </h2>
+                                <p><code>create、drop、alter</code></p>
+                                <h2 id="数据操作语言（DML），用于操作数据库对象中包含的数据"><a href="#数据操作语言（DML），用于操作数据库对象中包含的数据"
+                                                                        class="headerlink"
+                                                                        title="数据操作语言（DML），用于操作数据库对象中包含的数据"></a>数据操作语言（DML），用于操作数据库对象中包含的数据
+                                </h2>
+                                <p><code>insert、update、delete</code></p>
+                                <h2 id="数据查询语言（DQL），用于查询数据库"><a href="#数据查询语言（DQL），用于查询数据库" class="headerlink"
+                                                                title="数据查询语言（DQL），用于查询数据库"></a>数据查询语言（DQL），用于查询数据库</h2>
+                                <p><code>select</code></p>
+                                <h2 id="数据控制语言（DCL），用来管理数据库，包括管理权限和数据更改"><a href="#数据控制语言（DCL），用来管理数据库，包括管理权限和数据更改"
+                                                                            class="headerlink"
+                                                                            title="数据控制语言（DCL），用来管理数据库，包括管理权限和数据更改"></a>数据控制语言（DCL），用来管理数据库，包括管理权限和数据更改
+                                </h2>
+                                <p><code>grant、commit、rollback</code></p>
+                                <h1 id="数据库-database-管理"><a href="#数据库-database-管理" class="headerlink"
+                                                            title="数据库(database)管理"></a>数据库(database)管理</h1>
+                                <h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">create</span> <span
+                                                        class="keyword">database</span> 表名;</div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <a id="more"></a>
+                                <h2 id="show-查看所有数据库"><a href="#show-查看所有数据库" class="headerlink"
+                                                         title="show 查看所有数据库"></a>show 查看所有数据库</h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">show</span> <span
+                                                        class="keyword">databases</span>;</div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h2 id="alter-修改数据库编码"><a href="#alter-修改数据库编码" class="headerlink"
+                                                          title="alter 修改数据库编码"></a>alter 修改数据库编码</h2>
+                                <p>默认创建的数据库默认不支持中文字符，如果我们需要它支持中文字符，则将它的编码设置为utf8格式:<br>
+                                    <figure class="highlight sql">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter">
+                                                    <pre><div class="line">1</div></pre>
+                                                </td>
+                                                <td class="code">
+                                                    <pre><div class="line"><span class="keyword">ALTER</span> <span
+                                                            class="keyword">DATABASE</span> 表名 <span class="built_in">CHARACTER</span> <span
+                                                            class="keyword">SET</span> UTF8;</div></pre>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+                                </p>
+                                <h2 id="使用数据库"><a href="#使用数据库" class="headerlink" title="使用数据库"></a>使用数据库</h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">use</span> 库名;</div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h2 id="查看当前使用的数据库"><a href="#查看当前使用的数据库" class="headerlink" title="查看当前使用的数据库"></a>查看当前使用的数据库
+                                </h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">select</span> <span
+                                                        class="keyword">database</span>();</div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h2 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">drop</span> <span
+                                                        class="keyword">database</span> 库名;</div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h2 id="数据库备份"><a href="#数据库备份" class="headerlink" title="数据库备份"></a>数据库备份</h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line">mysqldump -u root -p <span class="comment">--default-character-set=utf8 world &gt; bakWorld.sql;</span></div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h1 id="数据表（table）管理"><a href="#数据表（table）管理" class="headerlink"
+                                                         title="数据表（table）管理"></a>数据表（table）管理</h1>
+                                <p>首先创建<code>create</code>数据库，其次<code>use</code>数据库，否则操作都会不成功。</p>
+                                <h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div><div class="line">2</div><div
+                                                        class="line">3</div><div class="line">4</div><div
+                                                        class="line">5</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">create</span> <span
+                                                        class="keyword">table</span> 表名 (</div><div
+                                                        class="line">    <span class="keyword">ID</span> <span
+                                                        class="built_in">int</span> AUTO_INCREMENT PRIMARY <span
+                                                        class="keyword">KEY</span>,</div><div class="line">    <span
+                                                        class="keyword">NAME</span> <span
+                                                        class="built_in">varchar</span>(<span class="number">20</span>) <span
+                                                        class="keyword">not</span> <span
+                                                        class="literal">null</span>,</div><div
+                                                        class="line">    AGE <span class="built_in">int</span> <span
+                                                        class="keyword">not</span> <span
+                                                        class="literal">null</span>,</div><div class="line">    BIRTHDAY datetime);</div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h2 id="显示表"><a href="#显示表" class="headerlink" title="显示表"></a>显示表</h2>
+                                <p>显示当前数据库所有的数据表<br>
+                                    <figure class="highlight sql">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter">
+                                                    <pre><div class="line">1</div></pre>
+                                                </td>
+                                                <td class="code">
+                                                    <pre><div class="line"><span class="keyword">show</span> <span
+                                                            class="keyword">tables</span>;</div></pre>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+                                </p>
+                                <h2 id="查看表结构"><a href="#查看表结构" class="headerlink" title="查看表结构"></a>查看表结构</h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line">desc 表名;</div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h2 id="修改表的编码"><a href="#修改表的编码" class="headerlink" title="修改表的编码"></a>修改表的编码</h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">ALTER</span> <span
+                                                        class="keyword">TABLE</span> KEYCHAIN <span class="keyword">CONVERT</span> <span
+                                                        class="keyword">TO</span> <span
+                                                        class="built_in">CHARACTER</span> <span
+                                                        class="keyword">SET</span> UTF8;</div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h2 id="向表中添加字段"><a href="#向表中添加字段" class="headerlink" title="向表中添加字段"></a>向表中添加字段</h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">alter</span> <span
+                                                        class="keyword">table</span> 表名 <span class="keyword">add</span> 字段名 属性(如：<span
+                                                        class="built_in">int</span>);</div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h2 id="修改表中的字段属性"><a href="#修改表中的字段属性" class="headerlink" title="修改表中的字段属性"></a>修改表中的字段属性
+                                </h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">alter</span> <span
+                                                        class="keyword">table</span> 表名 <span
+                                                        class="keyword">MODIFY</span> 字段名 新属性;</div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h2 id="删除表中的属性"><a href="#删除表中的属性" class="headerlink" title="删除表中的属性"></a>删除表中的属性</h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">alter</span> <span
+                                                        class="keyword">table</span> 表名 <span
+                                                        class="keyword">DROP</span> <span class="keyword">column</span> 字段名;</div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h2 id="重命名表名"><a href="#重命名表名" class="headerlink" title="重命名表名"></a>重命名表名</h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">RENAME</span> <span
+                                                        class="keyword">TABLE</span> 表名 <span class="keyword">TO</span> 新表名;</div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h2 id="修改表字段允许为空或不允许为空"><a href="#修改表字段允许为空或不允许为空" class="headerlink"
+                                                            title="修改表字段允许为空或不允许为空"></a>修改表字段允许为空或不允许为空</h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">alter</span> <span
+                                                        class="keyword">table</span> 表名 <span
+                                                        class="keyword">MODIFY</span> 字段名 属性(如：<span class="built_in">int</span>(<span
+                                                        class="number">3</span>)) <span
+                                                        class="literal">null</span>(<span
+                                                        class="keyword">not</span> <span
+                                                        class="literal">null</span>);<span
+                                                        class="comment">-- 允许为空或不允许为空</span></div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h2 id="利用已有数据创建新表"><a href="#利用已有数据创建新表" class="headerlink" title="利用已有数据创建新表"></a>利用已有数据创建新表
+                                </h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">create</span> <span
+                                                        class="keyword">table</span> 新表名 <span
+                                                        class="keyword">select</span> * <span
+                                                        class="keyword">from</span> 表名;</div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h2 id="删除约束"><a href="#删除约束" class="headerlink" title="删除约束"></a>删除约束</h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">ALTER</span> <span
+                                                        class="keyword">TABLE</span> 表名 <span
+                                                        class="keyword">DROP</span> <span
+                                                        class="keyword">CONSTRAINT</span> 字段名 <span class="keyword">CASCADE</span>;</div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h2 id="新建主键约束"><a href="#新建主键约束" class="headerlink" title="新建主键约束"></a>新建主键约束</h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">ALTER</span> <span
+                                                        class="keyword">TABLE</span> TAB_NAME <span
+                                                        class="keyword">ADD</span> <span
+                                                        class="keyword">CONSTRAINT</span> PK_NAME PRIMARY <span
+                                                        class="keyword">KEY</span>(FILED,...);</div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h1 id="数据的操作及管理"><a href="#数据的操作及管理" class="headerlink" title="数据的操作及管理"></a>数据的操作及管理
+                                </h1>
+                                <p>数据表的基本操作，包含增、删、改、查数据。</p>
+                                <h2 id="增加数据"><a href="#增加数据" class="headerlink" title="增加数据"></a>增加数据</h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">insert</span> <span
+                                                        class="keyword">into</span> 表名 <span
+                                                        class="keyword">VALUES</span> (<span class="literal">null</span>, <span
+                                                        class="string">'1'</span>, <span class="number">2</span>, <span
+                                                        class="string">'3'</span>);</div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h2 id="查看数据"><a href="#查看数据" class="headerlink" title="查看数据"></a>查看数据</h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">select</span> * <span
+                                                        class="keyword">from</span> 表名;<span
+                                                        class="comment">-- *代表所有字段</span></div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h2 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">delete</span> <span
+                                                        class="keyword">from</span> 表名 <span
+                                                        class="keyword">where</span> <span class="keyword">name</span> = <span
+                                                        class="string">'xxx'</span>;</div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h2 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">update</span> 表名 <span
+                                                        class="keyword">set</span> <span
+                                                        class="keyword">name</span>=<span
+                                                        class="string">'xxxx'</span> <span class="keyword">where</span> <span
+                                                        class="keyword">name</span> = <span class="string">'xxx'</span>; <span
+                                                        class="comment">-- xxxx为修改后的数据，xxx为在表中查找的数据</span></div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h2 id="查询手机号码区号以133和135开头的员工的姓名-性别-部门及联系电话"><a
+                                        href="#查询手机号码区号以133和135开头的员工的姓名-性别-部门及联系电话" class="headerlink"
+                                        title="查询手机号码区号以133和135开头的员工的姓名,性别,部门及联系电话"></a>查询手机号码区号以133和135开头的员工的姓名,性别,部门及联系电话
+                                </h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">select</span> <span
+                                                        class="keyword">name</span> <span class="keyword">as</span> 姓名,sex <span
+                                                        class="keyword">as</span> 性别,department <span
+                                                        class="keyword">as</span> 部门,phone <span
+                                                        class="keyword">as</span> 联系电话 <span class="keyword">from</span> employee <span
+                                                        class="keyword">where</span> phone <span
+                                                        class="keyword">like</span> <span
+                                                        class="string">'133%'</span> <span class="keyword">or</span> phone <span
+                                                        class="keyword">like</span> <span
+                                                        class="string">'135%'</span>;<span class="comment">-- %为通配符 _也是通配符区别在于%为通配之后所有，_为通配后一位 通配需用like关键字</span></div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <ul>
+                                    <li>select 查找不重复（distinct）的数据，使数据按条件排序（order by），按查询条件显示数据（where）</li>
+                                </ul>
+                                <h2 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">select</span> * <span
+                                                        class="keyword">from</span> student <span
+                                                        class="keyword">where</span> birthday&gt;(<span class="keyword">select</span> birthday <span
+                                                        class="keyword">from</span> student <span
+                                                        class="keyword">where</span> stuname=<span
+                                                        class="string">'周墨嘉'</span>);</div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div><div class="line">2</div><div
+                                                        class="line">3</div><div class="line">4</div><div
+                                                        class="line">5</div><div class="line">6</div><div
+                                                        class="line">7</div><div class="line">8</div><div
+                                                        class="line">9</div><div class="line">10</div><div class="line">11</div><div
+                                                        class="line">12</div><div class="line">13</div><div
+                                                        class="line">14</div><div class="line">15</div><div
+                                                        class="line">16</div><div class="line">17</div><div
+                                                        class="line">18</div><div class="line">19</div><div
+                                                        class="line">20</div><div class="line">21</div><div
+                                                        class="line">22</div><div class="line">23</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">select</span> <span
+                                                        class="keyword">length</span>(<span class="string">'老九学堂'</span>); <span
+                                                        class="comment">-- 12, 返回字节数</span></div><div class="line"><span
+                                                        class="keyword">select</span> <span
+                                                        class="keyword">char_length</span>(<span
+                                                        class="string">'你好啊'</span>); <span
+                                                        class="comment">-- 3, 返回字符数</span></div><div class="line"><span
+                                                        class="keyword">select</span> <span
+                                                        class="keyword">position</span>(<span
+                                                        class="string">'def'</span> <span
+                                                        class="keyword">in</span> <span class="string">'abcdefg'</span>); <span
+                                                        class="comment">-- 4, 返回子串substr在字符串str第一个出现的位置，如果substr不是在str里面，返回0  </span></div><div
+                                                        class="line"><span class="keyword">select</span> <span
+                                                        class="keyword">position</span>(<span class="string">'学堂'</span> <span
+                                                        class="keyword">in</span> <span
+                                                        class="string">'老九学堂'</span>); <span class="comment">-- 3</span></div><div
+                                                        class="line"><span class="keyword">select</span> <span
+                                                        class="keyword">lower</span>(<span
+                                                        class="string">'MySQL数据库'</span>);<span class="comment">-- mysql数据库</span></div><div
+                                                        class="line"><span class="keyword">select</span> <span
+                                                        class="keyword">rtrim</span>(<span class="keyword">ltrim</span>(<span
+                                                        class="string">'   abc   '</span>)); <span class="comment">-- abc,清除左右空格</span></div><div
+                                                        class="line"><span class="keyword">select</span> <span
+                                                        class="keyword">left</span>(<span
+                                                        class="string">'中华人民共和国'</span>,<span
+                                                        class="number">3</span>);<span class="comment">-- 中华人，从字符串左右两边返回指定数目的字符</span></div><div
+                                                        class="line"><span class="keyword">select</span> <span
+                                                        class="keyword">replace</span>(<span
+                                                        class="string">'中华人民共和国'</span>, <span
+                                                        class="string">'人民'</span>, <span
+                                                        class="string">'民众'</span>);<span class="comment">-- 中华民众共和国，字符串替换</span></div><div
+                                                        class="line"><span class="keyword">select</span> <span
+                                                        class="keyword">reverse</span>(<span
+                                                        class="string">'中华人民共和国'</span>); <span class="comment">-- 国和共民人华中, 颠倒字符</span></div><div
+                                                        class="line"><span class="keyword">select</span> <span
+                                                        class="keyword">concat</span>(<span
+                                                        class="number">99</span>, <span
+                                                        class="string">'人斩'</span>);<span
+                                                        class="comment">-- 拼接字符串</span></div><div class="line"><span
+                                                        class="keyword">select</span> <span class="keyword">now</span>();<span
+                                                        class="comment">-- 返回当前日期、时间</span></div><div class="line"><span
+                                                        class="keyword">select</span> adddate(<span
+                                                        class="keyword">now</span>(),<span
+                                                        class="built_in">interval</span> <span
+                                                        class="number">5</span> <span class="keyword">day</span>);<span
+                                                        class="comment">-- 返回5天后的时间</span></div><div class="line"><span
+                                                        class="comment">-- 返回是今年的第几天</span></div><div class="line"><span
+                                                        class="keyword">select</span> <span
+                                                        class="keyword">dayofyear</span>(<span
+                                                        class="keyword">now</span>());</div><div class="line"><span
+                                                        class="keyword">select</span> <span
+                                                        class="keyword">dayofweek</span>(<span
+                                                        class="keyword">now</span>());</div><div class="line"><span
+                                                        class="keyword">select</span> <span
+                                                        class="keyword">day</span>(<span class="keyword">now</span>());</div><div
+                                                        class="line"><span class="comment">-- 日期之差</span></div><div
+                                                        class="line"><span class="keyword">select</span> <span
+                                                        class="keyword">timestampdiff</span>(<span
+                                                        class="keyword">year</span>,<span
+                                                        class="string">'2008-8-8'</span>,<span
+                                                        class="keyword">now</span>());</div><div class="line"></div><div
+                                                        class="line"><span class="comment">-- 嵌套</span></div><div
+                                                        class="line"><span class="keyword">select</span> (</div><div
+                                                        class="line"><span class="keyword">replace</span>(<span
+                                                        class="keyword">replace</span> (<span
+                                                        class="keyword">replace</span>(loginpwd,<span
+                                                        class="string">'O'</span>,<span class="string">'0'</span>),<span
+                                                        class="string">'l'</span>,<span class="string">'1'</span>),<span
+                                                        class="string">'o'</span>,<span class="string">'0'</span>)</div><div
+                                                        class="line">) <span class="keyword">from</span> Student;</div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h1 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h1>
+                                <p>
+                                    在某公司员工表中，为了节省空间，员工编号是按照“部门编号-员工编号”格式存放的，如：4-7,5-6,1-21,10-11,10-1,1-12,2-10,……,12-21,12-12,14-10,14-7等<br>现在公司希望通过sql语句进行排序，首先按照前半部分的数字进行排序，然后再按照后半部分的数字进行排序，输出结果如下：1-12,1-21,2-10,4-7,5-6,10-1,10-11……,12-12,12-21,14-7,14-10<br>数据表名称：Employee<br>字段名称：EmpId
+                                </p>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div><div class="line">2</div><div
+                                                        class="line">3</div><div class="line">4</div><div
+                                                        class="line">5</div><div class="line">6</div><div
+                                                        class="line">7</div><div class="line">8</div><div
+                                                        class="line">9</div><div class="line">10</div><div class="line">11</div><div
+                                                        class="line">12</div><div class="line">13</div><div
+                                                        class="line">14</div><div class="line">15</div><div
+                                                        class="line">16</div><div class="line">17</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">create</span> <span
+                                                        class="keyword">database</span> cardinfo;</div><div
+                                                        class="line"><span class="keyword">ALTER</span> <span
+                                                        class="keyword">DATABASE</span> cardinfo <span class="built_in">CHARACTER</span> <span
+                                                        class="keyword">SET</span> UTF8;</div><div class="line"><span
+                                                        class="keyword">use</span> cardinfo;</div><div
+                                                        class="line"></div><div class="line"><span class="keyword">create</span> <span
+                                                        class="keyword">table</span> employee(</div><div class="line">    <span
+                                                        class="keyword">id</span> <span
+                                                        class="built_in">int</span>(<span class="number">4</span>) primary <span
+                                                        class="keyword">key</span> <span
+                                                        class="keyword">not</span> <span class="literal">null</span> auto_increment,</div><div
+                                                        class="line">    empid <span
+                                                        class="built_in">varchar</span>(<span class="number">20</span>) </div><div
+                                                        class="line">) <span class="keyword">charset</span>=utf8;</div><div
+                                                        class="line"></div><div class="line"><span class="keyword">insert</span> <span
+                                                        class="keyword">into</span> employee(empid) <span
+                                                        class="keyword">values</span></div><div class="line">    (<span
+                                                        class="string">'1-1'</span>),(<span class="string">'2-1'</span>),(<span
+                                                        class="string">'1-3'</span>),(<span class="string">'4-1'</span>),(<span
+                                                        class="string">'1-11'</span>),(<span
+                                                        class="string">'5-22'</span>),(<span
+                                                        class="string">'3-12'</span>),</div><div class="line">    (<span
+                                                        class="string">'6-1'</span>),(<span class="string">'2-12'</span>),(<span
+                                                        class="string">'3-13'</span>),(<span
+                                                        class="string">'5-21'</span>),(<span class="string">'1-7'</span>),(<span
+                                                        class="string">'6-5'</span>),(<span class="string">'3-3'</span>);</div><div
+                                                        class="line"></div><div class="line"><span class="keyword">select</span> empid <span
+                                                        class="keyword">as</span> 排序,</div><div class="line"><span
+                                                        class="keyword">cast</span>(<span class="keyword">left</span>(empid,<span
+                                                        class="keyword">position</span>(<span class="string">'-'</span> <span
+                                                        class="keyword">in</span> empid)<span class="number">-1</span>) <span
+                                                        class="keyword">as</span> signed) <span
+                                                        class="keyword">as</span> 左边,</div><div class="line"><span
+                                                        class="keyword">cast</span>(<span class="keyword">substr</span>(empid,<span
+                                                        class="keyword">position</span>(<span class="string">'-'</span> <span
+                                                        class="keyword">in</span> empid)+<span
+                                                        class="number">1</span>)<span class="keyword">as</span> signed) <span
+                                                        class="keyword">as</span> 右边</div><div class="line"><span
+                                                        class="keyword">from</span> employee <span
+                                                        class="keyword">order</span> <span class="keyword">by</span> 左边 <span
+                                                        class="keyword">asc</span>,右边 <span class="keyword">asc</span>;</div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h2 id="左向外联接的结果集包括-LEFT-OUTER子句中指定的左表的所有行，而不仅仅是联接列所匹配的行。如果左表的某行在右表中没有匹配行，则在相关联的结果集行中右表的所有选择列表列均为空值。">
+                                    <a href="#左向外联接的结果集包括-LEFT-OUTER子句中指定的左表的所有行，而不仅仅是联接列所匹配的行。如果左表的某行在右表中没有匹配行，则在相关联的结果集行中右表的所有选择列表列均为空值。"
+                                       class="headerlink"
+                                       title="左向外联接的结果集包括  LEFT OUTER子句中指定的左表的所有行，而不仅仅是联接列所匹配的行。如果左表的某行在右表中没有匹配行，则在相关联的结果集行中右表的所有选择列表列均为空值。"></a>左向外联接的结果集包括
+                                    LEFT OUTER子句中指定的左表的所有行，而不仅仅是联接列所匹配的行。如果左表的某行在右表中没有匹配行，则在相关联的结果集行中右表的所有选择列表列均为空值。
+                                </h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div><div class="line">2</div><div
+                                                        class="line">3</div><div class="line">4</div><div
+                                                        class="line">5</div><div class="line">6</div><div
+                                                        class="line">7</div><div class="line">8</div><div
+                                                        class="line">9</div><div class="line">10</div><div class="line">11</div><div
+                                                        class="line">12</div><div class="line">13</div><div
+                                                        class="line">14</div><div class="line">15</div><div
+                                                        class="line">16</div><div class="line">17</div><div
+                                                        class="line">18</div><div class="line">19</div><div
+                                                        class="line">20</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">select</span> st.stuname 姓名,st.identity_card 身份证,sc.SubjectID,<span
+                                                        class="keyword">if</span>(<span class="keyword">isnull</span>(sc.score),<span
+                                                        class="string">'缺考'</span>,sc.score) <span
+                                                        class="keyword">as</span> <span
+                                                        class="string">'成绩'</span>  <span
+                                                        class="keyword">from</span> </div><div
+                                                        class="line">student st <span class="keyword">left</span> <span
+                                                        class="keyword">join</span> score sc <span
+                                                        class="keyword">on</span>(st.stuid=sc.stuid) <span
+                                                        class="keyword">order</span> <span class="keyword">by</span> st.stuname;</div><div
+                                                        class="line"></div><div class="line"><span class="comment">-- 显示如下</span></div><div
+                                                        class="line"></div><div class="line">    +<span class="comment">-----------+------------------+-----------+--------+</span></div><div
+                                                        class="line">    | 姓名      | 身份证           | SubjectID | 成绩   |</div><div
+                                                        class="line">    +<span class="comment">-----------+------------------+-----------+--------+</span></div><div
+                                                        class="line">    | 周墨嘉    | 510123323333333x |      NULL | 缺考   |</div><div
+                                                        class="line">    | 李彤彤    | 510123325555555x |         2 | 81     |</div><div
+                                                        class="line">    | 陈天乐    | 510123322222222x |         3 | 90     |</div><div
+                                                        class="line">    | 陈天乐    | 510123322222222x |         2 | 60     |</div><div
+                                                        class="line">    | 陈天乐    | 510123322222222x |         1 | 85     |</div><div
+                                                        class="line">    | 马云      | 510128349124793  |      NULL | 缺考   |</div><div
+                                                        class="line">    | 黄诗怡    | 510123324444444x |         2 | 63     |</div><div
+                                                        class="line">    | 黄颖琦    | 510123321111111x |         1 | 80     |</div><div
+                                                        class="line">    | 黄颖琦    | 510123321111111x |         3 | 78     |</div><div
+                                                        class="line">    | 黄颖琦    | 510123321111111x |         2 | 55     |</div><div
+                                                        class="line">    +<span class="comment">-----------+------------------+-----------+--------+</span></div><div
+                                                        class="line">    10 rows in <span
+                                                        class="keyword">set</span> (<span class="number">0.01</span> sec)</div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <p><span style="color: red">left 是以左边为主 显示全部内容，右边的表为辅，右边的表若没有值则显示为空。同理right</span></p>
+                                <h1 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h1>
+                                <figure class="highlight java">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div><div class="line">2</div><div
+                                                        class="line">3</div><div class="line">4</div><div
+                                                        class="line">5</div><div class="line">6</div><div
+                                                        class="line">7</div><div class="line">8</div><div
+                                                        class="line">9</div><div class="line">10</div><div class="line">11</div><div
+                                                        class="line">12</div><div class="line">13</div><div
+                                                        class="line">14</div><div class="line">15</div><div
+                                                        class="line">16</div><div class="line">17</div><div
+                                                        class="line">18</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span
+                                                        class="comment">// 使用PreparedStatement防注入</span></div><div
+                                                        class="line"><span class="comment">// 加载驱动</span></div><div
+                                                        class="line">Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</div><div
+                                                        class="line"><span class="comment">//创建连接</span></div><div
+                                                        class="line">Connection con=DriverManager.getConnection(<span
+                                                        class="string">"jdbc:mysql://localhost:3306/school"</span>,<span
+                                                        class="string">"服务器名"</span>,<span class="string">"数据库密码"</span>);</div><div
+                                                        class="line"><span class="comment">//3、执行sql语句</span></div><div
+                                                        class="line">String querySql=<span class="string">"select * from grade where id=? and grade_name=?"</span>;</div><div
+                                                        class="line">PreparedStatement pst=con.prepareStatement(querySql);</div><div
+                                                        class="line">pst.setInt(<span class="number">1</span>,<span
+                                                        class="number">2</span>);<span class="comment">//第一个参数表示第几个问号，第二个参数表示参数的值</span></div><div
+                                                        class="line">pst.setString(<span class="number">2</span>,<span
+                                                        class="string">"十一年级"</span>);</div><div class="line">ResultSet rs =pst.executeQuery();</div><div
+                                                        class="line"><span class="comment">//pst.executeUpdate();修改、删除、新增使用这个方法</span></div><div
+                                                        class="line"><span class="keyword">while</span>(rs.next())&#123;</div><div
+                                                        class="line">    System.out.println(rs.getInt(<span
+                                                        class="number">1</span>)+<span class="string">"\t"</span>+rs.getString(<span
+                                                        class="number">2</span>));</div><div class="line">&#125;</div><div
+                                                        class="line">rs.close();</div><div
+                                                        class="line">pst.close();</div><div
+                                                        class="line">con.close();</div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
 
 
-          
-  <div class="comments" id="comments">
-    
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    
-  </div>
+                            </div>
+
+                            <div>
 
 
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
+                            </div>
 
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
+                            <div>
 
-      
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
+                            </div>
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/blog/uploads/1.jpg"
-               alt="Summer" />
-          <p class="site-author-name" itemprop="name">Summer</p>
-           
-              <p class="site-description motion-element" itemprop="description">小思</p>
-          
-        </div>
-        <nav class="site-state motion-element">
+                            <div>
 
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/blog/archives/">
-                <span class="site-state-item-count">27</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
+
+                            </div>
+
+                            <footer class="post-footer">
+
+                                <div class="post-tags">
+
+                                    <a href="/blog/tags/sql/" rel="tag"># sql</a>
+
+                                </div>
+
+
+                                <div class="post-nav">
+                                    <div class="post-nav-next post-nav-item">
+
+                                        <a href="/blog/2017/07/11/zj/" rel="next" title="css常用样式||知识点">
+                                            <i class="fa fa-chevron-left"></i> css常用样式||知识点
+                                        </a>
+
+                                    </div>
+
+                                    <span class="post-nav-divider"></span>
+
+                                    <div class="post-nav-prev post-nav-item">
+
+                                        <a href="/blog/2017/08/21/Jsp/" rel="prev" title="Jsp学习记录">
+                                            Jsp学习记录 <i class="fa fa-chevron-right"></i>
+                                        </a>
+
+                                    </div>
+                                </div>
+
+
+                            </footer>
+                        </article>
+
+
+                        <div class="post-spread">
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="comments" id="comments">
+
+                    <div id="disqus_thread">
+                        <noscript>
+                            Please enable JavaScript to view the
+                            <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+                        </noscript>
+                    </div>
+
+                </div>
+
+
             </div>
-          
 
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/blog/categories/index.html">
-                <span class="site-state-item-count">8</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
+
+            <div class="sidebar-toggle">
+                <div class="sidebar-toggle-line-wrap">
+                    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+                    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+                    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+                </div>
             </div>
-          
 
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/blog/tags/index.html">
-                <span class="site-state-item-count">17</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
+            <aside id="sidebar" class="sidebar">
+                <div class="sidebar-inner">
 
-        </nav>
 
-        
+                    <ul class="sidebar-nav motion-element">
+                        <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+                            文章目录
+                        </li>
+                        <li class="sidebar-nav-overview" data-target="site-overview">
+                            站点概览
+                        </li>
+                    </ul>
 
-        <div class="links-of-author motion-element">
+
+                    <section class="site-overview sidebar-panel">
+                        <div class="site-author motion-element" itemprop="author" itemscope
+                             itemtype="http://schema.org/Person">
+                            <img class="site-author-image" itemprop="image"
+                                 src="/blog/uploads/1.jpg"
+                                 alt="Summer"/>
+                            <p class="site-author-name" itemprop="name">Summer</p>
+
+                            <p class="site-description motion-element" itemprop="description">小思</p>
+
+                        </div>
+                        <nav class="site-state motion-element">
+
+
+                            <div class="site-state-item site-state-posts">
+                                <a href="/blog/archives/">
+                                    <span class="site-state-item-count">27</span>
+                                    <span class="site-state-item-name">日志</span>
+                                </a>
+                            </div>
+
+
+                            <div class="site-state-item site-state-categories">
+                                <a href="/blog/categories/index.html">
+                                    <span class="site-state-item-count">8</span>
+                                    <span class="site-state-item-name">分类</span>
+                                </a>
+                            </div>
+
+
+                            <div class="site-state-item site-state-tags">
+                                <a href="/blog/tags/index.html">
+                                    <span class="site-state-item-count">17</span>
+                                    <span class="site-state-item-name">标签</span>
+                                </a>
+                            </div>
+
+
+                        </nav>
+
+
+                        <div class="links-of-author motion-element">
           
             
               <span class="links-of-author-item">
@@ -612,8 +1143,8 @@ sql的组成数据定义语言（DDL），用来定义和管理数据对象，�
                   GitHub
                 </a>
               </span>
-            
-              <span class="links-of-author-item">
+
+                            <span class="links-of-author-item">
                 <a href="https://segmentfault.com/u/xiaosi_58ec6bdf9eaab" target="_blank" title="Segmentfault">
                   
                     <i class="fa fa-fw fa-globe"></i>
@@ -621,226 +1152,282 @@ sql的组成数据定义语言（DDL），用来定义和管理数据对象，�
                   Segmentfault
                 </a>
               </span>
-            
-          
+
+
+                        </div>
+
+
+                    </section>
+
+
+                    <!--noindex-->
+                    <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+                        <div class="post-toc">
+
+
+                            <div class="post-toc-content">
+                                <ol class="nav">
+                                    <li class="nav-item nav-level-1"><a class="nav-link" href="#sql的组成"><span
+                                            class="nav-number">1.</span> <span class="nav-text">sql的组成</span></a>
+                                        <ol class="nav-child">
+                                            <li class="nav-item nav-level-2"><a class="nav-link"
+                                                                                href="#数据定义语言（DDL），用来定义和管理数据对象，如数据库、表等"><span
+                                                    class="nav-number">1.1.</span> <span class="nav-text">数据定义语言（DDL），用来定义和管理数据对象，如数据库、表等</span></a>
+                                            </li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link"
+                                                                                href="#数据操作语言（DML），用于操作数据库对象中包含的数据"><span
+                                                    class="nav-number">1.2.</span> <span class="nav-text">数据操作语言（DML），用于操作数据库对象中包含的数据</span></a>
+                                            </li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link"
+                                                                                href="#数据查询语言（DQL），用于查询数据库"><span
+                                                    class="nav-number">1.3.</span> <span class="nav-text">数据查询语言（DQL），用于查询数据库</span></a>
+                                            </li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link"
+                                                                                href="#数据控制语言（DCL），用来管理数据库，包括管理权限和数据更改"><span
+                                                    class="nav-number">1.4.</span> <span class="nav-text">数据控制语言（DCL），用来管理数据库，包括管理权限和数据更改</span></a>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li class="nav-item nav-level-1"><a class="nav-link" href="#数据库-database-管理"><span
+                                            class="nav-number">2.</span> <span
+                                            class="nav-text">数据库(database)管理</span></a>
+                                        <ol class="nav-child">
+                                            <li class="nav-item nav-level-2"><a class="nav-link" href="#创建数据库"><span
+                                                    class="nav-number">2.1.</span> <span
+                                                    class="nav-text">创建数据库</span></a></li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link"
+                                                                                href="#show-查看所有数据库"><span
+                                                    class="nav-number">2.2.</span> <span
+                                                    class="nav-text">show 查看所有数据库</span></a></li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link"
+                                                                                href="#alter-修改数据库编码"><span
+                                                    class="nav-number">2.3.</span> <span
+                                                    class="nav-text">alter 修改数据库编码</span></a></li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link" href="#使用数据库"><span
+                                                    class="nav-number">2.4.</span> <span
+                                                    class="nav-text">使用数据库</span></a></li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link"
+                                                                                href="#查看当前使用的数据库"><span
+                                                    class="nav-number">2.5.</span> <span
+                                                    class="nav-text">查看当前使用的数据库</span></a></li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link" href="#删除数据库"><span
+                                                    class="nav-number">2.6.</span> <span
+                                                    class="nav-text">删除数据库</span></a></li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link" href="#数据库备份"><span
+                                                    class="nav-number">2.7.</span> <span
+                                                    class="nav-text">数据库备份</span></a></li>
+                                        </ol>
+                                    </li>
+                                    <li class="nav-item nav-level-1"><a class="nav-link" href="#数据表（table）管理"><span
+                                            class="nav-number">3.</span> <span class="nav-text">数据表（table）管理</span></a>
+                                        <ol class="nav-child">
+                                            <li class="nav-item nav-level-2"><a class="nav-link" href="#创建表"><span
+                                                    class="nav-number">3.1.</span> <span class="nav-text">创建表</span></a>
+                                            </li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link" href="#显示表"><span
+                                                    class="nav-number">3.2.</span> <span class="nav-text">显示表</span></a>
+                                            </li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link" href="#查看表结构"><span
+                                                    class="nav-number">3.3.</span> <span
+                                                    class="nav-text">查看表结构</span></a></li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link" href="#修改表的编码"><span
+                                                    class="nav-number">3.4.</span> <span class="nav-text">修改表的编码</span></a>
+                                            </li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link" href="#向表中添加字段"><span
+                                                    class="nav-number">3.5.</span> <span class="nav-text">向表中添加字段</span></a>
+                                            </li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link" href="#修改表中的字段属性"><span
+                                                    class="nav-number">3.6.</span> <span
+                                                    class="nav-text">修改表中的字段属性</span></a></li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link" href="#删除表中的属性"><span
+                                                    class="nav-number">3.7.</span> <span class="nav-text">删除表中的属性</span></a>
+                                            </li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link" href="#重命名表名"><span
+                                                    class="nav-number">3.8.</span> <span
+                                                    class="nav-text">重命名表名</span></a></li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link"
+                                                                                href="#修改表字段允许为空或不允许为空"><span
+                                                    class="nav-number">3.9.</span> <span class="nav-text">修改表字段允许为空或不允许为空</span></a>
+                                            </li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link"
+                                                                                href="#利用已有数据创建新表"><span
+                                                    class="nav-number">3.10.</span> <span
+                                                    class="nav-text">利用已有数据创建新表</span></a></li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link" href="#删除约束"><span
+                                                    class="nav-number">3.11.</span> <span
+                                                    class="nav-text">删除约束</span></a></li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link" href="#新建主键约束"><span
+                                                    class="nav-number">3.12.</span> <span class="nav-text">新建主键约束</span></a>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li class="nav-item nav-level-1"><a class="nav-link" href="#数据的操作及管理"><span
+                                            class="nav-number">4.</span> <span class="nav-text">数据的操作及管理</span></a>
+                                        <ol class="nav-child">
+                                            <li class="nav-item nav-level-2"><a class="nav-link" href="#增加数据"><span
+                                                    class="nav-number">4.1.</span> <span
+                                                    class="nav-text">增加数据</span></a></li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link" href="#查看数据"><span
+                                                    class="nav-number">4.2.</span> <span
+                                                    class="nav-text">查看数据</span></a></li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link" href="#删除数据"><span
+                                                    class="nav-number">4.3.</span> <span
+                                                    class="nav-text">删除数据</span></a></li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link" href="#修改数据"><span
+                                                    class="nav-number">4.4.</span> <span
+                                                    class="nav-text">修改数据</span></a></li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link"
+                                                                                href="#查询手机号码区号以133和135开头的员工的姓名-性别-部门及联系电话"><span
+                                                    class="nav-number">4.5.</span> <span class="nav-text">查询手机号码区号以133和135开头的员工的姓名,性别,部门及联系电话</span></a>
+                                            </li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link" href="#子查询"><span
+                                                    class="nav-number">4.6.</span> <span class="nav-text">子查询</span></a>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li class="nav-item nav-level-1"><a class="nav-link" href="#函数"><span
+                                            class="nav-number">5.</span> <span class="nav-text">函数</span></a></li>
+                                    <li class="nav-item nav-level-1"><a class="nav-link" href="#例题"><span
+                                            class="nav-number">6.</span> <span class="nav-text">例题</span></a>
+                                        <ol class="nav-child">
+                                            <li class="nav-item nav-level-2"><a class="nav-link"
+                                                                                href="#左向外联接的结果集包括-LEFT-OUTER子句中指定的左表的所有行，而不仅仅是联接列所匹配的行。如果左表的某行在右表中没有匹配行，则在相关联的结果集行中右表的所有选择列表列均为空值。"><span
+                                                    class="nav-number">6.1.</span> <span class="nav-text">左向外联接的结果集包括  LEFT OUTER子句中指定的左表的所有行，而不仅仅是联接列所匹配的行。如果左表的某行在右表中没有匹配行，则在相关联的结果集行中右表的所有选择列表列均为空值。</span></a>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li class="nav-item nav-level-1"><a class="nav-link" href="#JDBC"><span
+                                            class="nav-number">7.</span> <span class="nav-text">JDBC</span></a></li>
+                                </ol>
+                            </div>
+
+
+                        </div>
+                    </section>
+                    <!--/noindex-->
+
+
+                </div>
+            </aside>
+
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sql的组成"><span class="nav-number">1.</span> <span class="nav-text">sql的组成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据定义语言（DDL），用来定义和管理数据对象，如数据库、表等"><span class="nav-number">1.1.</span> <span class="nav-text">数据定义语言（DDL），用来定义和管理数据对象，如数据库、表等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据操作语言（DML），用于操作数据库对象中包含的数据"><span class="nav-number">1.2.</span> <span class="nav-text">数据操作语言（DML），用于操作数据库对象中包含的数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据查询语言（DQL），用于查询数据库"><span class="nav-number">1.3.</span> <span class="nav-text">数据查询语言（DQL），用于查询数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据控制语言（DCL），用来管理数据库，包括管理权限和数据更改"><span class="nav-number">1.4.</span> <span class="nav-text">数据控制语言（DCL），用来管理数据库，包括管理权限和数据更改</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库-database-管理"><span class="nav-number">2.</span> <span class="nav-text">数据库(database)管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建数据库"><span class="nav-number">2.1.</span> <span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#show-查看所有数据库"><span class="nav-number">2.2.</span> <span class="nav-text">show 查看所有数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#alter-修改数据库编码"><span class="nav-number">2.3.</span> <span class="nav-text">alter 修改数据库编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用数据库"><span class="nav-number">2.4.</span> <span class="nav-text">使用数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看当前使用的数据库"><span class="nav-number">2.5.</span> <span class="nav-text">查看当前使用的数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除数据库"><span class="nav-number">2.6.</span> <span class="nav-text">删除数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库备份"><span class="nav-number">2.7.</span> <span class="nav-text">数据库备份</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据表（table）管理"><span class="nav-number">3.</span> <span class="nav-text">数据表（table）管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建表"><span class="nav-number">3.1.</span> <span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显示表"><span class="nav-number">3.2.</span> <span class="nav-text">显示表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看表结构"><span class="nav-number">3.3.</span> <span class="nav-text">查看表结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改表的编码"><span class="nav-number">3.4.</span> <span class="nav-text">修改表的编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向表中添加字段"><span class="nav-number">3.5.</span> <span class="nav-text">向表中添加字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改表中的字段属性"><span class="nav-number">3.6.</span> <span class="nav-text">修改表中的字段属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除表中的属性"><span class="nav-number">3.7.</span> <span class="nav-text">删除表中的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名表名"><span class="nav-number">3.8.</span> <span class="nav-text">重命名表名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改表字段允许为空或不允许为空"><span class="nav-number">3.9.</span> <span class="nav-text">修改表字段允许为空或不允许为空</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用已有数据创建新表"><span class="nav-number">3.10.</span> <span class="nav-text">利用已有数据创建新表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除约束"><span class="nav-number">3.11.</span> <span class="nav-text">删除约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建主键约束"><span class="nav-number">3.12.</span> <span class="nav-text">新建主键约束</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据的操作及管理"><span class="nav-number">4.</span> <span class="nav-text">数据的操作及管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#增加数据"><span class="nav-number">4.1.</span> <span class="nav-text">增加数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看数据"><span class="nav-number">4.2.</span> <span class="nav-text">查看数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除数据"><span class="nav-number">4.3.</span> <span class="nav-text">删除数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改数据"><span class="nav-number">4.4.</span> <span class="nav-text">修改数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询手机号码区号以133和135开头的员工的姓名-性别-部门及联系电话"><span class="nav-number">4.5.</span> <span class="nav-text">查询手机号码区号以133和135开头的员工的姓名,性别,部门及联系电话</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子查询"><span class="nav-number">4.6.</span> <span class="nav-text">子查询</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数"><span class="nav-number">5.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例题"><span class="nav-number">6.</span> <span class="nav-text">例题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#左向外联接的结果集包括-LEFT-OUTER子句中指定的左表的所有行，而不仅仅是联接列所匹配的行。如果左表的某行在右表中没有匹配行，则在相关联的结果集行中右表的所有选择列表列均为空值。"><span class="nav-number">6.1.</span> <span class="nav-text">左向外联接的结果集包括  LEFT OUTER子句中指定的左表的所有行，而不仅仅是联接列所匹配的行。如果左表的某行在右表中没有匹配行，则在相关联的结果集行中右表的所有选择列表列均为空值。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JDBC"><span class="nav-number">7.</span> <span class="nav-text">JDBC</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
     </main>
 
     <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+        <div class="footer-inner">
+            <div class="copyright">
+
+                &copy;
+                <span itemprop="copyrightYear">2019</span>
+                <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Summer</span>
-</div>
+                <span class="author" itemprop="copyrightHolder">Summer</span>
+            </div>
 
-        
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-  
-    <span class="site-uv">
+            <div class="busuanzi-count">
+                <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+                <span class="site-uv">
       <i class="fa fa-user">本站访客数</i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
       人次
     </span>
-  
 
-  
-    <span class="site-pv">
+
+                <span class="site-pv">
       <i class="fa fa-eye">本站总访问量</i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
       次
     </span>
-  
+
+            </div>
+
+
+        </div>
+    </footer>
+
+
+    <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+
+    </div>
+
+
 </div>
 
 
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-  </div>
-
-  
-
 <script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+    if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+        window.Promise = null;
+    }
 </script>
 
 
+<script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
 
 
+<script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
 
+<script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
 
-
-  
-
-
-  
+<script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
 
-
-  
-  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/blog/lib/canvas-nest/canvas-nest.min.js"></script>
+<script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
-  
+<script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.0"></script>
+<script type="text/javascript" src="/blog/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
+<script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.0"></script>
 
-  
-  
+<script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.0"></script>
 
-  
-  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.0"></script>
+
+<script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.0"></script>
 <script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.0"></script>
 
 
-
-  
-
-
-  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.0"></script>
+<script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.0"></script>
 
 
+<script type="text/javascript">
+    var disqus_shortname = 'xiaosi';
+    var disqus_identifier = '2017/08/02/sql/';
 
-  
-
-
-
-  
-
-    <script type="text/javascript">
-      var disqus_shortname = 'xiaosi';
-      var disqus_identifier = '2017/08/02/sql/';
-
-      var disqus_title = "mysql总结";
+    var disqus_title = "mysql总结";
 
 
-      function run_disqus_script(disqus_script) {
+    function run_disqus_script(disqus_script) {
         var dsq = document.createElement('script');
         dsq.type = 'text/javascript';
         dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      }
+    }
 
-      run_disqus_script('count.js');
-
-      
-        var disqus_config = function () {
-            this.page.url = disqus_url;
-            this.page.identifier = disqus_identifier;
-            this.page.title = disqus_title;
-        };
-        run_disqus_script('embed.js');
-      
-
-    </script>
-  
+    run_disqus_script('count.js');
 
 
+    var disqus_config = function () {
+        this.page.url = disqus_url;
+        this.page.identifier = disqus_identifier;
+        this.page.title = disqus_title;
+    };
+    run_disqus_script('embed.js');
 
 
+</script>
 
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
 
 </body>
 </html>

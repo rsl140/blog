@@ -1,310 +1,223 @@
 <!doctype html>
 
 
-
-  
-
-
 <html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
 
 
+    <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
 
 
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
+          rel="stylesheet" type="text/css">
 
 
+    <link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"/>
+
+    <link href="/blog/css/main.css?v=5.1.0" rel="stylesheet" type="text/css"/>
 
 
+    <meta name="keywords" content="vue web 前端"/>
 
 
+    <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=5.1.0"/>
 
 
-
-
-  
-  
-  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/blog/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="vue web 前端" />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=5.1.0" />
-
-
-
-
-
-
-<meta name="description" content="vue搭建后台管理页面(刚接触，踩了很多坑，好记性不如烂笔头，还是需要多多总结)
+    <meta name="description" content="vue搭建后台管理页面(刚接触，踩了很多坑，好记性不如烂笔头，还是需要多多总结)
 
 转载请注明出处
 参考资料：Vue，Vue-router，muse-ui
 用vue-cli脚手架创建一个基于webpack的Vue项目环境：node全局安装vue-cli脚手架：npm install -g vue-cli(安装过慢请尝试使用淘宝镜像)新建文件夹后，命令行输入vue init webpack 项目名">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Vue2.0">
-<meta property="og:url" content="https://rsl140.github.io/blog/2017/10/31/vue/index.html">
-<meta property="og:site_name" content="XiaoSi">
-<meta property="og:description" content="vue搭建后台管理页面(刚接触，踩了很多坑，好记性不如烂笔头，还是需要多多总结)
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Vue2.0">
+    <meta property="og:url" content="https://rsl140.github.io/blog/2017/10/31/vue/index.html">
+    <meta property="og:site_name" content="XiaoSi">
+    <meta property="og:description" content="vue搭建后台管理页面(刚接触，踩了很多坑，好记性不如烂笔头，还是需要多多总结)
 
 转载请注明出处
 参考资料：Vue，Vue-router，muse-ui
 用vue-cli脚手架创建一个基于webpack的Vue项目环境：node全局安装vue-cli脚手架：npm install -g vue-cli(安装过慢请尝试使用淘宝镜像)新建文件夹后，命令行输入vue init webpack 项目名">
-<meta property="og:updated_time" content="2017-11-06T10:29:44.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue2.0">
-<meta name="twitter:description" content="vue搭建后台管理页面(刚接触，踩了很多坑，好记性不如烂笔头，还是需要多多总结)
+    <meta property="og:updated_time" content="2017-11-06T10:29:44.000Z">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Vue2.0">
+    <meta name="twitter:description" content="vue搭建后台管理页面(刚接触，踩了很多坑，好记性不如烂笔头，还是需要多多总结)
 
 转载请注明出处
 参考资料：Vue，Vue-router，muse-ui
 用vue-cli脚手架创建一个基于webpack的Vue项目环境：node全局安装vue-cli脚手架：npm install -g vue-cli(安装过慢请尝试使用淘宝镜像)新建文件夹后，命令行输入vue init webpack 项目名">
 
 
+    <script type="text/javascript" id="hexo.configurations">
+        var NexT = window.NexT || {};
+        var CONFIG = {
+            root: '/blog/',
+            scheme: 'Muse',
+            sidebar: {
+                "position": "left",
+                "display": "post",
+                "offset": 12,
+                "offset_float": 0,
+                "b2t": false,
+                "scrollpercent": false
+            },
+            fancybox: true,
+            motion: true,
+            duoshuo: {
+                userId: '0',
+                author: '博主'
+            },
+            algolia: {
+                applicationID: '',
+                apiKey: '',
+                indexName: '',
+                hits: {"per_page": 10},
+                labels: {
+                    "input_placeholder": "Search for Posts",
+                    "hits_empty": "We didn't find any results for the search: ${query}",
+                    "hits_stats": "${hits} results found in ${time} ms"
+                }
+            }
+        };
+    </script>
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/blog/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
+
+    <link rel="canonical" href="https://rsl140.github.io/blog/2017/10/31/vue/"/>
 
 
-
-  <link rel="canonical" href="https://rsl140.github.io/blog/2017/10/31/vue/"/>
-
-
-
-
-
-  <title> Vue2.0 | XiaoSi </title>
+    <title> Vue2.0 | XiaoSi </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail ">
+<div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/blog/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">XiaoSi</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/blog/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/blog/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/blog/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/blog/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
+        <div class="header-inner">
+            <div class="site-brand-wrapper">
+                <div class="site-meta ">
 
 
+                    <div class="custom-logo-site-title">
+                        <a href="/blog/" class="brand" rel="start">
+                            <span class="logo-line-before"><i></i></span>
+                            <span class="site-title">XiaoSi</span>
+                            <span class="logo-line-after"><i></i></span>
+                        </a>
+                    </div>
 
- </div>
+                    <p class="site-subtitle"></p>
+
+                </div>
+
+                <div class="site-nav-toggle">
+                    <button>
+                        <span class="btn-bar"></span>
+                        <span class="btn-bar"></span>
+                        <span class="btn-bar"></span>
+                    </button>
+                </div>
+            </div>
+
+            <nav class="site-nav">
+
+
+                <ul id="menu" class="menu">
+
+
+                    <li class="menu-item menu-item-home">
+                        <a href="/blog/" rel="section">
+
+                            <i class="menu-item-icon fa fa-fw fa-home"></i> <br/>
+
+                            首页
+                        </a>
+                    </li>
+
+
+                    <li class="menu-item menu-item-archives">
+                        <a href="/blog/archives/" rel="section">
+
+                            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>
+
+                            归档
+                        </a>
+                    </li>
+
+
+                    <li class="menu-item menu-item-tags">
+                        <a href="/blog/tags/" rel="section">
+
+                            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>
+
+                            标签
+                        </a>
+                    </li>
+
+
+                    <li class="menu-item menu-item-categories">
+                        <a href="/blog/categories/" rel="section">
+
+                            <i class="menu-item-icon fa fa-fw fa-th"></i> <br/>
+
+                            分类
+                        </a>
+                    </li>
+
+
+                </ul>
+
+
+            </nav>
+
+
+        </div>
     </header>
 
     <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
+        <div class="main-inner">
+            <div class="content-wrap">
+                <div id="content" class="content">
 
-  <div id="posts" class="posts-expand">
-    
 
-  
+                    <div id="posts" class="posts-expand">
 
-  
-  
-  
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://rsl140.github.io/blog/blog/2017/10/31/vue/">
+                        <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+                            <link itemprop="mainEntityOfPage" href="https://rsl140.github.io/blog/blog/2017/10/31/vue/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+                            <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Summer">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/blog/uploads/1.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                            <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="XiaoSi">
     </span>
 
-    
-      <header class="post-header">
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                Vue2.0
-              
-            
-          </h1>
-        
+                            <header class="post-header">
 
-        <div class="post-meta">
+
+                                <h1 class="post-title" itemprop="name headline">
+
+
+                                    Vue2.0
+
+
+                                </h1>
+
+
+                                <div class="post-meta">
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -323,8 +236,8 @@
             
           </span>
 
-          
-            <span class="post-category" >
+
+                                    <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -345,230 +258,953 @@
                 
               
             </span>
-          
 
-          
-            
-              <span class="post-comments-count">
+
+                                    <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/blog/2017/10/31/vue/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/10/31/vue/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/10/31/vue/"
+                        itemprop="commentCount"></span>
                 </a>
               </span>
-            
-          
 
-          
-          
 
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o">阅读次数</i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+                                    <span class="post-meta-divider">|</span>
+                                    <span class="page-pv"><i class="fa fa-file-o">阅读次数</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
             </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
 
 
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <blockquote>
-<p>vue搭建后台管理页面(刚接触，踩了很多坑，好记性不如烂笔头，还是需要多多总结)</p>
-</blockquote>
-<p>转载请注明出处</p>
-<p>参考资料：<br><a href="https://cn.vuejs.org/v2/guide/installation.html" target="_blank" rel="external">Vue</a>，<a href="https://router.vuejs.org/zh-cn/" target="_blank" rel="external">Vue-router</a>，<a href="http://www.muse-ui.org/#/install" target="_blank" rel="external">muse-ui</a></p>
-<h1 id="用vue-cli脚手架创建一个基于webpack的Vue项目"><a href="#用vue-cli脚手架创建一个基于webpack的Vue项目" class="headerlink" title="用vue-cli脚手架创建一个基于webpack的Vue项目"></a>用vue-cli脚手架创建一个基于webpack的Vue项目</h1><p>环境：node<br>全局安装vue-cli脚手架：<code>npm install -g vue-cli</code>(安装过慢请尝试使用淘宝镜像)<br>新建文件夹后，命令行输入<code>vue init webpack 项目名</code>.<br><code>npm install</code>安装依赖项，开发调试请使用<code>npm run dev</code><br><code>npm install --save muse-ui</code>安装页面插件<br><a id="more"></a></p>
-<h1 id="使用muse-ui快速搭建页面"><a href="#使用muse-ui快速搭建页面" class="headerlink" title="使用muse-ui快速搭建页面"></a>使用muse-ui快速搭建页面</h1><h2 id="修改src目录下main-js"><a href="#修改src目录下main-js" class="headerlink" title="修改src目录下main.js"></a>修改src目录下main.js</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></div><div class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App'</span></div><div class="line"><span class="keyword">import</span> MuseUI <span class="keyword">from</span> <span class="string">'muse-ui'</span> <span class="comment">//&lt;--引入MuseUI</span></div><div class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">'./router'</span></div><div class="line"><span class="keyword">import</span> <span class="string">'muse-ui/dist/muse-ui.css'</span><span class="comment">//&lt;--引入MuseUI主题</span></div><div class="line"><span class="keyword">import</span> <span class="string">'muse-ui/dist/theme-carbon.css'</span> <span class="comment">// 使用 carbon 主题</span></div><div class="line"></div><div class="line">Vue.use(MuseUI)<span class="comment">//&lt;--引入MuseUI</span></div><div class="line"></div><div class="line">Vue.config.productionTip = <span class="literal">false</span></div><div class="line"></div><div class="line"><span class="comment">/* eslint-disable no-new */</span></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#app'</span>,</div><div class="line">  router,</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;App/&gt;'</span>,</div><div class="line">  <span class="attr">components</span>: &#123; App &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h2 id="components文件夹下新建home-vue-List-vue"><a href="#components文件夹下新建home-vue-List-vue" class="headerlink" title="components文件夹下新建home.vue,List.vue"></a>components文件夹下新建home.vue,List.vue</h2><p>引入muse-ui模板</p>
-<h3 id="home-vue"><a href="#home-vue" class="headerlink" title="home.vue"></a>home.vue</h3><p>由于要使用vue-router做路由内嵌套路由跳转，从官方issue中查到可以直接在标签添加<code>to=&quot;/&quot;</code>实现<br>如：<br><code>&lt;mu-list-item title=&quot;Sent mail&quot; to=&quot;/list&quot; value=&quot;list1&quot; &gt;</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"layout"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"logo"</span>&gt;</span></div><div class="line">        Muse-UI</div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mu-tabs</span> <span class="attr">:value</span>=<span class="string">"activeTab"</span> @<span class="attr">change</span>=<span class="string">"handleTabChange"</span> <span class="attr">class</span>=<span class="string">"tab"</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">mu-tab</span> <span class="attr">value</span>=<span class="string">"tab1"</span> <span class="attr">title</span>=<span class="string">"Nav One"</span>/&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">mu-tab</span> <span class="attr">value</span>=<span class="string">"tab2"</span> <span class="attr">title</span>=<span class="string">"Nav TwO"</span>/&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">mu-tab</span> <span class="attr">value</span>=<span class="string">"tab3"</span> <span class="attr">title</span>=<span class="string">"Nav Three"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">mu-tabs</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content-left"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mu-list</span> @<span class="attr">change</span>=<span class="string">"handleListChange"</span> <span class="attr">:value</span>=<span class="string">"activeList"</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">mu-list-item</span> <span class="attr">title</span>=<span class="string">"Sent mail"</span> <span class="attr">to</span>=<span class="string">"/list"</span> <span class="attr">value</span>=<span class="string">"list1"</span> &gt;</span><span class="comment">&lt;!--vue路由跳转--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">mu-icon</span> <span class="attr">slot</span>=<span class="string">"left"</span> <span class="attr">value</span>=<span class="string">"send"</span> /&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">mu-list-item</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">mu-list-item</span> <span class="attr">title</span>=<span class="string">"Drafts"</span> <span class="attr">value</span>=<span class="string">"list2"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">mu-icon</span> <span class="attr">slot</span>=<span class="string">"left"</span> <span class="attr">value</span>=<span class="string">"drafts"</span>/&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">mu-list-item</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">mu-list-item</span> <span class="attr">title</span>=<span class="string">"Inbox"</span> <span class="attr">toggleNested</span> <span class="attr">value</span>=<span class="string">"list3"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">mu-icon</span> <span class="attr">slot</span>=<span class="string">"left"</span> <span class="attr">value</span>=<span class="string">"inbox"</span>/&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">mu-list-item</span> <span class="attr">slot</span>=<span class="string">"nested"</span> <span class="attr">title</span>=<span class="string">"Starred"</span> <span class="attr">value</span>=<span class="string">"list4"</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">mu-icon</span> <span class="attr">slot</span>=<span class="string">"left"</span> <span class="attr">value</span>=<span class="string">"grade"</span>/&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">mu-list-item</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">mu-list-item</span> <span class="attr">slot</span>=<span class="string">"nested"</span> <span class="attr">disabled</span> <span class="attr">title</span>=<span class="string">"Sent mail"</span> <span class="attr">toggleNested</span> <span class="attr">value</span>=<span class="string">"list5"</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">mu-icon</span> <span class="attr">slot</span>=<span class="string">"left"</span> <span class="attr">value</span>=<span class="string">"send"</span>/&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">mu-list-item</span> <span class="attr">title</span>=<span class="string">"Drafts"</span> <span class="attr">slot</span>=<span class="string">"nested"</span> <span class="attr">value</span>=<span class="string">"list6"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">mu-icon</span> <span class="attr">slot</span>=<span class="string">"left"</span> <span class="attr">value</span>=<span class="string">"drafts"</span>/&gt;</span></div><div class="line">              <span class="tag">&lt;/<span class="name">mu-list-item</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">mu-list-item</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">mu-list-item</span> <span class="attr">slot</span>=<span class="string">"nested"</span> <span class="attr">title</span>=<span class="string">"Inbox"</span> <span class="attr">toggleNested</span> <span class="attr">value</span>=<span class="string">"list7"</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">mu-icon</span> <span class="attr">slot</span>=<span class="string">"left"</span> <span class="attr">value</span>=<span class="string">"inbox"</span>/&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">mu-list-item</span> <span class="attr">title</span>=<span class="string">"Drafts"</span> <span class="attr">slot</span>=<span class="string">"nested"</span> <span class="attr">value</span>=<span class="string">"list8"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">mu-icon</span> <span class="attr">slot</span>=<span class="string">"left"</span> <span class="attr">value</span>=<span class="string">"drafts"</span>/&gt;</span></div><div class="line">              <span class="tag">&lt;/<span class="name">mu-list-item</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">mu-list-item</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">mu-list-item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">mu-list</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content-right"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"breadcrumb"</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">mu-breadcrumb</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">mu-breadcrumb-item</span> <span class="attr">href</span>=<span class="string">"/"</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">mu-breadcrumb-item</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">mu-breadcrumb-item</span> <span class="attr">href</span>=<span class="string">"/"</span>&gt;</span>VideoGame<span class="tag">&lt;/<span class="name">mu-breadcrumb-item</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">mu-breadcrumb-item</span>&gt;</span>Download<span class="tag">&lt;/<span class="name">mu-breadcrumb-item</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">mu-breadcrumb</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"body"</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">mu-sub-header</span>&gt;</span>阳光<span class="tag">&lt;/<span class="name">mu-sub-header</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">mu-content-block</span>&gt;</span></div><div class="line">            散落在指尖的阳光，我试着轻轻抓住光影的踪迹，它却在眉宇间投下一片淡淡的阴影。调皮的阳光掀动了四月的心帘，温暖如约的歌声渐起。似乎在诉说着，我也可以在漆黑的角落里，找到阴影背后的阳光，找到阳光与阴影奏出和谐的旋律。我要用一颗敏感赤诚的心迎接每一缕滑过指尖的阳光！</div><div class="line">          <span class="tag">&lt;/<span class="name">mu-content-block</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span></div><div class="line">      Muse-UI ©2017 Created by Muse-UI</div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  data () &#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">activeTab</span>: <span class="string">'tab1'</span>,</div><div class="line">      <span class="attr">activeList</span>: <span class="string">'list1'</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    handleTabChange (val) &#123;</div><div class="line">      <span class="keyword">this</span>.activeTab = val</div><div class="line">    &#125;,</div><div class="line">    handleListChange (val) &#123;</div><div class="line">      <span class="keyword">this</span>.activeList = val</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="undefined"></span></div><div class="line">.layout&#123;</div><div class="line">  background-color: rgb(236, 236, 236);</div><div class="line">&#125;</div><div class="line"></div><div class="line">.header&#123;</div><div class="line">  background-color: #7e57c2;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.logo&#123;</div><div class="line">  font-size: 24px;</div><div class="line">  color: white;</div><div class="line">  display: inline-block;</div><div class="line">  padding: 10px 20px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.nav&#123;</div><div class="line">  display: inline-block;</div><div class="line">  width: calc(100% - 150px);</div><div class="line">  margin: 0 auto;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.tab&#123;</div><div class="line">  margin: 0 auto;</div><div class="line">  width: 400px;</div><div class="line">  background-color: rgba(0, 0, 0, 0);</div><div class="line">&#125;</div><div class="line"></div><div class="line">.content&#123;</div><div class="line">  overflow: hidden;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.content-left&#123;</div><div class="line">  width: 30%;</div><div class="line">  float: left;</div><div class="line">  background-color: white;</div><div class="line">  margin-bottom: -4000px;</div><div class="line">  padding-bottom: 4000px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.content-right&#123;</div><div class="line">  width: 70%;</div><div class="line">  display: inline-block;</div><div class="line">  float: right;</div><div class="line">  padding: 10px 20px;</div><div class="line">  background-color: rgba(0, 0, 0, 0)</div><div class="line">&#125;</div><div class="line"></div><div class="line">.breadcrumb&#123;</div><div class="line">  margin: 10px 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.body&#123;</div><div class="line">  background-color: white;</div><div class="line">  border-radius: 5px;</div><div class="line">  min-height: 500px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.footer&#123;</div><div class="line">  padding: 20px 0;</div><div class="line">  text-align: center;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">mu-raised-button</span> <span class="attr">label</span>=<span class="string">"unselect"</span> @<span class="attr">click</span>=<span class="string">"unselect"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">mu-table</span> <span class="attr">multiSelectable</span> <span class="attr">enableSelectAll</span> <span class="attr">ref</span>=<span class="string">"table"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">mu-thead</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">mu-tr</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mu-th</span>&gt;</span>ID<span class="tag">&lt;/<span class="name">mu-th</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mu-th</span>&gt;</span>Name<span class="tag">&lt;/<span class="name">mu-th</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mu-th</span>&gt;</span>Status<span class="tag">&lt;/<span class="name">mu-th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">mu-tr</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">mu-thead</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">mu-tbody</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">mu-tr</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mu-td</span>&gt;</span>1<span class="tag">&lt;/<span class="name">mu-td</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mu-td</span>&gt;</span>John Smith<span class="tag">&lt;/<span class="name">mu-td</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mu-td</span>&gt;</span>Employed<span class="tag">&lt;/<span class="name">mu-td</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">mu-tr</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">mu-tr</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mu-td</span>&gt;</span>2<span class="tag">&lt;/<span class="name">mu-td</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mu-td</span>&gt;</span>Randal White<span class="tag">&lt;/<span class="name">mu-td</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mu-td</span>&gt;</span>Unemployed<span class="tag">&lt;/<span class="name">mu-td</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">mu-tr</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">mu-tr</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mu-td</span>&gt;</span>3<span class="tag">&lt;/<span class="name">mu-td</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mu-td</span>&gt;</span>Stephanie Sanders<span class="tag">&lt;/<span class="name">mu-td</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mu-td</span>&gt;</span>Employed<span class="tag">&lt;/<span class="name">mu-td</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">mu-tr</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">mu-tr</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mu-td</span>&gt;</span>4<span class="tag">&lt;/<span class="name">mu-td</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mu-td</span>&gt;</span>Steve Brown<span class="tag">&lt;/<span class="name">mu-td</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mu-td</span>&gt;</span>Employed<span class="tag">&lt;/<span class="name">mu-td</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">mu-tr</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">mu-tbody</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">mu-table</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">    <span class="attr">methods</span>: &#123;</div><div class="line">    unselect () &#123;</div><div class="line">      <span class="keyword">this</span>.$refs.table.unSelectAll()</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="修改router文件夹下index-js"><a href="#修改router文件夹下index-js" class="headerlink" title="修改router文件夹下index.js"></a>修改router文件夹下index.js</h2><p>路由使用了vue得嵌套路由模板routes后内容为路由跳转逻辑<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></div><div class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'vue-router'</span></div><div class="line"><span class="keyword">import</span> MuseUI <span class="keyword">from</span> <span class="string">'muse-ui'</span></div><div class="line"><span class="keyword">import</span> <span class="string">'muse-ui/dist/muse-ui.css'</span></div><div class="line"><span class="keyword">import</span> <span class="string">'muse-ui/dist/theme-carbon.css'</span> <span class="comment">// 使用 carbon 主题</span></div><div class="line"><span class="keyword">import</span> Lists <span class="keyword">from</span> <span class="string">'@/components/List'</span><span class="comment">//&lt;--从components目录下引入模板页面</span></div><div class="line"><span class="keyword">import</span> Home <span class="keyword">from</span> <span class="string">'@/components/home'</span><span class="comment">//&lt;--从components目录下引入模板页面</span></div><div class="line"></div><div class="line">Vue.use(Router)</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</div><div class="line">  <span class="attr">routes</span>: [</div><div class="line">    &#123;</div><div class="line">      <span class="attr">path</span>: <span class="string">'/'</span>,</div><div class="line">      <span class="attr">name</span>: <span class="string">'indexPage'</span>,</div><div class="line">      <span class="attr">component</span>: Home,</div><div class="line">      <span class="attr">children</span>:[</div><div class="line">                &#123;</div><div class="line">                    <span class="attr">path</span>:<span class="string">'list'</span>,</div><div class="line">                    <span class="attr">name</span>: <span class="string">'list'</span>,</div><div class="line">                    <span class="attr">component</span>: Lists,</div><div class="line">                &#125;</div><div class="line">            ]</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        <span class="attr">path</span>:<span class="string">'*'</span>,</div><div class="line">        <span class="attr">redirect</span>: <span class="string">'/'</span></div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>目前页面暂时搭载完成，后期会继续更新</p>
-<h1 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h1><p>由于本地调试需要前后台关联所以在vue 搭建的目录里config中的index.js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">dev: &#123;</div><div class="line">    <span class="attr">env</span>: <span class="built_in">require</span>(<span class="string">'./dev.env'</span>),</div><div class="line">    <span class="attr">port</span>: process.env.PORT || <span class="number">8080</span>,</div><div class="line">    <span class="attr">autoOpenBrowser</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">assetsSubDirectory</span>: <span class="string">'static'</span>,</div><div class="line">    <span class="attr">assetsPublicPath</span>: <span class="string">'/'</span>,</div><div class="line">    <span class="attr">proxyTable</span>: &#123;</div><div class="line">      <span class="string">'/users'</span>: &#123;</div><div class="line">        <span class="attr">target</span>:<span class="string">'http://127.0.0.1:3000'</span>,</div><div class="line">        <span class="attr">changeOrigin</span>: <span class="literal">true</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
-<p><code>Access-Control-Allow-Origin</code>问题<br>在Express服务器文件夹里添加：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// var app = require('express')();</span></div><div class="line">app.all(<span class="string">"*"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</div><div class="line">  res.header(<span class="string">'Access-Control-Allow-Origin'</span>, <span class="string">'*'</span>);</div><div class="line">  res.header(<span class="string">"Access-Control-Allow-Headers"</span>, <span class="string">"Content-Type,Content-Length, Authorization, Accept,X-Requested-With"</span>);</div><div class="line">  res.header(<span class="string">"Access-Control-Allow-Methods"</span>,<span class="string">"PUT,POST,GET,DELETE,OPTIONS"</span>);</div><div class="line">  next();</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<h1 id="node获取axios-post传值问题-express"><a href="#node获取axios-post传值问题-express" class="headerlink" title="node获取axios post传值问题(express)"></a>node获取axios post传值问题(express)</h1><p>由于axios post传值方法是json 所以很多后台读取不到。查了很多资料。。 具体原因就是headers的方式问题(4种表头传值方法 看的有点蒙比，不过大概知道是什么问题了)<br>后来发现express其实提供了解决方法：’bodyParser’插件<br>用express搭建的话会生成如下代码:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">app.use(bodyParser.json());</div><div class="line">app.use(bodyParser.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">false</span> &#125;));</div></pre></td></tr></table></figure></p>
-<p>具体到路由的话 直接使用res.body获取取值就可以了！</p>
-<p>前台axios用qs<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span>;</div><div class="line"><span class="keyword">import</span> qs <span class="keyword">from</span> <span class="string">'qs'</span>;<span class="comment">//axios自带 不用在安装了</span></div><div class="line"></div><div class="line">axios.post(<span class="string">'http://127.0.0.1:3000/users/findAdmin'</span>,qs.stringify(&#123; </div><div class="line">        <span class="string">'username'</span>: name ,</div><div class="line">        <span class="string">'pwd'</span>: pwd</div><div class="line">      &#125;))</div><div class="line">      .then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</div><div class="line">        <span class="keyword">if</span>(res.data.rs.length === <span class="number">0</span>)&#123;</div><div class="line">          alert(<span class="string">"请输入正确的用户名"</span>);</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">          alert(<span class="number">200</span>);</div><div class="line">          <span class="keyword">this</span>.$router.push(<span class="string">'/admin'</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">console</span>.log(res);</div><div class="line">      &#125;).catch(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</div><div class="line">        alert(<span class="string">"系统错误"</span>);</div><div class="line">      &#125;)</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/blog/tags/vue/" rel="tag"># vue</a>
-          
-        </div>
-      
-
-      
-        
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/blog/2017/10/23/natapp/" rel="next" title="本地开发公众号(测试号)">
-                <i class="fa fa-chevron-left"></i> 本地开发公众号(测试号)
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2018/01/06/nginx/" rel="prev" title="nginx安装">
-                nginx安装 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
+                                </div>
+                            </header>
 
 
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
+                            <div class="post-body" itemprop="articleBody">
 
 
-          </div>
-          
+                                <blockquote>
+                                    <p>vue搭建后台管理页面(刚接触，踩了很多坑，好记性不如烂笔头，还是需要多多总结)</p>
+                                </blockquote>
+                                <p>转载请注明出处</p>
+                                <p>参考资料：<br><a href="https://cn.vuejs.org/v2/guide/installation.html" target="_blank"
+                                               rel="external">Vue</a>，<a href="https://router.vuejs.org/zh-cn/"
+                                                                         target="_blank"
+                                                                         rel="external">Vue-router</a>，<a
+                                        href="http://www.muse-ui.org/#/install" target="_blank"
+                                        rel="external">muse-ui</a></p>
+                                <h1 id="用vue-cli脚手架创建一个基于webpack的Vue项目"><a href="#用vue-cli脚手架创建一个基于webpack的Vue项目"
+                                                                           class="headerlink"
+                                                                           title="用vue-cli脚手架创建一个基于webpack的Vue项目"></a>用vue-cli脚手架创建一个基于webpack的Vue项目
+                                </h1>
+                                <p>环境：node<br>全局安装vue-cli脚手架：<code>npm install -g vue-cli</code>(安装过慢请尝试使用淘宝镜像)<br>新建文件夹后，命令行输入<code>vue
+                                    init webpack 项目名</code>.<br><code>npm install</code>安装依赖项，开发调试请使用<code>npm run
+                                    dev</code><br><code>npm install --save muse-ui</code>安装页面插件<br><a id="more"></a></p>
+                                <h1 id="使用muse-ui快速搭建页面"><a href="#使用muse-ui快速搭建页面" class="headerlink"
+                                                            title="使用muse-ui快速搭建页面"></a>使用muse-ui快速搭建页面</h1>
+                                <h2 id="修改src目录下main-js"><a href="#修改src目录下main-js" class="headerlink"
+                                                            title="修改src目录下main.js"></a>修改src目录下main.js</h2>
+                                <figure class="highlight javascript">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div><div class="line">2</div><div
+                                                        class="line">3</div><div class="line">4</div><div
+                                                        class="line">5</div><div class="line">6</div><div
+                                                        class="line">7</div><div class="line">8</div><div
+                                                        class="line">9</div><div class="line">10</div><div class="line">11</div><div
+                                                        class="line">12</div><div class="line">13</div><div
+                                                        class="line">14</div><div class="line">15</div><div
+                                                        class="line">16</div><div class="line">17</div><div
+                                                        class="line">18</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="keyword">import</span> Vue <span
+                                                        class="keyword">from</span> <span
+                                                        class="string">'vue'</span></div><div class="line"><span
+                                                        class="keyword">import</span> App <span
+                                                        class="keyword">from</span> <span class="string">'./App'</span></div><div
+                                                        class="line"><span class="keyword">import</span> MuseUI <span
+                                                        class="keyword">from</span> <span
+                                                        class="string">'muse-ui'</span> <span class="comment">//&lt;--引入MuseUI</span></div><div
+                                                        class="line"><span class="keyword">import</span> router <span
+                                                        class="keyword">from</span> <span
+                                                        class="string">'./router'</span></div><div class="line"><span
+                                                        class="keyword">import</span> <span class="string">'muse-ui/dist/muse-ui.css'</span><span
+                                                        class="comment">//&lt;--引入MuseUI主题</span></div><div
+                                                        class="line"><span class="keyword">import</span> <span
+                                                        class="string">'muse-ui/dist/theme-carbon.css'</span> <span
+                                                        class="comment">// 使用 carbon 主题</span></div><div
+                                                        class="line"></div><div class="line">Vue.use(MuseUI)<span
+                                                        class="comment">//&lt;--引入MuseUI</span></div><div
+                                                        class="line"></div><div class="line">Vue.config.productionTip = <span
+                                                        class="literal">false</span></div><div class="line"></div><div
+                                                        class="line"><span
+                                                        class="comment">/* eslint-disable no-new */</span></div><div
+                                                        class="line"><span class="keyword">new</span> Vue(&#123;</div><div
+                                                        class="line">  <span class="attr">el</span>: <span
+                                                        class="string">'#app'</span>,</div><div
+                                                        class="line">  router,</div><div class="line">  <span
+                                                        class="attr">template</span>: <span class="string">'&lt;App/&gt;'</span>,</div><div
+                                                        class="line">  <span class="attr">components</span>: &#123; App &#125;</div><div
+                                                        class="line">&#125;)</div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h2 id="components文件夹下新建home-vue-List-vue"><a href="#components文件夹下新建home-vue-List-vue"
+                                                                              class="headerlink"
+                                                                              title="components文件夹下新建home.vue,List.vue"></a>components文件夹下新建home.vue,List.vue
+                                </h2>
+                                <p>引入muse-ui模板</p>
+                                <h3 id="home-vue"><a href="#home-vue" class="headerlink" title="home.vue"></a>home.vue
+                                </h3>
+                                <p>
+                                    由于要使用vue-router做路由内嵌套路由跳转，从官方issue中查到可以直接在标签添加<code>to=&quot;/&quot;</code>实现<br>如：<br><code>&lt;mu-list-item
+                                    title=&quot;Sent mail&quot; to=&quot;/list&quot; value=&quot;list1&quot; &gt;</code><br>
+                                    <figure class="highlight html">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter">
+                                                    <pre><div class="line">1</div><div class="line">2</div><div
+                                                            class="line">3</div><div class="line">4</div><div
+                                                            class="line">5</div><div class="line">6</div><div
+                                                            class="line">7</div><div class="line">8</div><div
+                                                            class="line">9</div><div class="line">10</div><div
+                                                            class="line">11</div><div class="line">12</div><div
+                                                            class="line">13</div><div class="line">14</div><div
+                                                            class="line">15</div><div class="line">16</div><div
+                                                            class="line">17</div><div class="line">18</div><div
+                                                            class="line">19</div><div class="line">20</div><div
+                                                            class="line">21</div><div class="line">22</div><div
+                                                            class="line">23</div><div class="line">24</div><div
+                                                            class="line">25</div><div class="line">26</div><div
+                                                            class="line">27</div><div class="line">28</div><div
+                                                            class="line">29</div><div class="line">30</div><div
+                                                            class="line">31</div><div class="line">32</div><div
+                                                            class="line">33</div><div class="line">34</div><div
+                                                            class="line">35</div><div class="line">36</div><div
+                                                            class="line">37</div><div class="line">38</div><div
+                                                            class="line">39</div><div class="line">40</div><div
+                                                            class="line">41</div><div class="line">42</div><div
+                                                            class="line">43</div><div class="line">44</div><div
+                                                            class="line">45</div><div class="line">46</div><div
+                                                            class="line">47</div><div class="line">48</div><div
+                                                            class="line">49</div><div class="line">50</div><div
+                                                            class="line">51</div><div class="line">52</div><div
+                                                            class="line">53</div><div class="line">54</div><div
+                                                            class="line">55</div><div class="line">56</div><div
+                                                            class="line">57</div><div class="line">58</div><div
+                                                            class="line">59</div><div class="line">60</div><div
+                                                            class="line">61</div><div class="line">62</div><div
+                                                            class="line">63</div><div class="line">64</div><div
+                                                            class="line">65</div><div class="line">66</div><div
+                                                            class="line">67</div><div class="line">68</div><div
+                                                            class="line">69</div><div class="line">70</div><div
+                                                            class="line">71</div><div class="line">72</div><div
+                                                            class="line">73</div><div class="line">74</div><div
+                                                            class="line">75</div><div class="line">76</div><div
+                                                            class="line">77</div><div class="line">78</div><div
+                                                            class="line">79</div><div class="line">80</div><div
+                                                            class="line">81</div><div class="line">82</div><div
+                                                            class="line">83</div><div class="line">84</div><div
+                                                            class="line">85</div><div class="line">86</div><div
+                                                            class="line">87</div><div class="line">88</div><div
+                                                            class="line">89</div><div class="line">90</div><div
+                                                            class="line">91</div><div class="line">92</div><div
+                                                            class="line">93</div><div class="line">94</div><div
+                                                            class="line">95</div><div class="line">96</div><div
+                                                            class="line">97</div><div class="line">98</div><div
+                                                            class="line">99</div><div class="line">100</div><div
+                                                            class="line">101</div><div class="line">102</div><div
+                                                            class="line">103</div><div class="line">104</div><div
+                                                            class="line">105</div><div class="line">106</div><div
+                                                            class="line">107</div><div class="line">108</div><div
+                                                            class="line">109</div><div class="line">110</div><div
+                                                            class="line">111</div><div class="line">112</div><div
+                                                            class="line">113</div><div class="line">114</div><div
+                                                            class="line">115</div><div class="line">116</div><div
+                                                            class="line">117</div><div class="line">118</div><div
+                                                            class="line">119</div><div class="line">120</div><div
+                                                            class="line">121</div><div class="line">122</div><div
+                                                            class="line">123</div><div class="line">124</div><div
+                                                            class="line">125</div><div class="line">126</div><div
+                                                            class="line">127</div><div class="line">128</div><div
+                                                            class="line">129</div><div class="line">130</div><div
+                                                            class="line">131</div><div class="line">132</div><div
+                                                            class="line">133</div><div class="line">134</div><div
+                                                            class="line">135</div><div class="line">136</div><div
+                                                            class="line">137</div><div class="line">138</div><div
+                                                            class="line">139</div><div class="line">140</div><div
+                                                            class="line">141</div><div class="line">142</div><div
+                                                            class="line">143</div><div class="line">144</div><div
+                                                            class="line">145</div></pre>
+                                                </td>
+                                                <td class="code">
+                                                    <pre><div class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></div><div
+                                                            class="line">  <span class="tag">&lt;<span
+                                                            class="name">div</span> <span
+                                                            class="attr">class</span>=<span
+                                                            class="string">"layout"</span>&gt;</span></div><div
+                                                            class="line">    <span class="tag">&lt;<span class="name">div</span> <span
+                                                            class="attr">class</span>=<span
+                                                            class="string">"header"</span>&gt;</span></div><div
+                                                            class="line">      <span class="tag">&lt;<span class="name">div</span> <span
+                                                            class="attr">class</span>=<span class="string">"logo"</span>&gt;</span></div><div
+                                                            class="line">        Muse-UI</div><div
+                                                            class="line">      <span class="tag">&lt;/<span
+                                                            class="name">div</span>&gt;</span></div><div class="line">      <span
+                                                            class="tag">&lt;<span class="name">div</span> <span
+                                                            class="attr">class</span>=<span class="string">"nav"</span>&gt;</span></div><div
+                                                            class="line">        <span class="tag">&lt;<span
+                                                            class="name">mu-tabs</span> <span class="attr">:value</span>=<span
+                                                            class="string">"activeTab"</span> @<span
+                                                            class="attr">change</span>=<span class="string">"handleTabChange"</span> <span
+                                                            class="attr">class</span>=<span class="string">"tab"</span>&gt;</span></div><div
+                                                            class="line">          <span class="tag">&lt;<span
+                                                            class="name">mu-tab</span> <span
+                                                            class="attr">value</span>=<span class="string">"tab1"</span> <span
+                                                            class="attr">title</span>=<span
+                                                            class="string">"Nav One"</span>/&gt;</span></div><div
+                                                            class="line">          <span class="tag">&lt;<span
+                                                            class="name">mu-tab</span> <span
+                                                            class="attr">value</span>=<span class="string">"tab2"</span> <span
+                                                            class="attr">title</span>=<span
+                                                            class="string">"Nav TwO"</span>/&gt;</span></div><div
+                                                            class="line">          <span class="tag">&lt;<span
+                                                            class="name">mu-tab</span> <span
+                                                            class="attr">value</span>=<span class="string">"tab3"</span> <span
+                                                            class="attr">title</span>=<span
+                                                            class="string">"Nav Three"</span>/&gt;</span></div><div
+                                                            class="line">        <span class="tag">&lt;/<span
+                                                            class="name">mu-tabs</span>&gt;</span></div><div
+                                                            class="line">      <span class="tag">&lt;/<span
+                                                            class="name">div</span>&gt;</span></div><div class="line">    <span
+                                                            class="tag">&lt;/<span
+                                                            class="name">div</span>&gt;</span></div><div class="line">    <span
+                                                            class="tag">&lt;<span class="name">div</span> <span
+                                                            class="attr">class</span>=<span
+                                                            class="string">"content"</span>&gt;</span></div><div
+                                                            class="line">      <span class="tag">&lt;<span class="name">div</span> <span
+                                                            class="attr">class</span>=<span class="string">"content-left"</span>&gt;</span></div><div
+                                                            class="line">        <span class="tag">&lt;<span
+                                                            class="name">mu-list</span> @<span
+                                                            class="attr">change</span>=<span class="string">"handleListChange"</span> <span
+                                                            class="attr">:value</span>=<span
+                                                            class="string">"activeList"</span>&gt;</span></div><div
+                                                            class="line">          <span class="tag">&lt;<span
+                                                            class="name">mu-list-item</span> <span
+                                                            class="attr">title</span>=<span
+                                                            class="string">"Sent mail"</span> <span
+                                                            class="attr">to</span>=<span
+                                                            class="string">"/list"</span> <span
+                                                            class="attr">value</span>=<span
+                                                            class="string">"list1"</span> &gt;</span><span
+                                                            class="comment">&lt;!--vue路由跳转--&gt;</span></div><div
+                                                            class="line">            <span class="tag">&lt;<span
+                                                            class="name">mu-icon</span> <span
+                                                            class="attr">slot</span>=<span class="string">"left"</span> <span
+                                                            class="attr">value</span>=<span class="string">"send"</span> /&gt;</span></div><div
+                                                            class="line">          <span class="tag">&lt;/<span
+                                                            class="name">mu-list-item</span>&gt;</span></div><div
+                                                            class="line">          <span class="tag">&lt;<span
+                                                            class="name">mu-list-item</span> <span
+                                                            class="attr">title</span>=<span
+                                                            class="string">"Drafts"</span> <span
+                                                            class="attr">value</span>=<span
+                                                            class="string">"list2"</span>&gt;</span></div><div
+                                                            class="line">            <span class="tag">&lt;<span
+                                                            class="name">mu-icon</span> <span
+                                                            class="attr">slot</span>=<span class="string">"left"</span> <span
+                                                            class="attr">value</span>=<span
+                                                            class="string">"drafts"</span>/&gt;</span></div><div
+                                                            class="line">          <span class="tag">&lt;/<span
+                                                            class="name">mu-list-item</span>&gt;</span></div><div
+                                                            class="line">          <span class="tag">&lt;<span
+                                                            class="name">mu-list-item</span> <span
+                                                            class="attr">title</span>=<span
+                                                            class="string">"Inbox"</span> <span class="attr">toggleNested</span> <span
+                                                            class="attr">value</span>=<span
+                                                            class="string">"list3"</span>&gt;</span></div><div
+                                                            class="line">            <span class="tag">&lt;<span
+                                                            class="name">mu-icon</span> <span
+                                                            class="attr">slot</span>=<span class="string">"left"</span> <span
+                                                            class="attr">value</span>=<span
+                                                            class="string">"inbox"</span>/&gt;</span></div><div
+                                                            class="line">            <span class="tag">&lt;<span
+                                                            class="name">mu-list-item</span> <span
+                                                            class="attr">slot</span>=<span
+                                                            class="string">"nested"</span> <span
+                                                            class="attr">title</span>=<span
+                                                            class="string">"Starred"</span> <span
+                                                            class="attr">value</span>=<span
+                                                            class="string">"list4"</span>&gt;</span></div><div
+                                                            class="line">              <span class="tag">&lt;<span
+                                                            class="name">mu-icon</span> <span
+                                                            class="attr">slot</span>=<span class="string">"left"</span> <span
+                                                            class="attr">value</span>=<span
+                                                            class="string">"grade"</span>/&gt;</span></div><div
+                                                            class="line">            <span class="tag">&lt;/<span
+                                                            class="name">mu-list-item</span>&gt;</span></div><div
+                                                            class="line">            <span class="tag">&lt;<span
+                                                            class="name">mu-list-item</span> <span
+                                                            class="attr">slot</span>=<span
+                                                            class="string">"nested"</span> <span
+                                                            class="attr">disabled</span> <span class="attr">title</span>=<span
+                                                            class="string">"Sent mail"</span> <span class="attr">toggleNested</span> <span
+                                                            class="attr">value</span>=<span
+                                                            class="string">"list5"</span>&gt;</span></div><div
+                                                            class="line">              <span class="tag">&lt;<span
+                                                            class="name">mu-icon</span> <span
+                                                            class="attr">slot</span>=<span class="string">"left"</span> <span
+                                                            class="attr">value</span>=<span class="string">"send"</span>/&gt;</span></div><div
+                                                            class="line">              <span class="tag">&lt;<span
+                                                            class="name">mu-list-item</span> <span
+                                                            class="attr">title</span>=<span
+                                                            class="string">"Drafts"</span> <span
+                                                            class="attr">slot</span>=<span
+                                                            class="string">"nested"</span> <span
+                                                            class="attr">value</span>=<span
+                                                            class="string">"list6"</span>&gt;</span></div><div
+                                                            class="line">                <span class="tag">&lt;<span
+                                                            class="name">mu-icon</span> <span
+                                                            class="attr">slot</span>=<span class="string">"left"</span> <span
+                                                            class="attr">value</span>=<span
+                                                            class="string">"drafts"</span>/&gt;</span></div><div
+                                                            class="line">              <span class="tag">&lt;/<span
+                                                            class="name">mu-list-item</span>&gt;</span></div><div
+                                                            class="line">            <span class="tag">&lt;/<span
+                                                            class="name">mu-list-item</span>&gt;</span></div><div
+                                                            class="line">            <span class="tag">&lt;<span
+                                                            class="name">mu-list-item</span> <span
+                                                            class="attr">slot</span>=<span
+                                                            class="string">"nested"</span> <span
+                                                            class="attr">title</span>=<span
+                                                            class="string">"Inbox"</span> <span class="attr">toggleNested</span> <span
+                                                            class="attr">value</span>=<span
+                                                            class="string">"list7"</span>&gt;</span></div><div
+                                                            class="line">              <span class="tag">&lt;<span
+                                                            class="name">mu-icon</span> <span
+                                                            class="attr">slot</span>=<span class="string">"left"</span> <span
+                                                            class="attr">value</span>=<span
+                                                            class="string">"inbox"</span>/&gt;</span></div><div
+                                                            class="line">              <span class="tag">&lt;<span
+                                                            class="name">mu-list-item</span> <span
+                                                            class="attr">title</span>=<span
+                                                            class="string">"Drafts"</span> <span
+                                                            class="attr">slot</span>=<span
+                                                            class="string">"nested"</span> <span
+                                                            class="attr">value</span>=<span
+                                                            class="string">"list8"</span>&gt;</span></div><div
+                                                            class="line">                <span class="tag">&lt;<span
+                                                            class="name">mu-icon</span> <span
+                                                            class="attr">slot</span>=<span class="string">"left"</span> <span
+                                                            class="attr">value</span>=<span
+                                                            class="string">"drafts"</span>/&gt;</span></div><div
+                                                            class="line">              <span class="tag">&lt;/<span
+                                                            class="name">mu-list-item</span>&gt;</span></div><div
+                                                            class="line">            <span class="tag">&lt;/<span
+                                                            class="name">mu-list-item</span>&gt;</span></div><div
+                                                            class="line">          <span class="tag">&lt;/<span
+                                                            class="name">mu-list-item</span>&gt;</span></div><div
+                                                            class="line">        <span class="tag">&lt;/<span
+                                                            class="name">mu-list</span>&gt;</span></div><div
+                                                            class="line">      <span class="tag">&lt;/<span
+                                                            class="name">div</span>&gt;</span></div><div class="line">      <span
+                                                            class="tag">&lt;<span class="name">div</span> <span
+                                                            class="attr">class</span>=<span class="string">"content-right"</span>&gt;</span></div><div
+                                                            class="line">        <span class="tag">&lt;<span
+                                                            class="name">div</span> <span
+                                                            class="attr">class</span>=<span
+                                                            class="string">"breadcrumb"</span>&gt;</span></div><div
+                                                            class="line">          <span class="tag">&lt;<span
+                                                            class="name">mu-breadcrumb</span>&gt;</span></div><div
+                                                            class="line">            <span class="tag">&lt;<span
+                                                            class="name">mu-breadcrumb-item</span> <span class="attr">href</span>=<span
+                                                            class="string">"/"</span>&gt;</span>Home<span class="tag">&lt;/<span
+                                                            class="name">mu-breadcrumb-item</span>&gt;</span></div><div
+                                                            class="line">            <span class="tag">&lt;<span
+                                                            class="name">mu-breadcrumb-item</span> <span class="attr">href</span>=<span
+                                                            class="string">"/"</span>&gt;</span>VideoGame<span
+                                                            class="tag">&lt;/<span
+                                                            class="name">mu-breadcrumb-item</span>&gt;</span></div><div
+                                                            class="line">            <span class="tag">&lt;<span
+                                                            class="name">mu-breadcrumb-item</span>&gt;</span>Download<span
+                                                            class="tag">&lt;/<span
+                                                            class="name">mu-breadcrumb-item</span>&gt;</span></div><div
+                                                            class="line">          <span class="tag">&lt;/<span
+                                                            class="name">mu-breadcrumb</span>&gt;</span></div><div
+                                                            class="line">        <span class="tag">&lt;/<span
+                                                            class="name">div</span>&gt;</span></div><div class="line">        <span
+                                                            class="tag">&lt;<span class="name">div</span> <span
+                                                            class="attr">class</span>=<span class="string">"body"</span>&gt;</span></div><div
+                                                            class="line">          <span class="tag">&lt;<span
+                                                            class="name">mu-sub-header</span>&gt;</span>阳光<span
+                                                            class="tag">&lt;/<span class="name">mu-sub-header</span>&gt;</span></div><div
+                                                            class="line">          <span class="tag">&lt;<span
+                                                            class="name">mu-content-block</span>&gt;</span></div><div
+                                                            class="line">            散落在指尖的阳光，我试着轻轻抓住光影的踪迹，它却在眉宇间投下一片淡淡的阴影。调皮的阳光掀动了四月的心帘，温暖如约的歌声渐起。似乎在诉说着，我也可以在漆黑的角落里，找到阴影背后的阳光，找到阳光与阴影奏出和谐的旋律。我要用一颗敏感赤诚的心迎接每一缕滑过指尖的阳光！</div><div
+                                                            class="line">          <span class="tag">&lt;/<span
+                                                            class="name">mu-content-block</span>&gt;</span></div><div
+                                                            class="line">        <span class="tag">&lt;/<span
+                                                            class="name">div</span>&gt;</span></div><div class="line">      <span
+                                                            class="tag">&lt;/<span
+                                                            class="name">div</span>&gt;</span></div><div class="line">    <span
+                                                            class="tag">&lt;/<span
+                                                            class="name">div</span>&gt;</span></div><div class="line">    <span
+                                                            class="tag">&lt;<span class="name">div</span> <span
+                                                            class="attr">class</span>=<span
+                                                            class="string">"footer"</span>&gt;</span></div><div
+                                                            class="line">      Muse-UI ©2017 Created by Muse-UI</div><div
+                                                            class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div
+                                                            class="line">  <span class="tag">&lt;/<span
+                                                            class="name">div</span>&gt;</span></div><div
+                                                            class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div
+                                                            class="line"><span class="tag">&lt;<span
+                                                            class="name">script</span>&gt;</span><span
+                                                            class="javascript"></span></div><div class="line"><span
+                                                            class="keyword">export</span> <span
+                                                            class="keyword">default</span> &#123;</div><div
+                                                            class="line">  data () &#123;</div><div
+                                                            class="line">    <span class="keyword">return</span> &#123;</div><div
+                                                            class="line">      <span
+                                                            class="attr">activeTab</span>: <span
+                                                            class="string">'tab1'</span>,</div><div
+                                                            class="line">      <span
+                                                            class="attr">activeList</span>: <span
+                                                            class="string">'list1'</span></div><div class="line">    &#125;</div><div
+                                                            class="line">  &#125;,</div><div class="line">  <span
+                                                            class="attr">methods</span>: &#123;</div><div class="line">    handleTabChange (val) &#123;</div><div
+                                                            class="line">      <span class="keyword">this</span>.activeTab = val</div><div
+                                                            class="line">    &#125;,</div><div class="line">    handleListChange (val) &#123;</div><div
+                                                            class="line">      <span class="keyword">this</span>.activeList = val</div><div
+                                                            class="line">    &#125;</div><div
+                                                            class="line">  &#125;</div><div class="line">&#125;</div><div
+                                                            class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div
+                                                            class="line"><span class="tag">&lt;<span
+                                                            class="name">style</span> <span class="attr">scoped</span>&gt;</span><span
+                                                            class="undefined"></span></div><div class="line">.layout&#123;</div><div
+                                                            class="line">  background-color: rgb(236, 236, 236);</div><div
+                                                            class="line">&#125;</div><div class="line"></div><div
+                                                            class="line">.header&#123;</div><div class="line">  background-color: #7e57c2;</div><div
+                                                            class="line">&#125;</div><div class="line"></div><div
+                                                            class="line">.logo&#123;</div><div class="line">  font-size: 24px;</div><div
+                                                            class="line">  color: white;</div><div class="line">  display: inline-block;</div><div
+                                                            class="line">  padding: 10px 20px;</div><div class="line">&#125;</div><div
+                                                            class="line"></div><div class="line">.nav&#123;</div><div
+                                                            class="line">  display: inline-block;</div><div
+                                                            class="line">  width: calc(100% - 150px);</div><div
+                                                            class="line">  margin: 0 auto;</div><div
+                                                            class="line">&#125;</div><div class="line"></div><div
+                                                            class="line">.tab&#123;</div><div class="line">  margin: 0 auto;</div><div
+                                                            class="line">  width: 400px;</div><div class="line">  background-color: rgba(0, 0, 0, 0);</div><div
+                                                            class="line">&#125;</div><div class="line"></div><div
+                                                            class="line">.content&#123;</div><div class="line">  overflow: hidden;</div><div
+                                                            class="line">&#125;</div><div class="line"></div><div
+                                                            class="line">.content-left&#123;</div><div class="line">  width: 30%;</div><div
+                                                            class="line">  float: left;</div><div class="line">  background-color: white;</div><div
+                                                            class="line">  margin-bottom: -4000px;</div><div
+                                                            class="line">  padding-bottom: 4000px;</div><div
+                                                            class="line">&#125;</div><div class="line"></div><div
+                                                            class="line">.content-right&#123;</div><div class="line">  width: 70%;</div><div
+                                                            class="line">  display: inline-block;</div><div
+                                                            class="line">  float: right;</div><div class="line">  padding: 10px 20px;</div><div
+                                                            class="line">  background-color: rgba(0, 0, 0, 0)</div><div
+                                                            class="line">&#125;</div><div class="line"></div><div
+                                                            class="line">.breadcrumb&#123;</div><div class="line">  margin: 10px 0;</div><div
+                                                            class="line">&#125;</div><div class="line"></div><div
+                                                            class="line">.body&#123;</div><div class="line">  background-color: white;</div><div
+                                                            class="line">  border-radius: 5px;</div><div class="line">  min-height: 500px;</div><div
+                                                            class="line">&#125;</div><div class="line"></div><div
+                                                            class="line">.footer&#123;</div><div class="line">  padding: 20px 0;</div><div
+                                                            class="line">  text-align: center;</div><div class="line">&#125;</div><div
+                                                            class="line"><span class="tag">&lt;/<span
+                                                            class="name">style</span>&gt;</span></div></pre>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+                                </p>
+                                <h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3>
+                                <figure class="highlight html">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><div class="line">1</div><div class="line">2</div><div
+                                                        class="line">3</div><div class="line">4</div><div
+                                                        class="line">5</div><div class="line">6</div><div
+                                                        class="line">7</div><div class="line">8</div><div
+                                                        class="line">9</div><div class="line">10</div><div class="line">11</div><div
+                                                        class="line">12</div><div class="line">13</div><div
+                                                        class="line">14</div><div class="line">15</div><div
+                                                        class="line">16</div><div class="line">17</div><div
+                                                        class="line">18</div><div class="line">19</div><div
+                                                        class="line">20</div><div class="line">21</div><div
+                                                        class="line">22</div><div class="line">23</div><div
+                                                        class="line">24</div><div class="line">25</div><div
+                                                        class="line">26</div><div class="line">27</div><div
+                                                        class="line">28</div><div class="line">29</div><div
+                                                        class="line">30</div><div class="line">31</div><div
+                                                        class="line">32</div><div class="line">33</div><div
+                                                        class="line">34</div><div class="line">35</div><div
+                                                        class="line">36</div><div class="line">37</div><div
+                                                        class="line">38</div><div class="line">39</div><div
+                                                        class="line">40</div><div class="line">41</div><div
+                                                        class="line">42</div><div class="line">43</div><div
+                                                        class="line">44</div><div class="line">45</div></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><div class="line"><span class="tag">&lt;<span
+                                                        class="name">template</span>&gt;</span></div><div
+                                                        class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div
+                                                        class="line">  <span class="tag">&lt;<span class="name">mu-raised-button</span> <span
+                                                        class="attr">label</span>=<span class="string">"unselect"</span> @<span
+                                                        class="attr">click</span>=<span class="string">"unselect"</span>/&gt;</span></div><div
+                                                        class="line">  <span class="tag">&lt;<span
+                                                        class="name">mu-table</span> <span
+                                                        class="attr">multiSelectable</span> <span class="attr">enableSelectAll</span> <span
+                                                        class="attr">ref</span>=<span class="string">"table"</span>&gt;</span></div><div
+                                                        class="line">    <span class="tag">&lt;<span class="name">mu-thead</span>&gt;</span></div><div
+                                                        class="line">      <span class="tag">&lt;<span class="name">mu-tr</span>&gt;</span></div><div
+                                                        class="line">        <span class="tag">&lt;<span class="name">mu-th</span>&gt;</span>ID<span
+                                                        class="tag">&lt;/<span
+                                                        class="name">mu-th</span>&gt;</span></div><div class="line">        <span
+                                                        class="tag">&lt;<span
+                                                        class="name">mu-th</span>&gt;</span>Name<span
+                                                        class="tag">&lt;/<span
+                                                        class="name">mu-th</span>&gt;</span></div><div class="line">        <span
+                                                        class="tag">&lt;<span class="name">mu-th</span>&gt;</span>Status<span
+                                                        class="tag">&lt;/<span
+                                                        class="name">mu-th</span>&gt;</span></div><div class="line">      <span
+                                                        class="tag">&lt;/<span
+                                                        class="name">mu-tr</span>&gt;</span></div><div class="line">    <span
+                                                        class="tag">&lt;/<span
+                                                        class="name">mu-thead</span>&gt;</span></div><div class="line">    <span
+                                                        class="tag">&lt;<span
+                                                        class="name">mu-tbody</span>&gt;</span></div><div class="line">      <span
+                                                        class="tag">&lt;<span class="name">mu-tr</span>&gt;</span></div><div
+                                                        class="line">        <span class="tag">&lt;<span class="name">mu-td</span>&gt;</span>1<span
+                                                        class="tag">&lt;/<span
+                                                        class="name">mu-td</span>&gt;</span></div><div class="line">        <span
+                                                        class="tag">&lt;<span class="name">mu-td</span>&gt;</span>John Smith<span
+                                                        class="tag">&lt;/<span
+                                                        class="name">mu-td</span>&gt;</span></div><div class="line">        <span
+                                                        class="tag">&lt;<span class="name">mu-td</span>&gt;</span>Employed<span
+                                                        class="tag">&lt;/<span
+                                                        class="name">mu-td</span>&gt;</span></div><div class="line">      <span
+                                                        class="tag">&lt;/<span
+                                                        class="name">mu-tr</span>&gt;</span></div><div class="line">      <span
+                                                        class="tag">&lt;<span class="name">mu-tr</span>&gt;</span></div><div
+                                                        class="line">        <span class="tag">&lt;<span class="name">mu-td</span>&gt;</span>2<span
+                                                        class="tag">&lt;/<span
+                                                        class="name">mu-td</span>&gt;</span></div><div class="line">        <span
+                                                        class="tag">&lt;<span class="name">mu-td</span>&gt;</span>Randal White<span
+                                                        class="tag">&lt;/<span
+                                                        class="name">mu-td</span>&gt;</span></div><div class="line">        <span
+                                                        class="tag">&lt;<span class="name">mu-td</span>&gt;</span>Unemployed<span
+                                                        class="tag">&lt;/<span
+                                                        class="name">mu-td</span>&gt;</span></div><div class="line">      <span
+                                                        class="tag">&lt;/<span
+                                                        class="name">mu-tr</span>&gt;</span></div><div class="line">      <span
+                                                        class="tag">&lt;<span class="name">mu-tr</span>&gt;</span></div><div
+                                                        class="line">        <span class="tag">&lt;<span class="name">mu-td</span>&gt;</span>3<span
+                                                        class="tag">&lt;/<span
+                                                        class="name">mu-td</span>&gt;</span></div><div class="line">        <span
+                                                        class="tag">&lt;<span class="name">mu-td</span>&gt;</span>Stephanie Sanders<span
+                                                        class="tag">&lt;/<span
+                                                        class="name">mu-td</span>&gt;</span></div><div class="line">        <span
+                                                        class="tag">&lt;<span class="name">mu-td</span>&gt;</span>Employed<span
+                                                        class="tag">&lt;/<span
+                                                        class="name">mu-td</span>&gt;</span></div><div class="line">      <span
+                                                        class="tag">&lt;/<span
+                                                        class="name">mu-tr</span>&gt;</span></div><div class="line">      <span
+                                                        class="tag">&lt;<span class="name">mu-tr</span>&gt;</span></div><div
+                                                        class="line">        <span class="tag">&lt;<span class="name">mu-td</span>&gt;</span>4<span
+                                                        class="tag">&lt;/<span
+                                                        class="name">mu-td</span>&gt;</span></div><div class="line">        <span
+                                                        class="tag">&lt;<span class="name">mu-td</span>&gt;</span>Steve Brown<span
+                                                        class="tag">&lt;/<span
+                                                        class="name">mu-td</span>&gt;</span></div><div class="line">        <span
+                                                        class="tag">&lt;<span class="name">mu-td</span>&gt;</span>Employed<span
+                                                        class="tag">&lt;/<span
+                                                        class="name">mu-td</span>&gt;</span></div><div class="line">      <span
+                                                        class="tag">&lt;/<span
+                                                        class="name">mu-tr</span>&gt;</span></div><div class="line">    <span
+                                                        class="tag">&lt;/<span
+                                                        class="name">mu-tbody</span>&gt;</span></div><div class="line">  <span
+                                                        class="tag">&lt;/<span
+                                                        class="name">mu-table</span>&gt;</span></div><div
+                                                        class="line"><span class="tag">&lt;/<span
+                                                        class="name">div</span>&gt;</span></div><div class="line"><span
+                                                        class="tag">&lt;/<span
+                                                        class="name">template</span>&gt;</span></div><div
+                                                        class="line"><span class="tag">&lt;<span
+                                                        class="name">script</span>&gt;</span><span
+                                                        class="javascript"></span></div><div class="line"><span
+                                                        class="keyword">export</span> <span
+                                                        class="keyword">default</span> &#123;</div><div class="line">    <span
+                                                        class="attr">methods</span>: &#123;</div><div class="line">    unselect () &#123;</div><div
+                                                        class="line">      <span class="keyword">this</span>.$refs.table.unSelectAll()</div><div
+                                                        class="line">    &#125;</div><div class="line">  &#125;</div><div
+                                                        class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span
+                                                        class="name">script</span>&gt;</span></div></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                                <h2 id="修改router文件夹下index-js"><a href="#修改router文件夹下index-js" class="headerlink"
+                                                                 title="修改router文件夹下index.js"></a>修改router文件夹下index.js
+                                </h2>
+                                <p>路由使用了vue得嵌套路由模板routes后内容为路由跳转逻辑<br>
+                                    <figure class="highlight javascript">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter">
+                                                    <pre><div class="line">1</div><div class="line">2</div><div
+                                                            class="line">3</div><div class="line">4</div><div
+                                                            class="line">5</div><div class="line">6</div><div
+                                                            class="line">7</div><div class="line">8</div><div
+                                                            class="line">9</div><div class="line">10</div><div
+                                                            class="line">11</div><div class="line">12</div><div
+                                                            class="line">13</div><div class="line">14</div><div
+                                                            class="line">15</div><div class="line">16</div><div
+                                                            class="line">17</div><div class="line">18</div><div
+                                                            class="line">19</div><div class="line">20</div><div
+                                                            class="line">21</div><div class="line">22</div><div
+                                                            class="line">23</div><div class="line">24</div><div
+                                                            class="line">25</div><div class="line">26</div><div
+                                                            class="line">27</div><div class="line">28</div><div
+                                                            class="line">29</div><div class="line">30</div></pre>
+                                                </td>
+                                                <td class="code">
+                                                    <pre><div class="line"><span class="keyword">import</span> Vue <span
+                                                            class="keyword">from</span> <span
+                                                            class="string">'vue'</span></div><div class="line"><span
+                                                            class="keyword">import</span> Router <span class="keyword">from</span> <span
+                                                            class="string">'vue-router'</span></div><div
+                                                            class="line"><span
+                                                            class="keyword">import</span> MuseUI <span class="keyword">from</span> <span
+                                                            class="string">'muse-ui'</span></div><div class="line"><span
+                                                            class="keyword">import</span> <span class="string">'muse-ui/dist/muse-ui.css'</span></div><div
+                                                            class="line"><span class="keyword">import</span> <span
+                                                            class="string">'muse-ui/dist/theme-carbon.css'</span> <span
+                                                            class="comment">// 使用 carbon 主题</span></div><div
+                                                            class="line"><span class="keyword">import</span> Lists <span
+                                                            class="keyword">from</span> <span class="string">'@/components/List'</span><span
+                                                            class="comment">//&lt;--从components目录下引入模板页面</span></div><div
+                                                            class="line"><span class="keyword">import</span> Home <span
+                                                            class="keyword">from</span> <span class="string">'@/components/home'</span><span
+                                                            class="comment">//&lt;--从components目录下引入模板页面</span></div><div
+                                                            class="line"></div><div class="line">Vue.use(Router)</div><div
+                                                            class="line"></div><div class="line"><span class="keyword">export</span> <span
+                                                            class="keyword">default</span> <span
+                                                            class="keyword">new</span> Router(&#123;</div><div
+                                                            class="line">  <span class="attr">routes</span>: [</div><div
+                                                            class="line">    &#123;</div><div class="line">      <span
+                                                            class="attr">path</span>: <span
+                                                            class="string">'/'</span>,</div><div
+                                                            class="line">      <span class="attr">name</span>: <span
+                                                            class="string">'indexPage'</span>,</div><div class="line">      <span
+                                                            class="attr">component</span>: Home,</div><div class="line">      <span
+                                                            class="attr">children</span>:[</div><div class="line">                &#123;</div><div
+                                                            class="line">                    <span
+                                                            class="attr">path</span>:<span class="string">'list'</span>,</div><div
+                                                            class="line">                    <span
+                                                            class="attr">name</span>: <span class="string">'list'</span>,</div><div
+                                                            class="line">                    <span class="attr">component</span>: Lists,</div><div
+                                                            class="line">                &#125;</div><div class="line">            ]</div><div
+                                                            class="line">    &#125;,</div><div
+                                                            class="line">    &#123;</div><div class="line">        <span
+                                                            class="attr">path</span>:<span
+                                                            class="string">'*'</span>,</div><div
+                                                            class="line">        <span
+                                                            class="attr">redirect</span>: <span
+                                                            class="string">'/'</span></div><div
+                                                            class="line">    &#125;</div><div class="line">  ]</div><div
+                                                            class="line">&#125;)</div></pre>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+                                </p>
+                                <p>目前页面暂时搭载完成，后期会继续更新</p>
+                                <h1 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h1>
+                                <p>由于本地调试需要前后台关联所以在vue 搭建的目录里config中的index.js<br>
+                                    <figure class="highlight javascript">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter">
+                                                    <pre><div class="line">1</div><div class="line">2</div><div
+                                                            class="line">3</div><div class="line">4</div><div
+                                                            class="line">5</div><div class="line">6</div><div
+                                                            class="line">7</div><div class="line">8</div><div
+                                                            class="line">9</div><div class="line">10</div><div
+                                                            class="line">11</div><div class="line">12</div></pre>
+                                                </td>
+                                                <td class="code">
+                                                    <pre><div class="line">dev: &#123;</div><div class="line">    <span
+                                                            class="attr">env</span>: <span
+                                                            class="built_in">require</span>(<span class="string">'./dev.env'</span>),</div><div
+                                                            class="line">    <span class="attr">port</span>: process.env.PORT || <span
+                                                            class="number">8080</span>,</div><div class="line">    <span
+                                                            class="attr">autoOpenBrowser</span>: <span class="literal">true</span>,</div><div
+                                                            class="line">    <span
+                                                            class="attr">assetsSubDirectory</span>: <span
+                                                            class="string">'static'</span>,</div><div
+                                                            class="line">    <span class="attr">assetsPublicPath</span>: <span
+                                                            class="string">'/'</span>,</div><div class="line">    <span
+                                                            class="attr">proxyTable</span>: &#123;</div><div
+                                                            class="line">      <span class="string">'/users'</span>: &#123;</div><div
+                                                            class="line">        <span class="attr">target</span>:<span
+                                                            class="string">'http://127.0.0.1:3000'</span>,</div><div
+                                                            class="line">        <span class="attr">changeOrigin</span>: <span
+                                                            class="literal">true</span></div><div class="line">      &#125;</div><div
+                                                            class="line">    &#125;</div></pre>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+                                </p>
+                                <p><code>Access-Control-Allow-Origin</code>问题<br>在Express服务器文件夹里添加：<br>
+                                    <figure class="highlight javascript">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter">
+                                                    <pre><div class="line">1</div><div class="line">2</div><div
+                                                            class="line">3</div><div class="line">4</div><div
+                                                            class="line">5</div><div class="line">6</div><div
+                                                            class="line">7</div></pre>
+                                                </td>
+                                                <td class="code">
+                                                    <pre><div class="line"><span class="comment">// var app = require('express')();</span></div><div
+                                                            class="line">app.all(<span class="string">"*"</span>, <span
+                                                            class="function"><span
+                                                            class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</div><div
+                                                            class="line">  res.header(<span class="string">'Access-Control-Allow-Origin'</span>, <span
+                                                            class="string">'*'</span>);</div><div class="line">  res.header(<span
+                                                            class="string">"Access-Control-Allow-Headers"</span>, <span
+                                                            class="string">"Content-Type,Content-Length, Authorization, Accept,X-Requested-With"</span>);</div><div
+                                                            class="line">  res.header(<span class="string">"Access-Control-Allow-Methods"</span>,<span
+                                                            class="string">"PUT,POST,GET,DELETE,OPTIONS"</span>);</div><div
+                                                            class="line">  next();</div><div class="line">&#125;);</div></pre>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+                                </p>
+                                <h1 id="node获取axios-post传值问题-express"><a href="#node获取axios-post传值问题-express"
+                                                                         class="headerlink"
+                                                                         title="node获取axios post传值问题(express)"></a>node获取axios
+                                    post传值问题(express)</h1>
+                                <p>由于axios post传值方法是json 所以很多后台读取不到。查了很多资料。。 具体原因就是headers的方式问题(4种表头传值方法
+                                    看的有点蒙比，不过大概知道是什么问题了)<br>后来发现express其实提供了解决方法：’bodyParser’插件<br>用express搭建的话会生成如下代码:<br>
+                                    <figure class="highlight javascript">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter">
+                                                    <pre><div class="line">1</div><div class="line">2</div></pre>
+                                                </td>
+                                                <td class="code">
+                                                    <pre><div class="line">app.use(bodyParser.json());</div><div
+                                                            class="line">app.use(bodyParser.urlencoded(&#123; <span
+                                                            class="attr">extended</span>: <span
+                                                            class="literal">false</span> &#125;));</div></pre>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+                                </p>
+                                <p>具体到路由的话 直接使用res.body获取取值就可以了！</p>
+                                <p>前台axios用qs<br>
+                                    <figure class="highlight javascript">
+                                        <table>
+                                            <tr>
+                                                <td class="gutter">
+                                                    <pre><div class="line">1</div><div class="line">2</div><div
+                                                            class="line">3</div><div class="line">4</div><div
+                                                            class="line">5</div><div class="line">6</div><div
+                                                            class="line">7</div><div class="line">8</div><div
+                                                            class="line">9</div><div class="line">10</div><div
+                                                            class="line">11</div><div class="line">12</div><div
+                                                            class="line">13</div><div class="line">14</div><div
+                                                            class="line">15</div><div class="line">16</div><div
+                                                            class="line">17</div><div class="line">18</div></pre>
+                                                </td>
+                                                <td class="code">
+                                                    <pre><div class="line"><span
+                                                            class="keyword">import</span> axios <span class="keyword">from</span> <span
+                                                            class="string">'axios'</span>;</div><div class="line"><span
+                                                            class="keyword">import</span> qs <span
+                                                            class="keyword">from</span> <span class="string">'qs'</span>;<span
+                                                            class="comment">//axios自带 不用在安装了</span></div><div
+                                                            class="line"></div><div class="line">axios.post(<span
+                                                            class="string">'http://127.0.0.1:3000/users/findAdmin'</span>,qs.stringify(&#123; </div><div
+                                                            class="line">        <span class="string">'username'</span>: name ,</div><div
+                                                            class="line">        <span class="string">'pwd'</span>: pwd</div><div
+                                                            class="line">      &#125;))</div><div class="line">      .then(<span
+                                                            class="function">(<span
+                                                            class="params">res</span>)=&gt;</span>&#123;</div><div
+                                                            class="line">        <span class="keyword">if</span>(res.data.rs.length === <span
+                                                            class="number">0</span>)&#123;</div><div class="line">          alert(<span
+                                                            class="string">"请输入正确的用户名"</span>);</div><div class="line">        &#125;<span
+                                                            class="keyword">else</span>&#123;</div><div class="line">          alert(<span
+                                                            class="number">200</span>);</div><div class="line">          <span
+                                                            class="keyword">this</span>.$router.push(<span
+                                                            class="string">'/admin'</span>);</div><div class="line">        &#125;</div><div
+                                                            class="line">        <span class="built_in">console</span>.log(res);</div><div
+                                                            class="line">      &#125;).catch(<span
+                                                            class="function">(<span
+                                                            class="params">res</span>)=&gt;</span>&#123;</div><div
+                                                            class="line">        alert(<span
+                                                            class="string">"系统错误"</span>);</div><div class="line">      &#125;)</div></pre>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+                                </p>
 
 
-          
-  <div class="comments" id="comments">
-    
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    
-  </div>
+                            </div>
+
+                            <div>
 
 
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
+                            </div>
 
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
+                            <div>
 
-      
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
+                            </div>
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/blog/uploads/1.jpg"
-               alt="Summer" />
-          <p class="site-author-name" itemprop="name">Summer</p>
-           
-              <p class="site-description motion-element" itemprop="description">小思</p>
-          
-        </div>
-        <nav class="site-state motion-element">
+                            <div>
 
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/blog/archives/">
-                <span class="site-state-item-count">27</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
+
+                            </div>
+
+                            <footer class="post-footer">
+
+                                <div class="post-tags">
+
+                                    <a href="/blog/tags/vue/" rel="tag"># vue</a>
+
+                                </div>
+
+
+                                <div class="post-nav">
+                                    <div class="post-nav-next post-nav-item">
+
+                                        <a href="/blog/2017/10/23/natapp/" rel="next" title="本地开发公众号(测试号)">
+                                            <i class="fa fa-chevron-left"></i> 本地开发公众号(测试号)
+                                        </a>
+
+                                    </div>
+
+                                    <span class="post-nav-divider"></span>
+
+                                    <div class="post-nav-prev post-nav-item">
+
+                                        <a href="/blog/2018/01/06/nginx/" rel="prev" title="nginx安装">
+                                            nginx安装 <i class="fa fa-chevron-right"></i>
+                                        </a>
+
+                                    </div>
+                                </div>
+
+
+                            </footer>
+                        </article>
+
+
+                        <div class="post-spread">
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="comments" id="comments">
+
+                    <div id="disqus_thread">
+                        <noscript>
+                            Please enable JavaScript to view the
+                            <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+                        </noscript>
+                    </div>
+
+                </div>
+
+
             </div>
-          
 
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/blog/categories/index.html">
-                <span class="site-state-item-count">8</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
+
+            <div class="sidebar-toggle">
+                <div class="sidebar-toggle-line-wrap">
+                    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+                    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+                    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+                </div>
             </div>
-          
 
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/blog/tags/index.html">
-                <span class="site-state-item-count">17</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
+            <aside id="sidebar" class="sidebar">
+                <div class="sidebar-inner">
 
-        </nav>
 
-        
+                    <ul class="sidebar-nav motion-element">
+                        <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+                            文章目录
+                        </li>
+                        <li class="sidebar-nav-overview" data-target="site-overview">
+                            站点概览
+                        </li>
+                    </ul>
 
-        <div class="links-of-author motion-element">
+
+                    <section class="site-overview sidebar-panel">
+                        <div class="site-author motion-element" itemprop="author" itemscope
+                             itemtype="http://schema.org/Person">
+                            <img class="site-author-image" itemprop="image"
+                                 src="/blog/uploads/1.jpg"
+                                 alt="Summer"/>
+                            <p class="site-author-name" itemprop="name">Summer</p>
+
+                            <p class="site-description motion-element" itemprop="description">小思</p>
+
+                        </div>
+                        <nav class="site-state motion-element">
+
+
+                            <div class="site-state-item site-state-posts">
+                                <a href="/blog/archives/">
+                                    <span class="site-state-item-count">27</span>
+                                    <span class="site-state-item-name">日志</span>
+                                </a>
+                            </div>
+
+
+                            <div class="site-state-item site-state-categories">
+                                <a href="/blog/categories/index.html">
+                                    <span class="site-state-item-count">8</span>
+                                    <span class="site-state-item-name">分类</span>
+                                </a>
+                            </div>
+
+
+                            <div class="site-state-item site-state-tags">
+                                <a href="/blog/tags/index.html">
+                                    <span class="site-state-item-count">17</span>
+                                    <span class="site-state-item-name">标签</span>
+                                </a>
+                            </div>
+
+
+                        </nav>
+
+
+                        <div class="links-of-author motion-element">
           
             
               <span class="links-of-author-item">
@@ -579,8 +1215,8 @@
                   GitHub
                 </a>
               </span>
-            
-              <span class="links-of-author-item">
+
+                            <span class="links-of-author-item">
                 <a href="https://segmentfault.com/u/xiaosi_58ec6bdf9eaab" target="_blank" title="Segmentfault">
                   
                     <i class="fa fa-fw fa-globe"></i>
@@ -588,226 +1224,189 @@
                   Segmentfault
                 </a>
               </span>
-            
-          
+
+
+                        </div>
+
+
+                    </section>
+
+
+                    <!--noindex-->
+                    <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+                        <div class="post-toc">
+
+
+                            <div class="post-toc-content">
+                                <ol class="nav">
+                                    <li class="nav-item nav-level-1"><a class="nav-link"
+                                                                        href="#用vue-cli脚手架创建一个基于webpack的Vue项目"><span
+                                            class="nav-number">1.</span> <span class="nav-text">用vue-cli脚手架创建一个基于webpack的Vue项目</span></a>
+                                    </li>
+                                    <li class="nav-item nav-level-1"><a class="nav-link" href="#使用muse-ui快速搭建页面"><span
+                                            class="nav-number">2.</span> <span
+                                            class="nav-text">使用muse-ui快速搭建页面</span></a>
+                                        <ol class="nav-child">
+                                            <li class="nav-item nav-level-2"><a class="nav-link"
+                                                                                href="#修改src目录下main-js"><span
+                                                    class="nav-number">2.1.</span> <span class="nav-text">修改src目录下main.js</span></a>
+                                            </li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link"
+                                                                                href="#components文件夹下新建home-vue-List-vue"><span
+                                                    class="nav-number">2.2.</span> <span class="nav-text">components文件夹下新建home.vue,List.vue</span></a>
+                                                <ol class="nav-child">
+                                                    <li class="nav-item nav-level-3"><a class="nav-link"
+                                                                                        href="#home-vue"><span
+                                                            class="nav-number">2.2.1.</span> <span class="nav-text">home.vue</span></a>
+                                                    </li>
+                                                    <li class="nav-item nav-level-3"><a class="nav-link"
+                                                                                        href="#List"><span
+                                                            class="nav-number">2.2.2.</span> <span
+                                                            class="nav-text">List</span></a></li>
+                                                </ol>
+                                            </li>
+                                            <li class="nav-item nav-level-2"><a class="nav-link"
+                                                                                href="#修改router文件夹下index-js"><span
+                                                    class="nav-number">2.3.</span> <span class="nav-text">修改router文件夹下index.js</span></a>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li class="nav-item nav-level-1"><a class="nav-link" href="#跨域问题"><span
+                                            class="nav-number">3.</span> <span class="nav-text">跨域问题</span></a></li>
+                                    <li class="nav-item nav-level-1"><a class="nav-link"
+                                                                        href="#node获取axios-post传值问题-express"><span
+                                            class="nav-number">4.</span> <span class="nav-text">node获取axios post传值问题(express)</span></a>
+                                    </li>
+                                </ol>
+                            </div>
+
+
+                        </div>
+                    </section>
+                    <!--/noindex-->
+
+
+                </div>
+            </aside>
+
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#用vue-cli脚手架创建一个基于webpack的Vue项目"><span class="nav-number">1.</span> <span class="nav-text">用vue-cli脚手架创建一个基于webpack的Vue项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用muse-ui快速搭建页面"><span class="nav-number">2.</span> <span class="nav-text">使用muse-ui快速搭建页面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改src目录下main-js"><span class="nav-number">2.1.</span> <span class="nav-text">修改src目录下main.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#components文件夹下新建home-vue-List-vue"><span class="nav-number">2.2.</span> <span class="nav-text">components文件夹下新建home.vue,List.vue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#home-vue"><span class="nav-number">2.2.1.</span> <span class="nav-text">home.vue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List"><span class="nav-number">2.2.2.</span> <span class="nav-text">List</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改router文件夹下index-js"><span class="nav-number">2.3.</span> <span class="nav-text">修改router文件夹下index.js</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#跨域问题"><span class="nav-number">3.</span> <span class="nav-text">跨域问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#node获取axios-post传值问题-express"><span class="nav-number">4.</span> <span class="nav-text">node获取axios post传值问题(express)</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
     </main>
 
     <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+        <div class="footer-inner">
+            <div class="copyright">
+
+                &copy;
+                <span itemprop="copyrightYear">2019</span>
+                <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Summer</span>
-</div>
+                <span class="author" itemprop="copyrightHolder">Summer</span>
+            </div>
 
-        
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-  
-    <span class="site-uv">
+            <div class="busuanzi-count">
+                <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+                <span class="site-uv">
       <i class="fa fa-user">本站访客数</i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
       人次
     </span>
-  
 
-  
-    <span class="site-pv">
+
+                <span class="site-pv">
       <i class="fa fa-eye">本站总访问量</i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
       次
     </span>
-  
+
+            </div>
+
+
+        </div>
+    </footer>
+
+
+    <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+
+    </div>
+
+
 </div>
 
 
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-  </div>
-
-  
-
 <script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+    if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+        window.Promise = null;
+    }
 </script>
 
 
+<script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
 
 
+<script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
 
+<script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
 
-
-  
-
-
-  
+<script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
 
-
-  
-  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/blog/lib/canvas-nest/canvas-nest.min.js"></script>
+<script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
-  
+<script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.0"></script>
+<script type="text/javascript" src="/blog/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
+<script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.0"></script>
 
-  
-  
+<script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.0"></script>
 
-  
-  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.0"></script>
+
+<script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.0"></script>
 <script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.0"></script>
 
 
-
-  
-
-
-  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.0"></script>
+<script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.0"></script>
 
 
+<script type="text/javascript">
+    var disqus_shortname = 'xiaosi';
+    var disqus_identifier = '2017/10/31/vue/';
 
-  
-
-
-
-  
-
-    <script type="text/javascript">
-      var disqus_shortname = 'xiaosi';
-      var disqus_identifier = '2017/10/31/vue/';
-
-      var disqus_title = "Vue2.0";
+    var disqus_title = "Vue2.0";
 
 
-      function run_disqus_script(disqus_script) {
+    function run_disqus_script(disqus_script) {
         var dsq = document.createElement('script');
         dsq.type = 'text/javascript';
         dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      }
+    }
 
-      run_disqus_script('count.js');
-
-      
-        var disqus_config = function () {
-            this.page.url = disqus_url;
-            this.page.identifier = disqus_identifier;
-            this.page.title = disqus_title;
-        };
-        run_disqus_script('embed.js');
-      
-
-    </script>
-  
+    run_disqus_script('count.js');
 
 
+    var disqus_config = function () {
+        this.page.url = disqus_url;
+        this.page.identifier = disqus_identifier;
+        this.page.title = disqus_title;
+    };
+    run_disqus_script('embed.js');
 
 
+</script>
 
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
 
 </body>
 </html>
